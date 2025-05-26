@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Chapter_03.html" rel="next">
+<link href="./Chapter_01.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_02.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./autores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autores</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./agradecimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimientos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Parte I: Preparación del Entorno y Herramientas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Parte III: Gestión y Presentación de la Información</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#uso-de-r-en-microbiología-industrial" id="toc-uso-de-r-en-microbiología-industrial" class="nav-link active" data-scroll-target="#uso-de-r-en-microbiología-industrial"><span class="header-section-number">5.1</span> Uso de R en Microbiología Industrial</a></li>
+  <li><a href="#análisis-bibliométrico-con-rstudio-un-ejemplo-concreto-de-análisis-de-datos-con-r" id="toc-análisis-bibliométrico-con-rstudio-un-ejemplo-concreto-de-análisis-de-datos-con-r" class="nav-link" data-scroll-target="#análisis-bibliométrico-con-rstudio-un-ejemplo-concreto-de-análisis-de-datos-con-r"><span class="header-section-number">5.2</span> Análisis Bibliométrico con RStudio® (Un ejemplo concreto de análisis de datos con R)</a></li>
+  <li><a href="#fundamentos-del-diseño-experimental-introducir-los-principios-del-diseño-experimental" id="toc-fundamentos-del-diseño-experimental-introducir-los-principios-del-diseño-experimental" class="nav-link" data-scroll-target="#fundamentos-del-diseño-experimental-introducir-los-principios-del-diseño-experimental"><span class="header-section-number">5.3</span> Fundamentos del Diseño Experimental (Introducir los principios del diseño experimental)</a></li>
+  <li><a href="#tipos-de-diseños-experimentales-expandir-sobre-los-diferentes-tipos-de-diseños" id="toc-tipos-de-diseños-experimentales-expandir-sobre-los-diferentes-tipos-de-diseños" class="nav-link" data-scroll-target="#tipos-de-diseños-experimentales-expandir-sobre-los-diferentes-tipos-de-diseños"><span class="header-section-number">5.4</span> Tipos de diseños experimentales (Expandir sobre los diferentes tipos de diseños)</a></li>
+  <li><a href="#diseño-de-experimentos-en-rstudio-aplicar-los-conceptos-de-diseño-experimental-en-r" id="toc-diseño-de-experimentos-en-rstudio-aplicar-los-conceptos-de-diseño-experimental-en-r" class="nav-link" data-scroll-target="#diseño-de-experimentos-en-rstudio-aplicar-los-conceptos-de-diseño-experimental-en-r"><span class="header-section-number">5.5</span> Diseño de experimentos en RStudio® (Aplicar los conceptos de diseño experimental en R)</a>
+  <ul class="collapse">
+  <li><a href="#diseño-completamente-al-azar" id="toc-diseño-completamente-al-azar" class="nav-link" data-scroll-target="#diseño-completamente-al-azar"><span class="header-section-number">5.5.1</span> Diseño completamente al azar</a></li>
+  <li><a href="#estructura-de-la-base-de-datos" id="toc-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#estructura-de-la-base-de-datos"><span class="header-section-number">5.5.2</span> Estructura de la base de datos</a></li>
+  <li><a href="#diseño-de-bloques-completamente-al-azar" id="toc-diseño-de-bloques-completamente-al-azar" class="nav-link" data-scroll-target="#diseño-de-bloques-completamente-al-azar"><span class="header-section-number">5.5.3</span> Diseño de bloques completamente al azar</a></li>
+  <li><a href="#diseño-de-cuadrados-latinos" id="toc-diseño-de-cuadrados-latinos" class="nav-link" data-scroll-target="#diseño-de-cuadrados-latinos"><span class="header-section-number">5.5.4</span> Diseño de cuadrados latinos</a></li>
+  <li><a href="#diseño-factorial" id="toc-diseño-factorial" class="nav-link" data-scroll-target="#diseño-factorial"><span class="header-section-number">5.5.5</span> Diseño factorial</a></li>
+  <li><a href="#diseño-longitudinal-anova-de-medidas-repetidas" id="toc-diseño-longitudinal-anova-de-medidas-repetidas" class="nav-link" data-scroll-target="#diseño-longitudinal-anova-de-medidas-repetidas"><span class="header-section-number">5.5.6</span> Diseño longitudinal (ANOVA de medidas repetidas)</a></li>
+  <li><a href="#diseño-de-superficie-respuesta" id="toc-diseño-de-superficie-respuesta" class="nav-link" data-scroll-target="#diseño-de-superficie-respuesta"><span class="header-section-number">5.5.7</span> Diseño de superficie respuesta</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="uso-de-r-en-microbiología-industrial" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="uso-de-r-en-microbiología-industrial"><span class="header-section-number">5.1</span> Uso de R en Microbiología Industrial</h2>
+<p>El uso de R como herramienta de análisis estadístico en la microbiología industrial ha experimentado un crecimiento exponencial en la última década, según Mohammadi et al.&nbsp;(2019) R proporciona una plataforma versátil que permite analizar datos complejos derivados de experimentos microbiológicos, facilitando la identificación de patrones de crecimiento microbiano, optimización de condiciones de cultivo y evaluación de la producción de metabolitos secundarios, lo que resulta crucial para el desarrollo y mejora de procesos biotecnológicos en entornos industriales.</p>
+<p>McMurdie y Holmes (2013) desarrollaron el paquete <em>phyloseq</em>, el cual ha transformado el análisis de datos de secuenciación en estudios de comunidades microbianas, permitiendo la integración de información taxonómica, filogenética y de abundancia en un solo entorno analítico; este avance ha sido fundamental para comprender la dinámica de poblaciones microbianas en procesos industriales como: el tratamiento de aguas residuales, la producción de biocombustibles y la fermentación alimentaria.</p>
+<p>Por otra parte, el paquete microbiome, descrito por Lahti y Shetty (2017) <span class="citation" data-cites="Reeder2021">(<a href="#ref-Reeder2021" role="doc-biblioref">Reeder et al. 2021</a>)</span>, proporciona herramientas especializadas para el análisis de datos metagenómicos, facilitando la caracterización de comunidades microbianas y sus funciones metabólicas en entornos industriales, lo que resulta esencial para la optimización de bioprocesos y el control de calidad en la industria alimentaria.</p>
+<p>El diseño experimental en microbiología industrial se ha beneficiado significativamente de la aplicabilidad de R, permitiendo planificar y analizar experimentos de manera más rigurosa y eficiente, el paquete <em>agricolae</em>, desarrollado por de Mendiburu (2021) <span class="citation" data-cites="Zhou2012">(<a href="#ref-Zhou2012" role="doc-biblioref">Zhou et al. 2012</a>)</span> es utilizado para la implementación de diseños experimentales complejos como: bloques aleatorizados y diseños factoriales entre otros, al tiempo que frecuentemente son utilizados en estudios de optimización de medios de cultivo, condiciones de fermentación y producción de enzimas microbianas.</p>
+<p>Complementariamente, Ritz y Streibig (2005) presentaron el paquete <em>drc</em> (Dose-Response Curves), que ha facilitado el análisis de Curvas dosis-respuesta en estudios de inhibición microbiana, pruebas de susceptibilidad a antimicrobianos y evaluación de compuestos bioactivos producidos por microorganismos, proporcionando herramientas estadísticas robustas para cuantificar y modelar respuestas biológicas a diferentes tratamientos, lo cual es fundamental en el desarrollo de nuevos productos biotecnológicos.</p>
+<p>Gracias al paquete <em>ggplot2</em> desarrollado por Wickham (2016), el cual ha permitido la creación de gráficos elegantes y altamente informativos que facilitan la interpretación de resultados experimentales; en particular, la representación gráfica de cinéticas de crecimiento microbiano, producción de metabolitos y análisis multivariantes se ha vuelto más accesible e intuitiva para investigadores en el campo; de manera similar el paquete <em>ggtree</em>, creado por Yu et al.&nbsp;(2017), ha revolucionado la visualización de datos filogenéticos en estudios de diversidad microbiana industrial, permitiendo representar relaciones evolutivas entre microorganismos de interés biotecnológico y correlacionarlas con características fenotípicas relevantes para procesos industriales, lo que facilita la selección de cepas microbianas con potencial biotecnológico.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expandir para aprender son el analis de datos ómicos
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>El análisis de datos ómicos en microbiología industrial se ha visto significativamente potenciado gracias al aporte de Love et al.&nbsp;(2014) quienes introdujeron <em>DESeq2</em>, un paquete que ha transformado el análisis de datos de RNA-seq en estudios transcriptómicos de microorganismos industriales, permitiendo identificar genes diferencialmente expresados bajo diversas condiciones de cultivo o modificaciones genéticas; lo que contribuye a la mejora de cepas microbianas industriales y a optimizar rutas metabólicas de interés comercial; paralelamente Rohart et al.&nbsp;(2017) desarrollaron el paquete mixOmics, el cual facilita la integración de múltiples conjuntos de datos ómicos, como:</p>
+<ol type="i">
+<li>transcriptómica,</li>
+<li>proteómica y</li>
+<li>metabolómica,</li>
+</ol>
+<p>proporcionando una visión holística de los sistemas microbianos en contextos industriales, lo que permite desentrañar complejas redes regulatorias y metabólicas que subyacen a procesos biotecnológicos importantes como de compuestos bioactivos..</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expand to learn more about where the data was collected
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Data were collected and made available by Dr.&nbsp;Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network.</p>
+</div>
+</div>
+</div>
+<p><strong>Referencias</strong></p>
+<p><span class="citation" data-cites="Zhou2012">Zhou et al. (<a href="#ref-Zhou2012" role="doc-biblioref">2012</a>)</span></p>
+<p>González-Peña, D., Dudzik, D., García, A., Legido-Quigley, C., &amp; Barbas, C. (2021). R in LC-MS-based metabolomics: A review of packages, tutorials, and case studies. Metabolites, 11(10), 672. <a href="https://doi.org/10.3390/metabo11100672" class="uri">https://doi.org/10.3390/metabo11100672</a> <strong><em>Esta referencia esta mal</em></strong></p>
+<p><strong><em>Zhou, B., Xiao, J. F., Tuli, L., &amp; Ressom, H. W. (2012). LC-MS-based metabolomics. Molecular BioSystems, 8(2), 470–481. https://doi.org/10.1039/c1mb05350g</em></strong> ( es esta ???)</p>
+<p>Lahti, L., &amp; Shetty, S. (2017). microbiome R package. Tools Microbiome Anal. R. <a href="http://microbiome.github.io/microbiome" class="uri">http://microbiome.github.io/microbiome</a> <strong><em>Cambiarla mejor por la que sigue???</em></strong></p>
+<p><strong><em>Reeder, J., Huang, M., Kaminker, J. S., &amp; Paulson, J. N. (2021). MicrobiomeExplorer: an R package for the analysis and visualization of microbial communities. Bioinformatics (Oxford, England), 37(9), 1317–1318. https://doi.org/10.1093/bioinformatics/btaa838</em></strong> ( es esta ???)</p>
+<p>Love, M. I., Huber, W., &amp; Anders, S. (2014). Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology, 15(12), 550. <a href="https://doi.org/10.1186/s13059-014-0550-8" class="uri">https://doi.org/10.1186/s13059-014-0550-8</a></p>
+<p>McMurdie, P. J., &amp; Holmes, S. (2013). phyloseq: An R package for reproducible interactive analysis and graphics of microbiome census data. PLOS ONE, 8(4), e61217. <a href="https://doi.org/10.1371/journal.pone.0061217" class="uri">https://doi.org/10.1371/journal.pone.0061217</a></p>
+<p>Mendiburu, F. (2021). agricolae: Statistical procedures for agricultural research. R package version 1.4-0. <a href="https://CRAN.R-project.org/package=agricolae" class="uri">https://CRAN.R-project.org/package=agricolae</a></p>
+<p>Mohammadi, R., Ghomi, S. M. T. F., &amp; Nazari, F. (2019). The application of R software for the assessment of microbial fermentation processes. Journal of Microbiological Methods, 156, 54-58. <a href="https://doi.org/10.1016/j.mimet.2018.12.003" class="uri">https://doi.org/10.1016/j.mimet.2018.12.003</a></p>
+<p>Ritz, C., &amp; Streibig, J. C. (2005). Bioassay analysis using R. Journal of Statistical Software, 12(5), 1-22. <a href="https://doi.org/10.18637/jss.v012.i05" class="uri">https://doi.org/10.18637/jss.v012.i05</a></p>
+<p>Rohart, F., Gautier, B., Singh, A., &amp; Lê Cao, K. A. (2017). mixOmics: An R package for ’omics feature selection and multiple data integration. PLOS Computational Biology, 13(11), e1005752. <a href="https://doi.org/10.1371/journal.pcbi.1005752" class="uri">https://doi.org/10.1371/journal.pcbi.1005752</a></p>
+<p>Wickham, H. (2016). ggplot2: Elegant graphics for data analysis (2nd ed.). Springer. <a href="https://doi.org/10.1007/978-3-319-24277-4" class="uri">https://doi.org/10.1007/978-3-319-24277-4</a></p>
+<p>Yu, G., Smith, D. K., Zhu, H., Guan, Y., &amp; Lam, T. T. Y. (2017). ggtree: An R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution, 8(1), 28-36. <a href="https://doi.org/10.1111/2041-210X.12628" class="uri">https://doi.org/10.1111/2041-210X.12628</a></p>
+</section>
+<section id="análisis-bibliométrico-con-rstudio-un-ejemplo-concreto-de-análisis-de-datos-con-r" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="análisis-bibliométrico-con-rstudio-un-ejemplo-concreto-de-análisis-de-datos-con-r"><span class="header-section-number">5.2</span> Análisis Bibliométrico con RStudio® (Un ejemplo concreto de análisis de datos con R)</h2>
+</section>
+<section id="fundamentos-del-diseño-experimental-introducir-los-principios-del-diseño-experimental" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="fundamentos-del-diseño-experimental-introducir-los-principios-del-diseño-experimental"><span class="header-section-number">5.3</span> Fundamentos del Diseño Experimental (Introducir los principios del diseño experimental)</h2>
+</section>
+<section id="tipos-de-diseños-experimentales-expandir-sobre-los-diferentes-tipos-de-diseños" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="tipos-de-diseños-experimentales-expandir-sobre-los-diferentes-tipos-de-diseños"><span class="header-section-number">5.4</span> Tipos de diseños experimentales (Expandir sobre los diferentes tipos de diseños)</h2>
+</section>
+<section id="diseño-de-experimentos-en-rstudio-aplicar-los-conceptos-de-diseño-experimental-en-r" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="diseño-de-experimentos-en-rstudio-aplicar-los-conceptos-de-diseño-experimental-en-r"><span class="header-section-number">5.5</span> Diseño de experimentos en RStudio® (Aplicar los conceptos de diseño experimental en R)</h2>
+<section id="diseño-completamente-al-azar" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="diseño-completamente-al-azar"><span class="header-section-number">5.5.1</span> Diseño completamente al azar</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Escibrir los datos del problema y la bibliografci de donde se saco la información.</p>
+</div>
+</div>
+</section>
+<section id="estructura-de-la-base-de-datos" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="estructura-de-la-base-de-datos"><span class="header-section-number">5.5.2</span> Estructura de la base de datos</h3>
+<p>La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Tratamiento</code></td>
+<td>Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.</td>
+</tr>
+<tr class="even">
+<td><code>Repetición</code></td>
+<td>Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación.</td>
+</tr>
+<tr class="odd">
+<td><code>Resultado</code></td>
+<td>Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pasos para trabajar con R o RStudio:</strong></p>
+<p>Especificar el directorio que me interesa donde se encuentra la base de datos.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Antes e inciar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R lee / (slash o division) y no el de Windows \</p>
+<p>En <strong>R</strong>, <code>setwd()</code> es una función que significa <strong>“set working directory”</strong> o “establecer el directorio de trabajo”. Se utiliza para <strong>definir la carpeta predeterminada</strong> en la que R buscará archivos para leer y donde guardará archivos por defecto.<br>
+</p>
+<p>Por ejemplo: setwd (“D:/OneDrive - Universidad de Santander/Material Docente 2025/CodigoR”“)</p>
+</div>
+</div>
+<p><strong>Lectura de datos</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>DCA <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/Users/coordinador.analitic/OneDrive - Universidad de Santander/Material_Profesoral_2025/CodigoR/DCA2.xlsx"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(DCA)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(DCA)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DCA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Tratamiento" "Repeticion"  "Resultado"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DCA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [16 × 3] (S3: tbl_df/tbl/data.frame)
+ $ Tratamiento: chr [1:16] "Arroz" "Arroz" "Arroz" "Arroz" ...
+ $ Repeticion : num [1:16] 1 2 3 4 1 2 3 4 1 2 ...
+ $ Resultado  : num [1:16] 8.76 8.74 8.72 8.72 8.39 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DCA<span class="sc">$</span>Resultado)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  8.341   8.635   8.792   8.775   8.954   9.141 </code></pre>
+</div>
+</div>
+<p><strong>Análisis de la Varianza - ANOVA</strong></p>
+<p>Cuando se desea saber si varios grupos (Ej. tratamientos) presentan diferencias reales en sus promedios, una de las herramientas estadísticas más utilizadas es el Análisis de la Varianza, conocido como ANOVA. Esta técnica permite examinar si los valores medios de tres o más grupos son lo suficientemente distintos como para concluir que no se trata de simples fluctuaciones aleatorias.</p>
+<p>El enfoque de ANOVA se basa en comparar dos tipos de variación: por un lado, l<strong>a variabilidad que se observa entre los distintos grupos</strong>, y por otro, <strong>la variabilidad que existe dentro de cada grupo individual</strong>.</p>
+<p>Si al analizar los datos se encuentra que la variación entre los grupos supera notablemente la que ocurre dentro de ellos, es razonable pensar que las diferencias en los promedios reflejan algo más que el azar. En cambio, si la variabilidad interna es más pronunciada, entonces es posible que las diferencias observadas no sean significativas y respondan a variaciones normales del comportamiento de los datos.</p>
+<p><strong>Código de R para ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Anova<span class="ot">&lt;-</span><span class="fu">aov</span>(Resultado<span class="sc">~</span>Tratamiento, <span class="at">data=</span>DCA)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+Tratamiento  3 1.1794  0.3931   660.4 1.39e-13 ***
+Residuals   12 0.0071  0.0006                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> La prueba ANOVA muestra diferencias significativas entre los tratamientos (p &lt; 0.001). El valor de F (660.4) indica que la variación entre tratamientos es mucho mayor que la variación dentro de los grupos, lo que sugiere que al menos uno de los tratamientos afecta significativamente el resultado.</p>
+<p><strong>Modelo Lineal</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>modelo<span class="ot">=</span><span class="fu">lm</span>(Resultado<span class="sc">~</span>(Tratamiento))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Resultado ~ (Tratamiento))
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.038397 -0.016205  0.001983  0.012013  0.040116 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        8.73389    0.01220 715.921  &lt; 2e-16 ***
+TratamientoAvena  -0.35848    0.01725 -20.778 8.93e-11 ***
+TratamientoCebada  0.12669    0.01725   7.343 8.94e-06 ***
+TratamientoMaiz    0.39630    0.01725  22.970 2.75e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0244 on 12 degrees of freedom
+Multiple R-squared:  0.994, Adjusted R-squared:  0.9925 
+F-statistic: 660.4 on 3 and 12 DF,  p-value: 1.393e-13</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> El modelo lineal confirma que el tratamiento influye significativamente en los resultados (p &lt; 0.001). El tratamiento “Arroz” actúa como referencia, con una media estimada de 8.73. Comparado con este:</p>
+<pre><code>Avena presenta una media significativamente menor (–0.36, p &lt; 0.001).
+
+Cebada muestra un aumento moderado (+0.13, p &lt; 0.001).
+
+Maíz tiene el mayor incremento (+0.40, p &lt; 0.001).</code></pre>
+<p>El modelo explica el 99.4% de la variabilidad en los datos (R² = 0.994), y el error estándar residual es bajo (0.0244), lo que indica un ajuste excelente.</p>
+<p><strong>Gráfico Boxplot</strong></p>
+<p>Se toma el Tratamiento para hacer un boxplot utilizando la variable “Resultado”, pero primero se transformar en factor la variable Tratamiento:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>DCA<span class="sc">$</span>Treatamiento<span class="ot">&lt;-</span><span class="fu">factor</span>(DCA<span class="sc">$</span>Tratamiento) <span class="co">#transformamos una variable númerica en un factor categórico</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DCA, <span class="fu">aes</span>(<span class="at">x =</span> Tratamiento, <span class="at">y =</span> Resultado, <span class="at">fill=</span>Tratamiento)) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> Las diferencias en las medianas entre tratamientos son claras y consistentes con los resultados del ANOVA y del modelo lineal, lo que sugiere un efecto significativo del tipo de cultivo sobre la variable resultado.</p>
+<p><strong>Supuestos del diseño</strong></p>
+<p><strong>Normalidad:</strong> Para verificar la normalidad de los residuos utilizaremos la prueba de Shapiro-Wilks cuyo script es el siguiente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(Anova))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(Anova)
+W = 0.97944, p-value = 0.959</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> El test de Shapiro-Wilk aplicado a los residuos del modelo ANOVA devuelve un valor de p = 0.959, que es mucho mayor que 0.05. Esto indica que no hay evidencia estadística para rechazar la hipótesis nula de normalidad. Por lo tanto, se concluye que los residuos del modelo siguen una distribución normal, cumpliendo así uno de los supuestos fundamentales del análisis de varianza.</p>
+<p><strong>Gráficos para evaluar la normalidad</strong></p>
+<p>Para construir el gráfico QQ (QQ plot) y evaluar la normalidad de los datos, se utiliza la función correspondiente del paquete car. Si no está instalado previamente, es necesario instalar también el paquete auxiliar carData.</p>
+<p>Instalación (si es necesario) install.packages (“car”) install.packages (“carData”) install.packages (“dplyr”) install.packages (“purrr”)</p>
+<p><strong>Cargar los paquetes (librerias)</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car) <span class="co">#Grafico de QQ plot</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(Anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_02_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  9 12</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> El gráfico QQ muestra que los residuos estandarizados del modelo ANOVA se alinean adecuadamente con la línea diagonal, lo que indica que su distribución es aproximadamente normal. La mayoría de los puntos se ubican dentro de la banda de confianza, y no se observan desviaciones sistemáticas. Esta gráfica complementa el resultado del test de Shapiro-Wilk (p = 0.959), confirmando que se cumple el supuesto de normalidad de los residuos en el modelo.</p>
+<p><strong>Homocedasticidad:</strong> Para evaluar el supuesto de homogeneidad de varianzas entre los grupos (homocedasticidad), se aplicará la prueba de Bartlett, la cual es apropiada cuando los datos provienen de poblaciones aproximadamente normales. Esta prueba contrasta la hipótesis nula de igualdad de varianzas frente a la alternativa de varianzas diferentes. El procedimiento se implementa mediante el siguiente script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado<span class="sc">~</span>Tratamiento, <span class="at">data=</span>DCA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Bartlett's K-squared = 2.2722, df = 3, p-value = 0.5179</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> Dado que el valor de p es mayor que 0.05 (p = 0.5179), no se rechaza la hipótesis nula. Por tanto, se asume que las varianzas entre los tratamientos son homogéneas, cumpliéndose este supuesto clave para el análisis de varianza y para la aplicación de pruebas a posteriori como LSD.</p>
+<p><strong>Pruebas aposteriori</strong> Para identificar diferencias específicas entre las medias de los tratamientos, una vez detectada significancia en el análisis de varianza, se aplicará una prueba de comparaciones múltiples a posteriori. En este caso, se empleará la técnica LSD (Least Significant Difference), que permite realizar comparaciones pareadas entre tratamientos asumiendo homogeneidad de varianzas.</p>
+<p>La implementación de esta prueba requiere la carga del paquete agricolae, utilizando el siguiente script. Instalación si es necesario: install.packages(“agricolae”). Carga del paquete: library(agricolae).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Grupos <span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(<span class="at">y =</span> Anova, <span class="at">trt =</span> <span class="st">"Tratamiento"</span>, <span class="at">group =</span> T, <span class="at">console =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: Anova ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  0.0005953124 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+       Resultado        std r         se      LCL      UCL      Min      Max
+Arroz   8.733890 0.02192214 4 0.01219951 8.707310 8.760471 8.715318 8.762183
+Avena   8.375414 0.02519485 4 0.01219951 8.348834 8.401995 8.341039 8.395990
+Cebada  8.860578 0.03330518 4 0.01219951 8.833998 8.887159 8.822181 8.900695
+Maiz    9.130190 0.01251613 4 0.01219951 9.103609 9.156770 9.113429 9.140539
+            Q25      Q50      Q75
+Arroz  8.717232 8.729030 8.745688
+Avena  8.364419 8.382314 8.393309
+Cebada 8.842075 8.859719 8.878222
+Maiz   9.124249 9.133395 9.139335
+
+Alpha: 0.05 ; DF Error: 12
+Critical Value of t: 2.178813 
+
+least Significant Difference: 0.03759044 
+
+Treatments with the same letter are not significantly different.
+
+       Resultado groups
+Maiz    9.130190      a
+Cebada  8.860578      b
+Arroz   8.733890      c
+Avena   8.375414      d</code></pre>
+</div>
+</div>
+<p><strong>Intrepretación:</strong> La prueba LSD reveló que los cuatro tratamientos presentan diferencias estadísticamente significativas entre sus medias. El tratamiento Maíz obtuvo el mayor rendimiento promedio, seguido por Cebada, Arroz y Avena, en ese orden descendente.</p>
+<p>Otra opcion cuando cambiamos el argumento “group” a F(false), se interpreta a mi parecer de forma mas sencilla la diferencia entre las medias.A continuación, se presentan las pruebas de comparaciones múltiples a posteriori aplicadas al modelo de ANOVA ajustado. Se incluyen la prueba LSD, la prueba de Tukey y el test de Scheffé, las cuales permiten identificar diferencias estadísticamente significativas entre los tratamientos evaluados:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Grupos<span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(<span class="at">y =</span> Anova, <span class="at">trt =</span> <span class="st">"Tratamiento"</span>, <span class="at">group =</span> F, <span class="at">console =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: Anova ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  0.0005953124 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+       Resultado        std r         se      LCL      UCL      Min      Max
+Arroz   8.733890 0.02192214 4 0.01219951 8.707310 8.760471 8.715318 8.762183
+Avena   8.375414 0.02519485 4 0.01219951 8.348834 8.401995 8.341039 8.395990
+Cebada  8.860578 0.03330518 4 0.01219951 8.833998 8.887159 8.822181 8.900695
+Maiz    9.130190 0.01251613 4 0.01219951 9.103609 9.156770 9.113429 9.140539
+            Q25      Q50      Q75
+Arroz  8.717232 8.729030 8.745688
+Avena  8.364419 8.382314 8.393309
+Cebada 8.842075 8.859719 8.878222
+Maiz   9.124249 9.133395 9.139335
+
+Alpha: 0.05 ; DF Error: 12
+Critical Value of t: 2.178813 
+
+Comparison between treatments means
+
+               difference pvalue signif.        LCL         UCL
+Arroz - Avena   0.3584760      0     ***  0.3208855  0.39606642
+Arroz - Cebada -0.1266884      0     *** -0.1642788 -0.08909794
+Arroz - Maiz   -0.3962994      0     *** -0.4338899 -0.35870901
+Avena - Cebada -0.4851644      0     *** -0.5227548 -0.44757392
+Avena - Maiz   -0.7547754      0     *** -0.7923659 -0.71718499
+Cebada - Maiz  -0.2696111      0     *** -0.3072015 -0.23202064</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> todas las diferencias entre tratamientos son altamente significativas (p &lt; 0.001). Esto confirma que ninguno de los tratamientos comparte una media similar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(Anova) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Resultado ~ Tratamiento, data = DCA)
+
+$Tratamiento
+                   diff         lwr        upr   p adj
+Avena-Arroz  -0.3584760 -0.40969759 -0.3072544 0.0e+00
+Cebada-Arroz  0.1266884  0.07546677  0.1779100 4.6e-05
+Maiz-Arroz    0.3962994  0.34507784  0.4475211 0.0e+00
+Cebada-Avena  0.4851644  0.43394275  0.5363860 0.0e+00
+Maiz-Avena    0.7547754  0.70355383  0.8059970 0.0e+00
+Maiz-Cebada   0.2696111  0.21838947  0.3208327 0.0e+00</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> La prueba de Tukey también confirma diferencias estadísticamente significativas en todas las comparaciones, manteniendo control del error familiar. El gráfico generado muestra intervalos de confianza del 95% que no se solapan, lo que respalda visualmente los resultados.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(Anova))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_02_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> El gráfico muestra los intervalos de confianza del 95 % para las diferencias de medias entre los tratamientos, ajustados por comparaciones múltiples (family-wise). Ninguno de los intervalos cruza la línea vertical en cero, lo cual indica que todas las comparaciones entre pares de tratamientos son estadísticamente significativas. La diferencia más grande se observa entre Maíz y Avena, mientras que la más pequeña, aunque significativa, es entre Cebada y Arroz. Este resultado es coherente con los análisis previos (ANOVA, LSD y Scheffé), y respalda que cada tratamiento tiene un efecto significativamente distinto sobre la variable “Resultado”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scheffe.test</span>(Anova, <span class="st">"Tratamiento"</span>,<span class="at">console=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: Anova ~ "Tratamiento"
+
+Scheffe Test for Resultado 
+
+Mean Square Error  : 0.0005953124 
+
+Tratamiento,  means
+
+       Resultado        std r         se      Min      Max      Q25      Q50
+Arroz   8.733890 0.02192214 4 0.01219951 8.715318 8.762183 8.717232 8.729030
+Avena   8.375414 0.02519485 4 0.01219951 8.341039 8.395990 8.364419 8.382314
+Cebada  8.860578 0.03330518 4 0.01219951 8.822181 8.900695 8.842075 8.859719
+Maiz    9.130190 0.01251613 4 0.01219951 9.113429 9.140539 9.124249 9.133395
+            Q75
+Arroz  8.745688
+Avena  8.393309
+Cebada 8.878222
+Maiz   9.139335
+
+Alpha: 0.05 ; DF Error: 12 
+Critical Value of F: 3.490295 
+
+Minimum Significant Difference: 0.05582762 
+
+Means with the same letter are not significantly different.
+
+       Resultado groups
+Maiz    9.130190      a
+Cebada  8.860578      b
+Arroz   8.733890      c
+Avena   8.375414      d</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> A pesar de ser una prueba más conservadora, el test de Scheffé también encontró diferencias significativas entre todos los tratamientos. El análisis agrupó los tratamientos en distintos niveles.Mínima diferencia significativa (Scheffé): 0.0558. Valor crítico de F: 3.4903</p>
+<p><strong>Conclusión general</strong> Las tres pruebas aplicadas (LSD, Tukey y Scheffé) coinciden en que todos los tratamientos difieren significativamente entre sí. El tratamiento con mayor rendimiento fue Maíz, seguido por Cebada, Arroz y Avena, en orden descendente. Esto respalda la conclusión de que el tipo de tratamiento influye de manera significativa sobre la variable respuesta.</p>
+</section>
+<section id="diseño-de-bloques-completamente-al-azar" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="diseño-de-bloques-completamente-al-azar"><span class="header-section-number">5.5.3</span> Diseño de bloques completamente al azar</h3>
+</section>
+<section id="diseño-de-cuadrados-latinos" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="diseño-de-cuadrados-latinos"><span class="header-section-number">5.5.4</span> Diseño de cuadrados latinos</h3>
+</section>
+<section id="diseño-factorial" class="level3" data-number="5.5.5">
+<h3 data-number="5.5.5" class="anchored" data-anchor-id="diseño-factorial"><span class="header-section-number">5.5.5</span> Diseño factorial</h3>
+</section>
+<section id="diseño-longitudinal-anova-de-medidas-repetidas" class="level3" data-number="5.5.6">
+<h3 data-number="5.5.6" class="anchored" data-anchor-id="diseño-longitudinal-anova-de-medidas-repetidas"><span class="header-section-number">5.5.6</span> Diseño longitudinal (ANOVA de medidas repetidas)</h3>
+</section>
+<section id="diseño-de-superficie-respuesta" class="level3" data-number="5.5.7">
+<h3 data-number="5.5.7" class="anchored" data-anchor-id="diseño-de-superficie-respuesta"><span class="header-section-number">5.5.7</span> Diseño de superficie respuesta</h3>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Reeder2021" class="csl-entry" role="listitem">
+Reeder, Janina, Mo Huang, Joshua S Kaminker, and Joseph N Paulson. 2021. <span>“<span class="nocase">MicrobiomeExplorer: an R package for the analysis and visualization of microbial communities.</span>”</span> <em>Bioinformatics (Oxford, England)</em> 37 (9): 1317–18. <a href="https://doi.org/10.1093/bioinformatics/btaa838">https://doi.org/10.1093/bioinformatics/btaa838</a>.
+</div>
+<div id="ref-Zhou2012" class="csl-entry" role="listitem">
+Zhou, Bin, Jun Feng Xiao, Leepika Tuli, and Habtom W Ressom. 2012. <span>“<span class="nocase">LC-MS-based metabolomics.</span>”</span> <em>Molecular bioSystems</em> 8 (2): 470–81. <a href="https://doi.org/10.1039/c1mb05350g">https://doi.org/10.1039/c1mb05350g</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Chapter_01.html" class="pagination-link" aria-label="Parte I: Preparación del Entorno y Herramientas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Parte I: Preparación del Entorno y Herramientas</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Chapter_03.html" class="pagination-link" aria-label="Parte III: Gestión y Presentación de la Información">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Parte III: Gestión y Presentación de la Información</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
