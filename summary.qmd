@@ -1,0 +1,53 @@
+# Summary
+
+Posible Reorganización:
+
+• Prefacio • Autores • Agradecimientos • Introducción (Mantener como introducción general al tema del libro)
+
+**Parte I: Preparación del Entorno y Herramientas** • Instalación y configuración de R y RStudio® (Lógica para comenzar con la configuración del software) • Inventario de librerías básicas de R aplicadas para análisis de datos (Después de la instalación, presentar las herramientas fundamentales) • Paquetes Esenciales para el Análisis de Datos (Extender las librerías básicas con paquetes clave)
+
+**Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos** • Uso de R en Microbiología Industrial (Presentar la aplicación específica de R en tu campo) • Análisis Bibliométrico con RStudio® (Un ejemplo concreto de análisis de datos con R) • Fundamentos del Diseño Experimental (Introducir los principios del diseño experimental) • Tipos de diseños experimentales (Expandir sobre los diferentes tipos de diseños) • Diseño de experimentos en RStudio® (Aplicar los conceptos de diseño experimental en R)
+
+**Parte III: Gestión y Presentación de la Información** • Gestión de la información con informes dinámicos (Conectar el análisis de datos con la creación de informes)
+
+References
+
+::: callout-note
+Este manual representa nuestra contribución a su formación integral como científicos. Esperamos que no solo enriquezca su experiencia académica, sino que también les proporcione las habilidades prácticas necesarias para enfrentar los desafíos actuales y futuros del campo.
+:::
+
+::: callout-tip
+## Using the data without downloading it
+
+This same dataset is also available in the package palmerpenguins.
+:::
+
+::: callout-tip
+## Título del Tip
+
+Texto del contenido o recomendación.
+:::
+
+Tipos comunes de callouts:
+
+```         
+callout-note → Para notas informativas.
+
+callout-tip → Para consejos o buenas prácticas.
+
+callout-warning → Para advertencias.
+
+callout-important → Para contenido crítico o destacado.
+
+callout-caution → Para precauciones.
+```
+
+::: callout-warning
+## Cuidado
+
+Este análisis puede producir resultados erróneos si no se limpian los datos previamente.
+:::
+
+To learn more about Quarto books visit <https://quarto.org/docs/books>.
+
+`{r} 1 + 1}`

@@ -1,0 +1,31 @@
+---
+title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
+format: docx
+---
+
+# Prefacio {.unnumbered}
+
+Los profesores en el campo de la [Microbiología Industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) nos hemos apoyado continuamente en los recursos que brinda la Estadística. Ambas disciplinas han evolucionado de forma constante, y por ello, la manera de enseñar y aprender estas ciencias exige nuevas estrategias de enseñanza-aprendizaje.
+
+A lo largo de nuestra labor docente, hemos observado cómo nuestros estudiantes enfrentan dificultades al tratar de conectar los conceptos estadísticos con los resultados de experimentos que involucran microorganismos. Esta observación fue precisamente la que nos inspiró a crear una herramienta que sirviera de puente entre estos dos mundos aparentemente distantes. En este contexto, presentamos el libro "***R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico***"
+
+La elección de **RStudio®** como plataforma no fue casual. Este software se ha convertido en la *lingua franca* del análisis estadístico de datos en la investigación científica. En nuestras aulas, hemos sido testigos de cómo el análisis de datos puede transformarse, de una tarea compleja, en un proceso revelador y emocionante cuando se cuenta con las herramientas adecuadas. Es especialmente gratificante ver la comprensión reflejada en nuestros estudiantes al visualizar, por primera vez, patrones en sus datos experimentales. Ese momento de descubrimiento fue el motor que nos impulsó a compartir nuestro conocimiento de forma más estructurada y accesible.
+
+El contenido de este libro ha sido cuidadosamente diseñado para guiar a los estudiantes a través de los fundamentos del diseño experimental y el análisis de datos, utilizando ejemplos concretos tomados de trabajos de grado y proyectos desarrollados en los cursos de la carrera de [Microbiología Industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) en la [Universidad de Santander - UDES](https://udes.edu.co/). Asimismo, la inclusión de análisis bibliométrico refleja nuestra comprensión de que la microbiología moderna no solo requiere habilidades técnicas, sino también la capacidad de mantenerse actualizado en una ciencia en constante evolución.
+
+Como profesores, reconocemos la importancia de dotar a nuestros estudiantes no solo con herramientas útiles para el presente, sino con competencias que les permitan adaptarse y crecer en su vida profesional.
+
+**Fredy Alejandro Ortiz Meneses**\
+*Curso Microbiología II -- Profesor de Microbiología Industrial*
+
+**Miguel Oswaldo Pérez Pulido**\
+*Curso Proyecto II -- Microbiología Industrial*
+
+**Francisco Javier León**\
+*Curso Proyecto I -- Profesor de Microbiología Industrial*
+
+::: callout-tip
+## Lo que significa este libro
+
+La presente obra constituye nuestra contribución a la formación integral de los Microbiólogos Industriales en su desarrollo como científicos. Esperamos que su contenido no solo fortalezca su experiencia académica, sino que además les provea de las competencias prácticas indispensables para afrontar los desafíos contemporáneos y futuros del ámbito profesional.
+:::

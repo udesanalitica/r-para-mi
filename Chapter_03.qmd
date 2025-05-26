@@ -1,0 +1,11 @@
+---
+title: "Parte III: Gestión y Presentación de la Información"
+---
+
+## Gestión de la información con informes dinámicos (Conectar el análisis de datos con la creación de informes)
+
+### Quarto
+
+### Rpubs
+
+### GitHUB

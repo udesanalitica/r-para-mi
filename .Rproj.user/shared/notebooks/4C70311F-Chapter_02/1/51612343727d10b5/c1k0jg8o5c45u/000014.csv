@@ -1,0 +1,6 @@
+"0",""
+"0","library(ggplot2)"
+"0",""
+"0","DCA$Treatamiento<-factor(DCA$Tratamiento) #transformamos una variable númerica en un factor categórico"
+"0","ggplot(DCA, aes(x = Tratamiento, y = Resultado, fill=Tratamiento)) + "
+"0","  geom_boxplot()"
