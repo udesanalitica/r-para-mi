@@ -1,9 +1,9 @@
 project:
   type: book
-  output-dir: docs
+  output-dir: docx
 
 book:
-  title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
+  title: "R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico"
   author: "Fredy Ortiz, Miguel Pérez y Francisco León"
   date: "5/5/2025"
   chapters:

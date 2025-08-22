@@ -1,4 +1,4 @@
-# Introducción
+# Introducción (Modificar, reducir a tres parrafos y dar otro enfoque)
 
 El software R es un entorno y lenguaje de programación ampliamente utilizado para el análisis estadístico y la visualización de datos, su flexibilidad y capacidad para manejar grandes conjuntos de datos lo han convertido en una herramienta esencial en la investigación científica,  especialmente en campos como la microbiología industrial, donde el análisis de datos es crucial para la optimización de procesos y la toma de decisiones informadas; además de lo anterior, R ofrece una amplia gama de paquetes y funciones que permiten realizar análisis complejos de manera eficiente, facilitando la interpretación de resultados experimentales [@Rcore2021].
 

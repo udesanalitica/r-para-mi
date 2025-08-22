@@ -1,11 +1,7 @@
 ---
-title: "Parte III: Gestión y Presentación de la Información"
+title: "Parte III: Uso de Inteligencia Artificial para la simulación de datos"
 ---
 
-## Gestión de la información con informes dinámicos (Conectar el análisis de datos con la creación de informes)
+## Uso de Inteligencia Artificial para la simulación de datos. 
 
-### Quarto
-
-### Rpubs
-
-### GitHUB
+### 
