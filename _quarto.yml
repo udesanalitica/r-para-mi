@@ -1,11 +1,11 @@
 project:
   type: book
-  output-dir: docx
+  output-dir: docs  # ← necesario para GitHub Pages
 
 book:
   title: "R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico"
   author: "Fredy Ortiz, Miguel Pérez y Francisco León"
-  date: "5/5/2025"
+  date: "2025-05-05"
   chapters:
     - index.qmd
     - autores.qmd
@@ -19,12 +19,19 @@ book:
 
 bibliography: references.bib
 
+website:
+  site-url: "https://udesanalitica.github.io/r-para-mi/"
+  repo-url: "https://github.com/udesanalitica/r-para-mi"
+  repo-actions: [edit, issue, source]
+
 format:
-  html: 
+  html:
     theme:
       - cosmo
       - brand
-  pdf: 
+    toc: true
+    number-sections: true
+  pdf:
     documentclass: scrreprt
   docx:
     toc: true
