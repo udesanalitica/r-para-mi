@@ -8,12 +8,56 @@ title: "Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de 
 
 ### 2.2 Ejemplos prácticos de diseños experimentales en Microbiología Industrial OK
 
-#### 2.2.1 Diseño completamente al azar OK
+#### 2.2.1 Diseño Completamente al Azar OK
+
+#### Problema
 
 ::: callout-important
-## Problema
+**Introducción:** La **antracnosis del banano** 🍌, causada por *Colletotrichum musae* (Berk. y M.A. Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto [@Vasquez-Castillo2019].
 
-Escibrir los datos del problema y la bibliografci de donde se saco la información.
+Tradicionalmente, el manejo de esta epifítia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad ([@Arias2007], por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.
+
+**Metodología:** El estudio se estructuró a partir de dos diseños experimentales: un **Diseño Completamente al Azar** para la evaluación de sustratos, y un **Diseño de Medidas Repetidas en el Tiempo** para la evaluación de la actividad inhibitoria.
+
+#### Diseño 1: Sustratos de cultivo para *Penicillum* sp.
+
+Se empleó un **Diseño Completamente al Azar** con los siguientes tratamientos: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco. Se prepararon bolsas de polipropileno con cada sustrato, se inocularon con cinco discos de micelio de *Penicillum* sp. (0.5 mm de diámetro) y se incubaron de forma aleatorizada a 22 ± 2 °C durante ocho días. El experimento se realizó por quintuplicado, considerando cada bolsa como una repetición.
+
+#### Diseño 2: Evaluación de la actividad inhibitoria
+
+Se implementó un **Diseño de Medidas Repetidas en el Tiempo** para analizar el efecto de las concentraciones del extracto sobre dos variables de respuesta clave:
+
+-   **Porcentaje de Inhibición del Área de la Lesión (PIAL)**: Para evaluar la eficacia `in vivo`.
+
+-   **Porcentaje de Inhibición del Crecimiento Micelial (PICM)**: Para evaluar la eficacia `in vitro`.
+
+Las variables independientes fueron las diferentes concentraciones del extracto y los testigos correspondientes, mientras que las variables de respuesta se midieron a lo largo del tiempo para observar la evolución de la inhibición.
+
+**Resultados:** El maíz partido constituyó el sustrato óptimo para la producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido de la cebada Log~10~ 8,88 conidios/mL (**Figura 1**).
+
+**Figura 1.** \
+Sustratos con Conidios de *Penicillium* sp.
+
+![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](docx/sustrato.gif){width="406"}
+
+\
+La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0 al 6,0% generaron Porcentajes de Inhibición del Crecimiento micelial (PICM) del 40 al 50 % respectivamente al quinto día después de la inoculación (ddi) **(Figura 2)**.
+
+**Figura 2.\
+**Efecto de los tratamientos in vitro frente al crecmiento de *Colletotrichum musae.*
+
+![Nota: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de *Penicillium* sp., al 4%; (D) Extracto de *Penicillium* sp., al 4,5%; (E) Extracto de *Penicillium* sp., al 5%; (F) Extracto de *Penicillium* sp., al 5,5%; (G) Extracto de *Penicillium* sp., al 6%.](docx/experimentoinvitro.gif){width="406"}
+
+\
+Por otro lado,  los ensayos in vivo evidenciaron una mayor eficacia del extracto crudo, donde las concentraciones de 8, 9, 10, 11, 12 y 13% generaron porcentajes de inhibición del área de la lesión (PIAL) de 60, 55, 70, 72, 77 y 80% respectivamente **(Figura 3)**, sugiriendo que Penicillium digitatum podría representar una alternativa viable para el manejo preventivo de la antracnosis del banano.
+
+**Figura 3.**\
+Efecto in vivo de bananos infectados con *Colletotrichum musae* en los tratamientos.
+
+![Nota: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.](docx/experimentobananos.gif){width="406"}
+
+**\
+Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de Extracto Crudo de Penicillium sp. para la Inhibición del Crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A. Curtis) Arx. Agente Causal de Antracnosis en Banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
 :::
 
 ### Estructura de la base de datos
@@ -21,7 +65,7 @@ Escibrir los datos del problema y la bibliografci de donde se saco la informaci�
 La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:
 
 | Variable      | Descripción                                                                                         |
-|-----------------------|-------------------------------------------------|
+|------------------------|-----------------------------------------------|
 | `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.                      |
 | `Repetición`  | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
 | `Resultado`   | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).  |
@@ -185,3 +229,9 @@ scheffe.test(Anova, "Tratamiento",console=TRUE)
 #### 2.2.2 Diseño de bloques completamente al azar OK
 
 #### 2.2.3 Diseño longitudinal (ANOVA de medidas repetidas) OK
+
+### Problema
+
+::: callout-important
+**Metodología:** Se realizó un diseño de medidas repetidas en el tiempo, donde la variable independiente fue cada una de las concentraciones del extracto y los testigos; y la variable respuesta fueron: Porcentaje de Inhibición del Área de la Lesió (PIAL) y Porcentaje de Inhibición del Crecimiento Micelial (PICM).
+:::

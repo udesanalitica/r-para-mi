@@ -5,7 +5,7 @@ bibliography: references.bib
 
 ## 3. Introducción al software R y RStudio
 
-### 3.1 Instalación y configuración 
+### 3.1 Instalación y configuración
 
 La instalación de R y RStudio® es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R (<https://www.r-project.org>); una vez instalado R, se puede proceder a descargar e instalar RStudio® desde su sitio web (<https://posit.co/download/rstudio-desktop/>) (Figura 1); ambos programas están disponibles para múltiples sistemas operativos, incluyendo Windows, macOS y Linux (Figura 2), del mismo modo se deben descarga de diferentes directorios llamadas CRAN (Comprehensive R Archive Network o Red integral de archivo R) (Figura 3); y finalmente descargar la última compilación de R para Windows (Figura 4) [\@Rcore2021](R%20Core%20Team,%202023).
 
