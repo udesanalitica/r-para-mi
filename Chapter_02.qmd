@@ -2,7 +2,33 @@
 title: "Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos"
 ---
 
-## 2. Fundamentos del Diseño Experimental (Introducir los principios del diseño experimental OK)
+## 2. Fundamentos del Diseño Experimental quarto
+
+El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El **diseño de experimentos (DOE)** se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre .
+
+El DOE se da en ámbitos industriales y de investigación aplicada, los experimentos suelen realizarse para resolver problemas de calidad, mejorar procesos o comprobar hipótesis sobre materiales, condiciones de operación o métodos de trabajo. Sin embargo, cuando estas pruebas carecen de planeación rigurosa, se corre el riesgo de interpretar datos de manera subjetiva y desaprovechar el potencial de la variabilidad natural del sistema. Por ello, el DOE proporciona un marco que asegura resultados válidos y generalizables.
+
+En cuanto a la terminología básica, conceptos como unidad experimental, tratamiento, factor controlable y no controlable, niveles de los factores, variable de respuesta, repetición y matriz de diseño, es requerido manejarlos. Estos términos constituyen la gramática operativa del diseño experimental, permitiendo estructurar adecuadamente las hipótesis y la recolección de datos. Además, se distingue entre error aleatorio y error experimental, resaltando la necesidad de minimizar y cuantificar ambos para garantizar validez estadística. Entre las etapas del diseño experimental, es incluyen:
+
+-   **Planeación:** formulación del problema, identificación de factores y niveles, selección de variables de respuesta y definición de objetivos.
+
+-   **Ejecución:** implementación del plan experimental bajo condiciones de control y aleatorización.
+
+-   **Análisis:** aplicación de métodos estadísticos, principalmente análisis de varianza (ANOVA), para estimar efectos principales e interacciones.
+
+-   **Interpretación:** extracción de conclusiones técnicas y toma de decisiones basadas en la evidencia.
+
+Un aporte central son los principios básicos del DOE:
+
+-   **Aleatorización**, que asegura independencia de los errores y evita sesgos sistemáticos.
+
+-   **Replicación,** que incrementa la precisión de las estimaciones al cuantificar la variabilidad experimental.
+
+-   **Bloqueo**, que controla fuentes de variación no deseadas (turno, lote, operador), incrementando la potencia estadística del experimento.
+
+Estos principios permiten estructurar experimentos que sean eficientes en costo y tiempo, pero robustos en cuanto a la validez de sus conclusiones.
+
+La clasificación de diseños va desde los más simples (completamente al azar, bloques completos, cuadrados latinos) hasta los más complejos (factoriales, fraccionados, superficies de respuesta, diseños robustos). Se subraya que la selección depende de los objetivos, el número de factores, las restricciones prácticas y el tipo de información buscada. También se enfatiza que la decisión debe considerar tanto la significancia estadística como la significancia práctica, es decir, el impacto real de los resultados sobre el proceso o fenómeno bajo estudio.
 
 ### 2.1 Tipos de diseños experimentales (Expandir sobre los diferentes tipos de diseños OK)
 
@@ -35,7 +61,7 @@ Las variables independientes fueron las diferentes concentraciones del extracto 
 
 **Resultados:** El maíz partido constituyó el sustrato óptimo para la producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido de la cebada Log~10~ 8,88 conidios/mL (**Figura 1**).
 
-**Figura 1.** \
+**Figura 1.**\
 Sustratos con Conidios de *Penicillium* sp.
 
 ![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](docx/sustrato.gif){width="406"}
@@ -65,7 +91,7 @@ Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evalu
 La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:
 
 | Variable      | Descripción                                                                                         |
-|------------------------|-----------------------------------------------|
+|-------------------------|-----------------------------------------------|
 | `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.                      |
 | `Repetición`  | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
 | `Resultado`   | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).  |
@@ -89,7 +115,7 @@ Por ejemplo: setwd ("D:/OneDrive - Universidad de Santander/Material Docente 202
 ```{r}
 library(readxl)
 
-DCA <- read_excel("C:/Users/coordinador.analitic/OneDrive - Universidad de Santander/Material_Profesoral_2025/CodigoR/DCA2.xlsx")
+DCA <- read_excel("C:/R-Proyectos/r-para-mi/data/dca.xlsx")
 
 View(DCA)
 attach(DCA)
