@@ -1236,6 +1236,33 @@
             "note": "Online resource",
             "title": "microbiome R package",
             "type": "book"
+        },
+        {
+            "ISBN": "978-607-13-0725-9",
+            "author": [
+                {
+                    "family": "Gutiérrez Pulido",
+                    "given": "Humberto"
+                },
+                {
+                    "dropping-particle": "de la",
+                    "family": "Vara Salazar",
+                    "given": "Román"
+                }
+            ],
+            "edition": "3",
+            "id": "gutierrez2012analisis",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "publisher": "McGraw-Hill/Interamericana Editores, S.A. de C.V.",
+            "publisher-place": "México, D.F.",
+            "title": "Análisis y diseño de experimentos",
+            "type": "book"
         }
     ],
     "project_biblios": [

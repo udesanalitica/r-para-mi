@@ -1,11 +1,24 @@
 project:
   type: book
-  output-dir: html  # ← necesario para GitHub Pages
+  output-dir: docs   # necesario para GitHub Pages
+  preview:
+    port: 4200
+    browser: true
+
+lang: es
 
 book:
   title: "R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico"
   author: "Fredy Ortiz, Miguel Pérez y Francisco León"
   date: "2025-05-05"
+  site-url: "https://udesanalitica.github.io/r-para-mi/"
+  repo-url: "https://github.com/udesanalitica/r-para-mi"
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  favicon: favicon.png        # opcional, crea el archivo si lo usas
+  page-navigation: true
+  search: true
+  downloads: [pdf, epub]      # mostrará botones si generas esos formatos
   chapters:
     - index.qmd
     - autores.qmd
@@ -18,18 +31,15 @@ book:
 
 bibliography: references.bib
 
-website:
-  site-url: "https://udesanalitica.github.io/r-para-mi/"
-  repo-url: "https://github.com/udesanalitica/r-para-mi"
-  repo-actions: [edit, issue, source]
-
 format:
   html:
     theme:
       - cosmo
-      - brand
+      - brand           # requiere brand.scss en el proyecto; comenta si no existe
     toc: true
     number-sections: true
+    code-copy: true
+    smooth-scroll: true
   pdf:
     documentclass: scrreprt
   docx:
@@ -37,5 +47,14 @@ format:
     number-sections: true
   epub:
     cover-image: cover.png
+
+website:
+  # Mantén sólo lo que no está ya en 'book' (en libros, muchas claves se definen en 'book')
+  page-footer:
+    left: "© 2025 Autores"
+    right: "Publicado con Quarto y GitHub Pages"
+
+execute:
+  freeze: auto
 
 editor: visual
