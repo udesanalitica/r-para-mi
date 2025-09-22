@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: docs  # ← necesario para GitHub Pages
+  output-dir: html  # ← necesario para GitHub Pages
 
 book:
   title: "R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico"
@@ -11,7 +11,6 @@ book:
     - autores.qmd
     - agradecimientos.qmd
     - intro.qmd
-    - summary.qmd
     - Chapter_01.qmd
     - Chapter_02.qmd
     - Chapter_03.qmd

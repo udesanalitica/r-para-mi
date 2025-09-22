@@ -2,7 +2,6 @@
     "sources": [
         {
             "DOI": "10.1093/comjnl/27.2.97",
-            "ISSN": "0010-4620",
             "URL": "https://doi.org/10.1093/comjnl/27.2.97",
             "author": [
                 {
@@ -10,20 +9,17 @@
                     "given": "Donald E."
                 }
             ],
-            "container-title": "Comput. J.",
+            "container-title": "The Computer Journal",
             "id": "knuth84",
             "issue": "2",
             "issued": {
                 "date-parts": [
                     [
-                        1984,
-                        5
+                        1984
                     ]
                 ]
             },
             "page": "97-111",
-            "publisher": "Oxford University Press, Inc.",
-            "publisher-place": "USA",
             "title": "Literate programming",
             "type": "article-journal",
             "volume": "27"
@@ -74,14 +70,15 @@
             "type": "book"
         },
         {
+            "URL": "https://r4ds.had.co.nz",
             "author": [
-                {
-                    "family": "Grolemund",
-                    "given": "Garrett"
-                },
                 {
                     "family": "Wickham",
                     "given": "Hadley"
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
                 }
             ],
             "id": "Wickham2017R",
@@ -93,12 +90,12 @@
                 ]
             },
             "publisher": "O’Reilly Media",
-            "title": "R for data science",
+            "title": "R for data science: Import, tidy, transform, visualize, and model data",
+            "title-short": "R for data science",
             "type": "book"
         },
         {
             "DOI": "10.1039/c1mb05350g",
-            "ISSN": "1742-2051 (Electronic)",
             "PMID": "22041788",
             "author": [
                 {
@@ -115,29 +112,26 @@
                 },
                 {
                     "family": "Ressom",
-                    "given": "Habtom W"
+                    "given": "Habtom W."
                 }
             ],
-            "container-title": "Molecular bioSystems",
+            "container-title": "Molecular BioSystems",
             "id": "Zhou2012",
             "issue": "2",
             "issued": {
                 "date-parts": [
                     [
-                        2012,
-                        2
+                        2012
                     ]
                 ]
             },
-            "keyword": "Chromatography, Liquid,Humans,Mass Spectrometry,Metabolomics,Research Design,methods",
             "page": "470-481",
-            "title": "LC-MS-based metabolomics.",
+            "title": "LC-MS-based metabolomics",
             "type": "article-journal",
             "volume": "8"
         },
         {
             "DOI": "10.1093/bioinformatics/btaa838",
-            "ISSN": "1367-4811 (Electronic)",
             "PMID": "32960962",
             "author": [
                 {
@@ -150,11 +144,11 @@
                 },
                 {
                     "family": "Kaminker",
-                    "given": "Joshua S"
+                    "given": "Joshua S."
                 },
                 {
                     "family": "Paulson",
-                    "given": "Joseph N"
+                    "given": "Joseph N."
                 }
             ],
             "container-title": "Bioinformatics (Oxford, England)",
@@ -163,14 +157,13 @@
             "issued": {
                 "date-parts": [
                     [
-                        2021,
-                        6
+                        2021
                     ]
                 ]
             },
-            "keyword": "Microbiota,Software",
             "page": "1317-1318",
-            "title": "MicrobiomeExplorer: an R package for the analysis and visualization of microbial communities.",
+            "title": "MicrobiomeExplorer: An r package for the analysis and visualization of microbial communities",
+            "title-short": "MicrobiomeExplorer",
             "type": "article-journal",
             "volume": "37"
         },
@@ -196,33 +189,7 @@
             "type": "book"
         },
         {
-            "URL": "https://r4ds.had.co.nz",
-            "author": [
-                {
-                    "family": "Wickham",
-                    "given": "Hadley"
-                },
-                {
-                    "family": "Grolemund",
-                    "given": "Garrett"
-                }
-            ],
-            "id": "wickham2017r",
-            "issued": {
-                "date-parts": [
-                    [
-                        2017
-                    ]
-                ]
-            },
-            "publisher": "O’Reilly Media",
-            "title": "R for data science: Import, tidy, transform, visualize, and model data",
-            "title-short": "R for data science",
-            "type": "book"
-        },
-        {
-            "DOI": "10.32614/cran.package.readxl",
-            "URL": "http://dx.doi.org/10.32614/CRAN.package.readxl",
+            "URL": "https://CRAN.R-project.org/package=readxl",
             "author": [
                 {
                     "family": "Wickham",
@@ -237,18 +204,17 @@
             "issued": {
                 "date-parts": [
                     [
-                        2015,
-                        4,
-                        14
+                        2015
                     ]
                 ]
             },
-            "publisher": "The R Foundation",
+            "note": "R package version 0.1.0",
             "title": "Readxl: Read excel files",
             "title-short": "Readxl",
             "type": ""
         },
         {
+            "DOI": "10.29019/enfoque.v10n4.545",
             "URL": "https://doi.org/10.29019/enfoque.v10n4.545",
             "author": [
                 {
@@ -283,7 +249,7 @@
                 ]
             },
             "page": "57-66",
-            "title": "Calidad del fruto y pérdidas postcosecha de banano orgánico (musa acuminata) en el ecuador",
+            "title": "Calidad del fruto y pérdidas postcosecha de banano orgánico (Musa acuminata) en el Ecuador",
             "type": "article-journal",
             "volume": "10"
         },
@@ -306,7 +272,7 @@
                 ]
             },
             "page": "19-25",
-            "title": "Control químico de la antracnosis del mango (mangifera indica l.) en pre y postcosecha",
+            "title": "Control químico de la antracnosis del mango (Mangifera indica L.) En pre y postcosecha",
             "type": "article-journal",
             "volume": "19"
         },
@@ -327,8 +293,949 @@
                 ]
             },
             "publisher": "Universidad de Santander",
-            "title": "Evaluación de extracto crudo de penicillium sp. Para la inhibición del crecimiento in vitro e in vivo de colletotrichum musae (berk y m.a. Curtis) arx. Agente causal de antracnosis en banano",
+            "title": "Evaluación de extracto crudo de Penicillium sp. Para la inhibición del crecimiento in vitro e in vivo de Colletotrichum musae (Berk y M.A. Curtis) Arx. Agente causal de antracnosis en banano",
             "type": "report"
+        },
+        {
+            "DOI": "10.1016/j.joi.2017.08.007",
+            "URL": "https://doi.org/10.1016/j.joi.2017.08.007",
+            "author": [
+                {
+                    "family": "Aria",
+                    "given": "Massimo"
+                },
+                {
+                    "family": "Cuccurullo",
+                    "given": "Corrado"
+                }
+            ],
+            "container-title": "Journal of Informetrics",
+            "id": "Aria2017",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "959-975",
+            "title": "bibliometrix: An R-tool for comprehensive science mapping analysis",
+            "type": "article-journal",
+            "volume": "11"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=gridExtra",
+            "author": [
+                {
+                    "family": "Auguie",
+                    "given": "Baptiste"
+                }
+            ],
+            "id": "Auguie2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "note": "R package version 2.3",
+            "title": "gridExtra: Miscellaneous Functions for \"Grid\" Graphics",
+            "type": "book"
+        },
+        {
+            "URL": "https://uk.sagepub.com/en-gb/eur/an-r-companion-to-applied-regression/book246125",
+            "author": [
+                {
+                    "family": "Fox",
+                    "given": "John"
+                },
+                {
+                    "family": "Weisberg",
+                    "given": "Sanford"
+                }
+            ],
+            "edition": "3",
+            "id": "Fox2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "publisher": "Sage Publications",
+            "title": "An R Companion to Applied Regression",
+            "type": "book"
+        },
+        {
+            "DOI": "10.18637/jss.v077.b02",
+            "URL": "https://doi.org/10.18637/jss.v077.b02",
+            "author": [
+                {
+                    "family": "Gómez-Rubio",
+                    "given": "Víctor"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "Gomez-Rubio2017",
+            "issue": "Book Review 2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "1-3",
+            "title": "ggplot2 - Elegant Graphics for Data Analysis (2nd Edition)",
+            "type": "article-journal",
+            "volume": "77"
+        },
+        {
+            "DOI": "10.1098/rsos.180448",
+            "URL": "https://doi.org/10.1098/rsos.180448",
+            "author": [
+                {
+                    "family": "Hardwicke",
+                    "given": "Tom E."
+                },
+                {
+                    "family": "Mathur",
+                    "given": "Maya B."
+                },
+                {
+                    "family": "MacDonald",
+                    "given": "Kathryn"
+                },
+                {
+                    "family": "Nilsonne",
+                    "given": "Gustav"
+                },
+                {
+                    "family": "Banks",
+                    "given": "Gordon C."
+                },
+                {
+                    "family": "Kidwell",
+                    "given": "Mallory C."
+                },
+                {
+                    "family": "Hofelich Mohr",
+                    "given": "Anna"
+                },
+                {
+                    "family": "Clayton",
+                    "given": "Elizabeth"
+                },
+                {
+                    "family": "Yoon",
+                    "given": "Elizabeth J."
+                },
+                {
+                    "family": "Henry Tessler",
+                    "given": "Michael"
+                },
+                {
+                    "family": "Lenne",
+                    "given": "Riley L."
+                },
+                {
+                    "family": "Altman",
+                    "given": "Scott"
+                },
+                {
+                    "family": "Long",
+                    "given": "Brianna"
+                },
+                {
+                    "family": "Frank",
+                    "given": "Michael C."
+                }
+            ],
+            "container-title": "Royal Society Open Science",
+            "id": "Hardwicke2018",
+            "issue": "8",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "180448",
+            "title": "Data availability, reusability, and analytic reproducibility: Evaluating the impact of a mandatory open data policy at the journal Cognition",
+            "type": "article-journal",
+            "volume": "5"
+        },
+        {
+            "URL": "https://learningstatisticswithr.com/",
+            "author": [
+                {
+                    "family": "Navarro",
+                    "given": "Danielle J."
+                }
+            ],
+            "id": "Navarro2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "publisher": "University of Adelaide",
+            "title": "Learning Statistics with R: A tutorial for psychology students and other beginners",
+            "type": "book",
+            "version": "0.5"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=vegan",
+            "author": [
+                {
+                    "family": "Oksanen",
+                    "given": "Jari"
+                },
+                {
+                    "family": "Blanchet",
+                    "given": "F. Guillaume"
+                },
+                {
+                    "family": "Friendly",
+                    "given": "Michael"
+                },
+                {
+                    "family": "Kindt",
+                    "given": "Roeland"
+                },
+                {
+                    "family": "Legendre",
+                    "given": "Pierre"
+                },
+                {
+                    "family": "McGlinn",
+                    "given": "Daniel"
+                },
+                {
+                    "family": "Minchin",
+                    "given": "Peter R."
+                },
+                {
+                    "family": "O’Hara",
+                    "given": "R. B."
+                },
+                {
+                    "family": "Simpson",
+                    "given": "Gavin L."
+                },
+                {
+                    "family": "Solymos",
+                    "given": "Peter"
+                },
+                {
+                    "family": "Stevens",
+                    "given": "M. H. H."
+                },
+                {
+                    "family": "Szoecs",
+                    "given": "Eniko"
+                },
+                {
+                    "family": "Wagner",
+                    "given": "Helene"
+                }
+            ],
+            "id": "Oksanen2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "note": "R package version 2.5-7",
+            "title": "vegan: Community ecology package",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=nlme",
+            "author": [
+                {
+                    "family": "Pinheiro",
+                    "given": "José"
+                },
+                {
+                    "family": "Bates",
+                    "given": "Douglas"
+                },
+                {
+                    "family": "DebRoy",
+                    "given": "Saikat"
+                },
+                {
+                    "family": "Sarkar",
+                    "given": "Deepayan"
+                },
+                {
+                    "family": "Team",
+                    "given": "R Core"
+                }
+            ],
+            "id": "Pinheiro2025",
+            "issued": {
+                "date-parts": [
+                    [
+                        2025
+                    ]
+                ]
+            },
+            "note": "R package version 3.1-157",
+            "title": "nlme: Linear and nonlinear mixed effects models",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=apaTables",
+            "author": [
+                {
+                    "family": "Stanley",
+                    "given": "Dale"
+                }
+            ],
+            "id": "Stanley2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 2.0.8",
+            "title": "apaTables: Create American Psychological Association (APA) Style Tables",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=readxl",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Bryan",
+                    "given": "Jennifer"
+                }
+            ],
+            "id": "Wickham2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "note": "R package version 1.4.2",
+            "title": "readxl: Read Excel Files",
+            "type": "book"
+        },
+        {
+            "DOI": "10.21105/joss.01686",
+            "URL": "https://doi.org/10.21105/joss.01686",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Averick",
+                    "given": "Mara"
+                },
+                {
+                    "family": "Bryan",
+                    "given": "Jennifer"
+                },
+                {
+                    "family": "Chang",
+                    "given": "Winston"
+                },
+                {
+                    "family": "McGowan",
+                    "given": "Lucy D."
+                },
+                {
+                    "family": "François",
+                    "given": "Romain"
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                },
+                {
+                    "family": "Hayes",
+                    "given": "Alex"
+                },
+                {
+                    "family": "Henry",
+                    "given": "Lionel"
+                },
+                {
+                    "family": "Hester",
+                    "given": "Jim"
+                },
+                {
+                    "family": "Kuhn",
+                    "given": "Max"
+                },
+                {
+                    "family": "Pedersen",
+                    "given": "Thomas Lin"
+                },
+                {
+                    "family": "Miller",
+                    "given": "Evan"
+                },
+                {
+                    "family": "Bache",
+                    "given": "Stephan Milton"
+                },
+                {
+                    "family": "Müller",
+                    "given": "Kirill"
+                },
+                {
+                    "family": "Ooms",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Robinson",
+                    "given": "David"
+                },
+                {
+                    "family": "Seidel",
+                    "given": "Dana Paige"
+                },
+                {
+                    "family": "Spinu",
+                    "given": "Vitalie"
+                },
+                {
+                    "family": "Yutani",
+                    "given": "Hiroaki"
+                }
+            ],
+            "container-title": "Journal of Open Source Software",
+            "id": "Wickham2019",
+            "issue": "43",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "1686",
+            "title": "Welcome to the tidyverse",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=shiny",
+            "author": [
+                {
+                    "family": "Chang",
+                    "given": "Winston"
+                },
+                {
+                    "family": "Cheng",
+                    "given": "Joe"
+                },
+                {
+                    "family": "Allaire",
+                    "given": "JJ"
+                },
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                },
+                {
+                    "family": "McPherson",
+                    "given": "Jonathan"
+                }
+            ],
+            "id": "Chang2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.6.0",
+            "title": "Shiny: Web application framework for r",
+            "title-short": "Shiny",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=agricolae",
+            "author": [
+                {
+                    "family": "Mendiburu",
+                    "given": "Felipe"
+                }
+            ],
+            "id": "Mendiburu2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "note": "R package version 1.3-3",
+            "title": "Agricolae: Statistical procedures for agricultural research",
+            "title-short": "Agricolae",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1007/978-3-319-24277-4",
+            "URL": "https://doi.org/10.1007/978-3-319-24277-4",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "id": "Wickham2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "publisher": "Springer",
+            "title": "ggplot2: Elegant graphics for data analysis",
+            "title-short": "ggplot2",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=tidyverse",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "id": "Wickham2017tidyverse",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "note": "R package version 1.2.1",
+            "title": "Tidyverse: Easily install and load the ’tidyverse’",
+            "title-short": "Tidyverse",
+            "type": "book"
+        },
+        {
+            "URL": "https://r4ds.had.co.nz",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                }
+            ],
+            "id": "Wickham2017r4ds",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "publisher": "O’Reilly Media",
+            "title": "R for data science: Import, tidy, transform, visualize, and model data",
+            "title-short": "R for data science",
+            "type": "book"
+        },
+        {
+            "DOI": "10.3390/metabo11100672",
+            "URL": "https://doi.org/10.3390/metabo11100672",
+            "author": [
+                {
+                    "family": "González-Peña",
+                    "given": "Diana"
+                },
+                {
+                    "family": "Dudzik",
+                    "given": "Damian"
+                },
+                {
+                    "family": "García",
+                    "given": "Adrián"
+                },
+                {
+                    "family": "Legido-Quigley",
+                    "given": "Cristina"
+                },
+                {
+                    "family": "Barbas",
+                    "given": "Coral"
+                }
+            ],
+            "container-title": "Metabolites",
+            "id": "Gonzalez-Pena2021",
+            "issue": "10",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "672",
+            "title": "R in LC-MS-based metabolomics: A review of packages, tutorials, and case studies",
+            "type": "article-journal",
+            "volume": "11"
+        },
+        {
+            "DOI": "10.1039/c1mb05350g",
+            "URL": "https://doi.org/10.1039/c1mb05350g",
+            "author": [
+                {
+                    "family": "Zhou",
+                    "given": "Bin"
+                },
+                {
+                    "family": "Xiao",
+                    "given": "Jun Feng"
+                },
+                {
+                    "family": "Tuli",
+                    "given": "Leepika"
+                },
+                {
+                    "family": "Ressom",
+                    "given": "Habtom W"
+                }
+            ],
+            "container-title": "Molecular BioSystems",
+            "id": "Zhou2012",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "page": "470-481",
+            "title": "LC-MS-based metabolomics",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "DOI": "10.1093/bioinformatics/btaa838",
+            "URL": "https://doi.org/10.1093/bioinformatics/btaa838",
+            "author": [
+                {
+                    "family": "Reeder",
+                    "given": "Janina"
+                },
+                {
+                    "family": "Huang",
+                    "given": "Mo"
+                },
+                {
+                    "family": "Kaminker",
+                    "given": "Joshua S."
+                },
+                {
+                    "family": "Paulson",
+                    "given": "Joseph N."
+                }
+            ],
+            "container-title": "Bioinformatics (Oxford, England)",
+            "id": "Reeder2021",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "1317-1318",
+            "title": "MicrobiomeExplorer: an R package for the analysis and visualization of microbial communities",
+            "type": "article-journal",
+            "volume": "37"
+        },
+        {
+            "DOI": "10.1186/s13059-014-0550-8",
+            "URL": "https://doi.org/10.1186/s13059-014-0550-8",
+            "author": [
+                {
+                    "family": "Love",
+                    "given": "Michael I."
+                },
+                {
+                    "family": "Huber",
+                    "given": "Wolfgang"
+                },
+                {
+                    "family": "Anders",
+                    "given": "Simon"
+                }
+            ],
+            "container-title": "Genome Biology",
+            "id": "Love2014",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "550",
+            "title": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+            "type": "article-journal",
+            "volume": "15"
+        },
+        {
+            "DOI": "10.1371/journal.pone.0061217",
+            "URL": "https://doi.org/10.1371/journal.pone.0061217",
+            "author": [
+                {
+                    "family": "McMurdie",
+                    "given": "Paul J."
+                },
+                {
+                    "family": "Holmes",
+                    "given": "Susan"
+                }
+            ],
+            "container-title": "PLOS ONE",
+            "id": "McMurdie2013",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "page": "e61217",
+            "title": "phyloseq: An R package for reproducible interactive analysis and graphics of microbiome census data",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=agricolae",
+            "author": [
+                {
+                    "family": "Mendiburu",
+                    "given": "Felipe"
+                }
+            ],
+            "id": "Mendiburu2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.4-0",
+            "title": "agricolae: Statistical procedures for agricultural research",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1016/j.mimet.2018.12.003",
+            "URL": "https://doi.org/10.1016/j.mimet.2018.12.003",
+            "author": [
+                {
+                    "family": "Mohammadi",
+                    "given": "Ramin"
+                },
+                {
+                    "family": "Ghomi",
+                    "given": "Seyed Mohammad Taghi Fatemi"
+                },
+                {
+                    "family": "Nazari",
+                    "given": "Farzaneh"
+                }
+            ],
+            "container-title": "Journal of Microbiological Methods",
+            "id": "Mohammadi2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "54-58",
+            "title": "The application of R software for the assessment of microbial fermentation processes",
+            "type": "article-journal",
+            "volume": "156"
+        },
+        {
+            "DOI": "10.18637/jss.v012.i05",
+            "URL": "https://doi.org/10.18637/jss.v012.i05",
+            "author": [
+                {
+                    "family": "Ritz",
+                    "given": "Christian"
+                },
+                {
+                    "family": "Streibig",
+                    "given": "Jens C."
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "Ritz2005",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "page": "1-22",
+            "title": "Bioassay analysis using R",
+            "type": "article-journal",
+            "volume": "12"
+        },
+        {
+            "DOI": "10.1371/journal.pcbi.1005752",
+            "URL": "https://doi.org/10.1371/journal.pcbi.1005752",
+            "author": [
+                {
+                    "family": "Rohart",
+                    "given": "Florian"
+                },
+                {
+                    "family": "Gautier",
+                    "given": "Benoit"
+                },
+                {
+                    "family": "Singh",
+                    "given": "Amrit"
+                },
+                {
+                    "family": "Lê Cao",
+                    "given": "Kim-Anh"
+                }
+            ],
+            "container-title": "PLOS Computational Biology",
+            "id": "Rohart2017",
+            "issue": "11",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "e1005752",
+            "title": "mixOmics: An R package for ’omics feature selection and multiple data integration",
+            "type": "article-journal",
+            "volume": "13"
+        },
+        {
+            "DOI": "10.1007/978-3-319-24277-4",
+            "URL": "https://doi.org/10.1007/978-3-319-24277-4",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "edition": "2",
+            "id": "Wickham2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "publisher": "Springer",
+            "title": "ggplot2: Elegant graphics for data analysis",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1111/2041-210X.12628",
+            "URL": "https://doi.org/10.1111/2041-210X.12628",
+            "author": [
+                {
+                    "family": "Yu",
+                    "given": "Guangchuang"
+                },
+                {
+                    "family": "Smith",
+                    "given": "David K."
+                },
+                {
+                    "family": "Zhu",
+                    "given": "Huachen"
+                },
+                {
+                    "family": "Guan",
+                    "given": "Yi"
+                },
+                {
+                    "family": "Lam",
+                    "given": "Tommy T. Y."
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "Yu2017",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "28-36",
+            "title": "ggtree: An R package for visualization and annotation of phylogenetic trees with their covariates and other associated data",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "URL": "http://microbiome.github.io/microbiome",
+            "author": [
+                {
+                    "family": "Lahti",
+                    "given": "Leo"
+                },
+                {
+                    "family": "Shetty",
+                    "given": "Sudarshan"
+                }
+            ],
+            "id": "Lahti2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "note": "Online resource",
+            "title": "microbiome R package",
+            "type": "book"
         }
     ],
     "project_biblios": [

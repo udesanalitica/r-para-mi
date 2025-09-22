@@ -1,26 +1,26 @@
 ---
 title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
-format: docx
+format: html
 ---
 
-# Prefacio (resumir) {.unnumbered}
+# Prefacio  {.unnumbered}
 
-Los profesores en el campo de la [Microbiología Industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) nos hemos apoyado continuamente en los recursos que brinda la Estadística. Ambas disciplinas han evolucionado de forma constante, y por ello, la manera de enseñar y aprender estas ciencias exige nuevas estrategias de enseñanza-aprendizaje.
+En el campo de la [Microbiología Industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) y el diseño de experimentos, la integración de herramientas estadísticas constituye un desafío pedagógico fundamental que requiere estrategias innovadoras de enseñanza-aprendizaje, y como profesores de estas áreas de aprendizaje hemos identificado que los estudiantes experimentan dificultades significativas al establecer conexiones entre los conceptos estadísticos y los resultados experimentales microbiológicos.
 
-A lo largo de nuestra labor docente, hemos observado cómo nuestros estudiantes enfrentan dificultades al tratar de conectar los conceptos estadísticos con los resultados de experimentos que involucran microorganismos. Esta observación fue precisamente la que nos inspiró a crear una herramienta que sirviera de puente entre estos dos mundos aparentemente distantes. En este contexto, presentamos el libro "***R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico***"
+En respuesta a esta problemática, surge la propuesta del libro " Aplicaciones del Software RStudio® en la Microbiología Industrial ", diseñado específicamente para articular las áreas de: Diseño de Experimentos y la Microbiología Industrial con ayuda de Rstudio®, utilizando a lo largo de contenido ejemplos concretos derivados de trabajos de grado y proyectos académicos desarrollados en la [Universidad de Santander - UDES](https://udes.edu.co/).
 
-El contenido de este libro ha sido cuidadosamente diseñado para guiar a los estudiantes a través de los fundamentos del diseño experimental y el análisis de datos, utilizando ejemplos concretos tomados de trabajos de grado y proyectos desarrollados en los cursos de la carrera de [Microbiología Industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) en la [Universidad de Santander - UDES](https://udes.edu.co/). Asimismo, la inclusión de análisis bibliométrico refleja nuestra comprensión de que la microbiología moderna no solo requiere habilidades técnicas, sino también la capacidad de mantenerse actualizado en una ciencia en constante evolución.
-
-Como profesores, reconocemos la importancia de dotar a nuestros estudiantes no solo con herramientas útiles para el presente, sino con competencias que les permitan adaptarse y crecer en su vida profesional.
+La obra integra además temas relacionados a: Análisis Bibliométrico, integración de Inteligencia Artificial, reconociendo de este modo que la microbiología contemporánea demanda no solo competencias técnicas, sino adaptación de nuevas habilidades en una disciplina científica en constante evolución, contribuyendo de esta forma a la formación de profesionales capaces de afrontar los desafíos emergentes del campo de microbiológico industrial, tanto para el presente como su futuro profesional.
 
 **Fredy Alejandro Ortiz Meneses**\
-*Curso Microbiología II -- Profesor de Microbiología Industrial*
+*Curso Microbiologia Genera y Microbiología II*
 
 **Miguel Oswaldo Pérez Pulido**\
-*Curso Proyecto II -- Microbiología Industrial*
+*Curso Proyecto II -- Microbiología Industrial\
+Maestría en Estadística Aplicada y Analítica de Datos*
 
 **Francisco Javier León**\
-*Curso Proyecto I -- Profesor de Microbiología Industrial*
+*Curso Proyecto I -- Profesor de Microbiología Industrial\
+Maestría en Estadística Aplicada y Analítica de Datos*
 
 ::: callout-tip
 ## Lo que significa este libro
