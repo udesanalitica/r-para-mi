@@ -1,0 +1,22 @@
+# Archivos y carpetas de R
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+*.Rproj
+
+# Salidas de Quarto
+_book/
+_freeze/
+_site/
+docs/site_libs/
+
+# Archivos temporales
+*.log
+*.aux
+*.out
+*.toc
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
