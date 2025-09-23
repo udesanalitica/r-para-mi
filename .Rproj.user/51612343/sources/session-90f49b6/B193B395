@@ -3,7 +3,7 @@
     "path": "C:/R-Proyectos/r-para-mi/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "3700787371",
     "contents": "",
     "dirty": false,
     "created": 1758659191914.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "60,0",
-        "scrollLine": "32"
+        "cursorPosition": "56,14",
+        "scrollLine": "28"
     },
     "folds": "",
-    "lastKnownWriteTime": 1758633472,
+    "lastKnownWriteTime": 1758660204,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1758633472,
+    "last_content_update": 1758660204243,
     "read_only": false,
     "read_only_alternatives": []
 }

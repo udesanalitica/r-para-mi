@@ -18,7 +18,7 @@ book:
   favicon: favicon.png        # opcional, crea el archivo si lo usas
   page-navigation: true
   search: true
-  downloads: [pdf, epub]      # mostrará botones si generas esos formatos
+  downloads: [pdf, epub]
   chapters:
     - index.qmd
     - autores.qmd
@@ -33,9 +33,7 @@ bibliography: references.bib
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand           # requiere brand.scss en el proyecto; comenta si no existe
+    theme: cosmo        # 🔧 Se eliminó "brand" que causaba error
     toc: true
     number-sections: true
     code-copy: true
@@ -49,7 +47,6 @@ format:
     cover-image: cover.png
 
 website:
-  # Mantén sólo lo que no está ya en 'book' (en libros, muchas claves se definen en 'book')
   page-footer:
     left: "© 2025 Autores"
     right: "Publicado con Quarto y GitHub Pages"

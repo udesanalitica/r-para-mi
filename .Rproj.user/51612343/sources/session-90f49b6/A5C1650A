@@ -1,0 +1,32 @@
+{
+    "id": "A5C1650A",
+    "path": "C:/R-Proyectos/r-para-mi/intro.qmd",
+    "project_path": "intro.qmd",
+    "type": "quarto_markdown",
+    "hash": "2872303934",
+    "contents": "",
+    "dirty": false,
+    "created": 1758660493962.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualModeLocation": "1476:115",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "2,12",
+        "scrollLine": "0",
+        "quartoPreviewFormat": "docx"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1758660575,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1758660575643,
+    "read_only": false,
+    "read_only_alternatives": []
+}
