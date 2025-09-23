@@ -12,7 +12,7 @@ book:
   author: "Fredy Ortiz, Miguel Pérez y Francisco León"
   date: "2025-05-05"
   site-url: "https://udesanalitica.github.io/r-para-mi/"
-  repo-url: "https://github.com/udesanalitica/r-para-mi"
+  repo-url: "https://github.com/udesanalitica/r-para-mi.git"
   repo-branch: main
   repo-actions: [edit, issue, source]
   favicon: favicon.png        # opcional, crea el archivo si lo usas

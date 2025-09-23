@@ -28,17 +28,60 @@ Un aporte central son los principios básicos del DOE:
 
 Estos principios permiten estructurar experimentos que sean eficientes en costo y tiempo, pero robustos en cuanto a la validez de sus conclusiones.
 
-La clasificación de diseños va desde los más simples (completamente al azar, bloques completos, cuadrados latinos) hasta los más complejos (factoriales, fraccionados, superficies de respuesta, diseños robustos). Se subraya que la selección depende de los objetivos, el número de factores, las restricciones prácticas y el tipo de información buscada. También se enfatiza que la decisión debe considerar tanto la significancia estadística como la significancia práctica, es decir, el impacto real de los resultados sobre el proceso o fenómeno bajo estudio [@gutierrez2012analisis]..
+La clasificación de diseños va desde los más simples (completamente al azar, bloques completos, cuadrados latinos) hasta los más complejos (factoriales, fraccionados, superficies de respuesta, diseños robustos). Se subraya que la selección depende de los objetivos, el número de factores, las restricciones prácticas y el tipo de información buscada. También se enfatiza que la decisión debe considerar tanto la significancia estadística como la significancia práctica, es decir, el impacto real de los resultados sobre el proceso o fenómeno bajo estudio [@gutierrez2012analisis].
 
-### 2.1 Tipos de diseños experimentales (Expandir sobre los diferentes tipos de diseños OK)
+### 2.1 Tipos de diseños experimentales
 
-### 2.2 Ejemplos prácticos de diseños experimentales en Microbiología Industrial OK
+La selección de un diseño experimental depende de distintos factores que condicionan su pertinencia y aplicabilidad en cada situación. Entre los aspectos determinantes se encuentran: los objetivos que se persiguen con el estudio, la cantidad de factores que se desea analizar, el número de niveles que adoptará cada factor, los efectos que se pretende identificar en la relación causa-efecto y, finalmente, las restricciones de costo, tiempo y precisión que impone la investigación [@gutierrez2012analisis].
+
+Estos elementos no actúan de forma aislada, ya que la modificación de cualquiera de ellos obliga generalmente a replantear el diseño a utilizar. En consecuencia, resultan fundamentales para guiar la clasificación de los diseños experimentales.
+
+El **objetivo del experimento** constituye el criterio principal para diferenciar entre tipos de diseño, mientras que los demás factores funcionan como subcriterios de clasificación. Bajo esta perspectiva, los diseños pueden agruparse en varias categorías: aquellos orientados a la comparación de dos o más tratamientos; los que examinan el efecto de diversos factores sobre una o varias variables de respuesta; los que buscan establecer el punto óptimo de operación de un proceso; los que se enfocan en la optimización de mezclas; y finalmente, los dirigidos a lograr que un producto o proceso se mantenga estable frente a factores no controlables [@gutierrez2012analisis].
+
+Así, la clasificación general de los diseños experimentales responde al objetivo central del estudio, y dentro de cada categoría se consideran elementos adicionales como el número de factores, los tipos de efectos a investigar y las restricciones prácticas que condicionan la ejecución.
+
+### **Clasificación de los diseños experimentales**
+
+La siguente clasificación es tomada el libro de [@gutierrez2012analisis].
+
+1.  **Diseños para comparar dos o más tratamientos**\
+    🔹 Diseño completamente al azar\
+    🔹 Diseño de bloques completos al azar\
+    🔹 Diseño de cuadros latino y grecolatino
+
+2.  **Diseños para estudiar efectos de varios factores sobre una o más variables de respuesta**\
+    🔹 Diseños factoriales 2ᵏ\
+    🔹 Diseños factoriales 3ᵏ\
+    🔹 Diseños fraccionados 2ᵏ⁻ᵖ\
+    🔹 Diseños anidados\
+    🔹 Diseños en parcelas divididas
+
+3.  **Diseños para la optimización de procesos**\
+    **➤ Modelo de primer orden**\
+    🔹 Diseños factoriales 2ᵏ y 2ᵏ⁻ᵖ\
+    🔹 Diseño de Plackett-Burman\
+    🔹 Diseño simplex\
+    **➤ Modelo de segundo orden**\
+    🔹 Diseño de composición central\
+    🔹 Diseño de Box-Behnken\
+    🔹 Diseños factoriales 3ᵏ y 3ᵏ⁻ᵖ
+
+4.  **Diseños robustos**\
+    🔹 Arreglos ortogonales (factoriales)\
+    🔹 Diseño con arreglos interno y externo
+
+5.  **Diseños de mezclas**\
+    🔹 Diseño simplex-reticular\
+    🔹 Diseño simplex con centroide\
+    🔹 Diseño sin restricciones\
+    🔹 Diseño axial
+
+### 2.2 Ejemplos prácticos de diseños experimentales en Microbiología Industrial
 
 #### 2.2.1 Diseño Completamente al Azar OK
 
 #### Problema
 
-::: callout-important
 **Introducción:** La **antracnosis del banano** 🍌, causada por *Colletotrichum musae* (Berk. y M.A. Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto [@Vasquez-Castillo2019].
 
 Tradicionalmente, el manejo de esta epifítia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad ([@Arias2007], por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.
@@ -64,7 +107,7 @@ Las variables independientes fueron las diferentes concentraciones del extracto 
 **Figura 1.**\
 Sustratos con Conidios de *Penicillium* sp.
 
-![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](docx/sustrato.gif){width="406"}
+![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](docx/sustrato.gif){fig-alt="Figura 1." width="406"}
 
 \
 La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0 al 6,0% generaron Porcentajes de Inhibición del Crecimiento micelial (PICM) del 40 al 50 % respectivamente al quinto día después de la inoculación (ddi) **(Figura 2)**.
@@ -84,14 +127,13 @@ Efecto in vivo de bananos infectados con *Colletotrichum musae* en los tratamien
 
 **\
 Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de Extracto Crudo de Penicillium sp. para la Inhibición del Crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A. Curtis) Arx. Agente Causal de Antracnosis en Banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
-:::
 
 ### Estructura de la base de datos
 
 La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:
 
 | Variable      | Descripción                                                                                         |
-|-------------------------|-----------------------------------------------|
+|-------------------------|----------------------------------------------|
 | `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.                      |
 | `Repetición`  | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
 | `Resultado`   | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).  |

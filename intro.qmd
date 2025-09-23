@@ -1,6 +1,6 @@
 # Introducción
 
-El software R® representa un entorno y lenguaje de programación fundamental para el análisis estadístico y la visualización de datos en la investigación científica contemporánea, su  capacidad para procesar grandes volúmenes de información y flexibilidad excepcional  lo han posicionado como una herramienta indispensable a ser usada en la microbiología industrial, donde la optimización de procesos y la toma de decisiones informadas dependen crucialmente del análisis riguroso de datos experimentales [@Rcore2021].
+El software R® representa un entorno y lenguaje de programación fundamental para el análisis estadístico y la visualización de datos en la investigación científica contemporánea, su capacidad para procesar grandes volúmenes de información y flexibilidad excepcional lo han posicionado como una herramienta indispensable a ser usada en la microbiología industrial, donde la optimización de procesos y la toma de decisiones informadas dependen crucialmente del análisis riguroso de datos experimentales [@Rcore2021].
 
 Complementariamente, RStudio® constituye una Interfaz de Desarrollo Integrada (IDE) que transforma significativamente la experiencia del usuario al proporcionar un entorno accesible y amigable para la programación, integrando múltiples herramientas esenciales como: un editor de código avanzado, una consola interactiva y sistemas de visualización de datos, lo que facilita considerablemente el aprendizaje y la aplicación práctica de R en contextos académicos e industriales [@Rcore2021].
 

@@ -1,9 +1,8 @@
 ---
 title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
-format: html
 ---
 
-# Prefacio  {.unnumbered}
+# Prefacio {.unnumbered}
 
 En el campo de la [Microbiología Industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) y el diseño de experimentos, la integración de herramientas estadísticas constituye un desafío pedagógico fundamental que requiere estrategias innovadoras de enseñanza-aprendizaje, y como profesores de estas áreas de aprendizaje hemos identificado que los estudiantes experimentan dificultades significativas al establecer conexiones entre los conceptos estadísticos y los resultados experimentales microbiológicos.
 

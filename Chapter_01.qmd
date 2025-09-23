@@ -91,7 +91,7 @@ El primer paso consiste en generar cinco palabras claves relacionadas con el tem
 
 5.  *Fermentation condition*s: Se refiere a las condiciones de fermentación, como la temperatura, pH y nutrientes, que afectan el crecimiento y la producción de metabolitos del hongo.
 
-El segundo paso es generar diez (10) ecuaciones de búsqueda ingresando a una de las siguientes base de revistas indexadas compatibles con Bibliometrix, como son: Web of Science ([www.webofscience.com](http://www.webofscience.com)), Scopus ([www.scopus.com](http://www.scopus.com)); OpenAlex ([www.openalex.org](http://www.openalex.org)); Dimensions ([www.dimensions.ai](http://www.dimensions.ai)); The Lens ([www.lens.org](http://www.lens.org)); PubMed (<https://pubmed.ncbi.nlm.nih.gov/>) y Cochrane Library ([www.cochranelibrary.com/](http://www.cochranelibrary.com/)), desde donde se utilizaran operadores booleanos relacionados con el tema, es importante que cada una de las palabras clave estén encerradas entre comillas \" \" ; al tiempo que se utilicen los conectores: AND y/o OR y NOT para refinar la búsqueda, como se muestran a continuación:
+El segundo paso es generar diez (10) ecuaciones de búsqueda ingresando a una de las siguientes base de revistas indexadas compatibles con Bibliometrix, como son: Web of Science ([www.webofscience.com](http://www.webofscience.com)), Scopus ([www.scopus.com](http://www.scopus.com)); OpenAlex ([www.openalex.org](http://www.openalex.org)); Dimensions ([www.dimensions.ai](http://www.dimensions.ai)); The Lens ([www.lens.org](http://www.lens.org)); PubMed (<https://pubmed.ncbi.nlm.nih.gov/>) y Cochrane Library ([www.cochranelibrary.com/](http://www.cochranelibrary.com/)), desde donde se utilizaran operadores booleanos relacionados con el tema, es importante que cada una de las palabras clave estén encerradas entre comillas " " ; al tiempo que se utilicen los conectores: AND y/o OR y NOT para refinar la búsqueda, como se muestran a continuación:
 
 -   "*Cordyceps militaris*" AND "growth evaluation"
 
@@ -132,7 +132,7 @@ Se abrirá el servidor de Bibliometrix (Figura 9) en el navegador web (Chrome, M
 
 ![Figura 9.](images/Bibliometrix5.PNG)
 
-Siguiendo las indicaciones de [@Aria2017], en la parte izquierda se despliega el menú de biblioshiny, se procede con la importación en la seción \"*Import or Load*\" del archivo CSV, al tiempo que se seleccionan las casillas: *Import raw file(s*), la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: *Surname and Initials*, y finalmente damos click en el botón de *Start*  (Figura 10).
+Siguiendo las indicaciones de [@Aria2017], en la parte izquierda se despliega el menú de biblioshiny, se procede con la importación en la seción "*Import or Load*" del archivo CSV, al tiempo que se seleccionan las casillas: *Import raw file(s*), la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: *Surname and Initials*, y finalmente damos click en el botón de *Start*  (Figura 10).
 
 ![Figura 10.](images/Bibliometrix6.PNG)
 
@@ -140,7 +140,7 @@ Después se despliega una nueva ventana que muestra el estado de los componentes
 
 ![Figura 11.](images/Bibliometrix7.PNG)
 
-Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" \"Pobre \" y \"Completamente perdido\" (Figura 11), y  que al ser cerrado \"Close\" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el articulo científico (Figura 12).
+Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" "Pobre" y "Completamente perdido" (Figura 11), y  que al ser cerrado "Close" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el articulo científico (Figura 12).
 
 ![Figura 11.](images/Bibliometrix8.PNG)
 
@@ -158,7 +158,7 @@ No corresponde
 
 Para el menú de *Overview* específicamente en la sección ***Three-Field Plot*** (Traducido: Trazo de tres campos) se proporciona una visión general de la colaboración en investigación y los temas principales dentro de un cuerpo específico de literatura. *AU_CO (Países)*: Muestra la participación de China, Tailandia, Reino Unido, Singapur, estados Unidos , entre otros; en los artículos analizados. China lidera la investigación del tema, sugiriendo una fuerte presencia investigadora en el área del estudio; *AU (Autores)*: destaca a: Li X, Li Y, Vongsangnak W y Zhang J, como los autores más productivos, al tiempo que muestra posibles colaboraciones o equipos de investigación.; *DE (Descriptores)*:  Los términos que se asocian el estudio del hongo *Cordyceps militari*s,  la biotecnología del hongo, compuestos bioactivos y análisis transcriptómico.  Este gráfico reafirma el liderazgo asiático en esta línea de investigación, así como la concentración temática en los compuestos bioactivos de Cordyceps militaris y su aplicación en salud y biotecnología (Figura 16). Importante destacar que Bibliometrix permite cambiar los parametros de análisis y el número de ítems.
 
-![Figura 16.](images/Bibliometrix9...PNG){alt="Figura 14."}
+![Figura 14.](images/Bibliometrix9...PNG)
 
 Para el menú de *Sources*  en la sección ***Most Relevant Sources*** (Traducido: Fuentes más Relevantes) la producción científica procedente de Scopus está lideradas por:  International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas,las demás revistas como: Biology, Bioresource Technolgy, y Nutrients, que cuentan con 3 artículos cada una (Figura 17).
 
