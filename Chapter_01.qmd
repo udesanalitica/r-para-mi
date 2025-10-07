@@ -19,7 +19,7 @@ Del mismo modo se deben descarga de diferentes directorios llamadas CRAN (Compre
 
 ![Figura 3.](images/1_Instalacion/Figura%203.png)
 
-Finalmente descargar la última versión de R para Windows (Figura 4) \[\@Rcore2021\].
+Finalmente descargar la última versión de R para Windows (Figura 4).
 
 ![Figura 4.](images/1_Instalacion/Figura%204.png)
 
@@ -39,13 +39,49 @@ Para actualizar R, se debe descargar e instalar la nueva versión desde el sitio
 
 #### Inventario de Librerías y Paquetes de R aplicados para el análisis de datos en Microbiología Industrial.
 
-El ecosistema de librerías y paquetes de R constituye una herramienta fundamental para el análisis de datos en microbiología industrial, proporcionando soluciones específicas para cada etapa del proceso investigativo, y en este contexto, las librerías básicas como: (i) *readxl*, desarrollada por [@wickham2015], facilitan la importación de datos desde hojas de cálculo Excel®, donde tradicionalmente los microbiólogos registran sus resultados experimentales; (ii) complementariamente *car* (Companion to Applied Regression), creada por [@Fox2019], ofrece herramientas esenciales para la verificación de supuestos estadísticos mediante gráficos QQ-plot, permitiendo evaluar la normalidad de los datos antes de aplicar pruebas paramétricas en experimentos de optimización de medios de cultivo y comparación de cepas microbianas.
+El ecosistema de librerías y paquetes de R constituye una herramienta fundamental para el análisis de datos en microbiología industrial, proporcionando soluciones específicas para cada etapa del proceso investigativo, y en este contexto, las librerías básicas como:
 
-La revolución en el análisis de datos microbiológicos se materializa principalmente a través del paquete *tidyverse*, desarrollado por [@Wickham2019], que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye: (i) *dplyr* para manipulación de datos, (ii) *ggplot2* para visualización avanzada, (iii) *tidyr* para ordenamiento de información y readr para importación eficiente, facilitando significativamente el flujo de trabajo en análisis complejos típicos de estudios de cinética enzimática y crecimiento microbiano.
+-   [***readxl***](https://readxl.tidyverse.org/), desarrollada por [@wickham2015], facilita la importación de datos desde hojas de cálculo Excel®, donde tradicionalmente los microbiólogos registran sus resultados experimentales.
 
-Los analísis se enriquece, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, y tal es el cso de: La librería *gridExtra*, desarrollada por [@Auguie2017], la cual facilita la organización de múltiples gráficos en una sola visualización, permitiendo comparaciones efectivas entre diferentes condiciones experimentales. Por otra parte *lsr* (Learning Statistics with R), creada por [@Navarro2015] proporciona funciones accesibles para análisis estadísticos fundamentales como pruebas t, ANOVA y cálculos de tamaño del efecto; adicionalmente, bibliometrix, desarrollado por [@Aria2017] permite realizar análisis bibliométrico de publicaciones científicas, identificando tendencias emergentes y redes de colaboración que orientan nuevas investigaciones.
+-   [***car***](https://cran.r-project.org/web/packages/car/index.html) (Companion to Applied Regression), creada por [@Fox2019], ofrece herramientas esenciales para la verificación de supuestos estadísticos mediante gráficos QQ-plot, permitiendo evaluar la normalidad de los datos antes de aplicar pruebas paramétricas en experimentos de optimización de medios de cultivo y comparación de cepas microbianas.
 
-Las aplicaciones especializadas en análisis multivariado y modelado avanzado complementan este inventario tecnológico, y es donde converge la librería *vegan*, desarrollada por [@Oksanen2020], la cual proporciona proporciona herramientas para análisis de diversidad ecológica mediante técnicas como PCA (Análisis de Componentes Principales), NMDS (Escalamiento Multidimensional No Métric) permitiendo visualizar relaciones complejas entre comunidades microbianas y variables ambientales en procesos industriales. Paralelamente, *nlme* desarrollado por [@Pinheiro2025] ofrece capacidades para modelar datos longitudinales con estructura jerárquica, típicos de estudios de cinética microbiana. Asimismo, paquetes como *agricolae* [@Mendiburu2020] facilitan el diseño experimental, mientras que *shiny* [@Chang2021]permite desarrollar aplicaciones web interactivas para visualización dinámica de resultados, mejorando la colaboración y transparencia en la investigación microbiológica industrial.
+La revolución en el análisis de datos microbiológicos se materializa principalmente a través del libreria [***tidyverse***](https://tidyverse.tidyverse.org/), desarrollado por [@Wickham2019], que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye los siguientes paquetes:
+
+-   [**ggplot2**](https://ggplot2.tidyverse.org/) , para visualización de datos.
+
+-   [**dplyr**](https://dplyr.tidyverse.org/) , para manipulación de datos.
+
+-   [**tidyr**](https://tidyr.tidyverse.org/) , para ordenar datos.
+
+-   [**readr**](https://readr.tidyverse.org/) , para importar datos.
+
+-   [**purrr**](https://purrr.tidyverse.org/) , para programación funcional.
+
+-   [**tibble**](https://tibble.tidyverse.org/) , para tibbles, una reinvención moderna de los marcos de datos.
+
+-   [**stringr**](https://github.com/tidyverse/stringr) , para cadenas.
+
+-   [**forcats**](https://github.com/tidyverse/forcats) , para factores.
+
+-   [**lubridate**](https://github.com/tidyverse/lubridate) , para fecha/hora.
+
+Los analísis se enriquecen, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, y tal es el caso de:
+
+-   [***gridExtra***](https://cran.r-project.org/web/packages/gridExtra/index.html), desarrollada por [@Auguie2017], la cual facilita la organización de múltiples gráficos en una sola visualización, permitiendo comparaciones efectivas entre diferentes condiciones experimentales.
+
+-   [***lsr***](https://cran.r-project.org/web/packages/lsr/index.html) (Learning Statistics with R), creada por [@Navarro2015] proporciona funciones accesibles para análisis estadísticos fundamentales como pruebas t, ANOVA y cálculos de tamaño del efecto;
+
+-   [**Bibliometrix**](https://www.bibliometrix.org/home/), desarrollado por [@Aria2017] permite realizar análisis bibliométrico de publicaciones científicas, identificando tendencias emergentes y redes de colaboración que orientan nuevas investigaciones.
+
+Las aplicaciones especializadas en análisis multivariado y modelado avanzado complementan este inventario tecnológico, y es donde converge:
+
+-   [***vegan***](https://cran.r-project.org/web/packages/vegan/index.html), desarrollada por [@Oksanen2020], la cual proporciona proporciona herramientas para análisis de diversidad ecológica mediante técnicas como PCA (Análisis de Componentes Principales), NMDS (Escalamiento Multidimensional No Métric) permitiendo visualizar relaciones complejas entre comunidades microbianas y variables ambientales en procesos industriales.
+
+-   [***nlme***](https://fhernanb.github.io/libro_modelos_mixtos/pac-nlme.html) desarrollado por [@Pinheiro2025] ofrece capacidades para modelar datos longitudinales con estructura jerárquica, típicos de estudios de cinética microbiana.
+
+-   [***Agricolae***](https://cran.r-project.org/web/packages/agricolae/index.html) facilita el diseño experimental[@Mendiburu2020].
+
+-   [***Shiny***](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) permite desarrollar aplicaciones web interactivas para visualización dinámica de resultados, mejorando la colaboración y transparencia en la investigación microbiológica industrial[@Chang2021].
 
 #### Uso de R en Microbiología Industrial
 
@@ -59,7 +95,7 @@ El **diseño experimental** en microbiología industrial se ha beneficiado signi
 
 Complementariamente, [@Ritz2005] presentaron el paquete *drc* (Dose-Response Curves), que ha facilitado el análisis de **Curvas dosis-respuesta** en estudios de inhibición microbiana, pruebas de susceptibilidad a antimicrobianos y evaluación de compuestos bioactivos producidos por microorganismos, proporcionando herramientas estadísticas robustas para cuantificar y modelar respuestas biológicas a diferentes tratamientos, lo cual es fundamental en el desarrollo de nuevos productos biotecnológicos.
 
-Gracias al paquete *ggplot2* desarrollado por [@Wickham2016], el cual ha permitido la creación de gráficos altamente informativos que facilitan la interpretación de resultados experimentales; en particular, la representación gráfica de cinéticas de crecimiento microbiano, producción de metabolitos y análisis multivariantes se ha vuelto más accesible e intuitiva para investigadores en el campo; de manera similar el paquete *ggtree*, creado por [@Yu2017], ha revolucionado la visualización de datos filogenéticos en estudios de diversidad microbiana industrial, permitiendo representar relaciones evolutivas entre microorganismos de interés biotecnológico y correlacionarlas con características fenotípicas relevantes para procesos industriales, lo que facilita la selección de cepas microbianas con potencial biotecnológico.
+El paquete *ggplot2* desarrollado por [@Wickham2016], el cual ha permitido la creación de gráficos altamente informativos que facilitan la interpretación de resultados experimentales; en particular, la representación gráfica de cinéticas de crecimiento microbiano, producción de metabolitos y análisis multivariantes se ha vuelto más accesible e intuitiva para investigadores en el campo; de manera similar el paquete *ggtree*, creado por [@Yu2017], ha revolucionado la visualización de datos filogenéticos en estudios de diversidad microbiana industrial, permitiendo representar relaciones evolutivas entre microorganismos de interés biotecnológico y correlacionarlas con características fenotípicas relevantes para procesos industriales, lo que facilita la selección de cepas microbianas con potencial biotecnológico.
 
 ::: {.callout-caution collapse="true"}
 ## Expandir para aprender son el analis de datos ómicos
@@ -124,7 +160,7 @@ El segundo paso es generar diez (10) ecuaciones de búsqueda ingresando a una de
 En la Tabla 1, se aprecian el número de publicaciones científicas relacionadas con algunas de las ecuanciones de búsqueda, lo que permitirá la elección del resultado más promisorio, para seguidamente proceder con el proceso de descarga de los metadatos en formato .csv.
 
 | Ecuación de búsqueda                                                                  | Documentos encontrados |
-|---------------------------------------------------------------------------------------|------------------------|
+|------------------------------------------------|------------------------|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions"                        | 225                    |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth"                                 | 191                    |
 | "Cordyceps militaris" AND "medium" AND "growth"                                       | 99                     |
@@ -150,7 +186,7 @@ Se abrirá el servidor de Bibliometrix (Figura 9) en el navegador web (Chrome, M
 
 ![Figura 9.](images/2_Bibliometrix/Figura_9.png)
 
-Siguiendo las indicaciones de [@Aria2017], en la parte izquierda se despliega el menú de biblioshiny, se procede con la importación en la seción "*Import or Load*" del archivo CSV, al tiempo que se seleccionan las casillas: *Import raw file(s*), la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: *Surname and Initials*, y finalmente damos click en el botón de *Start*  (Figura 10).
+En la parte izquierda se despliega el menú de biblioshiny, y se procede con la importación en "*Import or Load*" se carga el archivo CSV [@Aria2017], al tiempo que se seleccionan las casillas: *Import raw file(s*), la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: *Surname and Initials*, y finalmente damos click en el botón de *Start*  (Figura 10).
 
 ![Figura 10.](images/2_Bibliometrix/Figura_10.png)
 
@@ -158,17 +194,17 @@ Después se despliega una nueva ventana que muestra el estado de los componentes
 
 ![Figura 11.](images/2_Bibliometrix/Figura_11.png)
 
-Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" "Pobre" y "Completamente perdido" (Figura 11), y  que al ser cerrado "Close" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el articulo científico (Figura 12).
+Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" "Pobre" y "Completamente perdido" (Figura 11), y que al ser cerrado "Close" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el articulo científico (Figura 12).
 
 ![Figura 12](images/2_Bibliometrix/Figura_12.png)
 
-En el menú ***Overview*** se despliega la opción ***Main information*** (Traducido: Información Principal) la cual muestra de forma dinámica y visual los valores de los metadatos descargas, para nuestro ejemplo didáctico tenemos que : El análisis bibliométrico abarca el periodo de 1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, se identificaron 903 autores, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de coautores por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad media de citas por documento es de 25,69 (Figura 13) ***Falta***.
+En el menú ***Overview*** se despliega la opción ***Main information*** (Traducido: Información Principal) la cual muestra de forma dinámica y visual los valores de los metadatos descargas, para nuestro ejemplo didáctico tenemos que : El análisis bibliométrico abarca el periodo de 1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, se identificaron 903 autores, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de coautores por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad media de citas por documento es de 25,69 (Figura 13).
 
-![](images/2_Bibliometrix/Figura_13.png)
+![Figura 13](images/2_Bibliometrix/Figura_13.png)
 
-En la sección ***Annual Scientific Production*** (traducido: Producción Científica Anual) y continuando con ejemplo didáctico se muestra que: la evolución de la cantidad de artículos científicos relacionados con Cordyceps militaris publicados por año, van desde 1951 hasta aproximadamente el año 2000, la producción científica es muy baja, con solo unos pocos artículos publicados anualmente; a partir del 2000, se observa un ligero aumento en la cantidad de publicaciones, pero es a partir de 2010 cuando el crecimiento se acelera considerablemente, reflejando una tendencia ascendente más marcada. Entre 2015 y 2024, la producción científica alcanza sus niveles más altos, con un notable incremento en la cantidad de artículos publicados cada año. Sin embargo, en 2025 se observa una caída significativa, lo que podría deberse a datos incompletos, retrasos en las publicaciones o factores externos como cambios en políticas de financiamiento o publicación (Figura 14).
+En la sección ***Annual Scientific Production*** (traducido: Producción Científica Anual) y se muestra que: la evolución de la cantidad de artículos científicos relacionados con *Cordyceps militaris* publicados por año, van desde 1951 hasta aproximadamente el año 2000, la producción científica es muy baja, con solo unos pocos artículos publicados anualmente; a partir del 2000, se observa un ligero aumento en la cantidad de publicaciones, pero es a partir de 2010 cuando el crecimiento se acelera considerablemente, reflejando una tendencia ascendente más marcada. Entre 2015 y 2024, la producción científica alcanza sus niveles más altos, con un notable incremento en la cantidad de artículos publicados cada año. Sin embargo, en 2025 se observa una caída significativa, lo que podría deberse a datos incompletos, retrasos en las publicaciones o factores externos como cambios en políticas de financiamiento o publicación (Figura 14).
 
-![](images/2_Bibliometrix/Figura_10.png)
+![](images/2_Bibliometrix/Bibliometrix12.PNG)
 
 Para la sección ***Average Citations Per Ye*****ar** (Traducido: Citas Promedio por año) se muestra la evolución del número promedio de citas recibidas por los artículos a lo largo del tiempo. Para nuestro ejemplo didáctico en la temática de Cordyceps militaris, específicamente en 1951 y 1961, se observan valores relativamente altos, pero con pocos artículos publicados en esos períodos. Posteriormente, durante varias décadas, el número promedio de citas se mantiene bajo y estable. A partir del año 2000 aproximadamente , hay un incremento notable en la cantidad de citas por artículo, alcanzando picos significativos en el 2006 y 2008 (Figura 15).
 
