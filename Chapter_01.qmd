@@ -160,7 +160,7 @@ El segundo paso es generar diez (10) ecuaciones de búsqueda ingresando a una de
 En la Tabla 1, se aprecian el número de publicaciones científicas relacionadas con algunas de las ecuanciones de búsqueda, lo que permitirá la elección del resultado más promisorio, para seguidamente proceder con el proceso de descarga de los metadatos en formato .csv.
 
 | Ecuación de búsqueda                                                                  | Documentos encontrados |
-|-----------------------------------------------------|-------------------|
+|----------------------------------------------------|--------------------|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions"                        | 225                    |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth"                                 | 191                    |
 | "Cordyceps militaris" AND "medium" AND "growth"                                       | 99                     |
@@ -198,10 +198,12 @@ Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (
 
 ![Figura 12](images/2_Bibliometrix/Figura_12.png)
 
+### Estructura
+
 **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
 |  Nº | Módulo                                | Función general                                                                | Submódulos / indicadores                                                                     |
-|----:|-------------|------------------------|---------------------------|
+|----:|-------------|-------------------|-----------------------------|
 |   1 | **Data**                              | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.).              | Import or Load; Merge Datasets                                                               |
 |   2 | **Filters**                           | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries                                                                |
 |   3 | **Overview**                          | Panorama general con indicadores descriptivos.                                 | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
@@ -213,7 +215,9 @@ Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (
 
 : Módulos principales de Bibliometrix / Biblioshiny {#tbl-bibliometrix}
 
-En el modulo ***Overview*** se despliega el indicador ***Main information*** (Traducido: Información Principal), donde se muestran los valores de los metadatos descargas, para este ejemplo: El análisis bibliométrico abarca el periodo de 1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, se identificaron 903 autores, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de coautores por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad media de citas por documento es de 25,69 (Figura 13).
+#### **Modulo *Overview***
+
+El indicador ***Main information*** muestra los valores de los metadatos descargas, para este ejemplo se tiene un periodo de análisis de1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, se identificaron 903 autores, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de coautores por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad media de citas por documento es de 25,69 (Figura 13).
 
 ![Figura 13](images/2_Bibliometrix/Figura_13.png)
 
