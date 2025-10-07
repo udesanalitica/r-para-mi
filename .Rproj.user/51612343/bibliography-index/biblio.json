@@ -70,31 +70,6 @@
             "type": "book"
         },
         {
-            "URL": "https://r4ds.had.co.nz",
-            "author": [
-                {
-                    "family": "Wickham",
-                    "given": "Hadley"
-                },
-                {
-                    "family": "Grolemund",
-                    "given": "Garrett"
-                }
-            ],
-            "id": "Wickham2017R",
-            "issued": {
-                "date-parts": [
-                    [
-                        2017
-                    ]
-                ]
-            },
-            "publisher": "O’Reilly Media",
-            "title": "R for data science: Import, tidy, transform, visualize, and model data",
-            "title-short": "R for data science",
-            "type": "book"
-        },
-        {
             "DOI": "10.1039/c1mb05350g",
             "PMID": "22041788",
             "author": [
@@ -129,64 +104,6 @@
             "title": "LC-MS-based metabolomics",
             "type": "article-journal",
             "volume": "8"
-        },
-        {
-            "DOI": "10.1093/bioinformatics/btaa838",
-            "PMID": "32960962",
-            "author": [
-                {
-                    "family": "Reeder",
-                    "given": "Janina"
-                },
-                {
-                    "family": "Huang",
-                    "given": "Mo"
-                },
-                {
-                    "family": "Kaminker",
-                    "given": "Joshua S."
-                },
-                {
-                    "family": "Paulson",
-                    "given": "Joseph N."
-                }
-            ],
-            "container-title": "Bioinformatics (Oxford, England)",
-            "id": "Reeder2021",
-            "issue": "9",
-            "issued": {
-                "date-parts": [
-                    [
-                        2021
-                    ]
-                ]
-            },
-            "page": "1317-1318",
-            "title": "MicrobiomeExplorer: An r package for the analysis and visualization of microbial communities",
-            "title-short": "MicrobiomeExplorer",
-            "type": "article-journal",
-            "volume": "37"
-        },
-        {
-            "DOI": "10.1007/978-3-319-24277-4",
-            "URL": "http://dx.doi.org/10.1007/978-3-319-24277-4",
-            "author": [
-                {
-                    "family": "Wickham",
-                    "given": "Hadley"
-                }
-            ],
-            "id": "wickham2016a",
-            "issued": {
-                "date-parts": [
-                    [
-                        2016
-                    ]
-                ]
-            },
-            "publisher": "Springer International Publishing",
-            "title": "ggplot2",
-            "type": "book"
         },
         {
             "URL": "https://CRAN.R-project.org/package=readxl",
@@ -797,49 +714,6 @@
             "type": "book"
         },
         {
-            "DOI": "10.1007/978-3-319-24277-4",
-            "URL": "https://doi.org/10.1007/978-3-319-24277-4",
-            "author": [
-                {
-                    "family": "Wickham",
-                    "given": "Hadley"
-                }
-            ],
-            "id": "Wickham2016",
-            "issued": {
-                "date-parts": [
-                    [
-                        2016
-                    ]
-                ]
-            },
-            "publisher": "Springer",
-            "title": "ggplot2: Elegant graphics for data analysis",
-            "title-short": "ggplot2",
-            "type": "book"
-        },
-        {
-            "URL": "https://CRAN.R-project.org/package=tidyverse",
-            "author": [
-                {
-                    "family": "Wickham",
-                    "given": "Hadley"
-                }
-            ],
-            "id": "Wickham2017tidyverse",
-            "issued": {
-                "date-parts": [
-                    [
-                        2017
-                    ]
-                ]
-            },
-            "note": "R package version 1.2.1",
-            "title": "Tidyverse: Easily install and load the ’tidyverse’",
-            "title-short": "Tidyverse",
-            "type": "book"
-        },
-        {
             "URL": "https://r4ds.had.co.nz",
             "author": [
                 {
@@ -903,42 +777,6 @@
             "title": "R in LC-MS-based metabolomics: A review of packages, tutorials, and case studies",
             "type": "article-journal",
             "volume": "11"
-        },
-        {
-            "DOI": "10.1039/c1mb05350g",
-            "URL": "https://doi.org/10.1039/c1mb05350g",
-            "author": [
-                {
-                    "family": "Zhou",
-                    "given": "Bin"
-                },
-                {
-                    "family": "Xiao",
-                    "given": "Jun Feng"
-                },
-                {
-                    "family": "Tuli",
-                    "given": "Leepika"
-                },
-                {
-                    "family": "Ressom",
-                    "given": "Habtom W"
-                }
-            ],
-            "container-title": "Molecular BioSystems",
-            "id": "Zhou2012",
-            "issue": "2",
-            "issued": {
-                "date-parts": [
-                    [
-                        2012
-                    ]
-                ]
-            },
-            "page": "470-481",
-            "title": "LC-MS-based metabolomics",
-            "type": "article-journal",
-            "volume": "8"
         },
         {
             "DOI": "10.1093/bioinformatics/btaa838",
@@ -1262,6 +1100,57 @@
             "publisher": "McGraw-Hill/Interamericana Editores, S.A. de C.V.",
             "publisher-place": "México, D.F.",
             "title": "Análisis y diseño de experimentos",
+            "type": "book"
+        },
+        {
+            "URL": "https://www.R-project.org/",
+            "author": [
+                {
+                    "literal": "R Core Team"
+                }
+            ],
+            "id": "RCoreTeam2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "publisher": "R Foundation for Statistical Computing",
+            "publisher-place": "Vienna, Austria",
+            "title": "R: A language and environment for statistical computing",
+            "title-short": "R",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1201/9780429201011",
+            "author": [
+                {
+                    "family": "Baumer",
+                    "given": "Benjamin S."
+                },
+                {
+                    "family": "Kaplan",
+                    "given": "Daniel T."
+                },
+                {
+                    "family": "Horton",
+                    "given": "Nicholas J."
+                }
+            ],
+            "edition": "2nd",
+            "id": "Baumer2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "publisher": "Chapman; Hall/CRC",
+            "publisher-place": "Boca Raton, FL",
+            "title": "Modern data science with R",
             "type": "book"
         }
     ],

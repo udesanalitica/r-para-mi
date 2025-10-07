@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos – R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico</title>
+<title>5&nbsp; Parte II: Aplicaciones de R en Microbiología Industrial y Análisis de Datos – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,20 +154,20 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico</a> 
+      <a href="./">R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/udesanalitica/r-para-mi.git" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-Microbiología-Industrial--análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico.pdf">
+            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-Microbiología-Industrial--Análisis-de-Datos-y-Diseño-Experimental-con-un-Enfoque-Práctico.pdf">
               <i class="bi bi-file-pdf pe-1"></i>
             Descargar PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-Microbiología-Industrial--análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico.epub">
+            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-Microbiología-Industrial--Análisis-de-Datos-y-Diseño-Experimental-con-un-Enfoque-Práctico.epub">
               <i class="bi bi-journal pe-1"></i>
             Descargar ePub
             </a>
@@ -277,33 +277,33 @@ div.csl-indent {
 
 <section id="fundamentos-del-diseño-experimental-quarto" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="fundamentos-del-diseño-experimental-quarto"><span class="header-section-number">5.1</span> 2. Fundamentos del Diseño Experimental quarto</h2>
-<p>El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El <strong>diseño de experimentos (DOE)</strong> se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre <span class="citation" data-cites="gutierrez2012analisis">(<a href="#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido y Vara Salazar 2012</a>)</span>.</p>
-<p>El DOE se da en ámbitos industriales y de investigación aplicada, los experimentos suelen realizarse para resolver problemas de calidad, mejorar procesos o comprobar hipótesis sobre materiales, condiciones de operación o métodos de trabajo. Sin embargo, cuando estas pruebas carecen de planeación rigurosa, se corre el riesgo de interpretar datos de manera subjetiva y desaprovechar el potencial de la variabilidad natural del sistema. Por ello, el DOE proporciona un marco que asegura resultados válidos y generalizables <span class="citation" data-cites="gutierrez2012analisis">(<a href="#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido y Vara Salazar 2012</a>)</span>.</p>
+<p>El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El <strong>diseño de experimentos (DOE)</strong> se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
+<p>El DOE se da en ámbitos industriales y de investigación aplicada, los experimentos suelen realizarse para resolver problemas de calidad, mejorar procesos o comprobar hipótesis sobre materiales, condiciones de operación o métodos de trabajo. Sin embargo, cuando estas pruebas carecen de planeación rigurosa, se corre el riesgo de interpretar datos de manera subjetiva y desaprovechar el potencial de la variabilidad natural del sistema. Por ello, el DOE proporciona un marco que asegura resultados válidos y generalizables <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <p>En cuanto a la terminología básica, conceptos como unidad experimental, tratamiento, factor controlable y no controlable, niveles de los factores, variable de respuesta, repetición y matriz de diseño, es requerido manejarlos. Estos términos constituyen la gramática operativa del diseño experimental, permitiendo estructurar adecuadamente las hipótesis y la recolección de datos. Además, se distingue entre error aleatorio y error experimental, resaltando la necesidad de minimizar y cuantificar ambos para garantizar validez estadística. Entre las etapas del diseño experimental, es incluyen:</p>
 <ul>
-<li><p><strong>Planeación:</strong> formulación del problema, identificación de factores y niveles, selección de variables de respuesta y definición de objetivos.</p></li>
-<li><p><strong>Ejecución:</strong> implementación del plan experimental bajo condiciones de control y aleatorización.</p></li>
-<li><p><strong>Análisis:</strong> aplicación de métodos estadísticos, principalmente análisis de varianza (ANOVA), para estimar efectos principales e interacciones.</p></li>
-<li><p><strong>Interpretación:</strong> extracción de conclusiones técnicas y toma de decisiones basadas en la evidencia.</p></li>
+<li><strong>Planeación:</strong> formulación del problema, identificación de factores y niveles, selección de variables de respuesta y definición de objetivos.</li>
+<li><strong>Ejecución:</strong> implementación del plan experimental bajo condiciones de control y aleatorización.</li>
+<li><strong>Análisis:</strong> aplicación de métodos estadísticos, principalmente análisis de varianza (ANOVA), para estimar efectos principales e interacciones.</li>
+<li><strong>Interpretación:</strong> extracción de conclusiones técnicas y toma de decisiones basadas en la evidencia.</li>
 </ul>
 <p>Un aporte central son los principios básicos del DOE:</p>
 <ul>
-<li><p><strong>Aleatorización</strong>, que asegura independencia de los errores y evita sesgos sistemáticos.</p></li>
-<li><p><strong>Replicación,</strong> que incrementa la precisión de las estimaciones al cuantificar la variabilidad experimental.</p></li>
-<li><p><strong>Bloqueo</strong>, que controla fuentes de variación no deseadas (turno, lote, operador), incrementando la potencia estadística del experimento.</p></li>
+<li><strong>Aleatorización</strong>, que asegura independencia de los errores y evita sesgos sistemáticos.</li>
+<li><strong>Replicación,</strong> que incrementa la precisión de las estimaciones al cuantificar la variabilidad experimental.</li>
+<li><strong>Bloqueo</strong>, que controla fuentes de variación no deseadas (turno, lote, operador), incrementando la potencia estadística del experimento.</li>
 </ul>
 <p>Estos principios permiten estructurar experimentos que sean eficientes en costo y tiempo, pero robustos en cuanto a la validez de sus conclusiones.</p>
-<p>La clasificación de diseños va desde los más simples (completamente al azar, bloques completos, cuadrados latinos) hasta los más complejos (factoriales, fraccionados, superficies de respuesta, diseños robustos). Se subraya que la selección depende de los objetivos, el número de factores, las restricciones prácticas y el tipo de información buscada. También se enfatiza que la decisión debe considerar tanto la significancia estadística como la significancia práctica, es decir, el impacto real de los resultados sobre el proceso o fenómeno bajo estudio <span class="citation" data-cites="gutierrez2012analisis">(<a href="#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido y Vara Salazar 2012</a>)</span>.</p>
+<p>La clasificación de diseños va desde los más simples (completamente al azar, bloques completos, cuadrados latinos) hasta los más complejos (factoriales, fraccionados, superficies de respuesta, diseños robustos). Se subraya que la selección depende de los objetivos, el número de factores, las restricciones prácticas y el tipo de información buscada. También se enfatiza que la decisión debe considerar tanto la significancia estadística como la significancia práctica, es decir, el impacto real de los resultados sobre el proceso o fenómeno bajo estudio <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <section id="tipos-de-diseños-experimentales" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="tipos-de-diseños-experimentales"><span class="header-section-number">5.1.1</span> 2.1 Tipos de diseños experimentales</h3>
-<p>La selección de un diseño experimental depende de distintos factores que condicionan su pertinencia y aplicabilidad en cada situación. Entre los aspectos determinantes se encuentran: los objetivos que se persiguen con el estudio, la cantidad de factores que se desea analizar, el número de niveles que adoptará cada factor, los efectos que se pretende identificar en la relación causa-efecto y, finalmente, las restricciones de costo, tiempo y precisión que impone la investigación <span class="citation" data-cites="gutierrez2012analisis">(<a href="#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido y Vara Salazar 2012</a>)</span>.</p>
+<p>La selección de un diseño experimental depende de distintos factores que condicionan su pertinencia y aplicabilidad en cada situación. Entre los aspectos determinantes se encuentran: los objetivos que se persiguen con el estudio, la cantidad de factores que se desea analizar, el número de niveles que adoptará cada factor, los efectos que se pretende identificar en la relación causa-efecto y, finalmente, las restricciones de costo, tiempo y precisión que impone la investigación <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <p>Estos elementos no actúan de forma aislada, ya que la modificación de cualquiera de ellos obliga generalmente a replantear el diseño a utilizar. En consecuencia, resultan fundamentales para guiar la clasificación de los diseños experimentales.</p>
-<p>El <strong>objetivo del experimento</strong> constituye el criterio principal para diferenciar entre tipos de diseño, mientras que los demás factores funcionan como subcriterios de clasificación. Bajo esta perspectiva, los diseños pueden agruparse en varias categorías: aquellos orientados a la comparación de dos o más tratamientos; los que examinan el efecto de diversos factores sobre una o varias variables de respuesta; los que buscan establecer el punto óptimo de operación de un proceso; los que se enfocan en la optimización de mezclas; y finalmente, los dirigidos a lograr que un producto o proceso se mantenga estable frente a factores no controlables <span class="citation" data-cites="gutierrez2012analisis">(<a href="#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido y Vara Salazar 2012</a>)</span>.</p>
+<p>El <strong>objetivo del experimento</strong> constituye el criterio principal para diferenciar entre tipos de diseño, mientras que los demás factores funcionan como subcriterios de clasificación. Bajo esta perspectiva, los diseños pueden agruparse en varias categorías: aquellos orientados a la comparación de dos o más tratamientos; los que examinan el efecto de diversos factores sobre una o varias variables de respuesta; los que buscan establecer el punto óptimo de operación de un proceso; los que se enfocan en la optimización de mezclas; y finalmente, los dirigidos a lograr que un producto o proceso se mantenga estable frente a factores no controlables <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <p>Así, la clasificación general de los diseños experimentales responde al objetivo central del estudio, y dentro de cada categoría se consideran elementos adicionales como el número de factores, los tipos de efectos a investigar y las restricciones prácticas que condicionan la ejecución.</p>
 </section>
 <section id="clasificación-de-los-diseños-experimentales" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="clasificación-de-los-diseños-experimentales"><span class="header-section-number">5.1.2</span> <strong>Clasificación de los diseños experimentales</strong></h3>
-<p>La siguente clasificación es tomada el libro de <span class="citation" data-cites="gutierrez2012analisis">(<a href="#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido y Vara Salazar 2012</a>)</span>.</p>
+<p>La siguente clasificación es tomada el libro de <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <ol type="1">
 <li><p><strong>Diseños para comparar dos o más tratamientos</strong><br>
 🔹 Diseño completamente al azar<br>
@@ -341,8 +341,8 @@ div.csl-indent {
 </section>
 <section id="problema" class="level4" data-number="5.1.3.2">
 <h4 data-number="5.1.3.2" class="anchored" data-anchor-id="problema"><span class="header-section-number">5.1.3.2</span> Problema</h4>
-<p><strong>Introducción:</strong> La <strong>antracnosis del banano</strong> 🍌, causada por <em>Colletotrichum musae</em> (Berk. y M.A.&nbsp;Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto <span class="citation" data-cites="Vasquez-Castillo2019">(<a href="#ref-Vasquez-Castillo2019" role="doc-biblioref">Vásquez-Castillo et&nbsp;al. 2019</a>)</span>.</p>
-<p>Tradicionalmente, el manejo de esta epifítia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad (<span class="citation" data-cites="Arias2007">(<a href="#ref-Arias2007" role="doc-biblioref">Arias B. 2007</a>)</span>, por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.</p>
+<p><strong>Introducción:</strong> La <strong>antracnosis del banano</strong> 🍌, causada por <em>Colletotrichum musae</em> (Berk. y M.A.&nbsp;Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto <span class="citation" data-cites="Vasquez-Castillo2019">(<a href="references.html#ref-Vasquez-Castillo2019" role="doc-biblioref">Vásquez-Castillo et&nbsp;al., 2019</a>)</span>.</p>
+<p>Tradicionalmente, el manejo de esta epifítia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad (<span class="citation" data-cites="Arias2007">(<a href="references.html#ref-Arias2007" role="doc-biblioref">Arias B., 2007</a>)</span>, por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.</p>
 <p><strong>Metodología:</strong> El estudio se estructuró a partir de dos diseños experimentales: un <strong>Diseño Completamente al Azar</strong> para la evaluación de sustratos, y un <strong>Diseño de Medidas Repetidas en el Tiempo</strong> para la evaluación de la actividad inhibitoria.</p>
 </section>
 <section id="diseño-1-sustratos-de-cultivo-para-penicillum-sp." class="level4" data-number="5.1.3.3">
@@ -362,7 +362,7 @@ div.csl-indent {
 Sustratos con Conidios de <em>Penicillium</em> sp.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="docx/sustrato.gif" class="img-fluid figure-img" alt="Figura 1." width="406"></p>
+<p><img src="images/3_DCA/sustrato.png" class="img-fluid figure-img" alt="Figura 1." width="341"></p>
 <figcaption>Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).</figcaption>
 </figure>
 </div>
@@ -372,7 +372,7 @@ La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0
 </strong>Efecto de los tratamientos in vitro frente al crecmiento de <em>Colletotrichum musae.</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="docx/experimentoinvitro.gif" class="img-fluid figure-img" width="406"></p>
+<p><img src="images/3_DCA/experimentoinvitro.png" class="img-fluid figure-img"></p>
 <figcaption>Nota: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de <em>Penicillium</em> sp., al 4%; (D) Extracto de <em>Penicillium</em> sp., al 4,5%; (E) Extracto de <em>Penicillium</em> sp., al 5%; (F) Extracto de <em>Penicillium</em> sp., al 5,5%; (G) Extracto de <em>Penicillium</em> sp., al 6%.</figcaption>
 </figure>
 </div>
@@ -382,7 +382,7 @@ Por otro lado,&nbsp; los ensayos in vivo evidenciaron una mayor eficacia del ext
 Efecto in vivo de bananos infectados con <em>Colletotrichum musae</em> en los tratamientos.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="docx/experimentobananos.gif" class="img-fluid figure-img" width="406"></p>
+<p><img src="images/3_DCA/experimentobananos.png" class="img-fluid figure-img"></p>
 <figcaption>Nota: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.</figcaption>
 </figure>
 </div>
@@ -395,8 +395,8 @@ Para mayor información puede consultar:</strong> Mejía-Sarmiento, J. S. (2022)
 <p>La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 35%">
-<col style="width: 64%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -753,15 +753,15 @@ Importante
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Arias2007" class="csl-entry" role="listitem">
-Arias B., C. L. 2007. <span>«Control Qu<span>í</span>mico de la Antracnosis del Mango (<span>Mangifera indica L.</span>) en pre y postcosecha»</span>. <em>Bioagro</em> 19 (1): 19-25. <a href="http://www.ucla.edu.ve/bioagro/Rev19(1)/3.%20Control%20qu%C3%ADmico%20de%20la%20antracnosis.pdf">http://www.ucla.edu.ve/bioagro/Rev19(1)/3.%20Control%20qu%C3%ADmico%20de%20la%20antracnosis.pdf</a>.
+Arias B., C. L. (2007). Control Qu<span>í</span>mico de la Antracnosis del Mango (<span>Mangifera indica L.</span>) en pre y postcosecha. <em>Bioagro</em>, <em>19</em>(1), 19-25. <a href="http://www.ucla.edu.ve/bioagro/Rev19(1)/3.%20Control%20qu%C3%ADmico%20de%20la%20antracnosis.pdf">http://www.ucla.edu.ve/bioagro/Rev19(1)/3.%20Control%20qu%C3%ADmico%20de%20la%20antracnosis.pdf</a>
 </div>
 <div id="ref-gutierrez2012analisis" class="csl-entry" role="listitem">
-Gutiérrez Pulido, Humberto, y Román de la Vara Salazar. 2012. <em>An<span>á</span>lisis y dise<span>ñ</span>o de experimentos</em>. 3.ª ed. M<span>é</span>xico, D.F.: McGraw-Hill/Interamericana Editores, S.A. de C.V.
+Gutiérrez Pulido, H., &amp; Vara Salazar, R. de la. (2012). <em>An<span>á</span>lisis y dise<span>ñ</span>o de experimentos</em> (3.ª ed.). McGraw-Hill/Interamericana Editores, S.A. de C.V.
 </div>
 <div id="ref-Vasquez-Castillo2019" class="csl-entry" role="listitem">
-Vásquez-Castillo, W., M. Racines-Oliva, P. Moncayo, W. Viera, y M. Seraquive. 2019. <span>«Calidad del fruto y p<span>é</span>rdidas postcosecha de banano org<span>á</span>nico (<span>Musa acuminata</span>) en el <span>Ecuador</span>»</span>. <em>Enfoque UTE</em> 10 (4): 57-66. <a href="https://doi.org/10.29019/enfoque.v10n4.545">https://doi.org/10.29019/enfoque.v10n4.545</a>.
+Vásquez-Castillo, W., Racines-Oliva, M., Moncayo, P., Viera, W., &amp; Seraquive, M. (2019). Calidad del fruto y p<span>é</span>rdidas postcosecha de banano org<span>á</span>nico (<span>Musa acuminata</span>) en el <span>Ecuador</span>. <em>Enfoque UTE</em>, <em>10</em>(4), 57-66. <a href="https://doi.org/10.29019/enfoque.v10n4.545">https://doi.org/10.29019/enfoque.v10n4.545</a>
 </div>
 </div>
 </section>

@@ -1,11 +1,16 @@
 ---
 title: "Introducción"
-format: html
+format: docx
 ---
-# Introducción
 
-El software R® representa un entorno y lenguaje de programación fundamental para el análisis estadístico y la visualización de datos en la investigación científica contemporánea, su capacidad para procesar grandes volúmenes de información y flexibilidad excepcional lo han posicionado como una herramienta indispensable a ser usada en la microbiología industrial, donde la optimización de procesos y la toma de decisiones informadas dependen crucialmente del análisis riguroso de datos experimentales [@Rcore2021].
+En el ámbito de la microbiología industrial, donde los requerimientos analíticos varían según el tipo de experimento y los objetivos investigativos, R y RStudio® ofrecen una flexibilidad sobresaliente. La comunidad global de usuarios provee soporte constante y recursos actualizados, mientras que la amplia disponibilidad de paquetes especializados permite realizar análisis complejos con mayor precisión y eficiencia [@Wickham2017r4ds]. Esta combinación de potencia analítica, reproducibilidad y accesibilidad convierte a R en una herramienta idónea para el análisis de datos experimentales, el diseño de experimentos y la optimización de procesos biotecnológicos.
 
-Complementariamente, RStudio® constituye una Interfaz de Desarrollo Integrada (IDE) que transforma significativamente la experiencia del usuario al proporcionar un entorno accesible y amigable para la programación, integrando múltiples herramientas esenciales como: un editor de código avanzado, una consola interactiva y sistemas de visualización de datos, lo que facilita considerablemente el aprendizaje y la aplicación práctica de R en contextos académicos e industriales [@Rcore2021].
+El presente libro está estructurado en tres partes principales.
 
-En el contexto específico de la microbiología industrial, donde los requisitos analíticos varían considerablemente según el tipo de experimento y los objetivos investigativos, R y RStudio® ofrecen una flexibilidad excepcional, la comunidad activa de usuarios proporciona recursos y soporte continuo, mientras que la amplia disponibilidad de paquetes especializados permite realizar análisis complejos con mayor precisión y eficiencia [@Wickham2017r4ds].
+-   La Parte I aborda la instalación, configuración y manejo del entorno RStudio®, junto con un inventario de librerías esenciales para el análisis de datos en microbiología industrial.
+
+-   La Parte II desarrolla aplicaciones prácticas de R en el diseño experimental, con ejemplos reproducibles de diseños completamente al azar, en bloques y con mediciones repetidas en el tiempo.
+
+-   La Parte III introduce el uso de inteligencia artificial y simulación de datos, explorando cómo los modelos generativos y las herramientas computacionales pueden complementar la investigación microbiológica moderna.
+
+De este modo, el libro ofrece una guía integral que combina fundamentos teóricos, práctica aplicada y perspectivas innovadoras, contribuyendo a fortalecer las competencias analíticas de los estudiantes y profesionales de la microbiología industrial.

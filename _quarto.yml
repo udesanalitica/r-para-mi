@@ -1,24 +1,38 @@
 project:
   type: book
-  output-dir: docs   # necesario para GitHub Pages
+  # Especificar la carpeta de salida para el libro
+  output-dir: docs 
   preview:
     port: 4200
     browser: true
 
+# Idioma principal del documento
 lang: es
 
 book:
-  title: "R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico"
-  author: "Fredy Ortiz, Miguel Pérez y Francisco León"
+  title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
+  # Se recomienda un formato estandarizado para los autores (e.g., por roles o líneas).
+  author: 
+    - "Fredy Ortiz"
+    - "Miguel Pérez"
+    - "Francisco León"
   date: "2025-05-05"
+  
+  # Configuración de Repositorio y Acciones (GitHub)
   site-url: "https://udesanalitica.github.io/r-para-mi/"
   repo-url: "https://github.com/udesanalitica/r-para-mi.git"
   repo-branch: main
   repo-actions: [edit, issue, source]
-  favicon: favicon.png        # opcional, crea el archivo si lo usas
+  
+  # Opciones visuales y de navegación
+  favicon: favicon.png          # Asegúrese de que el archivo 'favicon.png' exista.
   page-navigation: true
   search: true
+  
+  # Descargas: pdf requiere una configuración de formato más detallada
   downloads: [pdf, epub]
+  
+  # Estructura del libro (orden de los archivos)
   chapters:
     - index.qmd
     - autores.qmd
@@ -29,28 +43,40 @@ book:
     - Chapter_03.qmd
     - references.qmd
 
+# Referencias
 bibliography: references.bib
+csl: apa.csl
 
 format:
   html:
-    theme: cosmo        # 🔧 Se eliminó "brand" que causaba error
+    theme: cosmo
     toc: true
     number-sections: true
     code-copy: true
     smooth-scroll: true
+  
+  # Configuración PDF: usar 'latex-image' si tiene una imagen de portada
   pdf:
     documentclass: scrreprt
+    # Opcional: configurar la portada y el color principal si usa la clase por defecto
+    # colorlinks: true
+    # linkcolor: blue
+  
+  # Formato Word (docx)
   docx:
     toc: true
     number-sections: true
+  
+  # Formato EPUB
   epub:
-    cover-image: cover.png
+    cover-image: cover.png        # Asegúrese de que el archivo 'cover.png' exista.
 
 website:
   page-footer:
     left: "© 2025 Autores"
     right: "Publicado con Quarto y GitHub Pages"
 
+# Configuración de ejecución
 execute:
   freeze: auto
 

@@ -11,19 +11,14 @@ El DOE se da en ámbitos industriales y de investigación aplicada, los experime
 En cuanto a la terminología básica, conceptos como unidad experimental, tratamiento, factor controlable y no controlable, niveles de los factores, variable de respuesta, repetición y matriz de diseño, es requerido manejarlos. Estos términos constituyen la gramática operativa del diseño experimental, permitiendo estructurar adecuadamente las hipótesis y la recolección de datos. Además, se distingue entre error aleatorio y error experimental, resaltando la necesidad de minimizar y cuantificar ambos para garantizar validez estadística. Entre las etapas del diseño experimental, es incluyen:
 
 -   **Planeación:** formulación del problema, identificación de factores y niveles, selección de variables de respuesta y definición de objetivos.
-
 -   **Ejecución:** implementación del plan experimental bajo condiciones de control y aleatorización.
-
 -   **Análisis:** aplicación de métodos estadísticos, principalmente análisis de varianza (ANOVA), para estimar efectos principales e interacciones.
-
 -   **Interpretación:** extracción de conclusiones técnicas y toma de decisiones basadas en la evidencia.
 
 Un aporte central son los principios básicos del DOE:
 
 -   **Aleatorización**, que asegura independencia de los errores y evita sesgos sistemáticos.
-
 -   **Replicación,** que incrementa la precisión de las estimaciones al cuantificar la variabilidad experimental.
-
 -   **Bloqueo**, que controla fuentes de variación no deseadas (turno, lote, operador), incrementando la potencia estadística del experimento.
 
 Estos principios permiten estructurar experimentos que sean eficientes en costo y tiempo, pero robustos en cuanto a la validez de sus conclusiones.
@@ -107,7 +102,7 @@ Las variables independientes fueron las diferentes concentraciones del extracto 
 **Figura 1.**\
 Sustratos con Conidios de *Penicillium* sp.
 
-![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](docx/sustrato.gif){fig-alt="Figura 1." width="406"}
+![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](images/3_DCA/sustrato.png){fig-alt="Figura 1." width="341"}
 
 \
 La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0 al 6,0% generaron Porcentajes de Inhibición del Crecimiento micelial (PICM) del 40 al 50 % respectivamente al quinto día después de la inoculación (ddi) **(Figura 2)**.
@@ -115,7 +110,7 @@ La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0
 **Figura 2.\
 **Efecto de los tratamientos in vitro frente al crecmiento de *Colletotrichum musae.*
 
-![Nota: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de *Penicillium* sp., al 4%; (D) Extracto de *Penicillium* sp., al 4,5%; (E) Extracto de *Penicillium* sp., al 5%; (F) Extracto de *Penicillium* sp., al 5,5%; (G) Extracto de *Penicillium* sp., al 6%.](docx/experimentoinvitro.gif){width="406"}
+![Nota: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de *Penicillium* sp., al 4%; (D) Extracto de *Penicillium* sp., al 4,5%; (E) Extracto de *Penicillium* sp., al 5%; (F) Extracto de *Penicillium* sp., al 5,5%; (G) Extracto de *Penicillium* sp., al 6%.](images/3_DCA/experimentoinvitro.png)
 
 \
 Por otro lado,  los ensayos in vivo evidenciaron una mayor eficacia del extracto crudo, donde las concentraciones de 8, 9, 10, 11, 12 y 13% generaron porcentajes de inhibición del área de la lesión (PIAL) de 60, 55, 70, 72, 77 y 80% respectivamente **(Figura 3)**, sugiriendo que Penicillium digitatum podría representar una alternativa viable para el manejo preventivo de la antracnosis del banano.
@@ -123,7 +118,7 @@ Por otro lado,  los ensayos in vivo evidenciaron una mayor eficacia del extract
 **Figura 3.**\
 Efecto in vivo de bananos infectados con *Colletotrichum musae* en los tratamientos.
 
-![Nota: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.](docx/experimentobananos.gif){width="406"}
+![Nota: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.](images/3_DCA/experimentobananos.png)
 
 **\
 Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de Extracto Crudo de Penicillium sp. para la Inhibición del Crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A. Curtis) Arx. Agente Causal de Antracnosis en Banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
@@ -133,7 +128,7 @@ Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evalu
 La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:
 
 | Variable      | Descripción                                                                                         |
-|-------------------------|----------------------------------------------|
+|--------------------|----------------------------------------------------|
 | `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.                      |
 | `Repetición`  | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
 | `Resultado`   | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).  |

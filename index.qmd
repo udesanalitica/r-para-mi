@@ -11,7 +11,7 @@ En respuesta a esta problemática, surge la propuesta del libro " Aplicaciones d
 La obra integra además temas relacionados a: Análisis Bibliométrico, integración de Inteligencia Artificial, reconociendo de este modo que la microbiología contemporánea demanda no solo competencias técnicas, sino adaptación de nuevas habilidades en una disciplina científica en constante evolución, contribuyendo de esta forma a la formación de profesionales capaces de afrontar los desafíos emergentes del campo de microbiológico industrial, tanto para el presente como su futuro profesional.
 
 **Fredy Alejandro Ortiz Meneses**\
-*Curso Microbiologia Genera y Microbiología II*
+*Curso Microbiologia General y Microbiología II*
 
 **Miguel Oswaldo Pérez Pulido**\
 *Curso Proyecto II -- Microbiología Industrial\
