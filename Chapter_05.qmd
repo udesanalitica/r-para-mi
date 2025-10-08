@@ -1,0 +1,9 @@
+---
+title: "Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)"
+---
+
+### Problema
+
+::: callout-important
+**Metodología:** Se realizó un diseño de medidas repetidas en el tiempo, donde la variable independiente fue cada una de las concentraciones del extracto y los testigos; y la variable respuesta fueron: Porcentaje de Inhibición del Área de la Lesió (PIAL) y Porcentaje de Inhibición del Crecimiento Micelial (PICM).
+:::

@@ -1,7 +1,70 @@
 ---
-title: "Parte III: Uso de Inteligencia Artificial para la simulación de datos"
+title: "Capitulo 3 Generalidades del Diseño Experimental"
 ---
 
-## Uso de Inteligencia Artificial para la simulación de datos.
+El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El **diseño de experimentos (DOE)** se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre [@gutierrez2012analisis].
 
-### 
+El DOE se da en ámbitos industriales y de investigación aplicada, los experimentos suelen realizarse para resolver problemas de calidad, mejorar procesos o comprobar hipótesis sobre materiales, condiciones de operación o métodos de trabajo. Sin embargo, cuando estas pruebas carecen de planeación rigurosa, se corre el riesgo de interpretar datos de manera subjetiva y desaprovechar el potencial de la variabilidad natural del sistema. Por ello, el DOE proporciona un marco que asegura resultados válidos y generalizables [@gutierrez2012analisis].
+
+En cuanto a la terminología básica, conceptos como unidad experimental, tratamiento, factor controlable y no controlable, niveles de los factores, variable de respuesta, repetición y matriz de diseño, es requerido manejarlos. Estos términos constituyen la gramática operativa del diseño experimental, permitiendo estructurar adecuadamente las hipótesis y la recolección de datos. Además, se distingue entre error aleatorio y error experimental, resaltando la necesidad de minimizar y cuantificar ambos para garantizar validez estadística. Entre las etapas del diseño experimental, es incluyen:
+
+-   **Planeación:** formulación del problema, identificación de factores y niveles, selección de variables de respuesta y definición de objetivos.
+-   **Ejecución:** implementación del plan experimental bajo condiciones de control y aleatorización.
+-   **Análisis:** aplicación de métodos estadísticos, principalmente análisis de varianza (ANOVA), para estimar efectos principales e interacciones.
+-   **Interpretación:** extracción de conclusiones técnicas y toma de decisiones basadas en la evidencia.
+
+Un aporte central son los principios básicos del DOE:
+
+-   **Aleatorización**, que asegura independencia de los errores y evita sesgos sistemáticos.
+-   **Replicación,** que incrementa la precisión de las estimaciones al cuantificar la variabilidad experimental.
+-   **Bloqueo**, que controla fuentes de variación no deseadas (turno, lote, operador), incrementando la potencia estadística del experimento.
+
+Estos principios permiten estructurar experimentos que sean eficientes en costo y tiempo, pero robustos en cuanto a la validez de sus conclusiones.
+
+La clasificación de diseños va desde los más simples (completamente al azar, bloques completos, cuadrados latinos) hasta los más complejos (factoriales, fraccionados, superficies de respuesta, diseños robustos). Se subraya que la selección depende de los objetivos, el número de factores, las restricciones prácticas y el tipo de información buscada. También se enfatiza que la decisión debe considerar tanto la significancia estadística como la significancia práctica, es decir, el impacto real de los resultados sobre el proceso o fenómeno bajo estudio [@gutierrez2012analisis].
+
+### 2.1 Tipos de diseños experimentales
+
+La selección de un diseño experimental depende de distintos factores que condicionan su pertinencia y aplicabilidad en cada situación. Entre los aspectos determinantes se encuentran: los objetivos que se persiguen con el estudio, la cantidad de factores que se desea analizar, el número de niveles que adoptará cada factor, los efectos que se pretende identificar en la relación causa-efecto y, finalmente, las restricciones de costo, tiempo y precisión que impone la investigación [@gutierrez2012analisis].
+
+Estos elementos no actúan de forma aislada, ya que la modificación de cualquiera de ellos obliga generalmente a replantear el diseño a utilizar. En consecuencia, resultan fundamentales para guiar la clasificación de los diseños experimentales.
+
+El **objetivo del experimento** constituye el criterio principal para diferenciar entre tipos de diseño, mientras que los demás factores funcionan como subcriterios de clasificación. Bajo esta perspectiva, los diseños pueden agruparse en varias categorías: aquellos orientados a la comparación de dos o más tratamientos; los que examinan el efecto de diversos factores sobre una o varias variables de respuesta; los que buscan establecer el punto óptimo de operación de un proceso; los que se enfocan en la optimización de mezclas; y finalmente, los dirigidos a lograr que un producto o proceso se mantenga estable frente a factores no controlables [@gutierrez2012analisis].
+
+Así, la clasificación general de los diseños experimentales responde al objetivo central del estudio, y dentro de cada categoría se consideran elementos adicionales como el número de factores, los tipos de efectos a investigar y las restricciones prácticas que condicionan la ejecución.
+
+### **Clasificación de los diseños experimentales**
+
+La siguente clasificación es tomada el libro de [@gutierrez2012analisis].
+
+1.  **Diseños para comparar dos o más tratamientos**\
+    🔹 Diseño completamente al azar\
+    🔹 Diseño de bloques completos al azar\
+    🔹 Diseño de cuadros latino y grecolatino
+
+2.  **Diseños para estudiar efectos de varios factores sobre una o más variables de respuesta**\
+    🔹 Diseños factoriales 2ᵏ\
+    🔹 Diseños factoriales 3ᵏ\
+    🔹 Diseños fraccionados 2ᵏ⁻ᵖ\
+    🔹 Diseños anidados\
+    🔹 Diseños en parcelas divididas
+
+3.  **Diseños para la optimización de procesos**\
+    **➤ Modelo de primer orden**\
+    🔹 Diseños factoriales 2ᵏ y 2ᵏ⁻ᵖ\
+    🔹 Diseño de Plackett-Burman\
+    🔹 Diseño simplex\
+    **➤ Modelo de segundo orden**\
+    🔹 Diseño de composición central\
+    🔹 Diseño de Box-Behnken\
+    🔹 Diseños factoriales 3ᵏ y 3ᵏ⁻ᵖ
+
+4.  **Diseños robustos**\
+    🔹 Arreglos ortogonales (factoriales)\
+    🔹 Diseño con arreglos interno y externo
+
+5.  **Diseños de mezclas**\
+    🔹 Diseño simplex-reticular\
+    🔹 Diseño simplex con centroide\
+    🔹 Diseño sin restricciones\
+    🔹 Diseño axial

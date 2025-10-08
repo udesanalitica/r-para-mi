@@ -1,4 +1,4 @@
-# Autores {.unnumbered}
+# Autores
 
 ::: callout-tip
 ![](images/Autores/FAOM.png)

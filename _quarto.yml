@@ -9,6 +9,8 @@ project:
 # Idioma principal del documento
 lang: es
 
+cover-image: cover.png 
+
 book:
   title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
   # Se recomienda un formato estandarizado para los autores (e.g., por roles o líneas).
@@ -41,6 +43,10 @@ book:
     - Chapter_01.qmd
     - Chapter_02.qmd
     - Chapter_03.qmd
+    - Chapter_04.qmd
+    - Chapter_05.qmd
+    - Chapter_06.qmd
+    - Chapter_07.qmd
     - references.qmd
 
 # Referencias
