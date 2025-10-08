@@ -4,7 +4,7 @@ title: "Capítulo 1 Introducción al software R y la interfaz RStudio"
 
 El software **R** es un entorno de programación especializado en análisis estadístico, visualización de datos y modelado científico, ampliamente utilizado en la investigación y la industria. Su integración con **RStudio**, una interfaz de desarrollo amigable y versátil, facilita la escritura de código, la gestión de proyectos y la interpretación de resultados. A continuación, se describe el proceso de **instalación y configuración** del software R y de la interfaz **RStudio**, así como los pasos iniciales para familiarizarse con sus principales componentes y herramientas de trabajo.
 
-### Instalación y configuración
+## Instalación y configuración
 
 La instalación del software R y la interfaz RStudio (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar RStudio® desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (Figura 1).
 
@@ -34,11 +34,11 @@ Mantener R y RStudio® actualizados es clave para aprovechar las últimas mejora
 
 Para actualizar R, se debe descargar e instalar la nueva versión desde el sitio web del Proyecto R; para actualizar RStudio®, se puede utilizar la opción de actualización en el menú de ayuda de RStudio®; mantener el software actualizado garantiza un rendimiento óptimo y acceso a las últimas funcionalidades [@Rcore2021] (R Core Team, 2023; RStudio Team, 2023).
 
-### Paquetes Esenciales para el análisis de datos
+## Paquetes Esenciales para el análisis de datos
 
 De **R** se destaca su gran variedad de paquetes especializados que amplían sus capacidades analíticas y gráficas. En el contexto de la **microbiología industrial**, estas librerías permiten gestionar, transformar y visualizar datos experimentales con precisión, favoreciendo la interpretación de resultados y la toma de decisiones basadas en evidencia. Es por ello que se presenta un inventario de los **paquetes más utilizados en el análisis de datos microbiológicos**.
 
-### Inventario de Librerías y Paquetes de R aplicados para el análisis de datos en Microbiología Industrial.
+## Inventario de Librerías y Paquetes de R aplicados para el análisis de datos en Microbiología Industrial.
 
 El ecosistema de librerías y paquetes de R constituye una herramienta fundamental para el análisis de datos en microbiología industrial, proporcionando soluciones específicas para cada etapa del proceso investigativo, y en este contexto, las librerías básicas como:
 
@@ -84,7 +84,7 @@ Las aplicaciones especializadas en análisis multivariado y modelado avanzado co
 
 -   [***Shiny***](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) permite desarrollar aplicaciones web interactivas para visualización dinámica de resultados, mejorando la colaboración y transparencia en la investigación microbiológica industrial[@Chang2021].
 
-### Aplicaciones del software R en Microbiología Industrial
+## Paquetes del software R para Microbiología Industrial
 
 El uso de R como herramienta de análisis estadístico en la microbiología industrial ha experimentado un crecimiento exponencial en la última década, según [@Mohammadi2019] R proporciona una plataforma versátil que permite analizar datos complejos derivados de experimentos microbiológicos, facilitando la identificación de patrones de crecimiento microbiano, optimización de condiciones de cultivo y evaluación de la producción de metabolitos secundarios, lo que resulta crucial para el desarrollo y mejora de procesos biotecnológicos en entornos industriales.
 

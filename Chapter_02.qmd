@@ -1,65 +1,88 @@
 ---
 title: "Capítulo 2 Análisis bibliométrico para la gestión de un diseño experimentos"
+format: html
 ---
 
-El paquete [**Bibliometrix**](https://www.bibliometrix.org/home/), desarrollado en R, constituye una herramienta clave para el análisis bibliométrico en distintas áreas del conocimiento, entre ellas la [**microbiología industrial**](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) y el **diseño experimental**. Su enfoque de código abierto permite recopilar, analizar y visualizar información científica de manera integral, ofreciendo una visión clara sobre las principales tendencias y la evolución de la investigación en cada campo [@Aria2017].
+## Etapas del análisis bibliométrico
 
-En la **microbiología industrial**, [**Bibliometrix**](https://www.bibliometrix.org/home/) se ha convertido en un apoyo fundamental para reconocer **líneas emergentes de investigación**, **colaboraciones internacionales** y **autores influyentes** que marcan el desarrollo del área [@Aria2017]. A través de su interfaz visual [**Biblioshiny**](https://www.bibliometrix.org/home/index.php/layout/biblioshiny), los análisis complejos se vuelven accesibles incluso para quienes no tienen experiencia en programación. Esta accesibilidad favorece la creación de **mapas de conocimiento**, **redes de colaboración** y **agrupamientos temáticos** que ayudan a identificar oportunidades de trabajo conjunto, vacíos en la literatura o la evolución de determinadas técnicas experimentales.
+El análisis bibliométrico es un proceso estructurado que permite examinar de manera sistemática la producción científica sobre un tema determinado. Para garantizar resultados rigurosos y reproducibles, este procedimiento se desarrolla en varias etapas que van desde la **definición del tema y la búsqueda en bases de datos**, hasta la **depuración, análisis e interpretación de los resultados** mediante herramientas especializadas como *Bibliometrix* y su interfaz *Biblioshiny*.
 
-El uso de Bibliometrix y Biblioshiny permite una comprensión argumentada del panorama científico, fomentando decisiones de investigación basadas en evidencia y fortaleciendo la planificación de proyectos dentro de la microbiología industrial.
+A continuación, se describen las etapas del proceso:
 
-### Procedimiento para el Análisis Bibliométrico con Bibliometrix a partir de una Base de Datos Scopus
+### **1. Definición del tema y palabras clave**
 
-Como ejemplo de análisis bibliometrico se emplearán los datos de trabajo de grado titulado (sin publicar) "Evaluación del crecimiento de *Cordyceps militaris* en diferentes sustratos vegetales"(Chala, 2025).
+La primera etapa consiste en **delimitar el tema de estudio** y seleccionar las **palabras clave** que representen el objeto de investigación. Por ejemplo, en este ejercicio se emplearon los datos del trabajo de grado (sin publicar) *\"Evaluación del crecimiento de Cordyceps militaris en diferentes sustratos vegetales\"* (Chala, 2025).
 
-### Palabras clave, operadores Booleanos y búsqueda en bases de datos
+Algunas palabras clave empleadas fueron:
 
-El primer paso consiste en generar cinco palabras claves relacionadas con el tema de estudio, como son:
+-   *Cultivation*: proceso de cultivar *Cordyceps militaris* en condiciones controladas para estudiar su crecimiento.
 
-1.  *Cultivation*: proceso de cultivar *Cordyceps militaris* en condiciones controladas paraestudiar su crecimiento y desarrollo.
+-   *Mycelial growth*: crecimiento del micelio, parte vegetativa del hongo.
 
-2.  *Mycelial grow*th: crecimiento del micelio, la parte vegetativa del hongo, que escrucial para evaluar su desarrollo.
+-   *Substrate optimization*: mejora de los sustratos de cultivo para maximizar el crecimiento y la producción de metabolitos.
 
-3.  *Substrate optimization*: mejora de los sustratos utilizados para el cultivo del hongo, conel fin de maximizar su crecimiento y producción de compuestos bioactivos.
+-   *Bioactive compounds*: compuestos bioactivos como la cordicepina, con propiedades medicinales.
 
-4.  *Bioactive compound*s: compuestos producidos por Cordyceps militaris, como la cordicepina, quetienen propiedades medicinales y son un indicador de la calidad del crecimiento.
+-   *Fermentation conditions*: condiciones de fermentación (temperatura, pH, nutrientes) que influyen en el crecimiento del hongo.
 
-5.  *Fermentation condition*s: condiciones de fermentación, como la temperatura, pH y nutrientes, que afectan el crecimiento y la producción de metabolitos del hongo.
+Las combinaciones de estas palabras se construyen utilizando **operadores booleanos** (AND, OR, NOT) para lograr ecuaciones de búsqueda precisas.
 
-El segundo paso es generar diez (10) ecuaciones de búsqueda ingresando a una de las siguientes base de revistas indexadas compatibles con Bibliometrix, como son: Web of Science ([www.webofscience.com](http://www.webofscience.com)), Scopus ([www.scopus.com](http://www.scopus.com)); OpenAlex ([www.openalex.org](http://www.openalex.org)); Dimensions ([www.dimensions.ai](http://www.dimensions.ai)); The Lens ([www.lens.org](http://www.lens.org)); PubMed (<https://pubmed.ncbi.nlm.nih.gov/>) y Cochrane Library ([www.cochranelibrary.com/](http://www.cochranelibrary.com/)), desde donde se utilizaran operadores booleanos relacionados con el tema, es importante que cada una de las palabras clave estén encerradas entre comillas " " ; al tiempo que se utilicen los conectores: AND y/o OR y NOT para refinar la búsqueda, como se muestran a continuación:
+Por ejemplo:
 
--   "*Cordyceps militaris*" AND "growth evaluation"
+> `"Cordyceps militaris" AND ("substrate optimization" OR "culture medium") AND "growth"`
 
--   "*Cordyceps militaris*" AND ("substrate optimization" OR "culture medium") AND "growth"
+### **2. Búsqueda y descarga de información en bases de datos**
 
--   "Cordyceps militaris" AND "cordycepin" AND "growth"
+Una vez definidas las palabras clave, se realiza la **búsqueda sistemática** en bases de datos compatibles con *Bibliometrix*, como: [**Web of Science**](www.webofscience.com) , [**Scopus**](www.scopus.com), [**OpenAlex**](www.openalex.org), [**Dimensions**](www.dimensions.ai), [**The Lens**](www.lens.org); [**PubMed**](https://pubmed.ncbi.nlm.nih.gov/)y [**Cochrane Library**](www.cochranelibrary.com)
 
--   "*Cordyceps militaris*" AND "temperature" AND "mycelial growth"
+Durante esta etapa se deben aplicar filtros de búsqueda: **Periodo de tiempo, Tipo de documento** (artículo, revisión, conferencia), **Área temática.**
 
--   "*Cordyceps militaris*" AND "fermentation" AND ("solid-state fermentation")
+Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** según lo admita la base. Por ejemplo, en Scopus puede exportarse como *CSV (UTF-8)* con la opción \"Full Record\". Se recomienda nombrar los archivos de forma clara (p. ej. `Cordyceps_Scopus_2025.csv`).
 
--   "*Cordyceps militaris*" AND ("natural growth" OR "artificial cultivation") AND ("yield" OR "biomass production")
-
--   "*Cordyceps militaris*" AND ("metabolite profiling" OR "secondary metabolites") AND "growth conditions"
-
--   "*Cordyceps militaris*" AND ("carbon source" OR "nitrogen source") AND "mycelial biomass"
-
--   "*Cordyceps militaris*" AND ("rice medium" OR "wheat medium" OR "synthetic medium") AND "growth performance"
-
--   "*Cordyceps militaris*" AND "commercial production" AND ("growth enhancement" OR "yield improvement"
-
-En la Tabla 1, se aprecian el número de publicaciones científicas relacionadas con algunas de las ecuanciones de búsqueda, lo que permitirá la elección del resultado más promisorio, para seguidamente proceder con el proceso de descarga de los metadatos en formato .csv.
+En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distintas ecuaciones de búsqueda relacionadas con el tema.
 
 | Ecuación de búsqueda                                                                  | Documentos encontrados |
-|------------------------------------------------------|------------------|
+|-----------------------------------------------------|-------------------|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions"                        | 225                    |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth"                                 | 191                    |
 | "Cordyceps militaris" AND "medium" AND "growth"                                       | 99                     |
 | "Cordyceps militaris" AND ("substrate optimization" OR "culture medium") AND "growth" | 40                     |
 
-: Tabla 1. Salida de resultados para cada uno de los operadores booleanos, introducidos dentro de la plataforma de Scopus®, y que están con el tema de investigación de Cordyceps militaris.
+: Tabla 1. Salida de resultados para cada uno de los operadores booleanos, introducidos dentro de la plataforma de Scopus®, y que están con el tema de investigación de *Cordyceps militaris.*
 
-### Analísis con bibliometrix
+### **3. Importación y análisis en Bibliometrix / Biblioshiny**
+
+Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. La interfaz *Biblioshiny* permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
+
+|  Nº | Módulo                                | Función general                                                                | Submódulos / indicadores                                                                     |
+|----:|-----------------|---------------------------|-----------------------------------|
+|   1 | **Data**                              | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.).              | Import or Load; Merge Datasets                                                               |
+|   2 | **Filters**                           | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries                                                                |
+|   3 | **Overview**                          | Panorama general con indicadores descriptivos.                                 | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
+|   4 | **Sources**                           | Análisis de revistas/fuentes.                                                  | Most Relevant Sources; Bradford's Law                                                        |
+|   5 | **Authors**                           | Productividad, impacto y colaboración de autores.                              | Authors' Production Over Time; Most Cited Authors; Collaboration Network                     |
+|   6 | **Documents**                         | Documentos más citados y patrones de citación.                                 | Most Cited Documents; Reference Spectroscopy                                                 |
+|   7 | **Clustering (Conceptual Structure)** | Estructura temática/conceptual del campo.                                      | Co-occurrence Network; Thematic Map; Factorial Analysis                                      |
+|   8 | **Social Structure**                  | Redes de colaboración entre autores, instituciones y países.                   | Collaboration Network; Country Scientific Production; Collaboration World Map                |
+
+: Módulos principales de Bibliometrix / Biblioshiny
+
+### **4. Interpretación y comunicación de resultados**
+
+Los resultados obtenidos se interpretan según el contexto de estudio. En el caso de la **microbiología industrial**, el uso de *Bibliometrix* permite identificar líneas emergentes de investigación, autores influyentes, colaboraciones internacionales y vacíos en la literatura.
+
+A través de las visualizaciones interactivas de *Biblioshiny*, es posible construir **mapas de conocimiento**, **redes de colaboración** y **tendencias temáticas**, que facilitan la toma de decisiones basadas en evidencia científica.\
+De esta forma, el análisis bibliométrico se consolida como una herramienta que fortalece la **planificación de proyectos**, la **vinculación académica** y la **comprensión del panorama científico actual** en el campo de la microbiología industrial.
+
+## El paquete [**Bibliometrix**](https://www.bibliometrix.org/home/)
+
+Desarrollado en R, constituye una herramienta clave para el análisis bibliométrico en distintas áreas del conocimiento, entre ellas la [**microbiología industrial**](#0) y el **diseño experimental**. Su enfoque de código abierto permite recopilar, analizar y visualizar información científica de manera integral, ofreciendo una visión clara sobre las principales tendencias y la evolución de la investigación en cada campo [@Aria2017].
+
+En la **microbiología industrial**, [**Bibliometrix**](https://www.bibliometrix.org/home/) se ha convertido en un apoyo fundamental para reconocer **líneas emergentes de investigación**, **colaboraciones internacionales** y **autores influyentes** que marcan el desarrollo del área [@Aria2017]. A través de su interfaz visual [**Biblioshiny**](https://www.bibliometrix.org/home/index.php/layout/biblioshiny), los análisis complejos se vuelven accesibles incluso para quienes no tienen experiencia en programación. Esta accesibilidad favorece la creación de **mapas de conocimiento**, **redes de colaboración** y **agrupamientos temáticos** que ayudan a identificar oportunidades de trabajo conjunto, vacíos en la literatura o la evolución de determinadas técnicas experimentales.
+
+El uso de Bibliometrix y Biblioshiny permite una comprensión argumentada del panorama científico, fomentando decisiones de investigación basadas en evidencia y fortaleciendo la planificación de proyectos dentro de la microbiología industrial.
+
+### Instalación de bibliometrix
 
 Para iniciar el análisis bibliométrico, se procede a ingresar al programa RStudio®, al tiempo que se realiza la instalación de los paquetes: *bibliometrix* y *bibliometrixData*, desde la pestaña de Archivos y Gráficos en la sección de Packages (Figura 8).
 
@@ -67,7 +90,8 @@ Para iniciar el análisis bibliométrico, se procede a ingresar al programa RStu
 
 Posteriormente, desde la Consola de RStudio se digitan y ejecutan los comandos:
 
-> library(bibliometrix) biblioshiny()
+> library(bibliometrix) \
+> biblioshiny()
 
 Tambien se puede habilitar manualmente en la pestaña de Archivos y Graficos de la interfaz de RStudio, pestaña de Packages (figura9) seleccionado las librerias a usar.
 
@@ -90,21 +114,6 @@ Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (
 ![Figura 12](images/2_Bibliometrix/Figura_12.png)
 
 ### Estructura
-
-**Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
-
-|  Nº | Módulo                                | Función general                                                                | Submódulos / indicadores                                                                     |
-|------------:|-------------|---------------------|-------------------------|
-|   1 | **Data**                              | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.).              | Import or Load; Merge Datasets                                                               |
-|   2 | **Filters**                           | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries                                                                |
-|   3 | **Overview**                          | Panorama general con indicadores descriptivos.                                 | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
-|   4 | **Sources**                           | Análisis de revistas/fuentes.                                                  | Most Relevant Sources; Bradford's Law                                                        |
-|   5 | **Authors**                           | Productividad, impacto y colaboración de autores.                              | Authors' Production Over Time; Most Cited Authors; Collaboration Network                     |
-|   6 | **Documents**                         | Documentos más citados y patrones de citación.                                 | Most Cited Documents; Reference Spectroscopy                                                 |
-|   7 | **Clustering (Conceptual Structure)** | Estructura temática/conceptual del campo.                                      | Co-occurrence Network; Thematic Map; Factorial Analysis                                      |
-|   8 | **Social Structure**                  | Redes de colaboración entre autores, instituciones y países.                   | Collaboration Network; Country Scientific Production; Collaboration World Map                |
-
-: Módulos principales de Bibliometrix / Biblioshiny {#tbl-bibliometrix}
 
 #### **Modulo *Overview***
 
