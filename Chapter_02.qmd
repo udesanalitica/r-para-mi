@@ -11,7 +11,7 @@ A continuación, se describen las etapas del proceso:
 
 ### **1. Definición del tema y palabras clave**
 
-La primera etapa consiste en **delimitar el tema de estudio** y seleccionar las **palabras clave** que representen el objeto de investigación. Por ejemplo, en este ejercicio se emplearon los datos del trabajo de grado (sin publicar) *\"Evaluación del crecimiento de Cordyceps militaris en diferentes sustratos vegetales\"* (Chala, 2025).
+La primera etapa consiste en **delimitar el tema de estudio** y seleccionar las **palabras clave** que representen el objeto de investigación. Por ejemplo, en este ejercicio se emplearon los datos del trabajo de grado (sin publicar) *"Evaluación del crecimiento de Cordyceps militaris en diferentes sustratos vegetales"* (Chala, 2025).
 
 Algunas palabras clave empleadas fueron:
 
@@ -37,12 +37,12 @@ Una vez definidas las palabras clave, se realiza la **búsqueda sistemática** e
 
 Durante esta etapa se deben aplicar filtros de búsqueda: **Periodo de tiempo, Tipo de documento** (artículo, revisión, conferencia), **Área temática.**
 
-Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** según lo admita la base. Por ejemplo, en Scopus puede exportarse como *CSV (UTF-8)* con la opción \"Full Record\". Se recomienda nombrar los archivos de forma clara (p. ej. `Cordyceps_Scopus_2025.csv`).
+Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** según lo admita la base. Por ejemplo, en Scopus puede exportarse como *CSV (UTF-8)* con la opción "Full Record". Se recomienda nombrar los archivos de forma clara (p. ej. `Cordyceps_Scopus_2025.csv`).
 
 En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distintas ecuaciones de búsqueda relacionadas con el tema.
 
 | Ecuación de búsqueda                                                                  | Documentos encontrados |
-|-----------------------------------------------------|-------------------|
+|---------------------------------------------------------------------------------------|------------------------|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions"                        | 225                    |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth"                                 | 191                    |
 | "Cordyceps militaris" AND "medium" AND "growth"                                       | 99                     |
@@ -55,7 +55,7 @@ En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distin
 Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. La interfaz *Biblioshiny* permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
 |  Nº | Módulo                                | Función general                                                                | Submódulos / indicadores                                                                     |
-|----:|-----------------|---------------------------|-----------------------------------|
+|----:|---------------------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 |   1 | **Data**                              | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.).              | Import or Load; Merge Datasets                                                               |
 |   2 | **Filters**                           | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries                                                                |
 |   3 | **Overview**                          | Panorama general con indicadores descriptivos.                                 | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
@@ -90,7 +90,7 @@ Para iniciar el análisis bibliométrico, se procede a ingresar al programa RStu
 
 Posteriormente, desde la Consola de RStudio se digitan y ejecutan los comandos:
 
-> library(bibliometrix) \
+> library(bibliometrix)\
 > biblioshiny()
 
 Tambien se puede habilitar manualmente en la pestaña de Archivos y Graficos de la interfaz de RStudio, pestaña de Packages (figura9) seleccionado las librerias a usar.

@@ -1,5 +1,6 @@
 ---
 title: "Capítulo 1 Introducción al software R y la interfaz RStudio"
+format: html
 ---
 
 El software **R** es un entorno de programación especializado en análisis estadístico, visualización de datos y modelado científico, ampliamente utilizado en la investigación y la industria. Su integración con **RStudio**, una interfaz de desarrollo amigable y versátil, facilita la escritura de código, la gestión de proyectos y la interpretación de resultados. A continuación, se describe el proceso de **instalación y configuración** del software R y de la interfaz **RStudio**, así como los pasos iniciales para familiarizarse con sus principales componentes y herramientas de trabajo.
