@@ -127,7 +127,7 @@ Para la sección ***Average Citations Per Ye*****ar** (Traducido: Citas Promedio
 
 La Figura 15 **"Three-Field Plot"** muestra la relación entre **países (AU_CO)**, **autores (AU)** y **descriptores temáticos (DE)** en la investigación sobre *Cordyceps militaris*. **China** lidera ampliamente la producción científica, seguida por **Tailandia**, **Reino Unido**, **Singapur** y **Estados Unidos**, evidenciando una fuerte concentración asiática en el tema. Los autores más productivos son **Li X**, **Li Y**, **Vongsangnak W** y **Zhang J**, quienes forman redes de colaboración relevantes dentro del campo. En cuanto a los **descriptores**, predominan términos como *Cordyceps militaris*, *biotecnología del hongo*, *compuestos bioactivos* y *análisis transcriptómico*, lo que refleja el enfoque de la investigación en los componentes biológicos y aplicaciones biotecnológicas del hongo. El gráfico confirma el **liderazgo científico de Asia** en el estudio de *Cordyceps militaris* y la \**concentración temática en la exploración de compuestos bioactivos y su potencial en salud y biotecnología*.
 
-![Figura 15](images/2_Bibliometrix/Bibliometrix9...PNG)
+quarto
 
 #### **Modulo *Sources***
 
