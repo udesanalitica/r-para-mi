@@ -7,3 +7,99 @@ title: "Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)"
 ::: callout-important
 **Metodología:** Se realizó un diseño de medidas repetidas en el tiempo, donde la variable independiente fue cada una de las concentraciones del extracto y los testigos; y la variable respuesta fueron: Porcentaje de Inhibición del Área de la Lesió (PIAL) y Porcentaje de Inhibición del Crecimiento Micelial (PICM).
 :::
+
+## Diseño: Tratamiento (factor entre sujetos) x Tiempo (factor intra-sujetos)
+
+## Función para instalar y cargar paquetes
+
+```{r}
+use_pkg <- function(pkg){
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg, dependencies = TRUE)
+    library(pkg, character.only = TRUE)
+  } else {
+    library(pkg, character.only = TRUE)
+  }
+}
+```
+
+## Instalar y cargar todos los paquetes necesarios
+
+```{r}
+use_pkg("readxl") 
+use_pkg("nlme") 
+use_pkg("ggplot2") 
+use_pkg("emmeans") 
+use_pkg("dplyr") 
+use_pkg("multcomp") 
+use_pkg("multcompView")
+```
+
+## IMPORTAR DATOS DESDE EXCEL
+
+# Importar datos
+
+```{r}
+library(readxl)
+DMRT <- read_excel("C:/R-Proyectos/r-para-mi/data/DMRT_Hongos/DMRT.xlsx")
+```
+
+```{r}
+View(DMRT)
+attach(DMRT)
+names(DMRT)
+str(DMRT)
+summary(DMRT$Resultado)
+```
+
+## Convertir a factores
+
+```{r}
+DMRT$Tiempo <- as.factor(DMRT$Tiempo) 
+DMRT$Tratamiento <- as.factor(DMRT$Tratamiento) 
+DMRT$Repeticion <- as.factor(DMRT$Repeticion)
+```
+
+## MODELO MIXTO LINEAL (nlme)
+
+```{r}
+modelo_mixto <- lme(Resultado ~ Tratamiento * Tiempo, random = ~1 | Repeticion, data = DMRT)
+```
+
+## Resumen del modelo
+
+```{r}
+anova(modelo_mixto)
+```
+
+## COMPARACIONES POST-HOC (EMMEANS + SIDAK)
+
+## Tratamientos dentro de cada tiempo
+
+```{r}
+# Comparaciones Post-Hoc (EMMEANS + SIDAK)
+emmeans_trat_tiempo <- emmeans(modelo_mixto, ~ Tratamiento | Tiempo)
+
+cld_trat_tiempo <- multcomp::cld(
+  emmeans_trat_tiempo,
+  adjust = "sidak",   # ajuste Sidak (Tukey no aplica en modelos mixtos)
+  Letters = letters,
+  alpha = 0.05
+)
+
+# Mostrar resultados y gráfico
+print(cld_trat_tiempo)
+plot(cld_trat_tiempo)
+
+```
+
+## Interacción Tratamiento × Tiempo
+
+```{r}
+emmeans_interaccion <- emmeans(modelo_mixto, ~ Tratamiento * Tiempo)
+
+cld_interaccion <- multcomp::cld(emmeans_interaccion, adjust = "sidak", Letters = letters, alpha = 0.05)
+
+print(cld_interaccion)
+plot(cld_interaccion)
+```

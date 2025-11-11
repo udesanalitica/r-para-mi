@@ -1,0 +1,119 @@
+# ----------------------------------------------------------
+# Script: Análisis de un Diseño Completamente al Azar (DCA)
+# Archivo: Sebastian_Eval_Sustrato.xlsx
+# Variables esperadas:
+#   - Tratamiento : factor con tratamientos
+#   - Repeticion  : número de repetición
+#   - Resultado   : variable de respuesta
+# ----------------------------------------------------------
+
+# Instalar y cargar librerías necesarias (ejecutar solo una vez si no están instaladas)
+
+# Instalar solo una vez si no están instaladas:
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("car")
+install.packages("agricolae")
+install.packages("readxl")
+
+library(ggplot2)
+library(dplyr)
+library(car)
+library(agricolae)
+library(readxl)
+
+# Opción B: Función automática (instala si falta, carga siempre)
+use_package <- function(pkg){
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg, dependencies = TRUE)
+    library(pkg, character.only = TRUE)
+  } else {
+    library(pkg, character.only = TRUE)
+  } }
+
+paquetes <- c("readxl", "car", "agricolae", "ggplot2")
+sapply(paquetes, use_package)
+
+
+# 1. Importar datos de Excel 
+library(readxl)
+DCA <- read_excel("C:/Users/faom8/OneDrive - UNIVERSIDAD DE SANTANDER - UDES/1_2025B_INFO SEMESTRAL/2025B_GR_PMD_Manual R/DCA_Trichoderma/Sebastian_Eval_Sustrato.xlsx")
+
+View(DCA)
+names(DCA)
+str(DCA)
+summary(DCA)
+
+# 3. Ajustar modelo del DCA
+modelo <- aov(Resultado~Tratamiento, data = DCA)
+shapiro.test(residuals(modelo))
+#-------------------------------
+# 4. Verificación de supuestos
+#-------------------------------------
+# 4. Verificación de supuestos
+res <- residuals(modelo)
+
+# 4.1 Normalidad de residuos
+shapiro.test(res)
+qqnorm(res); qqline(res, col = "red")
+hist(res, main = "Histograma de residuos", xlab = "Residuos")
+
+# 4.2 Homogeneidad de varianzas
+bartlett.test(Resultado~Tratamiento, data = DCA)
+leveneTest(Resultado~Tratamiento, data = DCA)
+fligner.test(Resultado~Tratamiento, data = DCA)
+
+# 4.3 Gráficos de diagnóstico -NO CORREN # figure margins too large.
+par(mfrow = c(1,2))
+plot(modelo, which = 1)   # Residuos vs ajustados (homogeneidad de varianzas)
+plot(modelo, which = 2)   # QQ-plot (normalidad)
+par(mfrow = c(1,1))       # regresar a 1 gráfico por pantalla
+
+# 5.3 Gráfico diagnóstico: ajustados vs residuos estandarizados- SI CORREN-
+resid_est <- rstandard(modelo)
+predichos <- fitted(modelo)
+par(mfrow = c(1,1))
+plot(predichos, resid_est,xlab = "Valores ajustados",ylab = "Residuos estandarizados",
+     main = "Ajustados vs residuos estandarizados")
+abline(h = 0, col = "red", lwd = 2)
+
+# 5. ANOVA
+summary(modelo)
+
+#------------------------------------------
+# 6. Comparaciones múltiples de medias
+#----------------------------------------------
+# LSD
+out_LSD <- LSD.test(modelo, "Tratamiento", group = TRUE, console = TRUE)
+
+# Tukey HSD
+out_Tukey <- HSD.test(modelo, "Tratamiento", group = TRUE, console = TRUE)
+
+# Scheffé
+out_Scheffe <- scheffe.test(modelo, "Tratamiento", console = TRUE)
+
+# Bonferroni
+out_Bonf <- pairwise.t.test(DCA$Resultado, DCA$Tratamiento,
+                            p.adjust.method = "bonferroni")
+print(out_Bonf)
+#------------------------------------------
+# 7. Visualización de resultados
+#-----------------------------------------------
+# 7.1 Boxplot en R base
+boxplot(Resultado ~ Tratamiento, data = DCA,
+        main = "Gráfico de caja y bigotes por tratamiento",
+        xlab = "Tratamiento",
+        ylab = "Log Conidios/mL",
+        col = rainbow(length(unique(DCA$Tratamiento))),
+        border = "black")
+
+# 7.2 Boxplot en ggplot2
+ggplot(DCA, aes(x = Tratamiento, y = Resultado, fill = Tratamiento)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(
+    title = "Distribución del resultado por tratamiento",
+    x = "Tratamiento",
+    y = "Log Conidios/mL" )
+#  FIN
+

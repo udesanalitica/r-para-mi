@@ -1152,6 +1152,191 @@
             "publisher-place": "Boca Raton, FL",
             "title": "Modern data science with R",
             "type": "book"
+        },
+        {
+            "DOI": "10.3389/finmi.2023.1255505",
+            "URL": "https://doi.org/10.3389/finmi.2023.1255505",
+            "author": [
+                {
+                    "family": "Amore",
+                    "given": "A."
+                },
+                {
+                    "family": "Philip",
+                    "given": "S."
+                }
+            ],
+            "container-title": "Frontiers in Industrial Microbiology",
+            "id": "AmorePhilip2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "title": "Artificial intelligence in food biotechnology: Trends and perspectives",
+            "title-short": "Artificial intelligence in food biotechnology",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.62697/rmiie.v4iS1.143",
+            "URL": "https://doi.org/10.62697/rmiie.v4iS1.143",
+            "author": [
+                {
+                    "family": "Fernández-Marín",
+                    "given": "M. Á."
+                },
+                {
+                    "family": "Montero-Murillo",
+                    "given": "J. R."
+                },
+                {
+                    "family": "González-Tolmo",
+                    "given": "D."
+                }
+            ],
+            "container-title": "Revista Mexicana de Investigación e Intervención Educativa",
+            "id": "FernandezMarin2025",
+            "issue": "S1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2025
+                    ]
+                ]
+            },
+            "page": "18-26",
+            "title": "Caso de estudio sobre simulación de datos para investigaciones académicas mediante inteligencia artificial generativa y google colab",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "DOI": "10.18231/j.ijmr.2024.029",
+            "URL": "https://doi.org/10.18231/j.ijmr.2024.029",
+            "author": [
+                {
+                    "family": "Gurajala",
+                    "given": "S."
+                }
+            ],
+            "container-title": "Indian Journal of Microbiology Research",
+            "id": "Gurajala2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Artificial intelligence (AI) and medical microbiology: A narrative review",
+            "title-short": "Artificial intelligence (AI) and medical microbiology",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.46871/eams.1458704",
+            "URL": "https://doi.org/10.46871/eams.1458704",
+            "author": [
+                {
+                    "family": "Kandilci",
+                    "given": "M."
+                },
+                {
+                    "family": "Yakıcı",
+                    "given": "G."
+                },
+                {
+                    "family": "Kayar",
+                    "given": "M."
+                }
+            ],
+            "container-title": "Experimental and Applied Medical Science",
+            "id": "KandilciYakiciKayar2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Artificial intelligence and microbiology",
+            "type": "article-journal"
+        },
+        {
+            "URL": "https://www.witpress.com/elibrary/wit-transactions-on-information-and-communication-technologies/16/13768",
+            "author": [
+                {
+                    "family": "Melin",
+                    "given": "P."
+                },
+                {
+                    "family": "Castillo",
+                    "given": "O."
+                }
+            ],
+            "container-title": "Proceedings of the IEEE international conference on systems, man, and cybernetics",
+            "id": "MelinCastillo1996",
+            "issued": {
+                "date-parts": [
+                    [
+                        1996
+                    ]
+                ]
+            },
+            "page": "676-681",
+            "title": "Modelling and simulation for bacteria growth control in the food industry using artificial intelligence",
+            "type": "paper-conference"
+        },
+        {
+            "DOI": "10.48550/arXiv.2411.01098",
+            "URL": "https://doi.org/10.48550/arXiv.2411.01098",
+            "author": [
+                {
+                    "family": "Wang",
+                    "given": "X. W."
+                },
+                {
+                    "family": "Wang",
+                    "given": "T."
+                },
+                {
+                    "family": "Liu",
+                    "given": "Y. Y."
+                }
+            ],
+            "container-title": "arXiv",
+            "id": "WangWangLiu2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Artificial intelligence for microbiology and microbiome research",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.69605/ijlbpr_13.8.2024.66",
+            "URL": "https://doi.org/10.69605/ijlbpr_13.8.2024.66",
+            "author": [
+                {
+                    "family": "Wasan",
+                    "given": "R. K."
+                }
+            ],
+            "container-title": "International Journal of Life Sciences Biotechnology and Pharma Research",
+            "id": "Wasan2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "The role of artificial intelligence (AI) in microbiology laboratories for diagnosis of microorganisms: A review study",
+            "title-short": "The role of artificial intelligence (AI) in microbiology laboratories for diagnosis of microorganisms",
+            "type": "article-journal"
         }
     ],
     "project_biblios": [

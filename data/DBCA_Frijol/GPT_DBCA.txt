@@ -1,0 +1,121 @@
+# ----------------------------------------------------------
+# Script: Análisis de un Diseño en Bloques Completamente al Azar (DBCA)
+
+# Variables esperadas en la base:
+#   i. Bloque: factor que representa los bloques
+#   ii. Tratamiento: factor con los tratamientos a evaluar
+#   iii. Respuesta: variable cuantitativa a analizar
+# ----------------------------------------------------------
+
+# 1. Cargar Paquetes y librerías necesarias para el analisis de los datos.
+
+# Instalar Paquetes (solo una vez)
+install.packages("readxl")
+install.packages("car")
+install.packages("agricolae")
+install.packages("lmtest")
+install.packages("ggplot2")
+
+# Cargar las siguientes librerias. 
+library(readxl)
+library(car)
+library(agricolae)
+library(lmtest)
+library(ggplot2)
+
+# 1. Importar datos desde Excel  
+library(readxl)
+DBCA <- read_excel("C:/Users/faom8/OneDrive - UNIVERSIDAD DE SANTANDER - UDES/1_2025B_INFO SEMESTRAL/2025B_GR_PMD_Manual R/DBA_Frijo/DBA_frijol.xlsx")
+
+# 2. Revisar estructura de los datos cargados
+View(DBCA)
+str(DBCA)
+head(DBCA)
+attach(DBCA)
+
+# 3 Convertir Variables a Factores
+DBCA$Tratamiento <- as.factor(DBCA$Tratamiento)
+DBCA$Bloque <- as.factor(DBCA$Bloque)
+
+# 4. ANOVA para Diseño de Bloques Completamente al Azar -DBCA-
+modelo <- aov(Resultado~Tratamiento + Bloque, data=DBCA)
+summary(modelo)
+# ----------------------------------------------------------
+# 5. Verificación de supuestos
+# ----------------------------------------------------------
+# 5. Verificación de supuestos
+res <- residuals(modelo)
+
+# 5.1 Normalidad de residuos (Shapiro-Wilk)
+shapiro.test(res)
+qqnorm(res) 
+qqline(res, col = "red")
+hist(res, main = "Histograma de residuos", xlab = "Residuos")
+
+
+# 5.2 Homogeneidad de varianza
+bartlett.test(Resultado ~ Tratamiento, data = DBCA)
+leveneTest(Resultado ~ Tratamiento, data = DBCA) # NO CORRE
+fligner.test(Resultado ~ Tratamiento, data = DBCA) 
+
+
+# 5.3 Independencia de residuos 
+dwtest(modelo)
+
+# 5.4 Gráficos de diagnóstico del modelo 
+par(mfrow = c(1,2))
+plot(modelo, which = 1)   # Residuos vs ajustados (homogeneidad de varianzas)
+plot(modelo, which = 2)   # QQ-plot (normalidad)
+par(mfrow = c(1,1))       # regresar a 1 gráfico por pantalla
+
+
+# 5.5 Gráfico de valores ajustados vs residuos estandarizados
+   # Residuos estandarizados
+resid_est <- rstandard(modelo)
+    # Valores ajustados
+predichos <- fitted(modelo)
+
+    # Gráfico base en R
+plot(predichos, resid_est,xlab = "Valores ajustados", ylab = "Residuos estandarizados",
+     main = "Valores ajustados vs residuos estandarizados")
+abline(h = 0, col = "red", lwd = 2)
+
+# ----------------------------------------------------------
+# 6. Comparaciones múltiples de medias
+# ----------------------------------------------------------
+# Tukey HSD (agrupamiento con letras)
+out_Tukey <-HSD.test(modelo,"Tratamiento", group=TRUE, console=TRUE)
+
+# Comparaciones múltiples con LSD
+out_LSD <- LSD.test(modelo, "Tratamiento", group = TRUE, console = TRUE)
+
+# Duncan
+out_Duncan <- duncan.test(modelo, "Tratamiento", group = TRUE, console = TRUE)
+
+# Bonferroni (usando pairwise.t.test)
+out_Bonf <- pairwise.t.test(DBCA$Resultado, DBCA$Tratamiento,
+                            p.adjust.method = "bonferroni")
+print(out_Bonf)
+
+# ----------------------------------------------------------
+# 7. Visualización de resultados
+# ----------------------------------------------------------
+
+# 7.1 Caja y Bigote en R base
+boxplot(Resultado ~ Tratamiento, data = DBCA,
+        main = "Gráfico de caja y bigotes por tratamiento",
+        xlab = "Tratamiento",
+        ylab = "Resultado",
+        col = rainbow(length(unique(DBCA$Tratamiento))),
+        border = "black")
+
+# 7.2 Boxplot en ggplot2
+ggplot(DBCA, aes(x = Tratamiento, y = Resultado, fill = Tratamiento)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(
+    title = "Distribución del resultado por tratamiento",
+    x = "Tratamiento",
+    y = "Resultado")
+
+   #   FIN 

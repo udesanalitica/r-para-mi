@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -201,6 +236,29 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#problema" id="toc-problema" class="nav-link active" data-scroll-target="#problema">Problema</a></li>
+  <li><a href="#cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos." id="toc-cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos." class="nav-link" data-scroll-target="#cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos.">Cargar Paquetes y librerías necesarias para el analisis de los datos.</a></li>
+  <li><a href="#instalar-paquetes-solo-una-vez" id="toc-instalar-paquetes-solo-una-vez" class="nav-link" data-scroll-target="#instalar-paquetes-solo-una-vez">Instalar Paquetes (solo una vez)</a></li>
+  <li><a href="#cargar-las-siguientes-librerias" id="toc-cargar-las-siguientes-librerias" class="nav-link" data-scroll-target="#cargar-las-siguientes-librerias">Cargar las siguientes librerias</a></li>
+  <li><a href="#importar-datos-desde-excel" id="toc-importar-datos-desde-excel" class="nav-link" data-scroll-target="#importar-datos-desde-excel">Importar datos desde Excel</a></li>
+  <li><a href="#revisar-estructura-de-los-datos-cargados" id="toc-revisar-estructura-de-los-datos-cargados" class="nav-link" data-scroll-target="#revisar-estructura-de-los-datos-cargados">Revisar estructura de los datos cargados</a></li>
+  <li><a href="#convertir-variables-a-factores" id="toc-convertir-variables-a-factores" class="nav-link" data-scroll-target="#convertir-variables-a-factores">Convertir Variables a Factores</a></li>
+  <li><a href="#anova-para-diseño-de-bloques-completamente-al-azar--dbca-" id="toc-anova-para-diseño-de-bloques-completamente-al-azar--dbca-" class="nav-link" data-scroll-target="#anova-para-diseño-de-bloques-completamente-al-azar--dbca-">ANOVA para Diseño de Bloques Completamente al Azar -DBCA-</a></li>
+  <li><a href="#verificación-de-supuestos" id="toc-verificación-de-supuestos" class="nav-link" data-scroll-target="#verificación-de-supuestos">Verificación de supuestos</a></li>
+  <li><a href="#normalidad-de-residuos-shapiro-wilk" id="toc-normalidad-de-residuos-shapiro-wilk" class="nav-link" data-scroll-target="#normalidad-de-residuos-shapiro-wilk">Normalidad de residuos (Shapiro-Wilk)</a></li>
+  <li><a href="#homogeneidad-de-varianza" id="toc-homogeneidad-de-varianza" class="nav-link" data-scroll-target="#homogeneidad-de-varianza">Homogeneidad de varianza</a></li>
+  <li><a href="#independencia-de-residuos" id="toc-independencia-de-residuos" class="nav-link" data-scroll-target="#independencia-de-residuos">Independencia de residuos</a></li>
+  <li><a href="#gráficos-de-diagnóstico-del-modelo" id="toc-gráficos-de-diagnóstico-del-modelo" class="nav-link" data-scroll-target="#gráficos-de-diagnóstico-del-modelo">Gráficos de diagnóstico del modelo</a></li>
+  <li><a href="#gráfico-de-valores-ajustados-vs-residuos-estandarizados" id="toc-gráfico-de-valores-ajustados-vs-residuos-estandarizados" class="nav-link" data-scroll-target="#gráfico-de-valores-ajustados-vs-residuos-estandarizados">Gráfico de valores ajustados vs residuos estandarizados</a></li>
+  <li><a href="#comparaciones-múltiples-de-medias" id="toc-comparaciones-múltiples-de-medias" class="nav-link" data-scroll-target="#comparaciones-múltiples-de-medias">Comparaciones múltiples de medias</a></li>
+  <li><a href="#tukey-hsd-agrupamiento-con-letras" id="toc-tukey-hsd-agrupamiento-con-letras" class="nav-link" data-scroll-target="#tukey-hsd-agrupamiento-con-letras">Tukey HSD (agrupamiento con letras)</a></li>
+  <li><a href="#comparaciones-múltiples-con-lsd" id="toc-comparaciones-múltiples-con-lsd" class="nav-link" data-scroll-target="#comparaciones-múltiples-con-lsd">Comparaciones múltiples con LSD</a></li>
+  <li><a href="#duncan" id="toc-duncan" class="nav-link" data-scroll-target="#duncan">Duncan</a></li>
+  <li><a href="#bonferroni-usando-pairwise.t.test" id="toc-bonferroni-usando-pairwise.t.test" class="nav-link" data-scroll-target="#bonferroni-usando-pairwise.t.test">Bonferroni (usando pairwise.t.test)</a></li>
+  <li><a href="#visualización-de-resultados" id="toc-visualización-de-resultados" class="nav-link" data-scroll-target="#visualización-de-resultados">Visualización de resultados</a>
+  <ul class="collapse">
+  <li><a href="#caja-y-bigote-en-r-base" id="toc-caja-y-bigote-en-r-base" class="nav-link" data-scroll-target="#caja-y-bigote-en-r-base">Caja y Bigote en R base</a></li>
+  </ul></li>
+  <li><a href="#boxplot-en-ggplot2" id="toc-boxplot-en-ggplot2" class="nav-link" data-scroll-target="#boxplot-en-ggplot2">Boxplot en ggplot2</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /edit/main/Chapter_05.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /blob/main/Chapter_05.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -228,17 +286,414 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="problema" class="level3">
 <h3 class="anchored" data-anchor-id="problema">Problema</h3>
-<div class="callout callout-style-default callout-important callout-titled">
+<p><strong>Introducción:</strong></p>
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Importante
+Precaución
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Metodología:</strong> Se realizó un diseño de medidas repetidas en el tiempo, donde la variable independiente fue cada una de las concentraciones del extracto y los testigos; y la variable respuesta fueron: Porcentaje de Inhibición del Área de la Lesió (PIAL) y Porcentaje de Inhibición del Crecimiento Micelial (PICM).</p>
+<p>Script: Análisis de un Diseño en Bloques Completamente al Azar (DBCA)</p>
+<p>Variables esperadas en la base:<br>
+i. Bloque: factor que representa los bloques<br>
+ii. Tratamiento: factor con los tratamientos a evaluar<br>
+iii. Respuesta: variable cuantitativa a analizar #</p>
+</div>
+</div>
+</section>
+<section id="cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos." class="level2">
+<h2 class="anchored" data-anchor-id="cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos.">Cargar Paquetes y librerías necesarias para el analisis de los datos.</h2>
+</section>
+<section id="instalar-paquetes-solo-una-vez" class="level2">
+<h2 class="anchored" data-anchor-id="instalar-paquetes-solo-una-vez">Instalar Paquetes (solo una vez)</h2>
+<p>install.packages(“readxl”) install.packages(“car”) install.packages(“agricolae”) install.packages(“lmtest”) install.packages(“ggplot2”)</p>
+</section>
+<section id="cargar-las-siguientes-librerias" class="level2">
+<h2 class="anchored" data-anchor-id="cargar-las-siguientes-librerias">Cargar las siguientes librerias</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readxl' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'carData' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'agricolae' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'lmtest' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: zoo</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'zoo' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'zoo'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importar-datos-desde-excel" class="level2">
+<h2 class="anchored" data-anchor-id="importar-datos-desde-excel">Importar datos desde Excel</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>DBCA <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/R-Proyectos/r-para-mi/data/DBCA_Frijol/DBCA_frijol.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="revisar-estructura-de-los-datos-cargados" class="level2">
+<h2 class="anchored" data-anchor-id="revisar-estructura-de-los-datos-cargados">Revisar estructura de los datos cargados</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(DBCA)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(DBCA)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Tratamiento" "Bloque"      "Resultado"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [120 × 3] (S3: tbl_df/tbl/data.frame)
+ $ Tratamiento: chr [1:120] "NPK Comercial" "NPK Comercial" "NPK Comercial" "NPK Comercial" ...
+ $ Bloque     : chr [1:120] "A" "A" "A" "A" ...
+ $ Resultado  : num [1:120] 51.5 49.6 51.9 54.6 49.3 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DBCA<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  44.71   52.30   56.76   57.26   61.24   72.39 </code></pre>
+</div>
+</div>
+</section>
+<section id="convertir-variables-a-factores" class="level2">
+<h2 class="anchored" data-anchor-id="convertir-variables-a-factores">Convertir Variables a Factores</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>DBCA<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DBCA<span class="sc">$</span>Tratamiento) </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>DBCA<span class="sc">$</span>Bloque <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DBCA<span class="sc">$</span>Bloque)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="anova-para-diseño-de-bloques-completamente-al-azar--dbca-" class="level2">
+<h2 class="anchored" data-anchor-id="anova-para-diseño-de-bloques-completamente-al-azar--dbca-">ANOVA para Diseño de Bloques Completamente al Azar -DBCA-</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">aov</span>(Resultado<span class="sc">~</span>Tratamiento <span class="sc">+</span> Bloque, <span class="at">data=</span>DBCA) </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+Tratamiento   3   3602  1200.6 153.749 &lt;2e-16 ***
+Bloque        2     11     5.4   0.688  0.505    
+Residuals   114    890     7.8                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="verificación-de-supuestos" class="level2">
+<h2 class="anchored" data-anchor-id="verificación-de-supuestos">Verificación de supuestos</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="normalidad-de-residuos-shapiro-wilk" class="level2">
+<h2 class="anchored" data-anchor-id="normalidad-de-residuos-shapiro-wilk">Normalidad de residuos (Shapiro-Wilk)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(res)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  res
+W = 0.99559, p-value = 0.9725</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(res)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(res, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_05_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(res, <span class="at">main =</span> <span class="st">"Histograma de residuos"</span>, <span class="at">xlab =</span> <span class="st">"Residuos"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_05_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="homogeneidad-de-varianza" class="level2">
+<h2 class="anchored" data-anchor-id="homogeneidad-de-varianza">Homogeneidad de varianza</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Bartlett's K-squared = 7.4355, df = 3, p-value = 0.05924</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(&gt;F)
+group   3  1.3691 0.2557
+      116               </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fligner-Killeen test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Fligner-Killeen:med chi-squared = 3.3125, df = 3, p-value = 0.3459</code></pre>
+</div>
+</div>
+</section>
+<section id="independencia-de-residuos" class="level2">
+<h2 class="anchored" data-anchor-id="independencia-de-residuos">Independencia de residuos</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(modelo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Durbin-Watson test
+
+data:  modelo
+DW = 2.042, p-value = 0.4159
+alternative hypothesis: true autocorrelation is greater than 0</code></pre>
+</div>
+</div>
+</section>
+<section id="gráficos-de-diagnóstico-del-modelo" class="level2">
+<h2 class="anchored" data-anchor-id="gráficos-de-diagnóstico-del-modelo">Gráficos de diagnóstico del modelo</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráficos de diagnóstico del modelo</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># Dividir la ventana en 2 gráficos (1 fila, 2 columnas)</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo, <span class="at">which =</span> <span class="dv">1</span>)  <span class="co"># Residuos vs valores ajustados (homogeneidad)</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo, <span class="at">which =</span> <span class="dv">2</span>)  <span class="co"># QQ-plot (normalidad)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_05_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))  <span class="co"># Regresar a 1 gráfico por pantalla</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gráfico-de-valores-ajustados-vs-residuos-estandarizados" class="level2">
+<h2 class="anchored" data-anchor-id="gráfico-de-valores-ajustados-vs-residuos-estandarizados">Gráfico de valores ajustados vs residuos estandarizados</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuos estandarizados</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>resid_est <span class="ot">&lt;-</span> <span class="fu">rstandard</span>(modelo)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores ajustados predichos</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>val_ajus <span class="ot">&lt;-</span> <span class="fu">fitted</span>(modelo)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(val_ajus, resid_est,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Gráfico de valores ajustados vs residuos estandarizados"</span>,</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Valores ajustados"</span>,</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Residuos estandarizados"</span>)</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_05_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="comparaciones-múltiples-de-medias" class="level2">
+<h2 class="anchored" data-anchor-id="comparaciones-múltiples-de-medias">Comparaciones múltiples de medias</h2>
+</section>
+<section id="tukey-hsd-agrupamiento-con-letras" class="level2">
+<h2 class="anchored" data-anchor-id="tukey-hsd-agrupamiento-con-letras">Tukey HSD (agrupamiento con letras)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>out_Tukey <span class="ot">&lt;-</span><span class="fu">HSD.test</span>(modelo,<span class="st">"Tratamiento"</span>, <span class="at">group=</span><span class="cn">TRUE</span>, <span class="at">console=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: modelo ~ "Tratamiento"
+
+HSD Test for Resultado 
+
+Mean Square Error:  7.808829 
+
+Tratamiento,  means
+
+                       Resultado      std  r        se   Min   Max     Q25
+NPK + Bioinoculante     54.25933 2.395591 30 0.5101904 49.26 58.09 52.9100
+NPK Comercial           50.29667 2.453096 30 0.5101904 44.71 54.74 48.5975
+Orgánico + NPK          64.78000 3.621806 30 0.5101904 57.14 72.39 62.1700
+Organico + NPK (50:50)  59.71300 2.488591 30 0.5101904 55.73 65.66 58.2425
+                          Q50     Q75
+NPK + Bioinoculante    54.045 55.9275
+NPK Comercial          50.080 51.8625
+Orgánico + NPK         65.070 66.9650
+Organico + NPK (50:50) 59.480 61.0025
+
+Alpha: 0.05 ; DF Error: 114 
+Critical Value of Studentized Range: 3.687325 
+
+Minimun Significant Difference: 1.881238 
+
+Treatments with the same letter are not significantly different.
+
+                       Resultado groups
+Orgánico + NPK          64.78000      a
+Organico + NPK (50:50)  59.71300      b
+NPK + Bioinoculante     54.25933      c
+NPK Comercial           50.29667      d</code></pre>
+</div>
+</div>
+</section>
+<section id="comparaciones-múltiples-con-lsd" class="level2">
+<h2 class="anchored" data-anchor-id="comparaciones-múltiples-con-lsd">Comparaciones múltiples con LSD</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>out_LSD <span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(modelo, <span class="st">"Tratamiento"</span>, <span class="at">group =</span> <span class="cn">TRUE</span>, <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: modelo ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  7.808829 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+                       Resultado      std  r        se      LCL      UCL   Min
+NPK + Bioinoculante     54.25933 2.395591 30 0.5101904 53.24865 55.27002 49.26
+NPK Comercial           50.29667 2.453096 30 0.5101904 49.28598 51.30735 44.71
+Orgánico + NPK          64.78000 3.621806 30 0.5101904 63.76932 65.79068 57.14
+Organico + NPK (50:50)  59.71300 2.488591 30 0.5101904 58.70232 60.72368 55.73
+                         Max     Q25    Q50     Q75
+NPK + Bioinoculante    58.09 52.9100 54.045 55.9275
+NPK Comercial          54.74 48.5975 50.080 51.8625
+Orgánico + NPK         72.39 62.1700 65.070 66.9650
+Organico + NPK (50:50) 65.66 58.2425 59.480 61.0025
+
+Alpha: 0.05 ; DF Error: 114
+Critical Value of t: 1.980992 
+
+least Significant Difference: 1.429322 
+
+Treatments with the same letter are not significantly different.
+
+                       Resultado groups
+Orgánico + NPK          64.78000      a
+Organico + NPK (50:50)  59.71300      b
+NPK + Bioinoculante     54.25933      c
+NPK Comercial           50.29667      d</code></pre>
+</div>
+</div>
+</section>
+<section id="duncan" class="level2">
+<h2 class="anchored" data-anchor-id="duncan">Duncan</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>out_Duncan <span class="ot">&lt;-</span> <span class="fu">duncan.test</span>(modelo, <span class="st">"Tratamiento"</span>, <span class="at">group =</span> <span class="cn">TRUE</span>, <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: modelo ~ "Tratamiento"
+
+Duncan's new multiple range test
+for Resultado 
+
+Mean Square Error:  7.808829 
+
+Tratamiento,  means
+
+                       Resultado      std  r        se   Min   Max     Q25
+NPK + Bioinoculante     54.25933 2.395591 30 0.5101904 49.26 58.09 52.9100
+NPK Comercial           50.29667 2.453096 30 0.5101904 44.71 54.74 48.5975
+Orgánico + NPK          64.78000 3.621806 30 0.5101904 57.14 72.39 62.1700
+Organico + NPK (50:50)  59.71300 2.488591 30 0.5101904 55.73 65.66 58.2425
+                          Q50     Q75
+NPK + Bioinoculante    54.045 55.9275
+NPK Comercial          50.080 51.8625
+Orgánico + NPK         65.070 66.9650
+Organico + NPK (50:50) 59.480 61.0025
+
+Alpha: 0.05 ; DF Error: 114 
+
+Critical Range
+       2        3        4 
+1.429322 1.504260 1.554074 
+
+Means with the same letter are not significantly different.
+
+                       Resultado groups
+Orgánico + NPK          64.78000      a
+Organico + NPK (50:50)  59.71300      b
+NPK + Bioinoculante     54.25933      c
+NPK Comercial           50.29667      d</code></pre>
+</div>
+</div>
+</section>
+<section id="bonferroni-usando-pairwise.t.test" class="level2">
+<h2 class="anchored" data-anchor-id="bonferroni-usando-pairwise.t.test">Bonferroni (usando pairwise.t.test)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>out_Bonf <span class="ot">&lt;-</span> <span class="fu">pairwise.t.test</span>(DBCA<span class="sc">$</span>Resultado, DBCA<span class="sc">$</span>Tratamiento, <span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>) </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(out_Bonf)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pairwise comparisons using t tests with pooled SD 
+
+data:  DBCA$Resultado and DBCA$Tratamiento 
+
+                       NPK + Bioinoculante NPK Comercial Orgánico + NPK
+NPK Comercial          1.3e-06             -             -             
+Orgánico + NPK         &lt; 2e-16             &lt; 2e-16       -             
+Organico + NPK (50:50) 5.6e-11             &lt; 2e-16       8.6e-10       
+
+P value adjustment method: bonferroni </code></pre>
+</div>
+</div>
+</section>
+<section id="visualización-de-resultados" class="level2">
+<h2 class="anchored" data-anchor-id="visualización-de-resultados">Visualización de resultados</h2>
+<section id="caja-y-bigote-en-r-base" class="level3">
+<h3 class="anchored" data-anchor-id="caja-y-bigote-en-r-base">Caja y Bigote en R base</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA, <span class="at">main =</span> <span class="st">"Gráfico de caja y bigotes por tratamiento"</span>, <span class="at">xlab =</span> <span class="st">"Tratamiento"</span>, <span class="at">ylab =</span> <span class="st">"Resultado"</span>, <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(<span class="fu">unique</span>(DBCA<span class="sc">$</span>Tratamiento))), <span class="at">border =</span> <span class="st">"black"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_05_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="boxplot-en-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot-en-ggplot2">Boxplot en ggplot2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DBCA, <span class="fu">aes</span>(<span class="at">x =</span> Tratamiento, <span class="at">y =</span> Resultado, <span class="at">fill =</span> Tratamiento)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>( <span class="at">title =</span> <span class="st">"Distribución del resultado por tratamiento"</span>, <span class="at">x =</span> <span class="st">"Tratamiento"</span>, <span class="at">y =</span> <span class="st">"Resultado"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_05_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 

@@ -4,6 +4,163 @@ title: "Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)"
 
 ### Problema
 
-::: callout-important
-**Metodología:** Se realizó un diseño de medidas repetidas en el tiempo, donde la variable independiente fue cada una de las concentraciones del extracto y los testigos; y la variable respuesta fueron: Porcentaje de Inhibición del Área de la Lesió (PIAL) y Porcentaje de Inhibición del Crecimiento Micelial (PICM).
+**Introducción:**
+
+::: callout-caution
+Script: Análisis de un Diseño en Bloques Completamente al Azar (DBCA)
+
+Variables esperadas en la base: \
+i. Bloque: factor que representa los bloques \
+ii. Tratamiento: factor con los tratamientos a evaluar \
+iii. Respuesta: variable cuantitativa a analizar \#
 :::
+
+## Cargar Paquetes y librerías necesarias para el analisis de los datos.
+
+## Instalar Paquetes (solo una vez)
+
+install.packages("readxl") install.packages("car") install.packages("agricolae") install.packages("lmtest") install.packages("ggplot2")
+
+## Cargar las siguientes librerias
+
+```{r}
+library(readxl) 
+library(car) 
+library(agricolae)
+library(lmtest) 
+library(ggplot2)
+```
+
+## Importar datos desde Excel
+
+```{r}
+library(readxl)
+DBCA <- read_excel("C:/R-Proyectos/r-para-mi/data/DBCA_Frijol/DBCA_frijol.xlsx")
+```
+
+## Revisar estructura de los datos cargados
+
+```{r}
+View(DBCA)
+attach(DBCA)
+names(DBCA)
+str(DBCA)
+summary(DBCA$Resultado)
+```
+
+## Convertir Variables a Factores
+
+```{r}
+DBCA$Tratamiento <- as.factor(DBCA$Tratamiento) 
+DBCA$Bloque <- as.factor(DBCA$Bloque)
+```
+
+## ANOVA para Diseño de Bloques Completamente al Azar -DBCA-
+
+```{r}
+modelo <- aov(Resultado~Tratamiento + Bloque, data=DBCA) 
+summary(modelo) 
+```
+
+## Verificación de supuestos
+
+```{r}
+res <- residuals(modelo)
+```
+
+## Normalidad de residuos (Shapiro-Wilk)
+
+```{r}
+shapiro.test(res)
+
+qqnorm(res)
+qqline(res, col = "red")
+
+hist(res, main = "Histograma de residuos", xlab = "Residuos")
+
+```
+
+## Homogeneidad de varianza
+
+```{r}
+bartlett.test(Resultado ~ Tratamiento, data = DBCA)
+car::leveneTest(Resultado ~ Tratamiento, data = DBCA)
+fligner.test(Resultado ~ Tratamiento, data = DBCA)
+```
+
+## Independencia de residuos
+
+```{r}
+dwtest(modelo)
+```
+
+## Gráficos de diagnóstico del modelo
+
+```{r}
+# Gráficos de diagnóstico del modelo
+par(mfrow = c(1, 2))  # Dividir la ventana en 2 gráficos (1 fila, 2 columnas)
+
+plot(modelo, which = 1)  # Residuos vs valores ajustados (homogeneidad)
+plot(modelo, which = 2)  # QQ-plot (normalidad)
+
+par(mfrow = c(1, 1))  # Regresar a 1 gráfico por pantalla
+
+```
+
+## Gráfico de valores ajustados vs residuos estandarizados
+
+```{r}
+# Residuos estandarizados
+resid_est <- rstandard(modelo)
+
+# Valores ajustados predichos
+val_ajus <- fitted(modelo)
+
+plot(val_ajus, resid_est,
+     main = "Gráfico de valores ajustados vs residuos estandarizados",
+     xlab = "Valores ajustados",
+     ylab = "Residuos estandarizados")
+abline(h = 0, col = "red", lty = 2)
+
+```
+
+## Comparaciones múltiples de medias
+
+## Tukey HSD (agrupamiento con letras)
+
+```{r}
+out_Tukey <-HSD.test(modelo,"Tratamiento", group=TRUE, console=TRUE)
+```
+
+## Comparaciones múltiples con LSD
+
+```{r}
+out_LSD <- LSD.test(modelo, "Tratamiento", group = TRUE, console = TRUE)
+```
+
+## Duncan
+
+```{r}
+out_Duncan <- duncan.test(modelo, "Tratamiento", group = TRUE, console = TRUE)
+```
+
+## Bonferroni (usando pairwise.t.test)
+
+```{r}
+out_Bonf <- pairwise.t.test(DBCA$Resultado, DBCA$Tratamiento, p.adjust.method = "bonferroni") 
+print(out_Bonf)
+```
+
+## Visualización de resultados
+
+### Caja y Bigote en R base
+
+```{r}
+boxplot(Resultado ~ Tratamiento, data = DBCA, main = "Gráfico de caja y bigotes por tratamiento", xlab = "Tratamiento", ylab = "Resultado", col = rainbow(length(unique(DBCA$Tratamiento))), border = "black")
+```
+
+## Boxplot en ggplot2
+
+```{r}
+ggplot(DBCA, aes(x = Tratamiento, y = Resultado, fill = Tratamiento)) + geom_boxplot() + theme_minimal() + labs( title = "Distribución del resultado por tratamiento", x = "Tratamiento", y = "Resultado")
+```
