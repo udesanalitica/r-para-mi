@@ -28,3 +28,27 @@ Maestría en Estadística Aplicada y Analítica de Datos*
 
 La presente obra constituye nuestra contribución a la formación integral de los Microbiólogos Industriales en su desarrollo como científicos. Esperamos que su contenido no solo fortalezca su experiencia académica, sino que además les provea de las competencias prácticas indispensables para afrontar los desafíos contemporáneos y futuros del ámbito profesional.
 :::
+
+::: {.callout-note title="Para citar"}
+Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico* Universidad de Santander. Vicerrectoría de Enseñanza.<https://udesanalitica.github.io/r-para-mi/>. https://doi.org/10.5281/zenodo.XXXXX
+:::
+
+``` bibtex
+@techreport{PerezPulido2025,
+  author       = {Ortiz, F., Pérez, M., y León, F.},
+  title        = {R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico},
+  institution  = {Universidad de Santander (UDES)},
+  year         = {2025},
+  note         = {Vicerrectoría de Enseñanza. 
+  url          = {https://udesanalitica.github.io/r-para-mi/}},
+  type         = {e-book},
+  doi          = {10.5281/zenodo.XXXXX},
+  url          = {https://doi.org/10.5281/zenodo.XXXXX}
+```
+
+::: {.callout-note title="Derechos de Autor"}
+Universidad de Santander (UDES)\
+Calle 70 #N° 55-210\
+Bucaramanga, Santander, Colombia\
+<https://www.udes.edu.co/>
+:::

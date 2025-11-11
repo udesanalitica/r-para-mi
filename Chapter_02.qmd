@@ -3,6 +3,8 @@ title: "Capítulo 2 Análisis bibliométrico para la gestión de un diseño expe
 format: html
 ---
 
+El **Capítulo 2** aborda el análisis bibliométrico como una herramienta esencial para la **gestión del conocimiento en el diseño experimental**, permitiendo identificar tendencias, autores, revistas y enfoques metodológicos relevantes dentro del campo de la microbiología industrial. La inclusión de este capítulo tiene como propósito **fortalecer la fundamentación teórica y metodológica** del lector, proporcionándole una visión panorámica de la producción científica relacionada con el tema. A través del uso de técnicas de minería de datos bibliográficos y del software *R*, se ejemplifica cómo la bibliometría contribuye a **orientar la planificación y optimización de los diseños experimentales**, facilitando la toma de decisiones basadas en evidencia científica actual. De este modo, el capítulo no solo enriquece el marco conceptual del libro, sino que también promueve una práctica investigativa más informada, sistemática y alineada con las tendencias globales en investigación aplicada.
+
 ## Etapas del análisis bibliométrico
 
 El análisis bibliométrico es un proceso estructurado que permite examinar de manera sistemática la producción científica sobre un tema determinado. Para garantizar resultados rigurosos y reproducibles, este procedimiento se desarrolla en varias etapas que van desde la **definición del tema y la búsqueda en bases de datos**, hasta la **depuración, análisis e interpretación de los resultados** mediante herramientas especializadas como *Bibliometrix* y su interfaz *Biblioshiny*.
@@ -42,7 +44,7 @@ Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** seg�
 En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distintas ecuaciones de búsqueda relacionadas con el tema.
 
 | Ecuación de búsqueda                                                                  | Documentos encontrados |
-|-----------------------------------------------------|-------------------|
+|----------------------------------------------------|--------------------|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions"                        | 225                    |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth"                                 | 191                    |
 | "Cordyceps militaris" AND "medium" AND "growth"                                       | 99                     |
@@ -55,7 +57,7 @@ En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distin
 Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. La interfaz *Biblioshiny* permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
 |  Nº | Módulo                                | Función general                                                                | Submódulos / indicadores                                                                     |
-|---------------:|----------------|-------------------|----------------------|
+|----------------:|-----------------|------------------|---------------------|
 |   1 | **Data**                              | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.).              | Import or Load; Merge Datasets                                                               |
 |   2 | **Filters**                           | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries                                                                |
 |   3 | **Overview**                          | Panorama general con indicadores descriptivos.                                 | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
@@ -101,7 +103,7 @@ Se abrirá el servidor de Bibliometrix (Figura 9) en el navegador web (Chrome, M
 
 ![Figura 9.](images/2_Bibliometrix/Figura_9.png)
 
-En la parte izquierda se despliega el menú de biblioshiny, y se procede con la importación en "*Import or Load*" se carga el archivo CSV [@Aria2017], al tiempo que se seleccionan las casillas: *Import raw file(s*), la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: *Surname and Initials*, y finalmente damos click en el botón de *Start*  (Figura 10).
+En la parte izquierda se despliega el **menú de biblioshiny**, y se procede con la importación en "***Import or Load***" se carga el archivo CSV [@Aria2017], al tiempo que se seleccionan las casillas: ***Import raw file(s*****)**, la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: ***Surname and Initials***, y finalmente damos click en el botón de ***Start***  (Figura 10).
 
 ![Figura 10.](images/2_Bibliometrix/Figura_10.png)
 
@@ -117,7 +119,7 @@ Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (
 
 #### **Modulo *Overview***
 
-El indicador ***Main information*** muestra los valores de los metadatos trabajados, para este ejemplo se tiene un periodo de análisis de1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, se identificaron 903 autores, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de coautores por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad media de citas por documento es de 25,69 (Figura 13).
+El indicador ***Main information*** muestra los valores de los metadatos trabajados, para este ejemplo se tiene un periodo de análisis de1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, **se identificaron 903 autores**, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de **coautores** por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad **media de citas por documento** es de 25,69 (Figura 13).
 
 ![Figura 13](images/2_Bibliometrix/Figura_13.png)
 
@@ -131,11 +133,11 @@ quarto
 
 #### **Modulo *Sources***
 
-Para el menú de *Sources* en la sección ***Most Relevant Sources*** (Traducido: Fuentes más Relevantes) la producción científica está liderada por: International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas,las demás revistas como: Biology, Bioresource Technolgy, y Nutrients, que cuentan con 3 artículos cada una (Figura 16).
+Para el menú de *Sources* en la sección ***Most Relevant Sources*** (Traducido: Fuentes más Relevantes) la producción científica está liderada por: International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. **La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas**,las demás revistas como: Biology, Bioresource Technolgy, y Nutrients, que cuentan con 3 artículos cada una (Figura 16).
 
 ![Figura 16](images/2_Bibliometrix/Figura_17.png){width="656"}
 
-En la sección de **Bradford's Law** (Traducido: La Ley de Bradford) y continuando con nuestro ejemplo didáctico de *Cordyceps mil*itaris ,se observa que: "International Journal of Medicinal Mushrooms", junto con "Mycosystema" y "Applied Microbiology and Biotechnology", conforman el núcleo de fuentes indexadas  más relevantes, aportando el mayor número de publicaciones, estas tres revistas están dentro del área sombreada, lo que confirma su papel central en la diseminación del conocimiento sobre *C. militari*s y compuestos bioactivoss. A medida que se avanza hacia la derecha del gráfico, el número de artículos por revista disminuye, lo que representa publicaciones de interés más disperso (Figura 17).
+En la sección de **Bradford's Law** (Traducido: La Ley de Bradford) y continuando con nuestro ejemplo didáctico de *Cordyceps mil*itaris ,se observa que: "International Journal of Medicinal Mushrooms", junto con "Mycosystema" y "Applied Microbiology and Biotechnology", conforman el núcleo de fuentes indexadas  más relevantes, aportando el mayor número de publicaciones, estas tres revistas están dentro del área sombreada, lo que **confirma su papel central en la diseminación del conocimiento** sobre *C. militari*s y compuestos bioactivoss. A medida que se avanza hacia la derecha del gráfico, el número de artículos por revista disminuye, lo que representa publicaciones de interés más disperso (Figura 17).
 
 ![Figura 17](images/2_Bibliometrix/Figura_18.png){width="662"}
 
@@ -145,7 +147,7 @@ En la sección **"Authors' Production over Time"** (Producción de los autores a
 
 ![Figura 18](images/2_Bibliometrix/Figura_19.png)
 
-Para el menú de *Authors* específicamente en: ***Countries' Scientific Production*** (traducido: Producción científica de los países), el mapa muestra la distribución geográfica de la producción científica (Figura 19). China es el país con mayor producción científica (azul oscuro); otros países con destacada producción científica entre los que se incluyen: Estados Unidos, Corea del Sur, Tailandia, Japón, India y varios países europeos y asiáticos (azul celeste). Algunos países no presentan producción registrada y aparecen coloreados en gris. En la tabla se observa que China lidera con 702 publicaciones, seguida por Corea del Sur con 212, Tailandia con 83, Japón con 50 e India con 39. Otros países con menor producción incluyen Estados Unidos con 9, Reino Unido con 8, Alemania con 7, Italia con 6 y Colombia con 5 .
+Para el menú de *Authors* específicamente en: ***Countries' Scientific Production*** (traducido: Producción científica de los países), el mapa muestra la distribución geográfica de la producción científica (Figura 19). China es el país con mayor producción científica (azul oscuro); otros países con destacada producción científica entre los que se incluyen: Estados Unidos, Corea del Sur, Tailandia, Japón, India y varios países europeos y asiáticos (azul celeste). **Algunos países no presentan producción registrada y aparecen coloreados en gris.** En la tabla se observa que China lidera con 702 publicaciones, seguida por Corea del Sur con 212, Tailandia con 83, Japón con 50 e India con 39. Otros países con menor producción incluyen Estados Unidos con 9, Reino Unido con 8, Alemania con 7, Italia con 6 y Colombia con 5 .
 
 ![Figura 19](images/2_Bibliometrix/Figura_20.png)
 
@@ -159,11 +161,11 @@ En la sección **"Reference Spectroscopy"** (Espectroscopía de referencias) del
 
 ![Figura 21](images/2_Bibliometrix/Figura_22.png)
 
-Para el menú de *Conceptual Structure* concretamente en: ***Co-occurrence Network*** (traducido: Red de Coocurrencias), la red se encuentra claramente dividida en dos comunidades principales, identificadas por los colores rojo y azul. La comunidad roja, dominada por términos como cordycepin, Cordyceps militaris, metabolism y article, se orienta al estudio bioquímico y farmacológico del compuesto, mientras que la comunidad azul está asociada a modelos experimentales, destacando términos como animal experiment, human, mouse y cell line. Esta segmentación temática sugiere una dualidad en la línea de investigación: una centrada en la caracterización química y otra en los efectos biológicos en modelos preclínicos. El análisis de centralidad (como grado y betweenness) permitiría identificar términos puente como: nonhuman o controlled study, que conectan ambas comunidades (Figura 22).
+#### Modulo **Clustering (Conceptual Structure)**
+
+Para el menú de *Conceptual Structure* concretamente en: ***Co-occurrence Network*** (traducido: Red de Coocurrencias), la red se encuentra claramente dividida en dos comunidades principales, identificadas por los colores rojo y azul. **La comunidad roja**, dominada por términos como cordycepin, Cordyceps militaris, metabolism y article, se orienta al estudio bioquímico y farmacológico del compuesto, mientras que **la comunidad azul** está asociada a modelos experimentales, destacando términos como animal experiment, human, mouse y cell line. Esta segmentación temática sugiere una dualidad en la línea de investigación: una centrada en la caracterización química y otra en los efectos biológicos en modelos preclínicos. El análisis de centralidad (como grado y betweenness) permitiría identificar términos puente como: nonhuman o controlled study, que conectan ambas comunidades (Figura 22).
 
 ![Figura 22](images/2_Bibliometrix/Figura_23.png)
-
-### **Análisis factorial (Factorial Analysis)**
 
 En el menú **Conceptual Structure**, específicamente en la opción **Factorial Analysis**, se presenta una representación bidimensional de los términos más relevantes identificados en el corpus bibliográfico analizado. En el **eje X (Dim 1)**, que explica el **50,18% de la variabilidad**, se agrupan términos estrechamente relacionados con **estudios experimentales in vivo e in vitro**, tales como *in vitro study*, *mouse*, *animal tissue* y *protein expression*, ubicados en el cuadrante inferior derecho. Este agrupamiento sugiere una fuerte carga temática asociada a **investigaciones biomédicas y farmacológicas**. Por su parte, el **eje Y (Dim 2)**, que explica un **9,68% adicional de la variabilidad**, concentra términos como *transcriptome* y *carbon*, vinculados a **estudios genéticos y metabólicos**, los cuales se encuentran espacialmente separados del resto de la nube léxica.
 
@@ -171,7 +173,7 @@ Esta segmentación espacial evidencia la existencia de **subdominios temáticos 
 
 ![Figura 23](images/2_Bibliometrix/Figura_24.png)
 
-### **Red de colaboración (Collaboration Network)**
+#### **Social Structure**
 
 En **Social Structure**, específicamente en la opción **Collaboration Network**, se presenta un análisis basado en **redes de coautoría**, las cuales, según Aria y Cuccurullo (2017), permiten identificar **patrones de colaboración y productividad científica** entre los autores. En el contexto del estudio sobre *Cordyceps militaris*, la figura muestra una **red de colaboración entre investigadores**, donde **cada nodo representa un autor** y **las líneas o aristas** indican la existencia de coautoría en publicaciones científicas.
 
@@ -179,9 +181,7 @@ Se observan **múltiples grupos o comunidades de colaboración**, diferenciados 
 
 ![Figura 24](images/2_Bibliometrix/Figura_25.png)
 
-### **Mapa mundial de colaboración entre países (Countries\' Collaboration World Map)**
-
-En la subcategoría **Social Structure → Countries\' Collaboration World Map**, se visualizan las **redes internacionales de colaboración científica** sobre *Cordyceps* y su compuesto activo *cordycepina*.\
+En la subcategoría **Social Structure → Countries' Collaboration World Map**, se visualizan las **redes internacionales de colaboración científica** sobre *Cordyceps* y su compuesto activo *cordycepina*.\
 El color azul indica el volumen de publicaciones ---a mayor intensidad, mayor producción---, destacando **China** como el principal nodo y centro de cooperación. Las conexiones con **Estados Unidos, Alemania, Corea del Sur y Australia** evidencian un **patrón transcontinental de investigación**, que promueve la **transferencia de conocimiento y la consolidación de redes globales** en el estudio de hongos medicinales (Figura 25).
 
 ![Figura 25](images/2_Bibliometrix/Figura_26.png){width="668"}
