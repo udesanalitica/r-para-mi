@@ -1337,6 +1337,35 @@
             "title": "The role of artificial intelligence (AI) in microbiology laboratories for diagnosis of microorganisms: A review study",
             "title-short": "The role of artificial intelligence (AI) in microbiology laboratories for diagnosis of microorganisms",
             "type": "article-journal"
+        },
+        {
+            "URL": "https://repositorio.udes.edu.co/entities/publication/82ca50aa-a2c3-4d49-a9b7-03f3f0289858",
+            "author": [
+                {
+                    "family": "Fuentes-Ricaurte",
+                    "given": "H. K."
+                },
+                {
+                    "family": "Ortiz-Meneses",
+                    "given": "F. A."
+                },
+                {
+                    "family": "Rodríguez-González",
+                    "given": "L. G."
+                }
+            ],
+            "genre": "Trabajo de grado",
+            "id": "FuentesRicaurte2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "publisher": "Universidad de Santander",
+            "title": "Evaluación de la bioacumulación de cadmio y plomo con cepas de hongos mitospóricos de origen ambiental",
+            "type": "thesis"
         }
     ],
     "project_biblios": [

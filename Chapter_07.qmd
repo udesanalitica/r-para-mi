@@ -49,18 +49,18 @@ Actúa como un investigador en Ingeniería de Bioprocesos y Microbiología Indus
 
 Usa como variables de entrada:\
 (i)Temperatura (28--42 °C),\
-(ii) pH inicial (5.0--8.0), \
-(iii) Concentración de almidón soluble (5--50 g/L), \
-(iv) Aireación (0.5--2.0 vvm), \
-(v) Tiempo de fermentación (0--96 h). \
+(ii) pH inicial (5.0--8.0),\
+(iii) Concentración de almidón soluble (5--50 g/L),\
+(iv) Aireación (0.5--2.0 vvm),\
+(v) Tiempo de fermentación (0--96 h).\
 \
-Incluye como variables de salida: \
-(i) Biomasa (g/L), \
-(ii) Actividad de amilasa (U/mL), \
-(iii) Consumo de sustrato (%) y \
+Incluye como variables de salida:\
+(i) Biomasa (g/L),\
+(ii) Actividad de amilasa (U/mL),\
+(iii) Consumo de sustrato (%) y\
 (iv) pH final.
 
-El dataset debe contener al menos 300 observaciones, estar en formato CSV, incluir variabilidad experimental (ruido aleatorio) y mantener relaciones biológicas plausibles (ejemplo: mayor sustrato y aireación → mayor biomasa y actividad enzimática hasta cierto límite). \
+El dataset debe contener al menos 300 observaciones, estar en formato CSV, incluir variabilidad experimental (ruido aleatorio) y mantener relaciones biológicas plausibles (ejemplo: mayor sustrato y aireación → mayor biomasa y actividad enzimática hasta cierto límite).\
 \
 Este dataset será procesado y analizado en RStudio mediante estadística descriptiva, regresión y visualización multivariante.
 :::
@@ -68,22 +68,22 @@ Este dataset será procesado y analizado en RStudio mediante estadística descri
 ::: callout-tip
 ## Tercer modelo de Prompt
 
-Actúa como un microbiólogo industrial y bioestadístico. Genera un conjunto de datos simulados que representen curvas de crecimiento de *Escherichia coli* en medios líquidos bajo distintas condiciones. \
+Actúa como un microbiólogo industrial y bioestadístico. Genera un conjunto de datos simulados que representen curvas de crecimiento de *Escherichia coli* en medios líquidos bajo distintas condiciones.\
 \
-Considera como variables de entrada: \
+Considera como variables de entrada:\
 (i) fuente de carbono (glucosa, lactosa, glicerol),\
 (ii) concentración inicial de sustrato (5--50 g/L),\
 (iii) temperatura (25--40 °C),\
-(iv) pH inicial (5.5--7.5) y \
-(v) tiempo de incubación (0--48 h). \
+(iv) pH inicial (5.5--7.5) y\
+(v) tiempo de incubación (0--48 h).\
 \
-Incluye como variables de salida: \
+Incluye como variables de salida:\
 \
-(i) OD600, \
-(ii) fase de crecimiento y \
-(iii) velocidad específica de crecimiento (µ). \
+(i) OD600,\
+(ii) fase de crecimiento y\
+(iii) velocidad específica de crecimiento (µ).\
 \
-El dataset debe tener al menos 250 observaciones, exportarse en formato CSV, presentar curvas sigmoides biológicamente plausibles y reflejar variabilidad experimental realista. \
+El dataset debe tener al menos 250 observaciones, exportarse en formato CSV, presentar curvas sigmoides biológicamente plausibles y reflejar variabilidad experimental realista.\
 \
 Los datos se utilizarán en RStudio para modelar parámetros cinéticos y comparar el efecto de las condiciones de cultivo sobre el crecimiento bacteriano.
 :::
@@ -95,13 +95,13 @@ Actúa como un microbiólogo industrial y bioestadístico. Genera un conjunto de
 
 Emplea un diseño de Mediciones Repetidas en el Tiempo, con evaluaciones a los 3, 5, 7, 9 y 11 días después de la inoculación (ddi).
 
-El archivo debe contener las siguientes columnas: \
-(i) Tratamiento, \
-(ii) Repetición, \
-(iii) días después de la inoculación, \
-(iv) PIAL. \
+El archivo debe contener las siguientes columnas:\
+(i) Tratamiento,\
+(ii) Repetición,\
+(iii) días después de la inoculación,\
+(iv) PIAL.\
 \
-Los valores de PIAL deben mostrar tendencias biológicas plausibles: \
+Los valores de PIAL deben mostrar tendencias biológicas plausibles:\
 (i) El control (sin extracto) debe presentar progresión rápida de la lesión (PIAL cercano a 0%),\
 (ii) Los extractos vegetales deben mostrar distintos niveles de eficacia, algunos con inhibiciones superiores al 50%. \
 \
