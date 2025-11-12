@@ -44,13 +44,15 @@ Este enfoque resulta especialmente adecuado para **datos dependientes en el tiem
 ### Cargar los paquetes necesarios para el análisis
 
 ```{r}
-library(readxl)
-library(nlme)
-library(ggplot2)
-library(emmeans)
-library(dplyr)
-library(multcomp)
-library(multcompView)
+suppressPackageStartupMessages({
+  library(readxl)
+  library(nlme)
+  library(ggplot2)
+  library(emmeans)
+  library(dplyr)
+  library(multcomp)
+  library(multcompView)
+})
 ```
 
 ### Importar datos
@@ -242,7 +244,7 @@ Este análisis se centra en identificar cuáles tratamientos difieren significat
 
     **Conclusión:** Al final del período de evaluación (20 días), la **menor concentración de Pb (100 mg/L) resulta en una respuesta significativamente inferior** a las dos concentraciones más altas (150 y 200 mg/L). Las concentraciones de 150 y 200 mg/L de Pb tienen efectos estadísticamente equivalentes.
 
-Visualización de resultados
+**Visualización de resultados**
 
 **Interpretación:** El análisis estadístico de la interacción entre el **Tratamiento** (diferentes concentraciones de Plomo) y el **Tiempo** revela una dinámica evolutiva del efecto medido. Si bien la tendencia general muestra un incremento en el resultado para todos los tratamientos a lo largo de los 20 días, la diferenciación estadística varía críticamente según el momento.
 

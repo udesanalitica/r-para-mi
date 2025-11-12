@@ -456,86 +456,39 @@ Tabla&nbsp;10.2
 <section id="cargar-los-paquetes-necesarios-para-el-análisis" class="level3">
 <h3 class="anchored" data-anchor-id="cargar-los-paquetes-necesarios-para-el-análisis">Cargar los paquetes necesarios para el análisis</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(nlme)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(emmeans)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(multcomp)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(multcompView)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'readxl' was built under R version 4.3.3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'nlme' was built under R version 4.3.3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'emmeans' was built under R version 4.3.3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'dplyr' was built under R version 4.3.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:nlme':
-
-    collapse</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'multcomp' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: mvtnorm</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'mvtnorm' was built under R version 4.3.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: survival</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'survival' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: TH.data</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'TH.data' was built under R version 4.3.3</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: MASS</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'MASS'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    select</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'TH.data'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:MASS':
-
-    geyser</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcompView)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'multcompView' was built under R version 4.3.3</code></pre>
 </div>
@@ -544,20 +497,20 @@ Attaching package: 'TH.data'</code></pre>
 <section id="importar-datos" class="level3">
 <h3 class="anchored" data-anchor-id="importar-datos">Importar datos</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>DMRT <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/R-Proyectos/r-para-mi/data/DMRT_Hongos/DMRT.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>DMRT <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/R-Proyectos/r-para-mi/data/DMRT_Hongos/DMRT.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exploración-inicial-y-estructura-de-la-base-de-datos" class="level3">
 <h3 class="anchored" data-anchor-id="exploración-inicial-y-estructura-de-la-base-de-datos">Exploración inicial y estructura de la base de datos</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Id"          "Tiempo"      "Tratamiento" "Repeticion"  "Resultado"  </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [36 × 5] (S3: tbl_df/tbl/data.frame)
  $ Id         : chr [1:36] "f1100" "f2100" "f3100" "f1100" ...
@@ -568,7 +521,7 @@ Attaching package: 'TH.data'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   Id    Tiempo Tratamiento    Repeticion Resultado
@@ -582,7 +535,7 @@ Attaching package: 'TH.data'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DMRT<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DMRT<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   0.000   3.375  55.725  47.017  78.800  95.650 </code></pre>
@@ -592,8 +545,8 @@ Attaching package: 'TH.data'</code></pre>
 <section id="verificación-del-equilibrio-del-diseño-experimental" class="level3">
 <h3 class="anchored" data-anchor-id="verificación-del-equilibrio-del-diseño-experimental">Verificación del equilibrio del diseño experimental</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># Contar el número de observaciones por combinación de Tratamiento × Tiempo  </span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>DMRT <span class="sc">%&gt;%</span> <span class="fu">count</span>(Tratamiento, Tiempo) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Tratamiento, Tiempo) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># Contar el número de observaciones por combinación de Tratamiento × Tiempo  </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>DMRT <span class="sc">%&gt;%</span> <span class="fu">count</span>(Tratamiento, Tiempo) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Tratamiento, Tiempo) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 3
    Tratamiento    Tiempo     n
@@ -617,11 +570,11 @@ Attaching package: 'TH.data'</code></pre>
 <h3 class="anchored" data-anchor-id="convertir-variables-categóricas-a-factores">Convertir variables categóricas a factores</h3>
 <p>Antes de realizar el análisis de varianza (ANOVA), es necesario convertir las variables categóricas —como los tratamientos o los tiempos de muestreo— en <strong>factores</strong>, ya que este tipo de análisis requiere que los grupos experimentales sean interpretados como categorías y no como valores numéricos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Tratamiento)  <span class="co"># Efecto fijo 1: concentración de Pb</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Tiempo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Tiempo)            <span class="co"># Efecto fijo 2: tiempo de exposición</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Id <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Id)                    <span class="co"># Efecto aleatorio: frasco o unidad experimental</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Tratamiento)  <span class="co"># Efecto fijo 1: concentración de Pb</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Tiempo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Tiempo)            <span class="co"># Efecto fijo 2: tiempo de exposición</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Id <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Id)                    <span class="co"># Efecto aleatorio: frasco o unidad experimental</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [36 × 5] (S3: tbl_df/tbl/data.frame)
  $ Id         : Factor w/ 9 levels "f1100","f1150",..: 1 4 7 1 4 7 1 4 7 1 ...
@@ -638,14 +591,14 @@ Attaching package: 'TH.data'</code></pre>
 <section id="modelo-mixto-lineal-de-medidas-repetidas" class="level3">
 <h3 class="anchored" data-anchor-id="modelo-mixto-lineal-de-medidas-repetidas">Modelo mixto lineal de medidas repetidas</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste del modelo mixto lineal (efectos fijos + aleatorios)</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>modelo_mixto <span class="ot">&lt;-</span> <span class="fu">lme</span>(</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  Resultado <span class="sc">~</span> Tratamiento <span class="sc">*</span> Tiempo,  <span class="co"># efectos fijos</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span> <span class="sc">|</span> Id,                  <span class="co"># efecto aleatorio por frasco</span></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DMRT                        <span class="co"># conjunto de datos</span></span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste del modelo mixto lineal (efectos fijos + aleatorios)</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>modelo_mixto <span class="ot">&lt;-</span> <span class="fu">lme</span>(</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  Resultado <span class="sc">~</span> Tratamiento <span class="sc">*</span> Tiempo,  <span class="co"># efectos fijos</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span> <span class="sc">|</span> Id,                  <span class="co"># efecto aleatorio por frasco</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DMRT                        <span class="co"># conjunto de datos</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Interpretación:</strong><br>
 Este modelo mixto se usa para analizar datos donde se repiten las mediciones (por ejemplo, la bioacumulación de plomo en diferentes tiempos dentro del mismo frasco o individuo).</p>
@@ -657,8 +610,8 @@ Este modelo mixto se usa para analizar datos donde se repiten las mediciones (po
 <p><strong>Análisis de la Varianza - ANOVA</strong></p>
 <p>El <strong>análisis de varianza (ANOVA)</strong> es una herramienta estadística fundamental en las investigaciones <strong>microbiológicas y ambientales</strong>, ya que permite determinar si las diferencias observadas en la <strong>bioacumulación de plomo (Pb)</strong> se deben realmente a los <strong>tratamientos experimentales</strong> y no al efecto del azar. Cuando se cumplen los <strong>supuestos de normalidad y homogeneidad de varianzas</strong>, el ANOVA ofrece <strong>inferencias sólidas y confiables</strong>, lo que fortalece la <strong>validez interna del experimento</strong> y respalda la interpretación de los resultados obtenidos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados del ANOVA del modelo</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(modelo_mixto)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados del ANOVA del modelo</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(modelo_mixto)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   numDF denDF  F-value p-value
 (Intercept)            1    18 6228.224  &lt;.0001
@@ -670,8 +623,8 @@ Tratamiento:Tiempo     6    18   40.052  &lt;.0001</code></pre>
 <p><strong>Interpretación:</strong></p>
 <p>El intercepto no presenta un interés biológico directo, ya que únicamente funciona como punto de referencia dentro del modelo estadístico. En cuanto al factor <strong>tratamiento (p &lt; 0.0001)</strong>, se observaron diferencias significativas entre los distintos tratamientos, lo que indica que la bioacumulación de plomo varía de manera notable según el tipo de tratamiento aplicado. Por otro lado, el <strong>tiempo (p &lt; 0.0001)</strong> también mostró un efecto significativo sobre la respuesta, evidenciando que los niveles de bioacumulación cambian de forma importante a lo largo del periodo de evaluación. Finalmente, la <strong>interacción entre tratamiento y tiempo (p &lt; 0.0001)</strong> resultó significativa, lo que sugiere que el efecto de los tratamientos depende del momento de medición; es decir, los tratamientos no presentan el mismo comportamiento en todos los tiempos analizados.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen detallado del modelo</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_mixto)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen detallado del modelo</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_mixto)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed-effects model fit by REML
   Data: DMRT 
@@ -762,13 +715,13 @@ Number of Groups: 9 </code></pre>
 <section id="lsd-sin-ajuste-equivalente-a-prueba-de-fisher-lsd" class="level3">
 <h3 class="anchored" data-anchor-id="lsd-sin-ajuste-equivalente-a-prueba-de-fisher-lsd">LSD (sin ajuste, equivalente a prueba de Fisher LSD)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>emmeans_trat_tiempo <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(modelo_mixto, <span class="sc">~</span> Tratamiento <span class="sc">|</span> Tiempo)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>cld_LSD <span class="ot">&lt;-</span> multcomp<span class="sc">::</span><span class="fu">cld</span>(emmeans_trat_tiempo,</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">adjust =</span> <span class="st">"none"</span>,   <span class="co"># LSD no ajusta comparaciones</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Letters =</span> letters,</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cld_LSD)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>emmeans_trat_tiempo <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(modelo_mixto, <span class="sc">~</span> Tratamiento <span class="sc">|</span> Tiempo)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>cld_LSD <span class="ot">&lt;-</span> multcomp<span class="sc">::</span><span class="fu">cld</span>(emmeans_trat_tiempo,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">adjust =</span> <span class="st">"none"</span>,   <span class="co"># LSD no ajusta comparaciones</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Letters =</span> letters,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cld_LSD)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Tiempo = 0 ddi:
  Tratamiento    emmean  SE df lower.CL upper.CL .group
@@ -856,7 +809,7 @@ El tratamiento <strong>As 200 mg/L Pb</strong> (75.3) forma un grupo distinto (�
 El grupo ‘b’ (150 y 200 mg/L Pb) es significativamente diferente y mayor que el grupo ‘a’ (100 mg/L Pb).</p>
 <p><strong>Conclusión:</strong> Al final del período de evaluación (20 días), la <strong>menor concentración de Pb (100 mg/L) resulta en una respuesta significativamente inferior</strong> a las dos concentraciones más altas (150 y 200 mg/L). Las concentraciones de 150 y 200 mg/L de Pb tienen efectos estadísticamente equivalentes.</p></li>
 </ul>
-<p>Visualización de resultados</p>
+<p><strong>Visualización de resultados</strong></p>
 <p><strong>Interpretación:</strong> El análisis estadístico de la interacción entre el <strong>Tratamiento</strong> (diferentes concentraciones de Plomo) y el <strong>Tiempo</strong> revela una dinámica evolutiva del efecto medido. Si bien la tendencia general muestra un incremento en el resultado para todos los tratamientos a lo largo de los 20 días, la diferenciación estadística varía críticamente según el momento.</p>
 <p>Al inicio (0 ddi), no se registraron diferencias significativas entre las tres concentraciones. La máxima diferenciación se alcanzó a los <strong>10 ddi</strong>, donde el tratamiento de <span class="math inline">\(200 \text{ mg/L Pb}\)</span> fue significativamente superior al de <span class="math inline">\(150 \text{ mg/L Pb}\)</span>, y este a su vez fue superior al de <span class="math inline">\(100 \text{ mg/L Pb}\)</span>, estableciendo una clara jerarquía.</p>
 <p>Posteriormente, a medida que el experimento progresó (15 y 20 ddi), los tratamientos de <strong>mayor concentración convergieron estadísticamente</strong>. A los 20 ddi, el tratamiento de <span class="math inline">\(100 \text{ mg/L Pb}\)</span> resultó ser significativamente inferior y distinto (grupo ‘a’) de los tratamientos de <span class="math inline">\(150 \text{ mg/L Pb}\)</span> y <span class="math inline">\(200 \text{ mg/L Pb}\)</span>.</p>
@@ -870,10 +823,10 @@ El grupo ‘b’ (150 y 200 mg/L Pb) es significativamente diferente y mayor que
 <section id="normalidad-de-residuos-del-modelo" class="level3">
 <h3 class="anchored" data-anchor-id="normalidad-de-residuos-del-modelo">Normalidad de residuos del modelo</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalidad de residuos (Shapiro-Wilk)</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalidad de residuos (Shapiro-Wilk)</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -886,29 +839,29 @@ W = 0.95276, p-value = 0.1277</code></pre>
 <p><strong>Gráfico Q-Q de los residuos estandarizados</strong></p>
 <p>El gráfico Q-Q es el método estándar para evaluar la normalidad.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la librería necesaria para el modelo (si no está cargada)</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(nlme) </span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer los residuos estandarizados del modelo</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>residuos_std <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Crear un marco de datos con los residuos estandarizados</span></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>datos_qq <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> residuos_std,</span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Teoricos =</span> <span class="fu">qnorm</span>(<span class="fu">ppoints</span>(<span class="fu">length</span>(residuos_std)))</span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Generar el gráfico Q-Q</span></span>
-<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_qq, <span class="fu">aes</span>(<span class="at">x =</span> Teoricos, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
-<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico Q-Q para la Normalidad de los Residuos"</span>,</span>
-<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cuantiles Teóricos Normales"</span>,</span>
-<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados del Modelo"</span></span>
-<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la librería necesaria para el modelo (si no está cargada)</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(nlme) </span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer los residuos estandarizados del modelo</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>residuos_std <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Crear un marco de datos con los residuos estandarizados</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>datos_qq <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> residuos_std,</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Teoricos =</span> <span class="fu">qnorm</span>(<span class="fu">ppoints</span>(<span class="fu">length</span>(residuos_std)))</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Generar el gráfico Q-Q</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_qq, <span class="fu">aes</span>(<span class="at">x =</span> Teoricos, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico Q-Q para la Normalidad de los Residuos"</span>,</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cuantiles Teóricos Normales"</span>,</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados del Modelo"</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -916,18 +869,18 @@ W = 0.95276, p-value = 0.1277</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Los puntos deben seguir de cerca la línea roja.</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- B. Prueba de Shapiro-Wilk (Opcional, pero complementaria) ---</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test(residuos_std) </span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Si el valor p &gt; 0.05, no se rechaza la normalidad.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Los puntos deben seguir de cerca la línea roja.</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- B. Prueba de Shapiro-Wilk (Opcional, pero complementaria) ---</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test(residuos_std) </span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Si el valor p &gt; 0.05, no se rechaza la normalidad.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="homogeneidad-de-varianza-homocedasticidad" class="level3">
 <h3 class="anchored" data-anchor-id="homogeneidad-de-varianza-homocedasticidad">Homogeneidad de Varianza (Homocedasticidad)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Homogeneidad de varianzas (Bartlett)</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Homogeneidad de varianzas (Bartlett)</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Bartlett test of homogeneity of variances
@@ -941,22 +894,22 @@ Bartlett's K-squared = 0.036607, df = 2, p-value = 0.9819</code></pre>
 <section id="gráfico-de-residuos-vs.-valores-ajustados" class="level3">
 <h3 class="anchored" data-anchor-id="gráfico-de-residuos-vs.-valores-ajustados">Gráfico de Residuos vs.&nbsp;Valores Ajustados</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer los valores ajustados (predichos) y los residuos</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>datos_homocedasticidad <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valores_Ajustados =</span> <span class="fu">fitted</span>(modelo_mixto),</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Generar el gráfico</span></span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_homocedasticidad, <span class="fu">aes</span>(<span class="at">x =</span> Valores_Ajustados, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico de Residuos vs. Valores Ajustados (Homocedasticidad)"</span>,</span>
-<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valores Ajustados (Predichos)"</span>,</span>
-<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados"</span></span>
-<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer los valores ajustados (predichos) y los residuos</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>datos_homocedasticidad <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valores_Ajustados =</span> <span class="fu">fitted</span>(modelo_mixto),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Generar el gráfico</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_homocedasticidad, <span class="fu">aes</span>(<span class="at">x =</span> Valores_Ajustados, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico de Residuos vs. Valores Ajustados (Homocedasticidad)"</span>,</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valores Ajustados (Predichos)"</span>,</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados"</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -964,8 +917,8 @@ Bartlett's K-squared = 0.036607, df = 2, p-value = 0.9819</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Los puntos deben dispersarse aleatoriamente alrededor de la línea y=0, </span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sin formar patrones de embudo o conos.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Los puntos deben dispersarse aleatoriamente alrededor de la línea y=0, </span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sin formar patrones de embudo o conos.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="independenciaestructura-de-correlación" class="level3">
@@ -975,25 +928,25 @@ Bartlett's K-squared = 0.036607, df = 2, p-value = 0.9819</code></pre>
 <section id="gráfico-de-residuos-vs.-tiempo-por-unidad-experimental" class="level3">
 <h3 class="anchored" data-anchor-id="gráfico-de-residuos-vs.-tiempo-por-unidad-experimental">Gráfico de Residuos vs.&nbsp;Tiempo por Unidad Experimental</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparar el marco de datos con Residuos, Tiempo e Id</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>datos_independencia <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tiempo =</span> modelo_mixto<span class="sc">$</span>data<span class="sc">$</span>Tiempo,</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Id =</span> modelo_mixto<span class="sc">$</span>data<span class="sc">$</span>Id,</span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos =</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Generar el gráfico</span></span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_independencia, <span class="fu">aes</span>(<span class="at">x =</span> Tiempo, <span class="at">y =</span> Residuos, <span class="at">group =</span> Id)) <span class="sc">+</span></span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Id), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Color por Id para diferenciación</span></span>
-<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Evaluación de la Correlación Temporal de los Residuos"</span>,</span>
-<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Si hay patrones, la estructura de correlación debe revisarse"</span>,</span>
-<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tiempo (ddi)"</span>,</span>
-<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados"</span></span>
-<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparar el marco de datos con Residuos, Tiempo e Id</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>datos_independencia <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tiempo =</span> modelo_mixto<span class="sc">$</span>data<span class="sc">$</span>Tiempo,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Id =</span> modelo_mixto<span class="sc">$</span>data<span class="sc">$</span>Id,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos =</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Generar el gráfico</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_independencia, <span class="fu">aes</span>(<span class="at">x =</span> Tiempo, <span class="at">y =</span> Residuos, <span class="at">group =</span> Id)) <span class="sc">+</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Id), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Color por Id para diferenciación</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Evaluación de la Correlación Temporal de los Residuos"</span>,</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Si hay patrones, la estructura de correlación debe revisarse"</span>,</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tiempo (ddi)"</span>,</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados"</span></span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1001,9 +954,9 @@ Bartlett's K-squared = 0.036607, df = 2, p-value = 0.9819</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Si hay un patrón de correlación visible (líneas que siguen una forma </span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co"># similar a lo largo del tiempo), el modelo podría necesitar una estructura de </span></span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co"># correlación explícita (p. ej., corAR1) añadida al objeto lme.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Si hay un patrón de correlación visible (líneas que siguen una forma </span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># similar a lo largo del tiempo), el modelo podría necesitar una estructura de </span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># correlación explícita (p. ej., corAR1) añadida al objeto lme.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Interpretación:</strong>&nbsp;El análisis de los residuos indica una <strong>violación del supuesto de independencia temporal</strong>. Se observa un <strong>patrón sistemático</strong> (subida y bajada) en los residuos a lo largo del tiempo que se repite en las unidades experimentales, lo cual sugiere que el modelo actual, con solo una intercepción aleatoria, <strong>no está capturando adecuadamente la correlación temporal</strong> entre las mediciones. Para obtener estimaciones de error estándar válidas y garantizar la fiabilidad de las comparaciones post-hoc, es <strong>obligatorio reajustar el modelo lineal mixto</strong> incluyendo una <strong>estructura de correlación explícita</strong> (como AR(1)).</p>
 
