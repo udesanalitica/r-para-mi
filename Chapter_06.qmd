@@ -17,7 +17,7 @@ La base de datos está compuesta por **cuatro columnas principales**, que descri
 
 ::: {#tbl-estructura .table caption="Estructura de la base de datos utilizada en el análisis."}
 | **Variable**    | **Tipo de variable** | **Descripción**                                                                                                                                                     |
-|-----------|-----------|-------------------------------------------------|
+|----------------|----------------|----------------------------------------|
 | **Tiempo**      | Categórica           | Días después de la inoculación (ddi). Representa los momentos de medición del experimento.                                                                          |
 | **Tratamiento** | Categórica           | Inoculación de *Aspergillus* sp. en medios de cultivo suplementados con 100, 150 y 200 mg/L de Pb.                                                                  |
 | **Repetición**  | Numérica             | Identifica el número de repetición del tratamiento (1, 2, 3).                                                                                                       |
@@ -32,7 +32,7 @@ Este enfoque resulta especialmente adecuado para **datos dependientes en el tiem
 
 ::: {#tbl-estructura-mixto .table caption="Estructura del diseño experimental y justificación del modelo mixto lineal de medidas repetidas."}
 | **Elemento**            | **Descripción**                                                              | **Tipo**              |
-|----------------|-----------------------------------------|----------------|
+|------------------|-------------------------------------|------------------|
 | **Unidad experimental** | Frasco o cultivo individual (*Id*).                                          | Efecto **aleatorio**  |
 | **Factores fijos**      | \- Concentración de Pb (*Tratamiento*)<br>- Tiempo de incubación (*Tiempo*). | Efectos **fijos**     |
 | **Variable respuesta**  | Bioacumulación de Pb (*Resultado*).                                          | Continua              |
@@ -41,22 +41,16 @@ Este enfoque resulta especialmente adecuado para **datos dependientes en el tiem
 
 ## Diseño: Tratamiento (factor entre sujetos) x Tiempo (factor intra-sujetos)
 
-### Cargar e instalar automáticamente los paquetes necesarios para el análisis
+### Cargar los paquetes necesarios para el análisis
 
 ```{r}
-# Función para instalar y cargar paquetes
-use_pkg <- function(pkgs) {
-  nuevos <- pkgs[!(pkgs %in% installed.packages()[, "Package"])]
-  if (length(nuevos)) install.packages(nuevos, dependencies = TRUE)
-  sapply(pkgs, require, character.only = TRUE)
-}
-
-# Lista de paquetes necesarios
-paquetes <- c("readxl", "nlme", "ggplot2", "emmeans", "dplyr", "multcomp", "multcompView")
-
-# Instalar y cargar todos los paquetes
-use_pkg(paquetes)
-
+library(readxl)
+library(nlme)
+library(ggplot2)
+library(emmeans)
+library(dplyr)
+library(multcomp)
+library(multcompView)
 ```
 
 ### Importar datos
@@ -123,7 +117,7 @@ Este modelo mixto se usa para analizar datos donde se repiten las mediciones (po
 
 -   **Efectos fijos:** `Tratamiento` y `Tiempo`, además de su interacción (`Tratamiento*Tiempo`), permiten evaluar si existen diferencias sistemáticas entre tratamientos, entre momentos de tiempo y si el efecto del tratamiento cambia a lo largo del tiempo.
 
--    **Efecto aleatorio:** `~1 | Id` indica que se considera la variabilidad individual de cada frasco o unidad experimental, controlando así la correlación entre medidas repetidas del mismo sujeto.
+-   **Efecto aleatorio:** `~1 | Id` indica que se considera la variabilidad individual de cada frasco o unidad experimental, controlando así la correlación entre medidas repetidas del mismo sujeto.
 
 -   Este tipo de modelo mejora la precisión del análisis porque separa la variabilidad intra-sujeto de la variabilidad entre sujetos, algo que un ANOVA tradicional no podría hacer adecuadamente.
 
@@ -162,22 +156,52 @@ print(cld_LSD)
 
 ### Comparaciones Post-Hoc (EMMEANS + SIDAK)
 
-### Tratamientos dentro de cada tiempo
-
 ```{r}
-# Comparaciones Post-Hoc (EMMEANS + SIDAK)
-emmeans_trat_tiempo <- emmeans(modelo_mixto, ~ Tratamiento | Tiempo)
+#| label: posthoc-plot
+#| echo: false
+#| message: false
+#| warning: true
 
-cld_trat_tiempo <- multcomp::cld(
-  emmeans_trat_tiempo,
-  adjust = "sidak",   # ajuste Sidak (Tukey no aplica en modelos mixtos)
-  Letters = letters,
-  alpha = 0.05
-)
+# Si no existe, calcula EMMEANS + CLD
+if (!exists("cld_trat_tiempo")) {
+  emmeans_trat_tiempo <- emmeans(modelo_mixto, ~ Tratamiento | Tiempo)
+  cld_trat_tiempo <- multcomp::cld(
+    emmeans_trat_tiempo,
+    adjust = "sidak",
+    Letters = letters,
+    alpha = 0.05
+  )
+}
 
-# Mostrar resultados y gráfico
-print(cld_trat_tiempo)
+# Convertir a data.frame para ggplot
+plot_data <- as.data.frame(cld_trat_tiempo)
+
+# Comprobaciones mínimas (fallan temprano si algo no está)
+req_cols <- c("Tiempo","Tratamiento","emmean","lower.CL","upper.CL",".group")
+stopifnot(all(req_cols %in% names(plot_data)))
+
+# Limpieza y formatos
+plot_data$Tiempo  <- factor(plot_data$Tiempo)
+plot_data$.group  <- trimws(plot_data$.group)
+
+# Gráfico
+pd <- position_dodge(0.45)
+ggplot(plot_data, aes(x = Tiempo, y = emmean,
+                      color = Tratamiento, group = Tratamiento)) +
+  geom_line(position = pd, linewidth = 1.1) +
+  geom_point(position = pd, size = 3) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                width = 0.2, position = pd) +
+  geom_text(aes(label = .group), vjust = -0.8,
+            position = pd, show.legend = FALSE) +
+  theme_minimal() +
+  labs(title = "Comparaciones post-hoc (Sidak) para Tratamiento × Tiempo",
+       x = "Tiempo",
+       y = "Bioacumulación de PB (medias ± IC95%)")
+
 ```
+
+### Tratamientos dentro de cada tiempo
 
 ### Análisis de la Interacción Tratamiento × Tiempo
 
@@ -219,36 +243,6 @@ Este análisis se centra en identificar cuáles tratamientos difieren significat
     **Conclusión:** Al final del período de evaluación (20 días), la **menor concentración de Pb (100 mg/L) resulta en una respuesta significativamente inferior** a las dos concentraciones más altas (150 y 200 mg/L). Las concentraciones de 150 y 200 mg/L de Pb tienen efectos estadísticamente equivalentes.
 
 Visualización de resultados
-
-```{r}
-library(ggplot2)
-
-# Convertir 'Tiempo' a factor/discreto para un mejor manejo del 'dodge'
-plot_data$Tiempo_Factor <- factor(plot_data$Tiempo)
-
-ggplot(plot_data, aes(x = Tiempo_Factor, y = emmean,
-                      color = Tratamiento, group = Tratamiento)) +
-  # 1. Aplicar posición de 'esquive' a las líneas y puntos
-  geom_line(aes(y = emmean), position = position_dodge(0.4), size = 1.2) +
-  geom_point(position = position_dodge(0.4), size = 3) +
-
-  # 2. Aplicar posición de 'esquive' a las barras de error
-  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
-                width = 0.2, position = position_dodge(0.4)) +
-
-  # 3. Aplicar posición de 'esquive' a las etiquetas de texto (las letras)
-  # Asegúrate de que el 'dodge' sea consistente (0.4)
-  geom_text(aes(label = .group),
-            vjust = -0.8, # Mueve la etiqueta ligeramente por encima de la barra
-            position = position_dodge(0.4),
-            show.legend = FALSE) +
-
-  theme_minimal() +
-  labs(title = "Comparaciones post-hoc (Sidak) para Tratamiento × Tiempo",
-       x = "Tiempo (ddi)",
-       y = "Resultado (medias ± IC95%)")
-
-```
 
 **Interpretación:** El análisis estadístico de la interacción entre el **Tratamiento** (diferentes concentraciones de Plomo) y el **Tiempo** revela una dinámica evolutiva del efecto medido. Si bien la tendencia general muestra un incremento en el resultado para todos los tratamientos a lo largo de los 20 días, la diferenciación estadística varía críticamente según el momento.
 
@@ -340,7 +334,7 @@ ggplot(datos_homocedasticidad, aes(x = Valores_Ajustados, y = Residuos_Std)) +
 # sin formar patrones de embudo o conos.
 ```
 
-###  Independencia/Estructura de Correlación
+### Independencia/Estructura de Correlación
 
 Este supuesto verifica si la dependencia temporal restante dentro de cada unidad experimental (`Id`) ha sido modelada correctamente.
 

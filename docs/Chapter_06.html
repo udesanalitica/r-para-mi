@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas) – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Chapter_07.html" rel="next">
+<link href="./Chapter_05.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-806c95bdecf85540f7beab145150c922.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_06.html"><span class="chapter-title">Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) " title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-Microbiología-Industrial--Análisis-de-Datos-y-Diseño-Experimental-con-un-Enfoque-Práctico.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Descargar PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-Microbiología-Industrial--Análisis-de-Datos-y-Diseño-Experimental-con-un-Enfoque-Práctico.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Descargar ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R para MI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./autores.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Autores</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./agradecimientos.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Agradecimientos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 1 Introducción al software R y la interfaz RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 2 Análisis bibliométrico para la gestión de un diseño experimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 3 Generalidades del Diseño Experimental</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 4 Diseño Completamente al Azar (DCA)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_06.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_07.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 7 Uso de Inteligencia Artificial para la simulación de datos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#problema" id="toc-problema" class="nav-link active" data-scroll-target="#problema">Problema</a></li>
+  <li><a href="#estructura-de-la-base-de-datos" id="toc-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#estructura-de-la-base-de-datos">Estructura de la base de datos</a></li>
+  <li><a href="#diseño-tratamiento-factor-entre-sujetos-x-tiempo-factor-intra-sujetos" id="toc-diseño-tratamiento-factor-entre-sujetos-x-tiempo-factor-intra-sujetos" class="nav-link" data-scroll-target="#diseño-tratamiento-factor-entre-sujetos-x-tiempo-factor-intra-sujetos">Diseño: Tratamiento (factor entre sujetos) x Tiempo (factor intra-sujetos)</a>
+  <ul class="collapse">
+  <li><a href="#cargar-los-paquetes-necesarios-para-el-análisis" id="toc-cargar-los-paquetes-necesarios-para-el-análisis" class="nav-link" data-scroll-target="#cargar-los-paquetes-necesarios-para-el-análisis">Cargar los paquetes necesarios para el análisis</a></li>
+  <li><a href="#importar-datos" id="toc-importar-datos" class="nav-link" data-scroll-target="#importar-datos">Importar datos</a></li>
+  <li><a href="#exploración-inicial-y-estructura-de-la-base-de-datos" id="toc-exploración-inicial-y-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#exploración-inicial-y-estructura-de-la-base-de-datos">Exploración inicial y estructura de la base de datos</a></li>
+  <li><a href="#verificación-del-equilibrio-del-diseño-experimental" id="toc-verificación-del-equilibrio-del-diseño-experimental" class="nav-link" data-scroll-target="#verificación-del-equilibrio-del-diseño-experimental">Verificación del equilibrio del diseño experimental</a></li>
+  <li><a href="#convertir-variables-categóricas-a-factores" id="toc-convertir-variables-categóricas-a-factores" class="nav-link" data-scroll-target="#convertir-variables-categóricas-a-factores">Convertir variables categóricas a factores</a></li>
+  <li><a href="#ajuste-del-modelo-mixto-lineal-efectos-fijos-aleatorios" id="toc-ajuste-del-modelo-mixto-lineal-efectos-fijos-aleatorios" class="nav-link" data-scroll-target="#ajuste-del-modelo-mixto-lineal-efectos-fijos-aleatorios">Ajuste del modelo mixto lineal (efectos fijos + aleatorios)</a></li>
+  <li><a href="#modelo-mixto-lineal-de-medidas-repetidas" id="toc-modelo-mixto-lineal-de-medidas-repetidas" class="nav-link" data-scroll-target="#modelo-mixto-lineal-de-medidas-repetidas">Modelo mixto lineal de medidas repetidas</a></li>
+  </ul></li>
+  <li><a href="#comparaciones-múltiples-de-medias" id="toc-comparaciones-múltiples-de-medias" class="nav-link" data-scroll-target="#comparaciones-múltiples-de-medias"><strong>Comparaciones múltiples de Medias</strong></a>
+  <ul class="collapse">
+  <li><a href="#lsd-sin-ajuste-equivalente-a-prueba-de-fisher-lsd" id="toc-lsd-sin-ajuste-equivalente-a-prueba-de-fisher-lsd" class="nav-link" data-scroll-target="#lsd-sin-ajuste-equivalente-a-prueba-de-fisher-lsd">LSD (sin ajuste, equivalente a prueba de Fisher LSD)</a></li>
+  <li><a href="#comparaciones-post-hoc-emmeans-sidak" id="toc-comparaciones-post-hoc-emmeans-sidak" class="nav-link" data-scroll-target="#comparaciones-post-hoc-emmeans-sidak">Comparaciones Post-Hoc (EMMEANS + SIDAK)</a></li>
+  <li><a href="#tratamientos-dentro-de-cada-tiempo" id="toc-tratamientos-dentro-de-cada-tiempo" class="nav-link" data-scroll-target="#tratamientos-dentro-de-cada-tiempo">Tratamientos dentro de cada tiempo</a></li>
+  <li><a href="#análisis-de-la-interacción-tratamiento-tiempo" id="toc-análisis-de-la-interacción-tratamiento-tiempo" class="nav-link" data-scroll-target="#análisis-de-la-interacción-tratamiento-tiempo">Análisis de la Interacción Tratamiento × Tiempo</a></li>
+  </ul></li>
+  <li><a href="#verificación-de-supuestos" id="toc-verificación-de-supuestos" class="nav-link" data-scroll-target="#verificación-de-supuestos">Verificación de Supuestos</a>
+  <ul class="collapse">
+  <li><a href="#normalidad-de-residuos-del-modelo" id="toc-normalidad-de-residuos-del-modelo" class="nav-link" data-scroll-target="#normalidad-de-residuos-del-modelo">Normalidad de residuos del modelo</a></li>
+  <li><a href="#homogeneidad-de-varianza-homocedasticidad" id="toc-homogeneidad-de-varianza-homocedasticidad" class="nav-link" data-scroll-target="#homogeneidad-de-varianza-homocedasticidad">Homogeneidad de Varianza (Homocedasticidad)</a></li>
+  <li><a href="#gráfico-de-residuos-vs.-valores-ajustados" id="toc-gráfico-de-residuos-vs.-valores-ajustados" class="nav-link" data-scroll-target="#gráfico-de-residuos-vs.-valores-ajustados">Gráfico de Residuos vs.&nbsp;Valores Ajustados</a></li>
+  <li><a href="#independenciaestructura-de-correlación" id="toc-independenciaestructura-de-correlación" class="nav-link" data-scroll-target="#independenciaestructura-de-correlación">Independencia/Estructura de Correlación</a></li>
+  <li><a href="#gráfico-de-residuos-vs.-tiempo-por-unidad-experimental" id="toc-gráfico-de-residuos-vs.-tiempo-por-unidad-experimental" class="nav-link" data-scroll-target="#gráfico-de-residuos-vs.-tiempo-por-unidad-experimental">Gráfico de Residuos vs.&nbsp;Tiempo por Unidad Experimental</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /edit/main/Chapter_06.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /blob/main/Chapter_06.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="problema" class="level3">
+<h3 class="anchored" data-anchor-id="problema">Problema</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El trabajo de grado desarrollado por <span class="citation" data-cites="FuentesRicaurte2024">(<a href="references.html#ref-FuentesRicaurte2024" role="doc-biblioref">Fuentes-Ricaurte et&nbsp;al., 2024</a>)</span>analizó el potencial de tres géneros de <strong>hongos mitospóricos</strong>, entre ellos <em>Aspergillus</em> sp. (As), para la <strong>bioacumulación de los metales pesados cadmio (Cd) y plomo (Pb)</strong> en su micelio. Para ello, se emplearon medios de cultivo <strong>caldo papa dextrosa (CPD)</strong> suplementados con concentraciones de <strong>100, 150 y 200 mg/L</strong> de cada metal, considerando el <strong>tiempo</strong> como un factor determinante en el proceso de bioacumulación.</p>
+<p>La <strong>cuantificación del metal retenido en el micelio</strong> se realizó mediante <strong>espectrometría de absorción atómica</strong>, técnica que permitió evaluar la eficiencia de remoción. Los resultados mostraron que <em>Aspergillus</em> sp. fue el género más eficiente en la <strong>bioacumulación de plomo (Pb)</strong>, alcanzando hasta <strong>94,38 % de remoción</strong> a 200 mg/L, mientras que para <strong>cadmio (Cd)</strong> se obtuvo una remoción del <strong>92,82 %</strong>.</p>
+</div>
+</div>
+</section>
+<section id="estructura-de-la-base-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="estructura-de-la-base-de-datos">Estructura de la base de datos</h3>
+<p>Los datos analizados provienen de un <strong>experimento microbiológico</strong> diseñado para evaluar la <strong>bioacumulación de plomo (Pb)</strong> por <em>Aspergillus</em> sp. bajo distintas concentraciones en el medio de cultivo.<br>
+La base de datos está compuesta por <strong>cuatro columnas principales</strong>, que describen las variables medidas en el ensayo: <strong>Tiempo</strong>, <strong>Tratamiento</strong>, <strong>Repetición</strong> y <strong>Resultado</strong>.</p>
+<div id="tbl-estructura" class="table quarto-float quarto-figure quarto-figure-center anchored" data-caption="Estructura de la base de datos utilizada en el análisis.">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-estructura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;10.1
+</figcaption>
+<div aria-describedby="tbl-estructura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Tipo de variable</strong></th>
+<th><strong>Descripción</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Tiempo</strong></td>
+<td>Categórica</td>
+<td>Días después de la inoculación (ddi). Representa los momentos de medición del experimento.</td>
+</tr>
+<tr class="even">
+<td><strong>Tratamiento</strong></td>
+<td>Categórica</td>
+<td>Inoculación de <em>Aspergillus</em> sp. en medios de cultivo suplementados con 100, 150 y 200 mg/L de Pb.</td>
+</tr>
+<tr class="odd">
+<td><strong>Repetición</strong></td>
+<td>Numérica</td>
+<td>Identifica el número de repetición del tratamiento (1, 2, 3).</td>
+</tr>
+<tr class="even">
+<td><strong>Resultado</strong></td>
+<td>Continua (numérica)</td>
+<td>Variable cuantitativa que expresa el valor observado del experimento. Puede tomar cualquier valor dentro de un rango, incluidos decimales (p.&nbsp;ej., 75.6, 4.1, 0.2).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Cada combinación de <strong>Tratamiento × Tiempo</strong> se evaluó por triplicado, lo que permitió analizar la <strong>variabilidad experimental</strong> y aplicar un <strong>modelo mixto lineal de medidas repetidas</strong> para estudiar el efecto del <strong>tiempo</strong> y la <strong>concentración de Pb</strong> sobre la <strong>bioacumulación</strong>.</p>
+<p>El experimento cumple con las condiciones que caracterizan un <strong>diseño de medidas repetidas</strong>, dado que las mismas unidades experimentales (<em>frascos de cultivo</em>) fueron evaluadas en distintos momentos del tiempo (0, 10, 15 y 20 días después de la inoculación). En este contexto, se empleó un <strong>modelo mixto lineal (LME)</strong>, el cual permite analizar los <strong>efectos fijos</strong> del <em>Tratamiento</em> (concentración de Pb) y del <em>Tiempo</em>, considerando simultáneamente la <strong>variabilidad aleatoria</strong> asociada a cada frasco (<em>Id</em>).</p>
+<p>Este enfoque resulta especialmente adecuado para <strong>datos dependientes en el tiempo</strong>, ya que controla la <strong>correlación entre observaciones repetidas</strong> dentro de la misma unidad experimental y proporciona <strong>inferencias más precisas y robustas</strong> que un ANOVA tradicional.</p>
+<div id="tbl-estructura-mixto" class="table quarto-float quarto-figure quarto-figure-center anchored" data-caption="Estructura del diseño experimental y justificación del modelo mixto lineal de medidas repetidas.">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-estructura-mixto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;10.2
+</figcaption>
+<div aria-describedby="tbl-estructura-mixto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 50%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Elemento</strong></th>
+<th><strong>Descripción</strong></th>
+<th><strong>Tipo</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Unidad experimental</strong></td>
+<td>Frasco o cultivo individual (<em>Id</em>).</td>
+<td>Efecto <strong>aleatorio</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Factores fijos</strong></td>
+<td>- Concentración de Pb (<em>Tratamiento</em>)<br>- Tiempo de incubación (<em>Tiempo</em>).</td>
+<td>Efectos <strong>fijos</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Variable respuesta</strong></td>
+<td>Bioacumulación de Pb (<em>Resultado</em>).</td>
+<td>Continua</td>
+</tr>
+<tr class="even">
+<td><strong>Estructura temporal</strong></td>
+<td>Mismas unidades (<em>frascos</em>) medidas en varios tiempos (0, 10, 15 y 20 ddi).</td>
+<td><strong>Medidas repetidas</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="diseño-tratamiento-factor-entre-sujetos-x-tiempo-factor-intra-sujetos" class="level2">
+<h2 class="anchored" data-anchor-id="diseño-tratamiento-factor-entre-sujetos-x-tiempo-factor-intra-sujetos">Diseño: Tratamiento (factor entre sujetos) x Tiempo (factor intra-sujetos)</h2>
+<section id="cargar-los-paquetes-necesarios-para-el-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-los-paquetes-necesarios-para-el-análisis">Cargar los paquetes necesarios para el análisis</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readxl' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'nlme' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'emmeans' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:nlme':
+
+    collapse</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'multcomp' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: mvtnorm</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'mvtnorm' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: survival</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'survival' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: TH.data</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'TH.data' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: MASS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'MASS'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    select</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'TH.data'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:MASS':
+
+    geyser</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcompView)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'multcompView' was built under R version 4.3.3</code></pre>
+</div>
+</div>
+</section>
+<section id="importar-datos" class="level3">
+<h3 class="anchored" data-anchor-id="importar-datos">Importar datos</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>DMRT <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/R-Proyectos/r-para-mi/data/DMRT_Hongos/DMRT.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exploración-inicial-y-estructura-de-la-base-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="exploración-inicial-y-estructura-de-la-base-de-datos">Exploración inicial y estructura de la base de datos</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Id"          "Tiempo"      "Tratamiento" "Repeticion"  "Resultado"  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [36 × 5] (S3: tbl_df/tbl/data.frame)
+ $ Id         : chr [1:36] "f1100" "f2100" "f3100" "f1100" ...
+ $ Tiempo     : chr [1:36] "0 ddi" "0 ddi" "0 ddi" "10 ddi" ...
+ $ Tratamiento: chr [1:36] "As 100 mg/L Pb" "As 100 mg/L Pb" "As 100 mg/L Pb" "As 100 mg/L Pb" ...
+ $ Repeticion : num [1:36] 1 2 3 1 2 3 1 2 3 1 ...
+ $ Resultado  : num [1:36] 0 0 0 4.5 9.7 12.8 63.1 58.3 67.7 82.1 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Id    Tiempo Tratamiento    Repeticion Resultado
+  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;
+1 f1100 0 ddi  As 100 mg/L Pb          1       0  
+2 f2100 0 ddi  As 100 mg/L Pb          2       0  
+3 f3100 0 ddi  As 100 mg/L Pb          3       0  
+4 f1100 10 ddi As 100 mg/L Pb          1       4.5
+5 f2100 10 ddi As 100 mg/L Pb          2       9.7
+6 f3100 10 ddi As 100 mg/L Pb          3      12.8</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DMRT<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   3.375  55.725  47.017  78.800  95.650 </code></pre>
+</div>
+</div>
+</section>
+<section id="verificación-del-equilibrio-del-diseño-experimental" class="level3">
+<h3 class="anchored" data-anchor-id="verificación-del-equilibrio-del-diseño-experimental">Verificación del equilibrio del diseño experimental</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># Contar el número de observaciones por combinación de Tratamiento × Tiempo  </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>DMRT <span class="sc">%&gt;%</span> <span class="fu">count</span>(Tratamiento, Tiempo) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Tratamiento, Tiempo) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Tratamiento    Tiempo     n
+   &lt;chr&gt;          &lt;chr&gt;  &lt;int&gt;
+ 1 As 100 mg/L Pb 0 ddi      3
+ 2 As 100 mg/L Pb 10 ddi     3
+ 3 As 100 mg/L Pb 15 ddi     3
+ 4 As 100 mg/L Pb 20 ddi     3
+ 5 As 150 mg/L Pb 0 ddi      3
+ 6 As 150 mg/L Pb 10 ddi     3
+ 7 As 150 mg/L Pb 15 ddi     3
+ 8 As 150 mg/L Pb 20 ddi     3
+ 9 As 200 mg/L Pb 0 ddi      3
+10 As 200 mg/L Pb 10 ddi     3
+11 As 200 mg/L Pb 15 ddi     3
+12 As 200 mg/L Pb 20 ddi     3</code></pre>
+</div>
+</div>
+</section>
+<section id="convertir-variables-categóricas-a-factores" class="level3">
+<h3 class="anchored" data-anchor-id="convertir-variables-categóricas-a-factores">Convertir variables categóricas a factores</h3>
+<p>Antes de realizar el análisis de varianza (ANOVA), es necesario convertir las variables categóricas —como los tratamientos o los tiempos de muestreo— en <strong>factores</strong>, ya que este tipo de análisis requiere que los grupos experimentales sean interpretados como categorías y no como valores numéricos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Tratamiento)  <span class="co"># Efecto fijo 1: concentración de Pb</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Tiempo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Tiempo)            <span class="co"># Efecto fijo 2: tiempo de exposición</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>DMRT<span class="sc">$</span>Id <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DMRT<span class="sc">$</span>Id)                    <span class="co"># Efecto aleatorio: frasco o unidad experimental</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [36 × 5] (S3: tbl_df/tbl/data.frame)
+ $ Id         : Factor w/ 9 levels "f1100","f1150",..: 1 4 7 1 4 7 1 4 7 1 ...
+ $ Tiempo     : Factor w/ 4 levels "0 ddi","10 ddi",..: 1 1 1 2 2 2 3 3 3 4 ...
+ $ Tratamiento: Factor w/ 3 levels "As 100 mg/L Pb",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Repeticion : num [1:36] 1 2 3 1 2 3 1 2 3 1 ...
+ $ Resultado  : num [1:36] 0 0 0 4.5 9.7 12.8 63.1 58.3 67.7 82.1 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="ajuste-del-modelo-mixto-lineal-efectos-fijos-aleatorios" class="level3">
+<h3 class="anchored" data-anchor-id="ajuste-del-modelo-mixto-lineal-efectos-fijos-aleatorios">Ajuste del modelo mixto lineal (efectos fijos + aleatorios)</h3>
+</section>
+<section id="modelo-mixto-lineal-de-medidas-repetidas" class="level3">
+<h3 class="anchored" data-anchor-id="modelo-mixto-lineal-de-medidas-repetidas">Modelo mixto lineal de medidas repetidas</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste del modelo mixto lineal (efectos fijos + aleatorios)</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>modelo_mixto <span class="ot">&lt;-</span> <span class="fu">lme</span>(</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  Resultado <span class="sc">~</span> Tratamiento <span class="sc">*</span> Tiempo,  <span class="co"># efectos fijos</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span> <span class="sc">|</span> Id,                  <span class="co"># efecto aleatorio por frasco</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> DMRT                        <span class="co"># conjunto de datos</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Interpretación:</strong><br>
+Este modelo mixto se usa para analizar datos donde se repiten las mediciones (por ejemplo, la bioacumulación de plomo en diferentes tiempos dentro del mismo frasco o individuo).</p>
+<ul>
+<li><p><strong>Efectos fijos:</strong> <code>Tratamiento</code> y <code>Tiempo</code>, además de su interacción (<code>Tratamiento*Tiempo</code>), permiten evaluar si existen diferencias sistemáticas entre tratamientos, entre momentos de tiempo y si el efecto del tratamiento cambia a lo largo del tiempo.</p></li>
+<li><p><strong>Efecto aleatorio:</strong> <code>~1 | Id</code> indica que se considera la variabilidad individual de cada frasco o unidad experimental, controlando así la correlación entre medidas repetidas del mismo sujeto.</p></li>
+<li><p>Este tipo de modelo mejora la precisión del análisis porque separa la variabilidad intra-sujeto de la variabilidad entre sujetos, algo que un ANOVA tradicional no podría hacer adecuadamente.</p></li>
+</ul>
+<p><strong>Análisis de la Varianza - ANOVA</strong></p>
+<p>El <strong>análisis de varianza (ANOVA)</strong> es una herramienta estadística fundamental en las investigaciones <strong>microbiológicas y ambientales</strong>, ya que permite determinar si las diferencias observadas en la <strong>bioacumulación de plomo (Pb)</strong> se deben realmente a los <strong>tratamientos experimentales</strong> y no al efecto del azar. Cuando se cumplen los <strong>supuestos de normalidad y homogeneidad de varianzas</strong>, el ANOVA ofrece <strong>inferencias sólidas y confiables</strong>, lo que fortalece la <strong>validez interna del experimento</strong> y respalda la interpretación de los resultados obtenidos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados del ANOVA del modelo</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(modelo_mixto)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   numDF denDF  F-value p-value
+(Intercept)            1    18 6228.224  &lt;.0001
+Tratamiento            2     6   66.120   1e-04
+Tiempo                 3    18 1636.285  &lt;.0001
+Tratamiento:Tiempo     6    18   40.052  &lt;.0001</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong></p>
+<p>El intercepto no presenta un interés biológico directo, ya que únicamente funciona como punto de referencia dentro del modelo estadístico. En cuanto al factor <strong>tratamiento (p &lt; 0.0001)</strong>, se observaron diferencias significativas entre los distintos tratamientos, lo que indica que la bioacumulación de plomo varía de manera notable según el tipo de tratamiento aplicado. Por otro lado, el <strong>tiempo (p &lt; 0.0001)</strong> también mostró un efecto significativo sobre la respuesta, evidenciando que los niveles de bioacumulación cambian de forma importante a lo largo del periodo de evaluación. Finalmente, la <strong>interacción entre tratamiento y tiempo (p &lt; 0.0001)</strong> resultó significativa, lo que sugiere que el efecto de los tratamientos depende del momento de medición; es decir, los tratamientos no presentan el mismo comportamiento en todos los tiempos analizados.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen detallado del modelo</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_mixto)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed-effects model fit by REML
+  Data: DMRT 
+       AIC      BIC    logLik
+  163.4999 179.9926 -67.74993
+
+Random effects:
+ Formula: ~1 | Id
+        (Intercept) Residual
+StdDev:    1.010727 2.948069
+
+Fixed effects:  Resultado ~ Tratamiento * Tiempo 
+                                          Value Std.Error DF  t-value p-value
+(Intercept)                             0.00000  1.799322 18  0.00000  1.0000
+TratamientoAs 150 mg/L Pb               0.00000  2.544625  6  0.00000  1.0000
+TratamientoAs 200 mg/L Pb               0.00000  2.544625  6  0.00000  1.0000
+Tiempo10 ddi                            9.00000  2.407088 18  3.73896  0.0015
+Tiempo15 ddi                           63.03333  2.407088 18 26.18655  0.0000
+Tiempo20 ddi                           86.56667  2.407088 18 35.96323  0.0000
+TratamientoAs 150 mg/L Pb:Tiempo10 ddi 21.77778  3.404136 18  6.39745  0.0000
+TratamientoAs 200 mg/L Pb:Tiempo10 ddi 45.93333  3.404136 18 13.49339  0.0000
+TratamientoAs 150 mg/L Pb:Tiempo15 ddi -5.74444  3.404136 18 -1.68749  0.1088
+TratamientoAs 200 mg/L Pb:Tiempo15 ddi 12.25000  3.404136 18  3.59856  0.0021
+TratamientoAs 150 mg/L Pb:Tiempo20 ddi  6.36667  3.404136 18  1.87027  0.0778
+TratamientoAs 200 mg/L Pb:Tiempo20 ddi  7.81667  3.404136 18  2.29623  0.0339
+ Correlation: 
+                                       (Intr) TA15mP TA20mP Tmp10d Tmp15d
+TratamientoAs 150 mg/L Pb              -0.707                            
+TratamientoAs 200 mg/L Pb              -0.707  0.500                     
+Tiempo10 ddi                           -0.669  0.473  0.473              
+Tiempo15 ddi                           -0.669  0.473  0.473  0.500       
+Tiempo20 ddi                           -0.669  0.473  0.473  0.500  0.500
+TratamientoAs 150 mg/L Pb:Tiempo10 ddi  0.473 -0.669 -0.334 -0.707 -0.354
+TratamientoAs 200 mg/L Pb:Tiempo10 ddi  0.473 -0.334 -0.669 -0.707 -0.354
+TratamientoAs 150 mg/L Pb:Tiempo15 ddi  0.473 -0.669 -0.334 -0.354 -0.707
+TratamientoAs 200 mg/L Pb:Tiempo15 ddi  0.473 -0.334 -0.669 -0.354 -0.707
+TratamientoAs 150 mg/L Pb:Tiempo20 ddi  0.473 -0.669 -0.334 -0.354 -0.354
+TratamientoAs 200 mg/L Pb:Tiempo20 ddi  0.473 -0.334 -0.669 -0.354 -0.354
+                                       Tmp20d TA150m/LP:T10d TA200m/LP:T10d
+TratamientoAs 150 mg/L Pb                                                  
+TratamientoAs 200 mg/L Pb                                                  
+Tiempo10 ddi                                                               
+Tiempo15 ddi                                                               
+Tiempo20 ddi                                                               
+TratamientoAs 150 mg/L Pb:Tiempo10 ddi -0.354                              
+TratamientoAs 200 mg/L Pb:Tiempo10 ddi -0.354  0.500                       
+TratamientoAs 150 mg/L Pb:Tiempo15 ddi -0.354  0.500          0.250        
+TratamientoAs 200 mg/L Pb:Tiempo15 ddi -0.354  0.250          0.500        
+TratamientoAs 150 mg/L Pb:Tiempo20 ddi -0.707  0.500          0.250        
+TratamientoAs 200 mg/L Pb:Tiempo20 ddi -0.707  0.250          0.500        
+                                       TA150m/LP:T15d TA200m/LP:T15d
+TratamientoAs 150 mg/L Pb                                           
+TratamientoAs 200 mg/L Pb                                           
+Tiempo10 ddi                                                        
+Tiempo15 ddi                                                        
+Tiempo20 ddi                                                        
+TratamientoAs 150 mg/L Pb:Tiempo10 ddi                              
+TratamientoAs 200 mg/L Pb:Tiempo10 ddi                              
+TratamientoAs 150 mg/L Pb:Tiempo15 ddi                              
+TratamientoAs 200 mg/L Pb:Tiempo15 ddi  0.500                       
+TratamientoAs 150 mg/L Pb:Tiempo20 ddi  0.500          0.250        
+TratamientoAs 200 mg/L Pb:Tiempo20 ddi  0.250          0.500        
+                                       TA150m/LP:T2d
+TratamientoAs 150 mg/L Pb                           
+TratamientoAs 200 mg/L Pb                           
+Tiempo10 ddi                                        
+Tiempo15 ddi                                        
+Tiempo20 ddi                                        
+TratamientoAs 150 mg/L Pb:Tiempo10 ddi              
+TratamientoAs 200 mg/L Pb:Tiempo10 ddi              
+TratamientoAs 150 mg/L Pb:Tiempo15 ddi              
+TratamientoAs 200 mg/L Pb:Tiempo15 ddi              
+TratamientoAs 150 mg/L Pb:Tiempo20 ddi              
+TratamientoAs 200 mg/L Pb:Tiempo20 ddi  0.500       
+
+Standardized Within-Group Residuals:
+        Min          Q1         Med          Q3         Max 
+-2.36609032 -0.24438078  0.08881768  0.33881909  1.57247026 
+
+Number of Observations: 36
+Number of Groups: 9 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="comparaciones-múltiples-de-medias" class="level2">
+<h2 class="anchored" data-anchor-id="comparaciones-múltiples-de-medias"><strong>Comparaciones múltiples de Medias</strong></h2>
+<section id="lsd-sin-ajuste-equivalente-a-prueba-de-fisher-lsd" class="level3">
+<h3 class="anchored" data-anchor-id="lsd-sin-ajuste-equivalente-a-prueba-de-fisher-lsd">LSD (sin ajuste, equivalente a prueba de Fisher LSD)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>emmeans_trat_tiempo <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(modelo_mixto, <span class="sc">~</span> Tratamiento <span class="sc">|</span> Tiempo)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>cld_LSD <span class="ot">&lt;-</span> multcomp<span class="sc">::</span><span class="fu">cld</span>(emmeans_trat_tiempo,</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">adjust =</span> <span class="st">"none"</span>,   <span class="co"># LSD no ajusta comparaciones</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Letters =</span> letters,</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cld_LSD)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tiempo = 0 ddi:
+ Tratamiento    emmean  SE df lower.CL upper.CL .group
+ As 100 mg/L Pb    0.0 1.8  8    -4.15     4.15  a    
+ As 200 mg/L Pb    0.0 1.8  6    -4.40     4.40  a    
+ As 150 mg/L Pb    0.0 1.8  6    -4.40     4.40  a    
+
+Tiempo = 10 ddi:
+ Tratamiento    emmean  SE df lower.CL upper.CL .group
+ As 100 mg/L Pb    9.0 1.8  8     4.85    13.15  a    
+ As 150 mg/L Pb   30.8 1.8  6    26.38    35.18   b   
+ As 200 mg/L Pb   54.9 1.8  6    50.53    59.34    c  
+
+Tiempo = 15 ddi:
+ Tratamiento    emmean  SE df lower.CL upper.CL .group
+ As 150 mg/L Pb   57.3 1.8  6    52.89    61.69  a    
+ As 100 mg/L Pb   63.0 1.8  8    58.88    67.18  a    
+ As 200 mg/L Pb   75.3 1.8  6    70.88    79.69   b   
+
+Tiempo = 20 ddi:
+ Tratamiento    emmean  SE df lower.CL upper.CL .group
+ As 100 mg/L Pb   86.6 1.8  8    82.42    90.72  a    
+ As 150 mg/L Pb   92.9 1.8  6    88.53    97.34   b   
+ As 200 mg/L Pb   94.4 1.8  6    89.98    98.79   b   
+
+Degrees-of-freedom method: containment 
+Confidence level used: 0.95 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+</section>
+<section id="comparaciones-post-hoc-emmeans-sidak" class="level3">
+<h3 class="anchored" data-anchor-id="comparaciones-post-hoc-emmeans-sidak">Comparaciones Post-Hoc (EMMEANS + SIDAK)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_06_files/figure-html/posthoc-plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="tratamientos-dentro-de-cada-tiempo" class="level3">
+<h3 class="anchored" data-anchor-id="tratamientos-dentro-de-cada-tiempo">Tratamientos dentro de cada tiempo</h3>
+</section>
+<section id="análisis-de-la-interacción-tratamiento-tiempo" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-la-interacción-tratamiento-tiempo">Análisis de la Interacción Tratamiento × Tiempo</h3>
+<p>Este análisis se centra en identificar cuáles tratamientos difieren significativamente entre sí en cada punto de tiempo evaluado. Se utilizó el método de Letras (agrupamiento) donde <strong>los tratamientos que comparten la misma letra en la columna <code>.group</code> no son significativamente diferentes entre sí</strong> para un nivel de significancia de <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<section id="tiempo-0-ddi" class="level4">
+<h4 class="anchored" data-anchor-id="tiempo-0-ddi">⏳ <strong>Tiempo = 0 ddi</strong></h4>
+<ul>
+<li><p><strong>Resultados:</strong> En este momento inicial, los tres tratamientos (As 100 mg/L Pb, As 200 mg/L Pb, y As 150 mg/L Pb) se encuentran en el <strong>mismo grupo (‘a’)</strong>.</p></li>
+<li><p><strong>Conclusión:</strong> No existe una diferencia significativa en la media marginal estimada (<code>emmean</code>) entre los tres tratamientos al inicio del experimento.</p></li>
+</ul>
+</section>
+<section id="tiempo-10-ddi" class="level4">
+<h4 class="anchored" data-anchor-id="tiempo-10-ddi">⏳ <strong>Tiempo = 10 ddi</strong></h4>
+<ul>
+<li><p><strong>Resultados:</strong> Se observa una clara separación de los tratamientos en tres grupos distintos.</p>
+<p><strong>As 100 mg/L Pb</strong> forma el grupo más bajo (‘a’) con una media de 9.0.<br>
+<strong>As 150 mg/L Pb</strong> forma el grupo intermedio (‘b’) con una media de 30.8.<br>
+<strong>As 200 mg/L Pb</strong> forma el grupo más alto (‘c’) con una media de 54.9.</p>
+<p><strong>Conclusión:</strong> A los 10 días, <strong>todos los tratamientos son significativamente diferentes entre sí</strong>. El efecto o respuesta medida es significativamente mayor a medida que la concentración de plomo (Pb) aumenta (100 &lt; 150 &lt; 200).</p></li>
+</ul>
+</section>
+<section id="tiempo-15-ddi" class="level4">
+<h4 class="anchored" data-anchor-id="tiempo-15-ddi">⏳ <strong>Tiempo = 15 ddi</strong></h4>
+<ul>
+<li><p><strong>Resultados:</strong> Los tratamientos se agrupan en dos conjuntos.</p>
+<p>El grupo ‘a’ está compuesto por <strong>As 150 mg/L Pb</strong> (57.3) y <strong>As 100 mg/L Pb</strong> (63.0). Estos no difieren significativamente entre sí.<br>
+El tratamiento <strong>As 200 mg/L Pb</strong> (75.3) forma un grupo distinto (‘b’), que es significativamente mayor que el grupo ‘a’.</p>
+<p><strong>Conclusión:</strong> A los 15 días, el tratamiento de <strong>mayor concentración (As 200 mg/L Pb) es significativamente superior</strong> a los otros dos. Sin embargo, no se detecta una diferencia significativa entre las concentraciones de 100 y 150 mg/L de Pb.</p></li>
+</ul>
+</section>
+<section id="tiempo-20-ddi" class="level4">
+<h4 class="anchored" data-anchor-id="tiempo-20-ddi">⏳ <strong>Tiempo = 20 ddi</strong></h4>
+<ul>
+<li><p><strong>Resultados:</strong> Los resultados son similares a los de 15 ddi, con dos grupos.</p>
+<p><strong>As 100 mg/L Pb</strong> (86.6) forma el grupo ‘a’.<br>
+<strong>As 150 mg/L Pb</strong> (92.9) y <strong>As 200 mg/L Pb</strong> (94.4) comparten el grupo ‘b’, lo que indica que <strong>no son significativamente diferentes</strong> entre sí.<br>
+El grupo ‘b’ (150 y 200 mg/L Pb) es significativamente diferente y mayor que el grupo ‘a’ (100 mg/L Pb).</p>
+<p><strong>Conclusión:</strong> Al final del período de evaluación (20 días), la <strong>menor concentración de Pb (100 mg/L) resulta en una respuesta significativamente inferior</strong> a las dos concentraciones más altas (150 y 200 mg/L). Las concentraciones de 150 y 200 mg/L de Pb tienen efectos estadísticamente equivalentes.</p></li>
+</ul>
+<p>Visualización de resultados</p>
+<p><strong>Interpretación:</strong> El análisis estadístico de la interacción entre el <strong>Tratamiento</strong> (diferentes concentraciones de Plomo) y el <strong>Tiempo</strong> revela una dinámica evolutiva del efecto medido. Si bien la tendencia general muestra un incremento en el resultado para todos los tratamientos a lo largo de los 20 días, la diferenciación estadística varía críticamente según el momento.</p>
+<p>Al inicio (0 ddi), no se registraron diferencias significativas entre las tres concentraciones. La máxima diferenciación se alcanzó a los <strong>10 ddi</strong>, donde el tratamiento de <span class="math inline">\(200 \text{ mg/L Pb}\)</span> fue significativamente superior al de <span class="math inline">\(150 \text{ mg/L Pb}\)</span>, y este a su vez fue superior al de <span class="math inline">\(100 \text{ mg/L Pb}\)</span>, estableciendo una clara jerarquía.</p>
+<p>Posteriormente, a medida que el experimento progresó (15 y 20 ddi), los tratamientos de <strong>mayor concentración convergieron estadísticamente</strong>. A los 20 ddi, el tratamiento de <span class="math inline">\(100 \text{ mg/L Pb}\)</span> resultó ser significativamente inferior y distinto (grupo ‘a’) de los tratamientos de <span class="math inline">\(150 \text{ mg/L Pb}\)</span> y <span class="math inline">\(200 \text{ mg/L Pb}\)</span>.</p>
+<p>En conclusión, el resultado más importante es que, si bien el tratamiento de <strong>mayor concentración (</strong><span class="math inline">\(200 \text{ mg/L Pb}\)</span>) ejerce el efecto más rápido y fuerte en las etapas intermedias, al finalizar el estudio (20 ddi), la concentración de <span class="math inline">\(150 \text{ mg/L Pb}\)</span> es estadísticamente igual de efectiva que la de <span class="math inline">\(200 \text{ mg/L Pb}\)</span>, y ambas son significativamente más efectivas que la concentración más baja.</p>
+</section>
+</section>
+</section>
+<section id="verificación-de-supuestos" class="level2">
+<h2 class="anchored" data-anchor-id="verificación-de-supuestos">Verificación de Supuestos</h2>
+<p>La verificación de los supuestos estadísticos es esencial para garantizar la validez del ANOVA. Primero se debe evaluar la <strong>normalidad de los residuos</strong> mediante la prueba de <strong>Shapiro-Wilk</strong>, que determina si las desviaciones respecto a la normalidad son significativas. Además, es necesario comprobar la <strong>homogeneidad de varianzas</strong> con la prueba de <strong>Bartlett</strong>, asegurando que las comparaciones entre tratamientos no estén sesgadas por diferencias en la variabilidad. Si alguno de estos supuestos no se cumple, se recomienda aplicar <strong>transformaciones de los datos</strong> o emplear <strong>modelos con varianzas heterogéneas</strong>.</p>
+<section id="normalidad-de-residuos-del-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="normalidad-de-residuos-del-modelo">Normalidad de residuos del modelo</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalidad de residuos (Shapiro-Wilk)</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuos
+W = 0.95276, p-value = 0.1277</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> La prueba de normalidad de Shapiro-Wilk mostró un valor de <strong>p = 0.1277</strong>, superior a 0.05, lo que indica que <strong>no se rechaza la hipótesis nula de normalidad</strong>. Por lo tanto, se concluye que los <strong>residuos se distribuyen de manera aproximadamente normal</strong>, cumpliendo con este supuesto del modelo.</p>
+<p><strong>Gráfico Q-Q de los residuos estandarizados</strong></p>
+<p>El gráfico Q-Q es el método estándar para evaluar la normalidad.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la librería necesaria para el modelo (si no está cargada)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(nlme) </span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer los residuos estandarizados del modelo</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>residuos_std <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Crear un marco de datos con los residuos estandarizados</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>datos_qq <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> residuos_std,</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Teoricos =</span> <span class="fu">qnorm</span>(<span class="fu">ppoints</span>(<span class="fu">length</span>(residuos_std)))</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Generar el gráfico Q-Q</span></span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_qq, <span class="fu">aes</span>(<span class="at">x =</span> Teoricos, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico Q-Q para la Normalidad de los Residuos"</span>,</span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cuantiles Teóricos Normales"</span>,</span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados del Modelo"</span></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_06_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Los puntos deben seguir de cerca la línea roja.</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- B. Prueba de Shapiro-Wilk (Opcional, pero complementaria) ---</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test(residuos_std) </span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Si el valor p &gt; 0.05, no se rechaza la normalidad.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="homogeneidad-de-varianza-homocedasticidad" class="level3">
+<h3 class="anchored" data-anchor-id="homogeneidad-de-varianza-homocedasticidad">Homogeneidad de Varianza (Homocedasticidad)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Homogeneidad de varianzas (Bartlett)</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DMRT)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Bartlett's K-squared = 0.036607, df = 2, p-value = 0.9819</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong>&nbsp;La prueba de homogeneidad de varianzas de Bartlett arrojó un valor de <strong>p = 0.9819</strong>, muy superior a 0.05, por lo que <strong>no se rechaza la hipótesis nula de igualdad de varianzas</strong>. Esto indica que las <strong>varianzas entre los tratamientos son homogéneas</strong>, cumpliéndose así el supuesto de homogeneidad requerido para el análisis.</p>
+</section>
+<section id="gráfico-de-residuos-vs.-valores-ajustados" class="level3">
+<h3 class="anchored" data-anchor-id="gráfico-de-residuos-vs.-valores-ajustados">Gráfico de Residuos vs.&nbsp;Valores Ajustados</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer los valores ajustados (predichos) y los residuos</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>datos_homocedasticidad <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valores_Ajustados =</span> <span class="fu">fitted</span>(modelo_mixto),</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Generar el gráfico</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_homocedasticidad, <span class="fu">aes</span>(<span class="at">x =</span> Valores_Ajustados, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico de Residuos vs. Valores Ajustados (Homocedasticidad)"</span>,</span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valores Ajustados (Predichos)"</span>,</span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados"</span></span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_06_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Los puntos deben dispersarse aleatoriamente alrededor de la línea y=0, </span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sin formar patrones de embudo o conos.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="independenciaestructura-de-correlación" class="level3">
+<h3 class="anchored" data-anchor-id="independenciaestructura-de-correlación">Independencia/Estructura de Correlación</h3>
+<p>Este supuesto verifica si la dependencia temporal restante dentro de cada unidad experimental (<code>Id</code>) ha sido modelada correctamente.</p>
+</section>
+<section id="gráfico-de-residuos-vs.-tiempo-por-unidad-experimental" class="level3">
+<h3 class="anchored" data-anchor-id="gráfico-de-residuos-vs.-tiempo-por-unidad-experimental">Gráfico de Residuos vs.&nbsp;Tiempo por Unidad Experimental</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparar el marco de datos con Residuos, Tiempo e Id</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>datos_independencia <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tiempo =</span> modelo_mixto<span class="sc">$</span>data<span class="sc">$</span>Tiempo,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Id =</span> modelo_mixto<span class="sc">$</span>data<span class="sc">$</span>Id,</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos =</span> <span class="fu">residuals</span>(modelo_mixto, <span class="at">type =</span> <span class="st">"normalized"</span>)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Generar el gráfico</span></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_independencia, <span class="fu">aes</span>(<span class="at">x =</span> Tiempo, <span class="at">y =</span> Residuos, <span class="at">group =</span> Id)) <span class="sc">+</span></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Id), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Color por Id para diferenciación</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Evaluación de la Correlación Temporal de los Residuos"</span>,</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Si hay patrones, la estructura de correlación debe revisarse"</span>,</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tiempo (ddi)"</span>,</span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos Estandarizados"</span></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_06_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación: Si hay un patrón de correlación visible (líneas que siguen una forma </span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co"># similar a lo largo del tiempo), el modelo podría necesitar una estructura de </span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co"># correlación explícita (p. ej., corAR1) añadida al objeto lme.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Interpretación:</strong>&nbsp;El análisis de los residuos indica una <strong>violación del supuesto de independencia temporal</strong>. Se observa un <strong>patrón sistemático</strong> (subida y bajada) en los residuos a lo largo del tiempo que se repite en las unidades experimentales, lo cual sugiere que el modelo actual, con solo una intercepción aleatoria, <strong>no está capturando adecuadamente la correlación temporal</strong> entre las mediciones. Para obtener estimaciones de error estándar válidas y garantizar la fiabilidad de las comparaciones post-hoc, es <strong>obligatorio reajustar el modelo lineal mixto</strong> incluyendo una <strong>estructura de correlación explícita</strong> (como AR(1)).</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-FuentesRicaurte2024" class="csl-entry" role="listitem">
+Fuentes-Ricaurte, H. K., Ortiz-Meneses, F. A., &amp; Rodríguez-González, L. G. (2024). <em>Evaluación de la bioacumulación de cadmio y plomo con cepas de hongos mitospóricos de origen ambiental</em> [Trabajo de grado, Universidad de Santander]. <a href="https://repositorio.udes.edu.co/entities/publication/82ca50aa-a2c3-4d49-a9b7-03f3f0289858">https://repositorio.udes.edu.co/entities/publication/82ca50aa-a2c3-4d49-a9b7-03f3f0289858</a>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/udesanalitica\.github\.io\/r-para-mi\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Chapter_05.html" class="pagination-link" aria-label="Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Chapter_07.html" class="pagination-link" aria-label="Capitulo 7 Uso de Inteligencia Artificial para la simulación de datos">
+        <span class="nav-page-text"><span class="chapter-title">Capitulo 7 Uso de Inteligencia Artificial para la simulación de datos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Autores</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /edit/main/Chapter_06.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /blob/main/Chapter_06.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Publicado con Quarto y GitHub Pages</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
