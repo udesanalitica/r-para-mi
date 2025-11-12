@@ -63,7 +63,7 @@ library(readxl)
 DBCA <- read_excel("C:/R-Proyectos/r-para-mi/data/DBCA_Frijol/DBCA_frijol.xlsx")
 ```
 
-### Revisar estructura de los datos cargados
+### Exploración inicial y estructura de la base de datos
 
 ```{r}
 View(DBCA)
