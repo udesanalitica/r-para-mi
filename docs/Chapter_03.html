@@ -121,7 +121,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) " title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/udesanalitica/r-para-mi" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -220,10 +220,11 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#tipos-de-diseños-experimentales" id="toc-tipos-de-diseños-experimentales" class="nav-link active" data-scroll-target="#tipos-de-diseños-experimentales">2.1 Tipos de diseños experimentales</a></li>
+  <li><a href="#tipos-de-diseños-experimentales" id="toc-tipos-de-diseños-experimentales" class="nav-link active" data-scroll-target="#tipos-de-diseños-experimentales">Tipos de diseños experimentales</a></li>
   <li><a href="#clasificación-de-los-diseños-experimentales" id="toc-clasificación-de-los-diseños-experimentales" class="nav-link" data-scroll-target="#clasificación-de-los-diseños-experimentales"><strong>Clasificación de los diseños experimentales</strong></a></li>
+  <li><a href="#verificación-de-los-supuestos-del-modelo" id="toc-verificación-de-los-supuestos-del-modelo" class="nav-link" data-scroll-target="#verificación-de-los-supuestos-del-modelo">Verificación de los supuestos del modelo</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /edit/main/Chapter_03.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /blob/main/Chapter_03.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/Chapter_03.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/Chapter_03.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -247,8 +248,8 @@ div.csl-indent {
 </header>
 
 
-<p>El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El <strong>diseño de experimentos (DOE)</strong> se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
-<p>El DOE se da en ámbitos industriales y de investigación aplicada, los experimentos suelen realizarse para resolver problemas de calidad, mejorar procesos o comprobar hipótesis sobre materiales, condiciones de operación o métodos de trabajo. Sin embargo, cuando estas pruebas carecen de planeación rigurosa, se corre el riesgo de interpretar datos de manera subjetiva y desaprovechar el potencial de la variabilidad natural del sistema. Por ello, el DOE proporciona un marco que asegura resultados válidos y generalizables <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
+<p>El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El <strong>diseño de experimentos (DE)</strong> se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
+<p>El DE se da en ámbitos industriales y de investigación aplicada, los experimentos suelen realizarse para resolver problemas de calidad, mejorar procesos o comprobar hipótesis sobre materiales, condiciones de operación o métodos de trabajo. Sin embargo, cuando estas pruebas carecen de planeación rigurosa, se corre el riesgo de interpretar datos de manera subjetiva y desaprovechar el potencial de la variabilidad natural del sistema. Por ello, el DE proporciona un marco que asegura resultados válidos y generalizables <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <p>En cuanto a la terminología básica, conceptos como unidad experimental, tratamiento, factor controlable y no controlable, niveles de los factores, variable de respuesta, repetición y matriz de diseño, es requerido manejarlos. Estos términos constituyen la gramática operativa del diseño experimental, permitiendo estructurar adecuadamente las hipótesis y la recolección de datos. Además, se distingue entre error aleatorio y error experimental, resaltando la necesidad de minimizar y cuantificar ambos para garantizar validez estadística. Entre las etapas del diseño experimental, es incluyen:</p>
 <ul>
 <li><strong>Planeación:</strong> formulación del problema, identificación de factores y niveles, selección de variables de respuesta y definición de objetivos.</li>
@@ -256,7 +257,7 @@ div.csl-indent {
 <li><strong>Análisis:</strong> aplicación de métodos estadísticos, principalmente análisis de varianza (ANOVA), para estimar efectos principales e interacciones.</li>
 <li><strong>Interpretación:</strong> extracción de conclusiones técnicas y toma de decisiones basadas en la evidencia.</li>
 </ul>
-<p>Un aporte central son los principios básicos del DOE:</p>
+<p>Un aporte central son los principios básicos del DE:</p>
 <ul>
 <li><strong>Aleatorización</strong>, que asegura independencia de los errores y evita sesgos sistemáticos.</li>
 <li><strong>Replicación,</strong> que incrementa la precisión de las estimaciones al cuantificar la variabilidad experimental.</li>
@@ -265,7 +266,7 @@ div.csl-indent {
 <p>Estos principios permiten estructurar experimentos que sean eficientes en costo y tiempo, pero robustos en cuanto a la validez de sus conclusiones.</p>
 <p>La clasificación de diseños va desde los más simples (completamente al azar, bloques completos, cuadrados latinos) hasta los más complejos (factoriales, fraccionados, superficies de respuesta, diseños robustos). Se subraya que la selección depende de los objetivos, el número de factores, las restricciones prácticas y el tipo de información buscada. También se enfatiza que la decisión debe considerar tanto la significancia estadística como la significancia práctica, es decir, el impacto real de los resultados sobre el proceso o fenómeno bajo estudio <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <section id="tipos-de-diseños-experimentales" class="level3">
-<h3 class="anchored" data-anchor-id="tipos-de-diseños-experimentales">2.1 Tipos de diseños experimentales</h3>
+<h3 class="anchored" data-anchor-id="tipos-de-diseños-experimentales">Tipos de diseños experimentales</h3>
 <p>La selección de un diseño experimental depende de distintos factores que condicionan su pertinencia y aplicabilidad en cada situación. Entre los aspectos determinantes se encuentran: los objetivos que se persiguen con el estudio, la cantidad de factores que se desea analizar, el número de niveles que adoptará cada factor, los efectos que se pretende identificar en la relación causa-efecto y, finalmente, las restricciones de costo, tiempo y precisión que impone la investigación <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
 <p>Estos elementos no actúan de forma aislada, ya que la modificación de cualquiera de ellos obliga generalmente a replantear el diseño a utilizar. En consecuencia, resultan fundamentales para guiar la clasificación de los diseños experimentales.</p>
 <p>El <strong>objetivo del experimento</strong> constituye el criterio principal para diferenciar entre tipos de diseño, mientras que los demás factores funcionan como subcriterios de clasificación. Bajo esta perspectiva, los diseños pueden agruparse en varias categorías: aquellos orientados a la comparación de dos o más tratamientos; los que examinan el efecto de diversos factores sobre una o varias variables de respuesta; los que buscan establecer el punto óptimo de operación de un proceso; los que se enfocan en la optimización de mezclas; y finalmente, los dirigidos a lograr que un producto o proceso se mantenga estable frente a factores no controlables <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
@@ -274,18 +275,17 @@ div.csl-indent {
 <section id="clasificación-de-los-diseños-experimentales" class="level3">
 <h3 class="anchored" data-anchor-id="clasificación-de-los-diseños-experimentales"><strong>Clasificación de los diseños experimentales</strong></h3>
 <p>La siguente clasificación es tomada el libro de <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>.</p>
-<ol type="1">
-<li><p><strong>Diseños para comparar dos o más tratamientos</strong><br>
+<p><strong>Diseños para comparar dos o más tratamientos</strong><br>
 🔹 Diseño completamente al azar<br>
 🔹 Diseño de bloques completos al azar<br>
-🔹 Diseño de cuadros latino y grecolatino</p></li>
-<li><p><strong>Diseños para estudiar efectos de varios factores sobre una o más variables de respuesta</strong><br>
+🔹 Diseño de cuadros latino y grecolatino</p>
+<p><strong>Diseños para estudiar efectos de varios factores sobre una o más variables de respuesta</strong><br>
 🔹 Diseños factoriales 2ᵏ<br>
 🔹 Diseños factoriales 3ᵏ<br>
 🔹 Diseños fraccionados 2ᵏ⁻ᵖ<br>
 🔹 Diseños anidados<br>
-🔹 Diseños en parcelas divididas</p></li>
-<li><p><strong>Diseños para la optimización de procesos</strong><br>
+🔹 Diseños en parcelas divididas</p>
+<p><strong>Diseños para la optimización de procesos</strong><br>
 <strong>➤ Modelo de primer orden</strong><br>
 🔹 Diseños factoriales 2ᵏ y 2ᵏ⁻ᵖ<br>
 🔹 Diseño de Plackett-Burman<br>
@@ -293,16 +293,25 @@ div.csl-indent {
 <strong>➤ Modelo de segundo orden</strong><br>
 🔹 Diseño de composición central<br>
 🔹 Diseño de Box-Behnken<br>
-🔹 Diseños factoriales 3ᵏ y 3ᵏ⁻ᵖ</p></li>
-<li><p><strong>Diseños robustos</strong><br>
+🔹 Diseños factoriales 3ᵏ y 3ᵏ⁻ᵖ</p>
+<p><strong>Diseños robustos</strong><br>
 🔹 Arreglos ortogonales (factoriales)<br>
-🔹 Diseño con arreglos interno y externo</p></li>
-<li><p><strong>Diseños de mezclas</strong><br>
+🔹 Diseño con arreglos interno y externo</p>
+<p><strong>Diseños de mezclas</strong><br>
 🔹 Diseño simplex-reticular<br>
 🔹 Diseño simplex con centroide<br>
 🔹 Diseño sin restricciones<br>
-🔹 Diseño axial</p></li>
-</ol>
+🔹 Diseño axial</p>
+</section>
+<section id="verificación-de-los-supuestos-del-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="verificación-de-los-supuestos-del-modelo">Verificación de los supuestos del modelo</h3>
+<p>En todo <strong>diseño experimental (DE)</strong>, el cumplimiento de los <strong>supuestos estadísticos</strong> es fundamental para garantizar la <strong>validez y confiabilidad</strong> de los resultados obtenidos. Ignorar estas condiciones puede conducir a interpretaciones incorrectas o a la aplicación inadecuada de las pruebas estadísticas. A continuación, se describen los tres supuestos básicos del <strong>ANOVA</strong> y las pruebas utilizadas para su verificación, tanto en forma <strong>numérica</strong> como <strong>gráfica</strong>:</p>
+<p><strong>Normalidad:</strong><br>
+Este supuesto establece que los residuos del modelo deben seguir una <strong>distribución normal</strong>. Se evalúa estadísticamente mediante la <strong>prueba de Shapiro–Wilk</strong> y de forma visual a través de <strong>gráficos QQ-plot</strong> o <strong>histogramas de residuos</strong>, que permiten identificar desviaciones importantes de la normalidad.</p>
+<p><strong>Homogeneidad de varianzas (homocedasticidad):</strong><br>
+Supone que la <strong>variabilidad de los datos dentro de cada grupo</strong> es similar entre tratamientos. Este supuesto puede comprobarse mediante las pruebas de <strong>Bartlett</strong>, <strong>Levene</strong> y <strong>Fligner–Killeen</strong>, y de manera gráfica a través del <strong>gráfico de residuos vs.&nbsp;valores ajustados</strong>, donde se espera una dispersión aleatoria de los puntos alrededor de la línea horizontal sin formación de patrones.</p>
+<p><strong>Independencia de las observaciones:<br>
+</strong>Indica que los valores de una observación no deben depender de los de otra. Este supuesto se evalúa mediante el <strong>test de Durbin–Watson</strong>, que analiza la posible autocorrelación de los residuos. Valores de <em>p</em> mayores a 0.05 sugieren independencia, condición necesaria para la validez del modelo.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
@@ -732,7 +741,7 @@ Gutiérrez Pulido, H., &amp; Vara Salazar, R. de la. (2012). <em>An<span>á</spa
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /edit/main/Chapter_03.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE) /blob/main/Chapter_03.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/Chapter_03.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/Chapter_03.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Publicado con Quarto y GitHub Pages</p>
 </div>

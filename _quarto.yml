@@ -1,41 +1,32 @@
 project:
   type: book
-  # Especificar la carpeta de salida para el libro
-  output-dir: docs 
+  output-dir: docs
   preview:
     port: 4200
     browser: true
 
-# Idioma principal del documento
 lang: es
-
-cover-image: cover.png 
+cover-image: cover.png
 
 book:
   title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
-  # Se recomienda un formato estandarizado para los autores (e.g., por roles o líneas).
-  author: 
+  author:
     - "Fredy Ortiz"
     - "Miguel Pérez"
     - "Francisco León"
   date: "2025-05-05"
-  
-  # Configuración de Repositorio y Acciones (GitHub)
+
+  # GitHub
   site-url: "https://udesanalitica.github.io/r-para-mi/"
-  repo-url: "https://github.com/udesanalitica/r-para-mi.gitquarto::quarto_render(as_job = FALSE)
-"
+  repo-url: "https://github.com/udesanalitica/r-para-mi"
   repo-branch: main
   repo-actions: [edit, issue, source]
-  
-  # Opciones visuales y de navegación
-  favicon: favicon.png          # Asegúrese de que el archivo 'favicon.png' exista.
+
+  favicon: favicon.png
   page-navigation: true
   search: true
-  
-  # Descargas: pdf requiere una configuración de formato más detallada
   downloads: [pdf, epub]
-  
-  # Estructura del libro (orden de los archivos)
+
   chapters:
     - index.qmd
     - autores.qmd
@@ -50,7 +41,6 @@ book:
     - Chapter_07.qmd
     - references.qmd
 
-# Referencias
 bibliography: references.bib
 csl: apa.csl
 
@@ -61,29 +51,19 @@ format:
     number-sections: false
     code-copy: true
     smooth-scroll: true
-  
-  # Configuración PDF: usar 'latex-image' si tiene una imagen de portada
   pdf:
     documentclass: scrreprt
-    # Opcional: configurar la portada y el color principal si usa la clase por defecto
-    # colorlinks: true
-    # linkcolor: blue
-  
-  # Formato Word (docx)
   docx:
     toc: true
     number-sections: true
-  
-  # Formato EPUB
   epub:
-    cover-image: cover.png        # Asegúrese de que el archivo 'cover.png' exista.
+    cover-image: cover.png
 
 website:
   page-footer:
     left: "© 2025 Autores"
     right: "Publicado con Quarto y GitHub Pages"
 
-# Configuración de ejecución
 execute:
   freeze: auto
 
