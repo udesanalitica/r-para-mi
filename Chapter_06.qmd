@@ -8,6 +8,8 @@ title: "Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)"
 El trabajo de grado desarrollado por [@FuentesRicaurte2024]analizó el potencial de tres géneros de **hongos mitospóricos**, entre ellos *Aspergillus* sp. (As), para la **bioacumulación de los metales pesados cadmio (Cd) y plomo (Pb)** en su micelio. Para ello, se emplearon medios de cultivo **caldo papa dextrosa (CPD)** suplementados con concentraciones de **100, 150 y 200 mg/L** de cada metal, considerando el **tiempo** como un factor determinante en el proceso de bioacumulación.
 
 La **cuantificación del metal retenido en el micelio** se realizó mediante **espectrometría de absorción atómica**, técnica que permitió evaluar la eficiencia de remoción. Los resultados mostraron que *Aspergillus* sp. fue el género más eficiente en la **bioacumulación de plomo (Pb)**, alcanzando hasta **94,38 % de remoción** a 200 mg/L, mientras que para **cadmio (Cd)** se obtuvo una remoción del **92,82 %**.
+
+[![(A): Micelio de cepa ambiental de Aspergillus sp. en medio de cultivo PDA. (B): Microscopia cepa de Aspergillus sp. tomada a 40X por medio de tinción de impronta con KOH 10%.](images/5_DMRT/DMRT_Aspergillus.png){fig-alt="Fuentes-Ricaurte, H.  (2024).  Evaluación de la Bioacumulación de Cadmio y Plomo con Cepas de Hongos Mitospóricos de Origen Ambiental. Universidad de Santander."}](https://repositorio.udes.edu.co/handle/001/11020)
 :::
 
 ### Estructura de la base de datos
@@ -17,7 +19,7 @@ La base de datos está compuesta por **cuatro columnas principales**, que descri
 
 ::: {#tbl-estructura .table caption="Estructura de la base de datos utilizada en el análisis."}
 | **Variable**    | **Tipo de variable** | **Descripción**                                                                                                                                                     |
-|----------------|----------------|----------------------------------------|
+|-----------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Tiempo**      | Categórica           | Días después de la inoculación (ddi). Representa los momentos de medición del experimento.                                                                          |
 | **Tratamiento** | Categórica           | Inoculación de *Aspergillus* sp. en medios de cultivo suplementados con 100, 150 y 200 mg/L de Pb.                                                                  |
 | **Repetición**  | Numérica             | Identifica el número de repetición del tratamiento (1, 2, 3).                                                                                                       |
@@ -32,7 +34,7 @@ Este enfoque resulta especialmente adecuado para **datos dependientes en el tiem
 
 ::: {#tbl-estructura-mixto .table caption="Estructura del diseño experimental y justificación del modelo mixto lineal de medidas repetidas."}
 | **Elemento**            | **Descripción**                                                              | **Tipo**              |
-|------------------|-------------------------------------|------------------|
+|-------------------------|------------------------------------------------------------------------------|-----------------------|
 | **Unidad experimental** | Frasco o cultivo individual (*Id*).                                          | Efecto **aleatorio**  |
 | **Factores fijos**      | \- Concentración de Pb (*Tratamiento*)<br>- Tiempo de incubación (*Tiempo*). | Efectos **fijos**     |
 | **Variable respuesta**  | Bioacumulación de Pb (*Resultado*).                                          | Continua              |
@@ -41,7 +43,7 @@ Este enfoque resulta especialmente adecuado para **datos dependientes en el tiem
 
 ## Diseño: Tratamiento (factor entre sujetos) x Tiempo (factor intra-sujetos)
 
-### Cargar los paquetes necesarios para el análisis
+### Cargar las librerias necesarias para el análisis
 
 ```{r}
 suppressPackageStartupMessages({
@@ -55,7 +57,7 @@ suppressPackageStartupMessages({
 })
 ```
 
-### Importar datos
+### Importar datos desde Excel
 
 ```{r}
 library(readxl)

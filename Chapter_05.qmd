@@ -4,83 +4,135 @@ title: "Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)"
 
 ### Problema
 
-**Introducción:**
+::: callout-note
+El crecimiento de las plantas de frijol (*Phaseolus vulgaris*) está estrechamente relacionado con la interacción entre sus raíces y microorganismos del suelo, especialmente rizobios. Estos microorganismos forman nódulos en las raíces, facilitando la fijación biológica de nitrógeno, esencial para el desarrollo vegetal. Factores como la luz, humedad y composición del suelo donde son plantadas influyen significativamente en su tasa de crecimiento y salud general.
 
-::: callout-caution
-Script: Análisis de un Diseño en Bloques Completamente al Azar (DBCA)
-
-Variables esperadas en la base: \
-i. Bloque: factor que representa los bloques \
-ii. Tratamiento: factor con los tratamientos a evaluar \
-iii. Respuesta: variable cuantitativa a analizar \#
+lib
 :::
+
+### Estructura de la base de datos
+
+El presente experimento se estructuró bajo un **Diseño de Bloques Completamente al Azar (DBCA)** con el objetivo de evaluar el efecto de diferentes tratamientos de fertilización sobre el crecimiento de las plantas de frijol (*Phaseolus vulgaris*). Este diseño permite controlar la variabilidad asociada a factores ambientales no experimentales mediante la conformación de bloques homogéneos.\
+En este caso, se consideraron **tres bloques (A, B y C)** que representan unidades experimentales con condiciones similares dentro de cada uno, y se aplicaron **cuatro tratamientos** de fertilización: **NPK Comercial**, **NPK + Bioinoculante**, **Orgánico + NPK (50:50)** y **Orgánico + NPK**.\
+El parámetro evaluado, denominado **Resultado**, corresponde a una variable cuantitativa continua (por ejemplo, biomasa, concentración de metal o altura), expresada en valores decimales.
+
+## Descripción de las variables del experimento
+
+El diseño experimental corresponde a un **Diseño de Bloques Completamente al Azar (DBCA)**, en el cual se evaluaron diferentes tratamientos de fertilización en plantas de frijol (*Phaseolus vulgaris*).\
+Los bloques representan unidades experimentales homogéneas, y la variable de respuesta cuantifica el efecto del tratamiento sobre el crecimiento o bioacumulación.
+
+|                 | Tipo de variable      | Descripción                                                                                                                                              |
+|:-----------------|:-----------------|:------------------------------------|
+| **Tratamiento** | Cualitativa nominal   | Incluye los diferentes niveles de fertilización, como *NPK Comercial*, *NPK + Bioinoculante*, *Orgánico + NPK (50:50)*, entre otros.                     |
+| **Bloque**      | Cualitativa nominal   | Factor de bloqueo que agrupa las unidades experimentales bajo condiciones similares. Se identifican con letras (A, B, C, ...).                           |
+| **Resultado**   | Cuantitativa continua | Variable de respuesta que representa la medición obtenida (por ejemplo: altura, biomasa, concentración de metal, etc.), expresada con valores decimales. |
 
 ## Cargar Paquetes y librerías necesarias para el analisis de los datos.
 
 ## Instalar Paquetes (solo una vez)
 
-install.packages("readxl") install.packages("car") install.packages("agricolae") install.packages("lmtest") install.packages("ggplot2")
+```{r}
+#install.packages("readxl")
+##install.packages("car") 
+#install.packages("agricolae") 
+#install.packages("lmtest") 
+#install.packages("ggplot2")
+#install.packages("gtable")
+```
 
-## Cargar las siguientes librerias
+### Cargar las librerias necesarias para el análisis
 
 ```{r}
+suppressPackageStartupMessages({
 library(readxl) 
 library(car) 
 library(agricolae)
 library(lmtest) 
 library(ggplot2)
+})
 ```
 
-## Importar datos desde Excel
+#### Importar datos desde Excel
 
 ```{r}
 library(readxl)
 DBCA <- read_excel("C:/R-Proyectos/r-para-mi/data/DBCA_Frijol/DBCA_frijol.xlsx")
 ```
 
-## Revisar estructura de los datos cargados
+### Revisar estructura de los datos cargados
 
 ```{r}
 View(DBCA)
-attach(DBCA)
+```
+
+```{r}
 names(DBCA)
+```
+
+```{r}
 str(DBCA)
+```
+
+```{r}
 summary(DBCA$Resultado)
 ```
 
-## Convertir Variables a Factores
+### Convertir variables a factores
+
+Para garantizar un análisis correcto bajo el **Diseño de Bloques Completamente al Azar (DBCA)**, las variables **Tratamiento** y **Bloque** se convierten a factores en R. Esta conversión permite que el modelo ANOVA reconozca dichos elementos como variables categóricas y no como valores numéricos, asegurando una interpretación adecuada de los efectos experimentales.
 
 ```{r}
 DBCA$Tratamiento <- as.factor(DBCA$Tratamiento) 
 DBCA$Bloque <- as.factor(DBCA$Bloque)
+str (DBCA)
 ```
 
 ## ANOVA para Diseño de Bloques Completamente al Azar -DBCA-
 
 ```{r}
-modelo <- aov(Resultado~Tratamiento + Bloque, data=DBCA) 
-summary(modelo) 
+modeloDBCA <- aov(Resultado~Tratamiento + Bloque, data=DBCA)  
+summary(modeloDBCA) 
 ```
+
+**Interpretación:** Los resultados del Análisis de Varianza (ANOVA) se ajustan a un modelo de Diseño de Bloques Completamente al Azar (DBCA), donde se evaluó el efecto del factor **Tratamiento** sobre una variable de **Resultado**, controlando la variabilidad mediante el factor **Bloque**.
+
+1\. **Efecto del Tratamiento**. El análisis indica que el factor Tratamiento es altamente significativo sobre la variable de Resultado. Dado que el valor $\text{p}$ es extremadamente pequeño (denotado por '\*\*\*'), se **rechaza la hipótesis nula** de que no hay diferencias entre las medias de los tratamientos. Esto significa que existe una **diferencia estadísticamente significativa** en el Resultado al menos entre dos de los niveles de Tratamiento. **Grados de Libertad (Df):** 3. **Valor F (F value):** 153.749. **Valor p (**$\text{Pr}(>F)$): $<2 \text{e}-16$ (Menor que $0.001$)
+
+2\. **Efecto del Bloque.** El análisis de la fuente de variación **Bloque** evalúa si el agrupamiento de las unidades experimentales fue efectivo para reducir la variabilidad del error. El valor $\text{p}$ (0.505) es **mayor que el nivel de significancia** comúnmente utilizado ($\alpha = 0.05$). Por lo tanto, el factor **Bloque no resultó ser significativo**. Esto indica que la variabilidad atribuida a las diferencias entre los Bloques no es mayor que la variabilidad aleatoria, sugiriendo que la inclusión del bloqueo no fue esencial o efectivo en este experimento particular.**Grados de Libertad (Df):** 2. **Valor F (F value):** 0.688. **Valor p (**$\text{Pr}(>F)$): 0.505
+
+3\. **Resumen del Modelo.** El factor **Tratamiento ejerce una influencia significativa** en el Resultado. Sin embargo, el factor **Bloque no contribuye significativamente** a explicar la variación del Resultado. Se requiere un análisis *post-hoc* (como Tukey o Sidak) para determinar cuáles pares específicos de Tratamientos difieren entre sí.
 
 ## Verificación de supuestos
 
-```{r}
-res <- residuals(modelo)
-```
+El ANOVA requiere cumplir tres supuestos básicos para garantizar la validez de los resultados. Ignorar estos supuestos puede generar conclusiones erróneas:
 
-## Normalidad de residuos (Shapiro-Wilk)
+1\. **Independencia de las observaciones**, donde los datos de un grupo no deben influir en los de otro.
+
+2\. **Normalidad**, que implica que los datos se aproximen a una distribución normal, evaluada comúnmente con la prueba de **Shapiro--Wilk**.
+
+3\. **Homogeneidad de varianzas (homocedasticidad)**, que supone una variabilidad similar entre los grupos.
+
+### Normalidad de residuos (Shapiro-Wilk)
+
+```{r}
+res <- residuals(modeloDBCA)
+```
 
 ```{r}
 shapiro.test(res)
-
-qqnorm(res)
-qqline(res, col = "red")
-
-hist(res, main = "Histograma de residuos", xlab = "Residuos")
-
 ```
 
-## Homogeneidad de varianza
+**Interpretación:** La hipótesis nula de *Shapiro--Wilk* es que los datos provienen de una distribución normal , al tiempo que el  p-value = 0.9725 es  ≥ que 0.05, no hay evidencia para rechazar la normalidad, es por ello por lo que los residuos pueden considerarse normalmente distribuidos, lo cual respalda el supuesto de normalidad necesario para ANOVA.
+
+**Gráfico Q-Q de los residuos estandarizados**
+
+```{r}
+qqnorm(res)
+qqline(res, col = "red")
+hist(res, main = "Histograma de residuos", xlab = "Residuos")
+```
+
+### Homogeneidad de varianza
 
 ```{r}
 bartlett.test(Resultado ~ Tratamiento, data = DBCA)
@@ -88,10 +140,48 @@ car::leveneTest(Resultado ~ Tratamiento, data = DBCA)
 fligner.test(Resultado ~ Tratamiento, data = DBCA)
 ```
 
-## Independencia de residuos
+**Interpretación:** La hipótesis nula de *Bartlett* es que las varianzas entre los grupos son iguales, y como el *p-valor* =0.059 es ≥ 0.05, no se rechaza la hipótesis nula; no se rechaza la homogeneidad de varianzas, aunque está cerca del umbral. Esto sugiere que los datos cumplen razonablemente el supuesto de homocedasticidad, pero con un margen ajustado.
+
+### Gráfico de Residuos vs. Valores Ajustados
 
 ```{r}
-dwtest(modelo)
+# 1. Extraer valores ajustados y residuos del modelo DBCA
+datos_homocedasticidad <- data.frame(
+  Valores_Ajustados = fitted(modeloDBCA),     # valores predichos del modelo
+  Residuos_Std = rstandard(modeloDBCA)        # residuos estandarizados
+)
+
+# 2. Gráfico de residuos vs valores ajustados
+ggplot(datos_homocedasticidad, aes(x = Valores_Ajustados, y = Residuos_Std)) +
+  geom_point(alpha = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal() +
+  labs(
+    title = "Gráfico de Residuos vs. Valores Ajustados (Homogeneidad de Varianzas)",
+    x = "Valores ajustados (predichos)",
+    y = "Residuos estandarizados"
+  )
+
+# Interpretación:
+# Los puntos deben dispersarse aleatoriamente alrededor de y = 0
+# sin formar patrones o conos, indicando homogeneidad de varianzas.
+
+```
+
+**Interpretación:** Tanto las pruebas estadísticas (**Bartlett, Levene y Fligner-Killeen**) como el **gráfico de residuos** indican que se cumple el supuesto de **homogeneidad de varianzas** en el modelo DBCA. Por tanto, el análisis de varianza (ANOVA) puede aplicarse de forma válida, ya que la variabilidad dentro de los grupos de tratamiento es similar y no se detectan violaciones importantes de este supuesto.
+
+## Independencia de residuos
+
+El **Durbin--Watson test** evalúa la **independencia de los residuos**:
+
+**Hipótesis nula (H₀):** los residuos son independientes. \
+**Hipótesis alternativa (H₁):** los residuos están autocorrelacionados.\
+\
+Si el **p-value \> 0.05**, **no se rechaza H₀**, por lo que **los residuos son independientes** (el supuesto se cumple). Si el **p-value \< 0.05**, existe **autocorrelación** y el supuesto no se cumple.
+
+```{r}
+dwtest(modeloDBCA)
+print(dwtest(modeloDBCA))
 ```
 
 ## Gráficos de diagnóstico del modelo
@@ -100,8 +190,8 @@ dwtest(modelo)
 # Gráficos de diagnóstico del modelo
 par(mfrow = c(1, 2))  # Dividir la ventana en 2 gráficos (1 fila, 2 columnas)
 
-plot(modelo, which = 1)  # Residuos vs valores ajustados (homogeneidad)
-plot(modelo, which = 2)  # QQ-plot (normalidad)
+plot(modeloDBCA, which = 1)  # Residuos vs valores ajustados (homogeneidad)
+plot(modeloDBCA, which = 2)  # QQ-plot (normalidad)
 
 par(mfrow = c(1, 1))  # Regresar a 1 gráfico por pantalla
 
@@ -123,6 +213,16 @@ plot(val_ajus, resid_est,
 abline(h = 0, col = "red", lty = 2)
 
 ```
+
+### Introducción al Análisis Post-Hoc: Enfoque en Supuestos
+
+La validez de estas pruebas *post-hoc* (como Tukey o Duncan) depende directamente de haber **comprobado exitosamente los supuestos del ANOVA** en la etapa previa. Específicamente, estas pruebas requieren:
+
+1.  **✅ Normalidad:** Que los **residuos** del modelo sigan una distribución normal.
+
+2.  **✅ Homogeneidad de Varianza:** Que la varianza de los residuos sea constante en todos los grupos de tratamiento.
+
+Al confirmar estos supuestos, aseguramos que la precisión del análisis y las tasas de error son correctas.
 
 ## Comparaciones múltiples de medias
 
