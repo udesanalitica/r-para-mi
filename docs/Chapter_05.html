@@ -387,7 +387,7 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 <h2 class="anchored" data-anchor-id="instalar-paquetes-solo-una-vez">Instalar Paquetes (solo una vez)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("readxl")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">##install.packages("car") </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("car") </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("agricolae") </span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("lmtest") </span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("ggplot2")</span></span>
@@ -496,9 +496,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="verificación-de-supuestos" class="level2">
 <h2 class="anchored" data-anchor-id="verificación-de-supuestos">Verificación de supuestos</h2>
 <p>El ANOVA requiere cumplir tres supuestos básicos para garantizar la validez de los resultados. Ignorar estos supuestos puede generar conclusiones erróneas:</p>
-<p>1. <strong>Independencia de las observaciones</strong>, donde los datos de un grupo no deben influir en los de otro.</p>
-<p>2. <strong>Normalidad</strong>, que implica que los datos se aproximen a una distribución normal, evaluada comúnmente con la prueba de <strong>Shapiro–Wilk</strong>.</p>
-<p>3. <strong>Homogeneidad de varianzas (homocedasticidad)</strong>, que supone una variabilidad similar entre los grupos.</p>
+<ol type="1">
+<li><p><strong>Normalidad</strong>, que implica que los datos se aproximen a una distribución normal, evaluada comúnmente con la prueba de <strong>Shapiro–Wilk</strong>.</p></li>
+<li><p><strong>Homogeneidad de varianzas (homocedasticidad)</strong>, que supone una variabilidad similar entre los grupos.</p></li>
+<li><p><strong>Independencia de las observaciones</strong>, donde los datos de un grupo no deben influir en los de otro.</p></li>
+</ol>
 <section id="normalidad-de-residuos-shapiro-wilk" class="level3">
 <h3 class="anchored" data-anchor-id="normalidad-de-residuos-shapiro-wilk">Normalidad de residuos (Shapiro-Wilk)</h3>
 <div class="cell">

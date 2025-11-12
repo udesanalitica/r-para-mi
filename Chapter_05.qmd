@@ -37,7 +37,7 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 
 ```{r}
 #install.packages("readxl")
-##install.packages("car") 
+#install.packages("car") 
 #install.packages("agricolae") 
 #install.packages("lmtest") 
 #install.packages("ggplot2")
@@ -110,11 +110,11 @@ summary(modeloDBCA)
 
 El ANOVA requiere cumplir tres supuestos básicos para garantizar la validez de los resultados. Ignorar estos supuestos puede generar conclusiones erróneas:
 
-1\. **Independencia de las observaciones**, donde los datos de un grupo no deben influir en los de otro.
+1.  **Normalidad**, que implica que los datos se aproximen a una distribución normal, evaluada comúnmente con la prueba de **Shapiro--Wilk**.
 
-2\. **Normalidad**, que implica que los datos se aproximen a una distribución normal, evaluada comúnmente con la prueba de **Shapiro--Wilk**.
+2.  **Homogeneidad de varianzas (homocedasticidad)**, que supone una variabilidad similar entre los grupos.
 
-3\. **Homogeneidad de varianzas (homocedasticidad)**, que supone una variabilidad similar entre los grupos.
+3.  **Independencia de las observaciones**, donde los datos de un grupo no deben influir en los de otro.
 
 ### Normalidad de residuos (Shapiro-Wilk)
 

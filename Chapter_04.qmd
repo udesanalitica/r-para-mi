@@ -4,9 +4,11 @@ title: "Capitulo 4 Diseño Completamente al Azar (DCA)"
 
 #### Problema
 
-**Introducción:** La **antracnosis del banano** 🍌, causada por *Colletotrichum musae* (Berk. y M.A. Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto [@Vasquez-Castillo2019].
+::: callout-note
+La **antracnosis del banano** 🍌, causada por *Colletotrichum musae* (Berk. y M.A. Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto [@Vasquez-Castillo2019].
 
 Tradicionalmente, el manejo de esta epifítia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad ([@Arias2007], por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.
+:::
 
 **Metodología:** El estudio se estructuró a partir de dos diseños experimentales: un **Diseño Completamente al Azar** para la evaluación de sustratos, y un **Diseño de Medidas Repetidas en el Tiempo** para la evaluación de la actividad inhibitoria.
 
@@ -55,7 +57,7 @@ Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evalu
 La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:
 
 | Variable      | Descripción                                                                                         |
-|---------------|-----------------------------------------------------------------------------------------------------|
+|---------------|---------------------------------------------------------|
 | `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.                      |
 | `Repetición`  | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
 | `Resultado`   | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).  |
