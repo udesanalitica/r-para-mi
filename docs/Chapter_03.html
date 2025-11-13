@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Capitulo 3 Generalidades del Diseño Experimental – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
+<title>Capítulo 3. Generalidades del Diseño Experimental – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_03.html"><span class="chapter-title">Capitulo 3 Generalidades del Diseño Experimental</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_03.html"><span class="chapter-title">Capítulo 3. Generalidades del Diseño Experimental</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -171,37 +171,32 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 1 Introducción al software R y la interfaz RStudio</span></a>
+  <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 1. Introducción al software R y la interfaz RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 2 Análisis bibliométrico para la gestión de un diseño experimentos</span></a>
+  <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 2. Análisis bibliométrico para la gestión de un diseño experimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Capitulo 3 Generalidades del Diseño Experimental</span></a>
+  <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Capítulo 3. Generalidades del Diseño Experimental</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 4 Diseño Completamente al Azar (DCA)</span></a>
+  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 4.Diseño Completamente al Azar (DCA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)</span></a>
+  <a href="./Chapter_05.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 5. Diseño de Bloques Completamente al Azar (DBCA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Chapter_07.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 7 Uso de Inteligencia Artificial para la simulación de datos</span></a>
+  <a href="./Chapter_06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 6. Uso de Inteligencia Artificial para la simulación de datos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -231,7 +226,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Capitulo 3 Generalidades del Diseño Experimental</span></h1>
+<h1 class="title"><span class="chapter-title">Capítulo 3. Generalidades del Diseño Experimental</span></h1>
 </div>
 
 
@@ -308,10 +303,10 @@ div.csl-indent {
 <p>En todo <strong>diseño experimental (DE)</strong>, el cumplimiento de los <strong>supuestos estadísticos</strong> es fundamental para garantizar la <strong>validez y confiabilidad</strong> de los resultados obtenidos. Ignorar estas condiciones puede conducir a interpretaciones incorrectas o a la aplicación inadecuada de las pruebas estadísticas. A continuación, se describen los tres supuestos básicos del <strong>ANOVA</strong> y las pruebas utilizadas para su verificación, tanto en forma <strong>numérica</strong> como <strong>gráfica</strong>:</p>
 <p><strong>Normalidad:</strong><br>
 Este supuesto establece que los residuos del modelo deben seguir una <strong>distribución normal</strong>. Se evalúa estadísticamente mediante la <strong>prueba de Shapiro–Wilk</strong> y de forma visual a través de <strong>gráficos QQ-plot</strong> o <strong>histogramas de residuos</strong>, que permiten identificar desviaciones importantes de la normalidad.</p>
-<p><strong>Homogeneidad de varianzas (homocedasticidad):</strong><br>
-Supone que la <strong>variabilidad de los datos dentro de cada grupo</strong> es similar entre tratamientos. Este supuesto puede comprobarse mediante las pruebas de <strong>Bartlett</strong>, <strong>Levene</strong> y <strong>Fligner–Killeen</strong>, y de manera gráfica a través del <strong>gráfico de residuos vs.&nbsp;valores ajustados</strong>, donde se espera una dispersión aleatoria de los puntos alrededor de la línea horizontal sin formación de patrones.</p>
-<p><strong>Independencia de las observaciones:<br>
-</strong>Indica que los valores de una observación no deben depender de los de otra. Este supuesto se evalúa mediante el <strong>test de Durbin–Watson</strong>, que analiza la posible autocorrelación de los residuos. Valores de <em>p</em> mayores a 0.05 sugieren independencia, condición necesaria para la validez del modelo.</p>
+<p><strong>Homocedasticidad (Varianza constante):<br>
+</strong>Supone que la <strong>variabilidad de los datos dentro de cada grupo</strong> es similar entre tratamientos. Este supuesto puede comprobarse mediante las pruebas de <strong>Bartlett</strong>, <strong>Levene</strong> y <strong>Fligner–Killeen</strong>, y de manera gráfica a través del <strong>gráfico de residuos vs.&nbsp;valores ajustados</strong>, donde se espera una dispersión aleatoria de los puntos alrededor de la línea horizontal sin formación de patrones.</p>
+<p><strong>Independencia:<br>
+</strong>Es un supuesto esencial en los modelos estadísticos, ya que garantiza que los errores no estén correlacionados entre sí. La <strong>prueba de Durbin–Watson</strong> evalúa de forma analítica la independencia entre residuos consecutivos. Un valor de <em>p</em> mayor a 0.05 sugiere independencia, mientras que valores menores indican posible autocorrelación y violación del supuesto. Gráficamente, puede verificarse <strong>representando los residuos en función del orden de recolección de los datos (tiempo o secuencia experimental)</strong>. Si los puntos se distribuyen <strong>aleatoriamente alrededor de la línea cero</strong>, sin mostrar una tendencia clara, se considera que los residuos son independientes y el supuesto se cumple. Por el contrario, la presencia de <strong>patrones sistemáticos o tendencias no aleatorias</strong> indica una posible <strong>autocorrelación</strong>, lo que sugiere que el orden de ejecución influyó en los resultados.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
@@ -723,13 +718,13 @@ Gutiérrez Pulido, H., &amp; Vara Salazar, R. de la. (2012). <em>An<span>á</spa
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Chapter_02.html" class="pagination-link" aria-label="Capítulo 2 Análisis bibliométrico para la gestión de un diseño experimentos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Capítulo 2 Análisis bibliométrico para la gestión de un diseño experimentos</span></span>
+      <a href="./Chapter_02.html" class="pagination-link" aria-label="Capítulo 2. Análisis bibliométrico para la gestión de un diseño experimentos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Capítulo 2. Análisis bibliométrico para la gestión de un diseño experimentos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Chapter_04.html" class="pagination-link" aria-label="Capitulo 4 Diseño Completamente al Azar (DCA)">
-        <span class="nav-page-text"><span class="chapter-title">Capitulo 4 Diseño Completamente al Azar (DCA)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Chapter_04.html" class="pagination-link" aria-label="Capítulo 4.Diseño Completamente al Azar (DCA)">
+        <span class="nav-page-text"><span class="chapter-title">Capítulo 4.Diseño Completamente al Azar (DCA)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

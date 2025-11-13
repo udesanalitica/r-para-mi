@@ -1,8 +1,8 @@
 ---
-title: "Capitulo 4 Diseño Completamente al Azar (DCA)"
+title: "Capítulo 4.Diseño Completamente al Azar (DCA)"
 ---
 
-#### Problema
+## Problema
 
 ::: callout-note
 La **antracnosis del banano** 🍌, causada por *Colletotrichum musae* (Berk. y M.A. Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto [@Vasquez-Castillo2019].
@@ -10,28 +10,34 @@ La **antracnosis del banano** 🍌, causada por *Colletotrichum musae* (Berk. y 
 Tradicionalmente, el manejo de esta epifítia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad ([@Arias2007], por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.
 :::
 
-**Metodología:** El estudio se estructuró a partir de dos diseños experimentales: un **Diseño Completamente al Azar** para la evaluación de sustratos, y un **Diseño de Medidas Repetidas en el Tiempo** para la evaluación de la actividad inhibitoria.
+**Metodología:** El estudio se estructuró a partir del **Diseño Completamente al Azar** para la evaluación de sustratos para la evaluación de la actividad inhibitoria.
 
-#### Diseño 1: Sustratos de cultivo para *Penicillum* sp.
+### **Modelo teórico para el Diseño Completamente al Azar (DCA)**
+
+El **Diseño Completamente al Azar** se emplea cuando los tratamientos se asignan aleatoriamente a las unidades experimentales, sin ningún tipo de restricción o agrupamiento. El modelo lineal aditivo general se expresa como:
+
+$$
+Y_{ij} = \mu + \tau_i + \varepsilon_{ij} 
+$$ donde:
+
+-   $Y_{ij}$: valor observado del tratamiento $i$ en la repetición $j$
+
+-   $\mu$: media general
+
+-   $\displaystyle \tau_i$: efecto del tratamiento $i$
+
+-   $\displaystyle \varepsilon_{ij}$: error aleatorio asociado, asumido $\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)$
+
+#### Sustratos de cultivo para *Penicillum* sp.
 
 Se empleó un **Diseño Completamente al Azar** con los siguientes tratamientos: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco. Se prepararon bolsas de polipropileno con cada sustrato, se inocularon con cinco discos de micelio de *Penicillum* sp. (0.5 mm de diámetro) y se incubaron de forma aleatorizada a 22 ± 2 °C durante ocho días. El experimento se realizó por quintuplicado, considerando cada bolsa como una repetición.
-
-#### Diseño 2: Evaluación de la actividad inhibitoria
-
-Se implementó un **Diseño de Medidas Repetidas en el Tiempo** para analizar el efecto de las concentraciones del extracto sobre dos variables de respuesta clave:
-
--   **Porcentaje de Inhibición del Área de la Lesión (PIAL)**: Para evaluar la eficacia `in vivo`.
-
--   **Porcentaje de Inhibición del Crecimiento Micelial (PICM)**: Para evaluar la eficacia `in vitro`.
-
-Las variables independientes fueron las diferentes concentraciones del extracto y los testigos correspondientes, mientras que las variables de respuesta se midieron a lo largo del tiempo para observar la evolución de la inhibición.
 
 **Resultados:** El maíz partido constituyó el sustrato óptimo para la producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido de la cebada Log~10~ 8,88 conidios/mL (**Figura 1**).
 
 **Figura 1.**\
 Sustratos con Conidios de *Penicillium* sp.
 
-![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](images/3_DCA/sustrato.png){fig-alt="Figura 1." width="341"}
+![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](images/3_DCA/sustrato.png){fig-alt="Figura 1." width="503"}
 
 \
 La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0 al 6,0% generaron Porcentajes de Inhibición del Crecimiento micelial (PICM) del 40 al 50 % respectivamente al quinto día después de la inoculación (ddi) **(Figura 2)**.
@@ -39,7 +45,7 @@ La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0
 **Figura 2.\
 **Efecto de los tratamientos in vitro frente al crecmiento de *Colletotrichum musae.*
 
-![Nota: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de *Penicillium* sp., al 4%; (D) Extracto de *Penicillium* sp., al 4,5%; (E) Extracto de *Penicillium* sp., al 5%; (F) Extracto de *Penicillium* sp., al 5,5%; (G) Extracto de *Penicillium* sp., al 6%.](images/3_DCA/experimentoinvitro.png)
+![Nota: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de *Penicillium* sp., al 4%; (D) Extracto de *Penicillium* sp., al 4,5%; (E) Extracto de *Penicillium* sp., al 5%; (F) Extracto de *Penicillium* sp., al 5,5%; (G) Extracto de *Penicillium* sp., al 6%.](images/3_DCA/experimentoinvitro.png){width="557"}
 
 \
 Por otro lado, los ensayos in vivo evidenciaron una mayor eficacia del extracto crudo, donde las concentraciones de 8, 9, 10, 11, 12 y 13% generaron porcentajes de inhibición del área de la lesión (PIAL) de 60, 55, 70, 72, 77 y 80% respectivamente **(Figura 3)**, sugiriendo que Penicillium digitatum podría representar una alternativa viable para el manejo preventivo de la antracnosis del banano.
@@ -47,7 +53,7 @@ Por otro lado, los ensayos in vivo evidenciaron una mayor eficacia del extracto 
 **Figura 3.**\
 Efecto in vivo de bananos infectados con *Colletotrichum musae* en los tratamientos.
 
-![Nota: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.](images/3_DCA/experimentobananos.png)
+![Nota: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.](images/3_DCA/experimentobananos.png){width="584"}
 
 **\
 Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de Extracto Crudo de Penicillium sp. para la Inhibición del Crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A. Curtis) Arx. Agente Causal de Antracnosis en Banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
@@ -67,9 +73,7 @@ La base de datos utilizada en este análisis corresponde a los resultados de un 
 Especificar el directorio que me interesa donde se encuentra la base de datos.
 
 ::: callout-tip
-## Antes e inciar
-
-R lee / (slash o division) y no el de Windows \\
+**Antes e inciar:** R lee / (slash o division) y no el de Windows \\
 
 En **R**, `setwd()` es una función que significa **"set working directory"** o "establecer el directorio de trabajo". Se utiliza para **definir la carpeta predeterminada** en la que R buscará archivos para leer y donde guardará archivos por defecto.\
 
@@ -78,7 +82,7 @@ Por ejemplo: setwd ("D:/OneDrive - Universidad de Santander/Material Docente 202
 
 ### Cargar las librerias necesarias para el análisis
 
-```{r}
+```{r, warning=FALSE}
 suppressPackageStartupMessages({
 library(readxl)
 library(dplyr)
@@ -93,7 +97,7 @@ library(multcompView)
 })
 ```
 
-**Lectura de datos**
+### Importar datos desde Excel
 
 ```{r}
 library(readxl)
@@ -181,7 +185,7 @@ ggplot(DCA, aes(x = Tratamiento, y = Resultado, fill=Tratamiento)) +
 
 **Interpretación:** Las diferencias en las medianas entre tratamientos son claras y consistentes con los resultados del ANOVA y del modelo lineal, lo que sugiere un efecto significativo del tipo de cultivo sobre la variable resultado.
 
-## **Supuestos del modelo** 
+## **Supuestos del modelo**
 
 Antes de interpretar los resultados, se verifican los supuestos de **normalidad, homogeneidad de varianzas** e **independencia de los residuos**.
 
@@ -260,9 +264,9 @@ dwtest(modeloDCA)
 
 **Interpretación:** El resultado del **test de Durbin--Watson** (DW = 1.77; *p* = 0.1387) indica que **no existe evidencia significativa de autocorrelación** entre los residuos del modelo. Dado que el valor de *p* es mayor que 0.05, se **acepta la hipótesis nula de independencia**, lo que significa que los residuos son independientes entre sí y el modelo **cumple con este supuesto del ANOVA**.
 
-## **Pruebas aposteriori** 
+## **Pruebas aposteriori**
 
-### LSD (Least Significant Difference)
+### Prueba LSD (Least Significant Difference)
 
 Para identificar diferencias específicas entre las medias de los tratamientos, una vez detectada significancia en el análisis de varianza, se aplicará una prueba de comparaciones múltiples a posteriori. En este caso, se empleará la técnica LSD (Least Significant Difference), que permite realizar comparaciones pareadas entre tratamientos asumiendo homogeneidad de varianzas. La implementación de esta prueba requiere la carga del paquete agricolae, utilizando el siguiente script. Instalación si es necesario: install.packages("agricolae"). Carga del paquete: library(agricolae).
 
@@ -281,7 +285,7 @@ Grupos<- LSD.test(y = modeloDCA, trt = "Tratamiento", group = F, console = T)
 
 **Interpretación:** todas las diferencias entre tratamientos son altamente significativas (p \< 0.001). Esto confirma que ninguno de los tratamientos comparte una media similar.
 
-### La prueba de Tukey
+### Prueba de Tukey
 
 ```{r, error = TRUE}
 library(agricolae)
@@ -299,6 +303,8 @@ plot(TukeyHSD(modeloDCA))
 ```
 
 **Interpretación:** El gráfico muestra los intervalos de confianza del 95 % para las diferencias de medias entre los tratamientos, ajustados por comparaciones múltiples (family-wise). Ninguno de los intervalos cruza la línea vertical en cero, lo cual indica que todas las comparaciones entre pares de tratamientos son estadísticamente significativas. La diferencia más grande se observa entre Maíz y Avena, mientras que la más pequeña, aunque significativa, es entre Cebada y Arroz. Este resultado es coherente con los análisis previos (ANOVA, LSD y Scheffé), y respalda que cada tratamiento tiene un efecto significativamente distinto sobre la variable "Resultado".
+
+### Prueba de Scheffé
 
 ```{r, error = TRUE}
 scheffe.test(modeloDCA, "Tratamiento",console=TRUE)

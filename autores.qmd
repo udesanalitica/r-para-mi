@@ -5,7 +5,7 @@
 
 ## Fredy Alejandro Ortiz Meneses ![](images/Logos/orcid.png){width="23" height="27"}
 
-Microbiólogo con énfasis en Alimentos, Especialista en Pedagogía y Didácticas Específicas, y Magíster en Fitopatología.
+Microbiólogo con énfasis en Alimentos, Especialista en Pedagogía y Didácticas Específicas y Magíster en Fitopatología. Vinculado a la Universidad de Santander (UDES) desde 2016, como profesor de losl cursos de Microbiología II y Microbiología General del programa de Microbiología Industrial. Es investigador Junior reconocido por Minciencias en la convocatoria 957 del 2024 y miembro del grupo de investigación MICROBIOTA.
 :::
 
 ::: callout-tip
@@ -13,7 +13,7 @@ Microbiólogo con énfasis en Alimentos, Especialista en Pedagogía y Didáctica
 
 ## Miguel Oswaldo Pérez Pulido ![](images/Logos/orcid.png){width="26" height="28"}
 
-Director de Analítica Académica. Licenciado en Matemáticas y Magíster en Estadística. Actualmente se desempeña como Director de Analítica Académica, adscrito a la Vicerrectoría de Enseñanza. Está vinculado a la Universidad de Santander (UDES) desde 2011, donde ha sido docente en programas de pregrado y posgrado de la Facultad de Ciencias Exactas, Naturales y Agropecuarias. Es investigador Junior reconocido por Minciencias en la convocatoria 894 de 2021 y miembro del grupo de investigación CIBAS.
+Director de Analítica Académica. Licenciado en Matemáticas y Magíster en Estadística. Actualmente se desempeña como Director de Analítica Académica, adscrito a la Vicerrectoría de Enseñanza. Está vinculado a la Universidad de Santander (UDES) desde 2011, donde ha sido docente en programas de pregrado y posgrado de la Facultad de Ciencias Exactas, Naturales y Agropecuarias. Es investigador Asociado reconocido por Minciencias en la convocatoria 957 de 2024 y miembro del grupo de investigación CIBAS.
 :::
 
 ::: callout-tip
@@ -21,5 +21,5 @@ Director de Analítica Académica. Licenciado en Matemáticas y Magíster en Est
 
 ## Francisco Javier León ![](images/Logos/orcid.png){width="26" height="28"}
 
-Bacteriólogo y laboratorista clínico, con formación avanzada como Magíster en Estadística Aplicada, Magíster en Ciencias Básicas Biomédicas y Especialista en Educación con Nuevas Tecnologías. Está vinculado a la Universidad de Santander (UDES) desde 2007, donde ha sido docente en la Facultad de Ciencias Exactas, Naturales y Agropecuarias. Actualmente, se desempeña como Coordinador de Analítica Académica, adscrito a la Vicerrectoría de Enseñanza. Es investigador Junior reconocido por Minciencias en la convocatoria 894 de 2021 y miembro del grupo de investigación CIBAS.
+Bacteriólogo y laboratorista clínico, con formación avanzada como Magíster en Estadística Aplicada, Magíster en Ciencias Básicas Biomédicas y Especialista en Educación con Nuevas Tecnologías. Está vinculado a la Universidad de Santander (UDES) desde 2007, donde ha sido docente en la Facultad de Ciencias Exactas, Naturales y Agropecuarias. Actualmente, se desempeña como Coordinador de Analítica Académica, adscrito a la Vicerrectoría de Enseñanza. Es investigador Junior reconocido por Minciencias en la convocatoria 957 de 2024 y miembro del grupo de investigación CIBAS.
 :::

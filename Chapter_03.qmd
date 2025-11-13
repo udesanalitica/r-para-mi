@@ -1,5 +1,5 @@
 ---
-title: "Capitulo 3 Generalidades del Diseño Experimental"
+title: "Capítulo 3. Generalidades del Diseño Experimental"
 ---
 
 El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El **diseño de experimentos (DE)** se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre [@gutierrez2012analisis].
@@ -76,8 +76,8 @@ En todo **diseño experimental (DE)**, el cumplimiento de los **supuestos estad�
 **Normalidad:**\
 Este supuesto establece que los residuos del modelo deben seguir una **distribución normal**. Se evalúa estadísticamente mediante la **prueba de Shapiro--Wilk** y de forma visual a través de **gráficos QQ-plot** o **histogramas de residuos**, que permiten identificar desviaciones importantes de la normalidad.
 
-**Homogeneidad de varianzas (homocedasticidad):**\
-Supone que la **variabilidad de los datos dentro de cada grupo** es similar entre tratamientos. Este supuesto puede comprobarse mediante las pruebas de **Bartlett**, **Levene** y **Fligner--Killeen**, y de manera gráfica a través del **gráfico de residuos vs. valores ajustados**, donde se espera una dispersión aleatoria de los puntos alrededor de la línea horizontal sin formación de patrones.
+**Homocedasticidad (Varianza constante):\
+**Supone que la **variabilidad de los datos dentro de cada grupo** es similar entre tratamientos. Este supuesto puede comprobarse mediante las pruebas de **Bartlett**, **Levene** y **Fligner--Killeen**, y de manera gráfica a través del **gráfico de residuos vs. valores ajustados**, donde se espera una dispersión aleatoria de los puntos alrededor de la línea horizontal sin formación de patrones.
 
-**Independencia de las observaciones:\
-**Indica que los valores de una observación no deben depender de los de otra. Este supuesto se evalúa mediante el **test de Durbin--Watson**, que analiza la posible autocorrelación de los residuos. Valores de *p* mayores a 0.05 sugieren independencia, condición necesaria para la validez del modelo.
+**Independencia:\
+**Es un supuesto esencial en los modelos estadísticos, ya que garantiza que los errores no estén correlacionados entre sí. La **prueba de Durbin--Watson** evalúa de forma analítica la independencia entre residuos consecutivos. Un valor de *p* mayor a 0.05 sugiere independencia, mientras que valores menores indican posible autocorrelación y violación del supuesto. Gráficamente, puede verificarse **representando los residuos en función del orden de recolección de los datos (tiempo o secuencia experimental)**. Si los puntos se distribuyen **aleatoriamente alrededor de la línea cero**, sin mostrar una tendencia clara, se considera que los residuos son independientes y el supuesto se cumple. Por el contrario, la presencia de **patrones sistemáticos o tendencias no aleatorias** indica una posible **autocorrelación**, lo que sugiere que el orden de ejecución influyó en los resultados.

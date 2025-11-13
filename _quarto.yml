@@ -38,7 +38,6 @@ book:
     - Chapter_04.qmd
     - Chapter_05.qmd
     - Chapter_06.qmd
-    - Chapter_07.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -58,6 +57,8 @@ format:
     number-sections: true
   epub:
     cover-image: cover.png
+    code-copy: true
+    mathjax: true   # 👈 Esto habilita las fórmulas matemáticas
 
 website:
   page-footer:

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA) – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
+<title>Capítulo 5. Diseño de Bloques Completamente al Azar (DBCA) – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_05.html"><span class="chapter-title">Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_05.html"><span class="chapter-title">Capítulo 5. Diseño de Bloques Completamente al Azar (DBCA)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -215,37 +215,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 1 Introducción al software R y la interfaz RStudio</span></a>
+  <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 1. Introducción al software R y la interfaz RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 2 Análisis bibliométrico para la gestión de un diseño experimentos</span></a>
+  <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 2. Análisis bibliométrico para la gestión de un diseño experimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 3 Generalidades del Diseño Experimental</span></a>
+  <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 3. Generalidades del Diseño Experimental</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 4 Diseño Completamente al Azar (DCA)</span></a>
+  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 4.Diseño Completamente al Azar (DCA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_05.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)</span></a>
+  <a href="./Chapter_05.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Capítulo 5. Diseño de Bloques Completamente al Azar (DBCA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Chapter_07.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capitulo 7 Uso de Inteligencia Artificial para la simulación de datos</span></a>
+  <a href="./Chapter_06.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 6. Uso de Inteligencia Artificial para la simulación de datos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -265,12 +260,13 @@ window.Quarto = {
    
   <ul>
   <li><a href="#problema" id="toc-problema" class="nav-link active" data-scroll-target="#problema">Problema</a></li>
-  <li><a href="#estructura-de-la-base-de-datos" id="toc-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#estructura-de-la-base-de-datos">Estructura de la base de datos</a></li>
-  <li><a href="#descripción-de-las-variables-del-experimento" id="toc-descripción-de-las-variables-del-experimento" class="nav-link" data-scroll-target="#descripción-de-las-variables-del-experimento">Descripción de las variables del experimento</a></li>
-  <li><a href="#cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos." id="toc-cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos." class="nav-link" data-scroll-target="#cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos.">Cargar Paquetes y librerías necesarias para el analisis de los datos.</a></li>
-  <li><a href="#instalar-paquetes-solo-una-vez" id="toc-instalar-paquetes-solo-una-vez" class="nav-link" data-scroll-target="#instalar-paquetes-solo-una-vez">Instalar Paquetes (solo una vez)</a>
+  <li><a href="#modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" id="toc-modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" class="nav-link" data-scroll-target="#modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca">Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)</a></li>
+  <li><a href="#estructura-de-la-base-de-datos" id="toc-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#estructura-de-la-base-de-datos">Estructura de la base de datos</a>
   <ul class="collapse">
+  <li><a href="#descripción-de-las-variables-del-experimento" id="toc-descripción-de-las-variables-del-experimento" class="nav-link" data-scroll-target="#descripción-de-las-variables-del-experimento">Descripción de las variables del experimento</a></li>
+  <li><a href="#instalar-paquetes-solo-una-vez" id="toc-instalar-paquetes-solo-una-vez" class="nav-link" data-scroll-target="#instalar-paquetes-solo-una-vez">Instalar Paquetes (solo una vez)</a></li>
   <li><a href="#cargar-las-librerias-necesarias-para-el-análisis" id="toc-cargar-las-librerias-necesarias-para-el-análisis" class="nav-link" data-scroll-target="#cargar-las-librerias-necesarias-para-el-análisis">Cargar las librerias necesarias para el análisis</a></li>
+  <li><a href="#importar-datos-desde-excel" id="toc-importar-datos-desde-excel" class="nav-link" data-scroll-target="#importar-datos-desde-excel">Importar datos desde Excel</a></li>
   <li><a href="#exploración-inicial-y-estructura-de-la-base-de-datos" id="toc-exploración-inicial-y-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#exploración-inicial-y-estructura-de-la-base-de-datos">Exploración inicial y estructura de la base de datos</a></li>
   <li><a href="#convertir-variables-a-factores" id="toc-convertir-variables-a-factores" class="nav-link" data-scroll-target="#convertir-variables-a-factores">Convertir variables a factores</a></li>
   </ul></li>
@@ -278,16 +274,15 @@ window.Quarto = {
   <li><a href="#verificación-de-supuestos" id="toc-verificación-de-supuestos" class="nav-link" data-scroll-target="#verificación-de-supuestos">Verificación de supuestos</a>
   <ul class="collapse">
   <li><a href="#normalidad-de-residuos-shapiro-wilk" id="toc-normalidad-de-residuos-shapiro-wilk" class="nav-link" data-scroll-target="#normalidad-de-residuos-shapiro-wilk">Normalidad de residuos (Shapiro-Wilk)</a></li>
-  <li><a href="#homogeneidad-de-varianza" id="toc-homogeneidad-de-varianza" class="nav-link" data-scroll-target="#homogeneidad-de-varianza">Homogeneidad de varianza</a></li>
+  <li><a href="#homocedasticidad" id="toc-homocedasticidad" class="nav-link" data-scroll-target="#homocedasticidad">Homocedasticidad</a></li>
   <li><a href="#gráfico-de-residuos-vs.-valores-ajustados" id="toc-gráfico-de-residuos-vs.-valores-ajustados" class="nav-link" data-scroll-target="#gráfico-de-residuos-vs.-valores-ajustados">Gráfico de Residuos vs.&nbsp;Valores Ajustados</a></li>
-  </ul></li>
   <li><a href="#independencia-de-residuos" id="toc-independencia-de-residuos" class="nav-link" data-scroll-target="#independencia-de-residuos">Independencia de residuos</a></li>
-  <li><a href="#comparaciones-múltiples-de-medias" id="toc-comparaciones-múltiples-de-medias" class="nav-link" data-scroll-target="#comparaciones-múltiples-de-medias">Comparaciones múltiples de medias</a></li>
+  </ul></li>
+  <li><a href="#pruebas-aposteriori" id="toc-pruebas-aposteriori" class="nav-link" data-scroll-target="#pruebas-aposteriori"><strong>Pruebas aposteriori</strong></a>
+  <ul class="collapse">
   <li><a href="#tukey-hsd-agrupamiento-con-letras" id="toc-tukey-hsd-agrupamiento-con-letras" class="nav-link" data-scroll-target="#tukey-hsd-agrupamiento-con-letras">Tukey HSD (agrupamiento con letras)</a></li>
   <li><a href="#comparaciones-múltiples-con-lsd" id="toc-comparaciones-múltiples-con-lsd" class="nav-link" data-scroll-target="#comparaciones-múltiples-con-lsd">Comparaciones múltiples con LSD</a></li>
-  <li><a href="#visualización-de-resultados" id="toc-visualización-de-resultados" class="nav-link" data-scroll-target="#visualización-de-resultados">Visualización de resultados</a>
-  <ul class="collapse">
-  <li><a href="#caja-y-bigote-boxplot-en-ggplot2" id="toc-caja-y-bigote-boxplot-en-ggplot2" class="nav-link" data-scroll-target="#caja-y-bigote-boxplot-en-ggplot2">Caja y Bigote (Boxplot en ggplot2)</a></li>
+  <li><a href="#visualización-de-resultados" id="toc-visualización-de-resultados" class="nav-link" data-scroll-target="#visualización-de-resultados">Visualización de resultados</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/Chapter_05.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/Chapter_05.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
@@ -297,7 +292,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Capitulo 5 Diseño de Bloques Completamente al Azar (DBCA)</span></h1>
+<h1 class="title"><span class="chapter-title">Capítulo 5. Diseño de Bloques Completamente al Azar (DBCA)</span></h1>
 </div>
 
 
@@ -314,8 +309,8 @@ window.Quarto = {
 </header>
 
 
-<section id="problema" class="level3">
-<h3 class="anchored" data-anchor-id="problema">Problema</h3>
+<section id="problema" class="level2">
+<h2 class="anchored" data-anchor-id="problema">Problema</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -331,28 +326,44 @@ Nota
 <p>Por ello, resulta necesario <strong>evaluar la respuesta del frijol frente a diferentes tratamientos de fertilización</strong>, combinando <strong>fuentes químicas y biológicas (bioinoculantes y abonos orgánicos)</strong>, con el fin de identificar estrategias que promuevan un crecimiento óptimo y un manejo más sostenible del cultivo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/4_DBCA/DBCA_frijol.png" width="326" height="359" class="figure-img"></p>
+<p><img src="images/4_DBCA/DBCA_frijol.png" class="img-fluid figure-img" width="326"></p>
 <figcaption>Phaseolus vulgaris</figcaption>
 </figure>
 </div>
+<p>Imagen suminitrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).</p>
 </div>
 </div>
 </section>
-<section id="estructura-de-la-base-de-datos" class="level3">
-<h3 class="anchored" data-anchor-id="estructura-de-la-base-de-datos">Estructura de la base de datos</h3>
+<section id="modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca">Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)</h2>
+<p>El <strong>Diseño en Bloques Completos al Azar (DBCA)</strong> se utiliza cuando existe una fuente de variación conocida —denominada <em>bloques</em>— que puede influir en la variable de respuesta. Para controlar esa variabilidad, las unidades experimentales se agrupan en bloques homogéneos, y dentro de cada bloque los tratamientos se asignan aleatoriamente.</p>
+<p>El modelo lineal aditivo correspondiente al DBCA se expresa como:</p>
+<p><span class="math display">\[
+Y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}
+\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(Y_{ij}\)</span>: valor observado del tratamiento <span class="math inline">\(i\)</span> en el bloque <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(\mu\)</span>: media general</li>
+<li><span class="math inline">\(\displaystyle \tau_i\)</span>: efecto del tratamiento <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(\displaystyle \beta_j\)</span>: efecto del bloque <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(\displaystyle \varepsilon_{ij}\)</span>: error aleatorio asociado, con <span class="math inline">\(\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)\)</span></li>
+</ul>
+</section>
+<section id="estructura-de-la-base-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="estructura-de-la-base-de-datos">Estructura de la base de datos</h2>
 <p>El presente experimento se estructuró bajo un <strong>Diseño de Bloques Completamente al Azar (DBCA)</strong> con el objetivo de evaluar el efecto de diferentes tratamientos de fertilización sobre el crecimiento de las plantas de frijol (<em>Phaseolus vulgaris</em>). Este diseño permite controlar la variabilidad asociada a factores ambientales no experimentales mediante la conformación de bloques homogéneos.<br>
 En este caso, se consideraron <strong>tres bloques (A, B y C)</strong> que representan unidades experimentales con condiciones similares dentro de cada uno, y se aplicaron <strong>cuatro tratamientos</strong> de fertilización: <strong>NPK Comercial</strong>, <strong>NPK + Bioinoculante</strong>, <strong>Orgánico + NPK (50:50)</strong> y <strong>Orgánico + NPK</strong>.<br>
 El parámetro evaluado, denominado <strong>Resultado</strong>, corresponde a una variable cuantitativa continua (por ejemplo, biomasa, concentración de metal o altura), expresada en valores decimales.</p>
-</section>
-<section id="descripción-de-las-variables-del-experimento" class="level2">
-<h2 class="anchored" data-anchor-id="descripción-de-las-variables-del-experimento">Descripción de las variables del experimento</h2>
+<section id="descripción-de-las-variables-del-experimento" class="level3">
+<h3 class="anchored" data-anchor-id="descripción-de-las-variables-del-experimento">Descripción de las variables del experimento</h3>
 <p>El diseño experimental corresponde a un <strong>Diseño de Bloques Completamente al Azar (DBCA)</strong>, en el cual se evaluaron diferentes tratamientos de fertilización en plantas de frijol (<em>Phaseolus vulgaris</em>).<br>
 Los bloques representan unidades experimentales homogéneas, y la variable de respuesta cuantifica el efecto del tratamiento sobre el crecimiento o bioacumulación.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 49%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -380,11 +391,8 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 </tbody>
 </table>
 </section>
-<section id="cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos." class="level2">
-<h2 class="anchored" data-anchor-id="cargar-paquetes-y-librerías-necesarias-para-el-analisis-de-los-datos.">Cargar Paquetes y librerías necesarias para el analisis de los datos.</h2>
-</section>
-<section id="instalar-paquetes-solo-una-vez" class="level2">
-<h2 class="anchored" data-anchor-id="instalar-paquetes-solo-una-vez">Instalar Paquetes (solo una vez)</h2>
+<section id="instalar-paquetes-solo-una-vez" class="level3">
+<h3 class="anchored" data-anchor-id="instalar-paquetes-solo-una-vez">Instalar Paquetes (solo una vez)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("readxl")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("car") </span></span>
@@ -393,6 +401,7 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("ggplot2")</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("gtable")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="cargar-las-librerias-necesarias-para-el-análisis" class="level3">
 <h3 class="anchored" data-anchor-id="cargar-las-librerias-necesarias-para-el-análisis">Cargar las librerias necesarias para el análisis</h3>
 <div class="cell">
@@ -403,46 +412,28 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest) </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readxl' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'car' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'carData' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'agricolae' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'lmtest' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'zoo' was built under R version 4.3.2</code></pre>
-</div>
-</div>
-<section id="importar-datos-desde-excel" class="level4">
-<h4 class="anchored" data-anchor-id="importar-datos-desde-excel">Importar datos desde Excel</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>DBCA <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/R-Proyectos/r-para-mi/data/DBCA_Frijol/DBCA_frijol.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="importar-datos-desde-excel" class="level3">
+<h3 class="anchored" data-anchor-id="importar-datos-desde-excel">Importar datos desde Excel</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>DBCA <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/R-Proyectos/r-para-mi/data/DBCA_Frijol/DBCA_frijol.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exploración-inicial-y-estructura-de-la-base-de-datos" class="level3">
 <h3 class="anchored" data-anchor-id="exploración-inicial-y-estructura-de-la-base-de-datos">Exploración inicial y estructura de la base de datos</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Tratamiento" "Bloque"      "Resultado"  </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [120 × 3] (S3: tbl_df/tbl/data.frame)
  $ Tratamiento: chr [1:120] "NPK Comercial" "NPK Comercial" "NPK Comercial" "NPK Comercial" ...
@@ -451,7 +442,7 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DBCA<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DBCA<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   44.71   52.30   56.76   57.26   61.24   72.39 </code></pre>
@@ -462,9 +453,9 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 <h3 class="anchored" data-anchor-id="convertir-variables-a-factores">Convertir variables a factores</h3>
 <p>Para garantizar un análisis correcto bajo el <strong>Diseño de Bloques Completamente al Azar (DBCA)</strong>, las variables <strong>Tratamiento</strong> y <strong>Bloque</strong> se convierten a factores en R. Esta conversión permite que el modelo ANOVA reconozca dichos elementos como variables categóricas y no como valores numéricos, asegurando una interpretación adecuada de los efectos experimentales.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>DBCA<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DBCA<span class="sc">$</span>Tratamiento) </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>DBCA<span class="sc">$</span>Bloque <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DBCA<span class="sc">$</span>Bloque)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span> (DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>DBCA<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DBCA<span class="sc">$</span>Tratamiento) </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>DBCA<span class="sc">$</span>Bloque <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DBCA<span class="sc">$</span>Bloque)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span> (DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [120 × 3] (S3: tbl_df/tbl/data.frame)
  $ Tratamiento: Factor w/ 4 levels "NPK + Bioinoculante",..: 2 2 2 2 2 2 2 2 2 2 ...
@@ -477,8 +468,8 @@ Los bloques representan unidades experimentales homogéneas, y la variable de re
 <section id="anova-para-diseño-de-bloques-completamente-al-azar--dbca-" class="level2">
 <h2 class="anchored" data-anchor-id="anova-para-diseño-de-bloques-completamente-al-azar--dbca-">ANOVA para Diseño de Bloques Completamente al Azar -DBCA-</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>modeloDBCA <span class="ot">&lt;-</span> <span class="fu">aov</span>(Resultado <span class="sc">~</span> Tratamiento <span class="sc">+</span> Bloque, <span class="at">data =</span> DBCA)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modeloDBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>modeloDBCA <span class="ot">&lt;-</span> <span class="fu">aov</span>(Resultado <span class="sc">~</span> Tratamiento <span class="sc">+</span> Bloque, <span class="at">data =</span> DBCA)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modeloDBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
 Tratamiento   3   3602  1200.6 153.749 &lt;2e-16 ***
@@ -504,10 +495,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="normalidad-de-residuos-shapiro-wilk" class="level3">
 <h3 class="anchored" data-anchor-id="normalidad-de-residuos-shapiro-wilk">Normalidad de residuos (Shapiro-Wilk)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modeloDBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modeloDBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(res)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(res)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -519,8 +510,8 @@ W = 0.99559, p-value = 0.9725</code></pre>
 <p><strong>Interpretación:</strong> La hipótesis nula de <em>Shapiro–Wilk</em> es que los datos provienen de una distribución normal , al tiempo que el&nbsp; p-value = 0.9725 es&nbsp; ≥ que 0.05, no hay evidencia para rechazar la normalidad, es por ello por lo que los residuos pueden considerarse normalmente distribuidos, lo cual respalda el supuesto de normalidad necesario para ANOVA.</p>
 <p><strong>Gráfico Q-Q de los residuos estandarizados</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(res)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(res, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(res)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(res, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -528,7 +519,7 @@ W = 0.99559, p-value = 0.9725</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(res, <span class="at">main =</span> <span class="st">"Histograma de residuos"</span>, <span class="at">xlab =</span> <span class="st">"Residuos"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(res, <span class="at">main =</span> <span class="st">"Histograma de residuos"</span>, <span class="at">xlab =</span> <span class="st">"Residuos"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -538,10 +529,10 @@ W = 0.99559, p-value = 0.9725</code></pre>
 </div>
 </div>
 </section>
-<section id="homogeneidad-de-varianza" class="level3">
-<h3 class="anchored" data-anchor-id="homogeneidad-de-varianza">Homogeneidad de varianza</h3>
+<section id="homocedasticidad" class="level3">
+<h3 class="anchored" data-anchor-id="homocedasticidad">Homocedasticidad</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Bartlett test of homogeneity of variances
@@ -549,14 +540,14 @@ W = 0.99559, p-value = 0.9725</code></pre>
 data:  Resultado by Tratamiento
 Bartlett's K-squared = 7.4355, df = 3, p-value = 0.05924</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
        Df F value Pr(&gt;F)
 group   3  1.3691 0.2557
       116               </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Fligner-Killeen test of homogeneity of variances
@@ -570,22 +561,22 @@ Fligner-Killeen:med chi-squared = 3.3125, df = 3, p-value = 0.3459</code></pre>
 <section id="gráfico-de-residuos-vs.-valores-ajustados" class="level3">
 <h3 class="anchored" data-anchor-id="gráfico-de-residuos-vs.-valores-ajustados">Gráfico de Residuos vs.&nbsp;Valores Ajustados</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer valores ajustados y residuos del modelo DBCA</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>datos_homocedasticidad <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valores_Ajustados =</span> <span class="fu">fitted</span>(modeloDBCA),     <span class="co"># valores predichos del modelo</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> <span class="fu">rstandard</span>(modeloDBCA)        <span class="co"># residuos estandarizados</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Gráfico de residuos vs valores ajustados</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_homocedasticidad, <span class="fu">aes</span>(<span class="at">x =</span> Valores_Ajustados, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico de Residuos vs. Valores Ajustados (Homogeneidad de Varianzas)"</span>,</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valores ajustados (predichos)"</span>,</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos estandarizados"</span></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Extraer valores ajustados y residuos del modelo DBCA</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>datos_homocedasticidad <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valores_Ajustados =</span> <span class="fu">fitted</span>(modeloDBCA),     <span class="co"># valores predichos del modelo</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Residuos_Std =</span> <span class="fu">rstandard</span>(modeloDBCA)        <span class="co"># residuos estandarizados</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Gráfico de residuos vs valores ajustados</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_homocedasticidad, <span class="fu">aes</span>(<span class="at">x =</span> Valores_Ajustados, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gráfico de Residuos vs. Valores Ajustados (Homogeneidad de Varianzas)"</span>,</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Valores ajustados (predichos)"</span>,</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residuos estandarizados"</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -593,22 +584,21 @@ Fligner-Killeen:med chi-squared = 3.3125, df = 3, p-value = 0.3459</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación:</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Los puntos deben dispersarse aleatoriamente alrededor de y = 0</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sin formar patrones o conos, indicando homogeneidad de varianzas.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretación:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Los puntos deben dispersarse aleatoriamente alrededor de y = 0</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sin formar patrones o conos, indicando homogeneidad de varianzas.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Interpretación:</strong> Tanto las pruebas estadísticas (<strong>Bartlett, Levene y Fligner-Killeen</strong>) como el <strong>gráfico de residuos</strong> indican que se cumple el supuesto de <strong>homogeneidad de varianzas</strong> en el modelo DBCA. Por tanto, el análisis de varianza (ANOVA) puede aplicarse de forma válida, ya que la variabilidad dentro de los grupos de tratamiento es similar y no se detectan violaciones importantes de este supuesto.</p>
 </section>
-</section>
-<section id="independencia-de-residuos" class="level2">
-<h2 class="anchored" data-anchor-id="independencia-de-residuos">Independencia de residuos</h2>
+<section id="independencia-de-residuos" class="level3">
+<h3 class="anchored" data-anchor-id="independencia-de-residuos">Independencia de residuos</h3>
 <p>El <strong>Durbin–Watson test</strong> evalúa la <strong>independencia de los residuos</strong>:</p>
 <p><strong>Hipótesis nula (H₀):</strong> los residuos son independientes.<br>
 <strong>Hipótesis alternativa (H₁):</strong> los residuos están autocorrelacionados.<br>
 <br>
 Si el <strong>p-value &gt; 0.05</strong>, <strong>no se rechaza H₀</strong>, por lo que <strong>los residuos son independientes</strong> (el supuesto se cumple). Si el <strong>p-value &lt; 0.05</strong>, existe <strong>autocorrelación</strong> y el supuesto no se cumple.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(modeloDBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(modeloDBCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Durbin-Watson test
@@ -620,15 +610,15 @@ alternative hypothesis: true autocorrelation is greater than 0</code></pre>
 </div>
 <p>Interpretación: Debido a que el <strong>valor</strong> <span class="math inline">\(\text{p}\)</span> (<span class="math inline">\(0.4159\)</span>) es mucho mayor que <span class="math inline">\(0.05\)</span>, <strong>no hay evidencia estadística suficiente para rechazar la hipótesis nula</strong>. Se concluye, por lo tanto, que el supuesto de <strong>independencia de los residuos</strong> se cumple satisfactoriamente en el modelo DBCA. La cercanía del estadístico DW (2.042) al valor ideal de 2.0 refuerza esta conclusión.</p>
 </section>
-<section id="comparaciones-múltiples-de-medias" class="level2">
-<h2 class="anchored" data-anchor-id="comparaciones-múltiples-de-medias">Comparaciones múltiples de medias</h2>
+</section>
+<section id="pruebas-aposteriori" class="level2">
+<h2 class="anchored" data-anchor-id="pruebas-aposteriori"><strong>Pruebas aposteriori</strong></h2>
 <p>En el marco del <strong>Diseño de Bloques Completamente al Azar (DBCA)</strong> aplicado al cultivo de frijol, una vez verificados los supuestos de <strong>normalidad</strong> y <strong>homogeneidad de varianzas</strong>, se procede a realizar las <strong>pruebas de comparación múltiple de medias</strong>. Estas pruebas, como las de <strong>Tukey</strong> o <strong>Duncan</strong>, permiten identificar qué tratamientos presentan diferencias significativas en su efecto sobre la altura de las plantas.</p>
 <p>El uso del DBCA contribuye a <strong>reducir la variabilidad experimental</strong> al controlar los factores externos mediante el bloqueo, lo que incrementa la <strong>precisión y confiabilidad</strong> de las comparaciones. En consecuencia, las diferencias observadas entre tratamientos reflejan principalmente los <strong>efectos reales de las condiciones aplicadas</strong>, y no la influencia del azar o de fuentes de variación no controladas.</p>
-</section>
-<section id="tukey-hsd-agrupamiento-con-letras" class="level2">
-<h2 class="anchored" data-anchor-id="tukey-hsd-agrupamiento-con-letras">Tukey HSD (agrupamiento con letras)</h2>
+<section id="tukey-hsd-agrupamiento-con-letras" class="level3">
+<h3 class="anchored" data-anchor-id="tukey-hsd-agrupamiento-con-letras">Tukey HSD (agrupamiento con letras)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HSD.test</span>(modeloDBCA, <span class="st">"Tratamiento"</span>, <span class="at">group =</span> <span class="cn">TRUE</span>, <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HSD.test</span>(modeloDBCA, <span class="st">"Tratamiento"</span>, <span class="at">group =</span> <span class="cn">TRUE</span>, <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Study: modeloDBCA ~ "Tratamiento"
@@ -667,10 +657,10 @@ NPK Comercial           50.29667      d</code></pre>
 <p><strong>Interpretación:</strong> La prueba de <strong>Tukey HSD</strong>, aplicada al <strong>Diseño de Bloques Completamente al Azar (DBCA)</strong> para la variable <em>altura de las plantas de frijol</em>, indica que el <strong>Tratamiento 4</strong> obtuvo la mayor media (64.78 cm; grupo <em>a</em>), seguido del <strong>Tratamiento 3</strong> (59.71 cm; grupo <em>b</em>), luego el <strong>Tratamiento 2</strong> (54.26 cm; grupo <em>c</em>), y finalmente el <strong>Tratamiento 1</strong> (50.29 cm; grupo <em>d</em>), con la menor media. El valor de la <strong>diferencia mínima significativa (HSD)</strong> fue de <strong>1.88</strong>, más estricto que el obtenido con la prueba <strong>LSD</strong> (1.43). Aun así, los tratamientos mantienen una <strong>separación completa</strong>, sin letras compartidas entre grupos, lo que evidencia que <strong>todas las medias difieren significativamente entre sí</strong> al nivel de confianza del 95 %.</p>
 <p>Estos resultados confirman que los tratamientos ejercieron <strong>efectos claramente diferenciados</strong> sobre la altura de las plantas, y que las diferencias observadas <strong>no se deben al azar</strong>. La consistencia entre las pruebas de <strong>LSD y Tukey</strong> respalda la <strong>robustez y confiabilidad del experimento</strong>.</p>
 </section>
-<section id="comparaciones-múltiples-con-lsd" class="level2">
-<h2 class="anchored" data-anchor-id="comparaciones-múltiples-con-lsd">Comparaciones múltiples con LSD</h2>
+<section id="comparaciones-múltiples-con-lsd" class="level3">
+<h3 class="anchored" data-anchor-id="comparaciones-múltiples-con-lsd">Comparaciones múltiples con LSD</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>out_LSD <span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(modeloDBCA, <span class="st">"Tratamiento"</span>, <span class="at">group =</span> <span class="cn">TRUE</span>, <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>out_LSD <span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(modeloDBCA, <span class="st">"Tratamiento"</span>, <span class="at">group =</span> <span class="cn">TRUE</span>, <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Study: modeloDBCA ~ "Tratamiento"
@@ -708,12 +698,12 @@ NPK Comercial           50.29667      d</code></pre>
 </div>
 <p><strong>Interpretación:</strong> El resultado de la prueba <strong>LSD (Least Significant Difference)</strong> aplicada al <strong>Diseño de Bloques Completamente al Azar (DBCA)</strong> para la variable <em>altura de las plantas de frijol</em> evidencia una clara <strong>separación de medias entre tratamientos</strong>. El <strong>Tratamiento 4</strong> presentó la mayor altura promedio (64.78 cm; grupo <em>a</em>), seguido del <strong>Tratamiento 3</strong> (59.71 cm; grupo <em>b</em>), el <strong>Tratamiento 2</strong> (54.26 cm; grupo <em>c</em>) y finalmente el <strong>Tratamiento 1</strong> (50.29 cm; grupo <em>d</em>), con la menor media. El valor de la <strong>diferencia mínima significativa (LSD)</strong> fue de <strong>1.43</strong>, indicando que cualquier diferencia superior a este umbral es <strong>estadísticamente significativa al 95 % de confianza</strong>. Ninguno de los tratamientos comparte letra, lo que confirma que <strong>todos difieren significativamente entre sí</strong>. Estos resultados respaldan que los tratamientos generaron <strong>efectos distintos y consistentes</strong> sobre la altura de las plantas de frijol, más allá de la variabilidad natural controlada mediante los bloques.</p>
 </section>
-<section id="visualización-de-resultados" class="level2">
-<h2 class="anchored" data-anchor-id="visualización-de-resultados">Visualización de resultados</h2>
-<section id="caja-y-bigote-boxplot-en-ggplot2" class="level3">
-<h3 class="anchored" data-anchor-id="caja-y-bigote-boxplot-en-ggplot2">Caja y Bigote (Boxplot en ggplot2)</h3>
+<section id="visualización-de-resultados" class="level3">
+<h3 class="anchored" data-anchor-id="visualización-de-resultados">Visualización de resultados</h3>
+<section id="caja-y-bigote-boxplot-en-ggplot2" class="level4">
+<h4 class="anchored" data-anchor-id="caja-y-bigote-boxplot-en-ggplot2">Caja y Bigote (Boxplot en ggplot2)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DBCA, <span class="fu">aes</span>(<span class="at">x =</span> Tratamiento, <span class="at">y =</span> Resultado, <span class="at">fill =</span> Tratamiento)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>( <span class="at">title =</span> <span class="st">"Distribución del resultado por tratamiento"</span>, <span class="at">x =</span> <span class="st">"Tratamiento"</span>, <span class="at">y =</span> <span class="st">"Resultado"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DBCA, <span class="fu">aes</span>(<span class="at">x =</span> Tratamiento, <span class="at">y =</span> Resultado, <span class="at">fill =</span> Tratamiento)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>( <span class="at">title =</span> <span class="st">"Distribución del resultado por tratamiento"</span>, <span class="at">x =</span> <span class="st">"Tratamiento"</span>, <span class="at">y =</span> <span class="st">"Resultado"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -727,6 +717,7 @@ NPK Comercial           50.29667      d</code></pre>
 <p>Estos resultados <strong>coinciden con las pruebas de comparación de medias (LSD y Tukey)</strong>, en las que los tratamientos se agrupan en <strong>cuatro categorías estadísticas distintas (a, b, c y d)</strong>, confirmando que las diferencias en altura entre los tratamientos son <strong>estadísticamente significativas</strong> y reflejan <strong>efectos reales</strong> de las condiciones de fertilización aplicadas.</p>
 
 
+</section>
 </section>
 </section>
 
@@ -1132,13 +1123,13 @@ NPK Comercial           50.29667      d</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Chapter_04.html" class="pagination-link" aria-label="Capitulo 4 Diseño Completamente al Azar (DCA)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Capitulo 4 Diseño Completamente al Azar (DCA)</span></span>
+      <a href="./Chapter_04.html" class="pagination-link" aria-label="Capítulo 4.Diseño Completamente al Azar (DCA)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Capítulo 4.Diseño Completamente al Azar (DCA)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Chapter_06.html" class="pagination-link" aria-label="Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)">
-        <span class="nav-page-text"><span class="chapter-title">Capitulo 6 Diseño longitudinal (ANOVA de medidas repetidas)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Chapter_06.html" class="pagination-link" aria-label="Capítulo 6. Uso de Inteligencia Artificial para la simulación de datos">
+        <span class="nav-page-text"><span class="chapter-title">Capítulo 6. Uso de Inteligencia Artificial para la simulación de datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

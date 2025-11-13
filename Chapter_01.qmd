@@ -1,5 +1,5 @@
 ---
-title: "Capítulo 1 Introducción al software R y la interfaz RStudio"
+title: "Capítulo 1. Introducción al software R y la interfaz RStudio"
 format: docx
 ---
 
