@@ -1,7 +1,5 @@
 ---
-title: |
-  Capítulo 5.
-  Diseño de Bloques Completamente al Azar (DBCA)
+title: "Capítulo 5.Diseño de Bloques Completamente al Azar (DBCA)"
 ---
 
 ![Nota. Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG)
@@ -47,7 +45,7 @@ De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaci
 ### Tabla ANOVA para un diseño en bloques completos al azar
 
 | Fuente de variabilidad | Suma de cuadrados | Grados de libertad | Cuadrado medio | Estadístico F                  | Valor-p      |
-|------------|-----------|----------------|------------|--------------|------------|
+|------------|------------|------------|------------|------------|------------|
 | Tratamientos           | SCTRAT            | $k - 1$            | CMTRAT         | $F_0 = \frac{CM_{TRAT}}{CM_E}$ | $P(F > F_0)$ |
 | Bloques                | SCB               | $b - 1$            | CMB            | $F_0 = \frac{CM_{B}}{CM_E}$    | $P(F > F_0)$ |
 | Error                  | SCE               | $(k - 1)(b - 1)$   | CME            | ---                            | ---          |
