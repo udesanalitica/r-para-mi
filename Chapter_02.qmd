@@ -44,7 +44,7 @@ Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** seg�
 En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distintas ecuaciones de búsqueda relacionadas con el tema.
 
 | Ecuación de búsqueda                                                                  | Documentos encontrados |
-|---------------------------------------------------------------------------------------|------------------------|
+|------------------------------------------------------|------------------|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions"                        | 225                    |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth"                                 | 191                    |
 | "Cordyceps militaris" AND "medium" AND "growth"                                       | 99                     |
@@ -57,7 +57,7 @@ En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distin
 Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. La interfaz *Biblioshiny* permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
 |  Nº | Módulo                                | Función general                                                                | Submódulos / indicadores                                                                     |
-|----:|---------------------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+|------------:|-------------|---------------------|-------------------------|
 |   1 | **Data**                              | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.).              | Import or Load; Merge Datasets                                                               |
 |   2 | **Filters**                           | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries                                                                |
 |   3 | **Overview**                          | Panorama general con indicadores descriptivos.                                 | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
@@ -95,7 +95,7 @@ Posteriormente, desde la Consola de RStudio se digitan y ejecutan los comandos:
 > library(bibliometrix)\
 > biblioshiny()
 
-Tambien se puede habilitar manualmente en la pestaña de Archivos y Graficos de la interfaz de RStudio, pestaña de Packages (figura9) seleccionado las librerias a usar.
+Tambien se puede habilitar manualmente en la pestaña de Archivos y Gráficos de la interfaz de RStudio, pestaña de Packages (figura 9) seleccionado las librerias a usar.
 
 ![Figura 9.](images/2_Bibliometrix/Bibliometrix2.PNG)
 
@@ -111,7 +111,7 @@ Después se despliega una nueva ventana que muestra el estado de los componentes
 
 ![Figura 11.](images/2_Bibliometrix/Figura_11.png)
 
-Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" "Pobre" y "Completamente perdido" (Figura 11), y que al ser cerrado "Close" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el articulo científico (Figura 12).
+Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" "Pobre" y "Completamente perdido" (Figura 11), y que al ser cerrado "Close" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el artículo científico (Figura 12).
 
 ![Figura 12](images/2_Bibliometrix/Figura_12.png)
 

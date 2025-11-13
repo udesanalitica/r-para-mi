@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -230,7 +250,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 4.Diseño Completamente al Azar (DCA)</span></a>
+  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DBCA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -259,8 +279,12 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#problema" id="toc-problema" class="nav-link active" data-scroll-target="#problema">Problema</a></li>
-  <li><a href="#modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" id="toc-modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" class="nav-link" data-scroll-target="#modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca">Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)</a></li>
+  <li><a href="#modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" id="toc-modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" class="nav-link active" data-scroll-target="#modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca">Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)</a></li>
+  <li><a href="#análisis-de-varianza" id="toc-análisis-de-varianza" class="nav-link" data-scroll-target="#análisis-de-varianza">Análisis de varianza</a>
+  <ul class="collapse">
+  <li><a href="#tabla-anova-para-un-diseño-en-bloques-completos-al-azar" id="toc-tabla-anova-para-un-diseño-en-bloques-completos-al-azar" class="nav-link" data-scroll-target="#tabla-anova-para-un-diseño-en-bloques-completos-al-azar">Tabla ANOVA para un diseño en bloques completos al azar</a></li>
+  </ul></li>
+  <li><a href="#problema" id="toc-problema" class="nav-link" data-scroll-target="#problema">Problema</a></li>
   <li><a href="#estructura-de-la-base-de-datos" id="toc-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#estructura-de-la-base-de-datos">Estructura de la base de datos</a>
   <ul class="collapse">
   <li><a href="#descripción-de-las-variables-del-experimento" id="toc-descripción-de-las-variables-del-experimento" class="nav-link" data-scroll-target="#descripción-de-las-variables-del-experimento">Descripción de las variables del experimento</a></li>
@@ -309,6 +333,100 @@ window.Quarto = {
 </header>
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/4_DBCA/DBCA.PNG" class="img-fluid figure-img"></p>
+<figcaption>Nota. Mapa conceptual (p.&nbsp;85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.</figcaption>
+</figure>
+</div>
+<p>El mapa conceptual presenta los principales componentes de los <strong>diseños en bloques</strong>, una estrategia experimental usada para controlar la variabilidad mediante la formación de grupos homogéneos llamados <em>bloques</em>. Entre estos diseños se encuentra el <strong>Diseño en Bloques Completos al Azar (DBCA)</strong>, el cual incorpora el <em>efecto de bloque</em> y requiere definir claramente las <strong>hipótesis</strong>, el <strong>modelo estadístico</strong>, así como la <strong>selección y aleatorización</strong> de las unidades experimentales. Su análisis se realiza a través del <strong>ANOVA</strong>, que permite evaluar si los tratamientos difieren más allá de la variación entre bloques.</p>
+<p>Otros diseños relacionados incluyen el <strong>diseño en bloques incompletos balanceados</strong> y los diseños <strong>en cuadro latino</strong> y <strong>grecolatino</strong>, los cuales permiten controlar simultáneamente múltiples fuentes de variación. Cada uno de estos diseños exige un procedimiento estructurado que abarca la formulación del modelo, el análisis de varianza correspondiente y la <strong>interpretación</strong> de los resultados.</p>
+<section id="modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca">Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)</h2>
+<p>El <strong>Diseño en Bloques Completos al Azar (DBCA)</strong> se utiliza cuando existe una fuente de variación conocida —denominada <em>bloques</em>— que puede influir en la variable de respuesta. Para controlar esa variabilidad, las unidades experimentales se agrupan en bloques homogéneos, y dentro de cada bloque los tratamientos se asignan aleatoriamente.</p>
+<p>El modelo lineal aditivo correspondiente al DBCA se expresa como:</p>
+<p><span class="math display">\[
+Y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}
+\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(Y_{ij}\)</span>: valor observado del tratamiento <span class="math inline">\(i\)</span> en el bloque <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(\mu\)</span>: media general</li>
+<li><span class="math inline">\(\displaystyle \tau_i\)</span>: efecto del tratamiento <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(\displaystyle \beta_j\)</span>: efecto del bloque <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(\displaystyle \varepsilon_{ij}\)</span>: error aleatorio asociado, con <span class="math inline">\(\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)\)</span></li>
+</ul>
+<p>Para ello se formulan las siguientes hipótesis estadísticas:</p>
+<p><span class="math display">\[
+H_0 : \mu_1 = \mu_2 = \cdots = \mu_k
+\]</span></p>
+<p><span class="math display">\[
+H_A : \mu_i \ne \mu_j \quad \text{para algún } i \ne j
+\]</span></p>
+<p>Estas hipótesis permiten evaluar si existen diferencias significativas entre los tratamientos más allá de la variabilidad explicada por los bloques.</p>
+</section>
+<section id="análisis-de-varianza" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-varianza">Análisis de varianza</h2>
+<p>De acuerdo con <span class="citation" data-cites="gutierrez2012analisis">(<a href="references.html#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>)</span>, las hipótesis planteadas en las ecuaciones anteriores se evalúan mediante un análisis de varianza de dos vías, debido a que en el DBCA es necesario considerar simultáneamente dos fuentes de variación: los tratamientos y los bloques. La Tabla presenta el formato general del ANOVA correspondiente a un diseño en bloques completos al azar.</p>
+<section id="tabla-anova-para-un-diseño-en-bloques-completos-al-azar" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-anova-para-un-diseño-en-bloques-completos-al-azar">Tabla ANOVA para un diseño en bloques completos al azar</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 14%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fuente de variabilidad</th>
+<th>Suma de cuadrados</th>
+<th>Grados de libertad</th>
+<th>Cuadrado medio</th>
+<th>Estadístico F</th>
+<th>Valor-p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tratamientos</td>
+<td>SCTRAT</td>
+<td><span class="math inline">\(k - 1\)</span></td>
+<td>CMTRAT</td>
+<td><span class="math inline">\(F_0 = \frac{CM_{TRAT}}{CM_E}\)</span></td>
+<td><span class="math inline">\(P(F &gt; F_0)\)</span></td>
+</tr>
+<tr class="even">
+<td>Bloques</td>
+<td>SCB</td>
+<td><span class="math inline">\(b - 1\)</span></td>
+<td>CMB</td>
+<td><span class="math inline">\(F_0 = \frac{CM_{B}}{CM_E}\)</span></td>
+<td><span class="math inline">\(P(F &gt; F_0)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Error</td>
+<td>SCE</td>
+<td><span class="math inline">\((k - 1)(b - 1)\)</span></td>
+<td>CME</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>SCT</td>
+<td><span class="math inline">\(kb - 1\)</span></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Nota: SC: Suma de cuadrados, CM: Cuadrado medio.</p>
+</section>
+</section>
 <section id="problema" class="level2">
 <h2 class="anchored" data-anchor-id="problema">Problema</h2>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -333,22 +451,6 @@ Nota
 <p>Imagen suminitrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).</p>
 </div>
 </div>
-</section>
-<section id="modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca" class="level2">
-<h2 class="anchored" data-anchor-id="modelo-teórico-para-el-diseño-de-bloques-completamente-al-azar-dbca">Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)</h2>
-<p>El <strong>Diseño en Bloques Completos al Azar (DBCA)</strong> se utiliza cuando existe una fuente de variación conocida —denominada <em>bloques</em>— que puede influir en la variable de respuesta. Para controlar esa variabilidad, las unidades experimentales se agrupan en bloques homogéneos, y dentro de cada bloque los tratamientos se asignan aleatoriamente.</p>
-<p>El modelo lineal aditivo correspondiente al DBCA se expresa como:</p>
-<p><span class="math display">\[
-Y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}
-\]</span></p>
-<p>donde:</p>
-<ul>
-<li><span class="math inline">\(Y_{ij}\)</span>: valor observado del tratamiento <span class="math inline">\(i\)</span> en el bloque <span class="math inline">\(j\)</span></li>
-<li><span class="math inline">\(\mu\)</span>: media general</li>
-<li><span class="math inline">\(\displaystyle \tau_i\)</span>: efecto del tratamiento <span class="math inline">\(i\)</span></li>
-<li><span class="math inline">\(\displaystyle \beta_j\)</span>: efecto del bloque <span class="math inline">\(j\)</span></li>
-<li><span class="math inline">\(\displaystyle \varepsilon_{ij}\)</span>: error aleatorio asociado, con <span class="math inline">\(\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)\)</span></li>
-</ul>
 </section>
 <section id="estructura-de-la-base-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="estructura-de-la-base-de-datos">Estructura de la base de datos</h2>
@@ -717,6 +819,11 @@ NPK Comercial           50.29667      d</code></pre>
 <p>Estos resultados <strong>coinciden con las pruebas de comparación de medias (LSD y Tukey)</strong>, en las que los tratamientos se agrupan en <strong>cuatro categorías estadísticas distintas (a, b, c y d)</strong>, confirmando que las diferencias en altura entre los tratamientos son <strong>estadísticamente significativas</strong> y reflejan <strong>efectos reales</strong> de las condiciones de fertilización aplicadas.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-gutierrez2012analisis" class="csl-entry" role="listitem">
+Gutiérrez Pulido, H., &amp; Vara Salazar, R. de la. (2012). <em>An<span>á</span>lisis y dise<span>ñ</span>o de experimentos</em> (3.ª ed.). McGraw-Hill/Interamericana Editores, S.A. de C.V.
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -1123,8 +1230,9 @@ NPK Comercial           50.29667      d</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Chapter_04.html" class="pagination-link" aria-label="Capítulo 4.Diseño Completamente al Azar (DCA)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Capítulo 4.Diseño Completamente al Azar (DCA)</span></span>
+      <a href="./Chapter_04.html" class="pagination-link" aria-label="Capítulo 4.
+Diseño Completamente al Azar (DBCA)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DBCA)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

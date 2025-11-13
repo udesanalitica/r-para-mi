@@ -1,20 +1,14 @@
 ---
-title: "Capítulo 5. Diseño de Bloques Completamente al Azar (DBCA)"
+title: |
+  Capítulo 5.
+  Diseño de Bloques Completamente al Azar (DBCA)
 ---
 
-## Problema
+![Nota. Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG)
 
-::: callout-note
-El **crecimiento de las plantas de frijol (*Phaseolus vulgaris*)** depende en gran medida de la interacción entre sus raíces y los **microorganismos del suelo**, especialmente los **rizobios**, los cuales establecen una relación simbiótica formando **nódulos radiculares** que facilitan la **fijación biológica de nitrógeno (FBN)**. Este proceso aporta una fuente natural y sostenible de nitrógeno, fundamental para el desarrollo y rendimiento de las plantas.
+El mapa conceptual presenta los principales componentes de los **diseños en bloques**, una estrategia experimental usada para controlar la variabilidad mediante la formación de grupos homogéneos llamados *bloques*. Entre estos diseños se encuentra el **Diseño en Bloques Completos al Azar (DBCA)**, el cual incorpora el *efecto de bloque* y requiere definir claramente las **hipótesis**, el **modelo estadístico**, así como la **selección y aleatorización** de las unidades experimentales. Su análisis se realiza a través del **ANOVA**, que permite evaluar si los tratamientos difieren más allá de la variación entre bloques.
 
-Sin embargo, el aprovechamiento de esta simbiosis puede verse afectado por **factores edáficos y ambientales** como la **composición del suelo, la disponibilidad de humedad, la temperatura y la luz**, que influyen directamente en la actividad microbiana y en la eficiencia de la FBN.
-
-Por ello, resulta necesario **evaluar la respuesta del frijol frente a diferentes tratamientos de fertilización**, combinando **fuentes químicas y biológicas (bioinoculantes y abonos orgánicos)**, con el fin de identificar estrategias que promuevan un crecimiento óptimo y un manejo más sostenible del cultivo.
-
-![Phaseolus vulgaris](images/4_DBCA/DBCA_frijol.png){width="326"}
-
-Imagen suminitrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
-:::
+Otros diseños relacionados incluyen el **diseño en bloques incompletos balanceados** y los diseños **en cuadro latino** y **grecolatino**, los cuales permiten controlar simultáneamente múltiples fuentes de variación. Cada uno de estos diseños exige un procedimiento estructurado que abarca la formulación del modelo, el análisis de varianza correspondiente y la **interpretación** de los resultados.
 
 ## Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)
 
@@ -33,6 +27,47 @@ donde:
 -   $\displaystyle \tau_i$: efecto del tratamiento $i$
 -   $\displaystyle \beta_j$: efecto del bloque $j$
 -   $\displaystyle \varepsilon_{ij}$: error aleatorio asociado, con $\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)$
+
+Para ello se formulan las siguientes hipótesis estadísticas:
+
+$$
+H_0 : \mu_1 = \mu_2 = \cdots = \mu_k
+$$
+
+$$
+H_A : \mu_i \ne \mu_j \quad \text{para algún } i \ne j
+$$
+
+Estas hipótesis permiten evaluar si existen diferencias significativas entre los tratamientos más allá de la variabilidad explicada por los bloques.
+
+## Análisis de varianza
+
+De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaciones anteriores se evalúan mediante un análisis de varianza de dos vías, debido a que en el DBCA es necesario considerar simultáneamente dos fuentes de variación: los tratamientos y los bloques. La Tabla presenta el formato general del ANOVA correspondiente a un diseño en bloques completos al azar.
+
+### Tabla ANOVA para un diseño en bloques completos al azar
+
+| Fuente de variabilidad | Suma de cuadrados | Grados de libertad | Cuadrado medio | Estadístico F                  | Valor-p      |
+|------------|-----------|----------------|------------|--------------|------------|
+| Tratamientos           | SCTRAT            | $k - 1$            | CMTRAT         | $F_0 = \frac{CM_{TRAT}}{CM_E}$ | $P(F > F_0)$ |
+| Bloques                | SCB               | $b - 1$            | CMB            | $F_0 = \frac{CM_{B}}{CM_E}$    | $P(F > F_0)$ |
+| Error                  | SCE               | $(k - 1)(b - 1)$   | CME            | ---                            | ---          |
+| Total                  | SCT               | $kb - 1$           | ---            | ---                            | ---          |
+
+Nota: SC: Suma de cuadrados, CM: Cuadrado medio.
+
+## Problema
+
+::: callout-note
+El **crecimiento de las plantas de frijol (*Phaseolus vulgaris*)** depende en gran medida de la interacción entre sus raíces y los **microorganismos del suelo**, especialmente los **rizobios**, los cuales establecen una relación simbiótica formando **nódulos radiculares** que facilitan la **fijación biológica de nitrógeno (FBN)**. Este proceso aporta una fuente natural y sostenible de nitrógeno, fundamental para el desarrollo y rendimiento de las plantas.
+
+Sin embargo, el aprovechamiento de esta simbiosis puede verse afectado por **factores edáficos y ambientales** como la **composición del suelo, la disponibilidad de humedad, la temperatura y la luz**, que influyen directamente en la actividad microbiana y en la eficiencia de la FBN.
+
+Por ello, resulta necesario **evaluar la respuesta del frijol frente a diferentes tratamientos de fertilización**, combinando **fuentes químicas y biológicas (bioinoculantes y abonos orgánicos)**, con el fin de identificar estrategias que promuevan un crecimiento óptimo y un manejo más sostenible del cultivo.
+
+![Phaseolus vulgaris](images/4_DBCA/DBCA_frijol.png){width="326"}
+
+Imagen suminitrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
+:::
 
 ## Estructura de la base de datos
 

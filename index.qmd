@@ -31,7 +31,7 @@ La presente obra constituye nuestra contribución a la formación integral de lo
 :::
 
 ::: {.callout-note title="Para citar"}
-Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico* Universidad de Santander. Vicerrectoría de Enseñanza.<https://udesanalitica.github.io/r-para-mi/>. https://doi.org/10.5281/zenodo.XXXXX
+Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico* Universidad de Santander. Vicerrectoría de Enseñanza.<https://udesanalitica.github.io/r-para-mi/>. ISBN: . https://doi.org/10.5281/zenodo.XXXXX
 :::
 
 ``` bibtex
@@ -44,6 +44,7 @@ Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: An
   url          = {https://udesanalitica.github.io/r-para-mi/}},
   type         = {e-book},
   doi          = {10.5281/zenodo.XXXXX},
+  isbn         = {}
   url          = {https://doi.org/10.5281/zenodo.XXXXX}
 ```
 
