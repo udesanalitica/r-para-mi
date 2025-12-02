@@ -1366,6 +1366,32 @@
             "publisher": "Universidad de Santander",
             "title": "Evaluación de la bioacumulación de cadmio y plomo con cepas de hongos mitospóricos de origen ambiental",
             "type": "thesis"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chala",
+                    "given": "Emanuel"
+                },
+                {
+                    "family": "Ortiz",
+                    "given": "Fredy"
+                }
+            ],
+            "genre": "Trabajo de Grado",
+            "id": "Chala2025",
+            "issued": {
+                "date-parts": [
+                    [
+                        2025
+                    ]
+                ]
+            },
+            "note": "Datos sin publicar",
+            "publisher": "Universidad de Santander",
+            "publisher-place": "Bucaramanga, Colombia",
+            "title": "Evaluación del crecimiento de <i>cordyceps militaris</i> en diferentes sustratos vegetales",
+            "type": "thesis"
         }
     ],
     "project_biblios": [

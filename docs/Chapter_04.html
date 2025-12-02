@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Capítulo 4. Diseño Completamente al Azar (DBCA) – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
+<title>Capítulo 4. Diseño Completamente al Azar (DCA) – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,7 +168,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_04.html"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DBCA)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_04.html"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DCA)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -215,7 +215,8 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R para MI</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -250,7 +251,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DBCA)</span></a>
+  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DCA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -310,7 +311,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DBCA)</span></h1>
+<h1 class="title"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DCA)</span></h1>
 </div>
 
 
@@ -371,7 +372,7 @@ Nota
 </div>
 <div class="callout-body-container callout-body">
 <p>La <strong>antracnosis del banano</strong> 🍌, causada por <em>Colletotrichum musae</em> (Berk. y M.A.&nbsp;Curtis) Arx, representa una problemática fitosanitaria de considerable relevancia económica en la industria bananera mundial, puesto que genera pérdidas postcosecha que oscilan entre el 10 y 80% debido al deterioro de la calidad visual del fruto, dicho patógeno desarrolla lesiones (formación de acérvulos) de coloración marrón oscuro a negro en el epicarpio del fruto, las cuales afectan la calidad visual del fruto <span class="citation" data-cites="Vasquez-Castillo2019">(<a href="references.html#ref-Vasquez-Castillo2019" role="doc-biblioref">Vásquez-Castillo et&nbsp;al., 2019</a>)</span>.</p>
-<p>Tradicionalmente, el manejo de esta epifítia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad (<span class="citation" data-cites="Arias2007">(<a href="references.html#ref-Arias2007" role="doc-biblioref">Arias B., 2007</a>)</span>, por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.</p>
+<p>Tradicionalmente, el manejo de esta epifitia se ha fundamentado en la aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y trifloxystrobin; no obstante, estas sustancias generan impactos ambientales adversos y residualidad (<span class="citation" data-cites="Arias2007">(<a href="references.html#ref-Arias2007" role="doc-biblioref">Arias B., 2007</a>)</span>, por ello, la búsqueda de alternativas de biocontrol sostenibles ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.</p>
 </div>
 </div>
 <p><strong>Metodología:</strong> El estudio se estructuró a partir del <strong>Diseño Completamente al Azar</strong> para la evaluación de sustratos para la evaluación de la actividad inhibitoria.</p>
@@ -412,8 +413,8 @@ Para mayor información puede consultar:</strong> Mejía-Sarmiento, J. S. (2022)
 <p>La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">

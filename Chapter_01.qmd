@@ -3,11 +3,11 @@ title: "Capítulo 1. Introducción al software R y la interfaz RStudio"
 format: docx
 ---
 
-El software **R** es un entorno de programación especializado en análisis estadístico, visualización de datos y modelado científico, ampliamente utilizado en la investigación y la industria. Su integración con **RStudio**, una interfaz de desarrollo amigable y versátil, facilita la escritura de código, la gestión de proyectos y la interpretación de resultados. A continuación, se describe el proceso de **instalación y configuración** del software R y de la interfaz **RStudio**, así como los pasos iniciales para familiarizarse con sus principales componentes y herramientas de trabajo.
+El software **R** es un entorno de programación especializado en análisis estadístico, visualización de datos y modelado científico, ampliamente utilizado en la investigación y la industria. Su integración con **RStudio®**, una interfaz de desarrollo amigable y versátil, facilita la escritura de código, la gestión de proyectos y la interpretación de resultados. A continuación, se describe el proceso de **instalación y configuración** del software **R** y de la interfaz **RStudio®**, así como los pasos iniciales para familiarizarse con sus principales componentes y herramientas de
 
 ## Instalación y configuración
 
-La instalación del software R y la interfaz RStudio (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar RStudio® desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (Figura 1).
+La instalación del software R y la interfaz **RStudio®** (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar **RStudio®** desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (Figura 1).
 
 ![Figura 1.](images/1_Instalacion/Figura%201.png)
 
@@ -23,11 +23,11 @@ Finalmente descargar la última versión de R para Windows (Figura 4).
 
 ![Figura 4.](images/1_Instalacion/Figura%204.png)
 
-Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz de RStudio® (Figura 5); esta interfaz está dividida en varias secciones, incluyendo: (i) el editor de código o Script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo: muestra los objetos y datos cargados en la sesión actual y las (iv) pestañas de archivos y gráficos: permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
+Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz (Figura 5). Esta dividida en varias secciones, incluyendo: (i) el editor de código o Script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo: muestra los objetos y datos cargados en la sesión actual y las (iv) pestañas de archivos y gráficos: permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
 
 ![Figura 5](images/1_Instalacion/Figura%205.png)
 
-Además de la interfaz básica, RStudio® permite la instalación y gestión de paquetes adicionales que amplían sus funcionalidades; para instalar un paquete, se puede utilizar la función install.packages ("nombre_del_paquete") en la consola de RStudio®; una vez instalado, el paquete se puede cargar en la sesión actual utilizando la función library (nombre_del_paquete).
+Además de la interfaz básica, RStudio® permite la instalación y gestión de paquetes adicionales que amplían sus funcionalidades; para instalar un paquete, se puede utilizar la función install.packages ("*nombre_del_paquete*") en la consola de RStudio®; una vez instalado, el paquete se puede cargar en la sesión actual utilizando la función library (nombre_del_paquete).
 
 ::: callout-important
 Mantener R y RStudio® actualizados es clave para aprovechar las últimas mejoras, nuevas funcionalidades y correcciones de errores. Ambos programas notifican automáticamente cuando hay versiones más recientes disponibles, por lo que se recomienda estar atento a estos avisos y actualizar oportunamente.
@@ -47,7 +47,7 @@ El ecosistema de librerías y paquetes de R constituye una herramienta fundament
 
 -   [***car***](https://cran.r-project.org/web/packages/car/index.html) (Companion to Applied Regression), creada por [@Fox2019], ofrece herramientas esenciales para la verificación de supuestos estadísticos mediante gráficos QQ-plot, permitiendo evaluar la normalidad de los datos antes de aplicar pruebas paramétricas en experimentos de optimización de medios de cultivo y comparación de cepas microbianas.
 
-La revolución en el análisis de datos microbiológicos se materializa principalmente a través del libreria [***tidyverse***](https://tidyverse.tidyverse.org/), desarrollado por [@Wickham2019], que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye los siguientes paquetes:
+La revolución en el análisis de datos microbiológicos se materializa principalmente a través del librería [***tidyverse***](https://tidyverse.tidyverse.org/), desarrollado por [@Wickham2019], que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye los siguientes paquetes:
 
 -   [**ggplot2**](https://ggplot2.tidyverse.org/) , para visualización de datos.
 
@@ -67,7 +67,7 @@ La revolución en el análisis de datos microbiológicos se materializa principa
 
 -   [**lubridate**](https://github.com/tidyverse/lubridate) , para fecha/hora.
 
-Los analísis se enriquecen, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, y tal es el caso de:
+Los análisis se enriquecen, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, y tal es el caso de:
 
 -   [***gridExtra***](https://cran.r-project.org/web/packages/gridExtra/index.html), desarrollada por [@Auguie2017], la cual facilita la organización de múltiples gráficos en una sola visualización, permitiendo comparaciones efectivas entre diferentes condiciones experimentales.
 
@@ -93,9 +93,9 @@ El uso de R como herramienta de análisis estadístico en la microbiología indu
 
 -   El paquete microbiome, descrito por [@Lahti2017], proporciona herramientas especializadas para el análisis de **datos metagenómicos**, facilitando la caracterización de comunidades microbianas y sus funciones metabólicas en entornos industriales, lo que resulta esencial para la optimización de bioprocesos y el control de calidad en la industria alimentaria.
 
-El **diseño experimental** en microbiología industrial se ha beneficiado significativamente de la aplicabilidad de R, permitiendo planificar y analizar experimentos de manera más rigurosa y eficiente.
+El **diseño experimental** en microbiología industrial y ciencias naturales se ha beneficiado significativamente de la **aplicación** de R, permitiendo planificar y analizar experimentos de manera más rigurosa y eficiente.
 
--   El paquete *agricolae*, desarrollado por de Mendiburu (2021) [@Zhou2012] es utilizado para la implementación de diseños experimentales complejos como: bloques aleatorizados y diseños factoriales entre otros, al tiempo que frecuentemente son utilizados en estudios de optimización de medios de cultivo, condiciones de fermentación y producción de enzimas microbianas.
+-   El paquete *agricolae*, desarrollado por de [@Mendiburu2021]es utilizado para la implementación de diseños experimentales complejos como: bloques aleatorizados y diseños factoriales entre otros, al tiempo que frecuentemente son utilizados en estudios de optimización de medios de cultivo, condiciones de fermentación y producción de enzimas microbianas.
 
 -   Complementariamente, [@Ritz2005] presentaron el paquete *drc* (Dose-Response Curves), que ha facilitado el análisis de **Curvas dosis-respuesta** en estudios de inhibición microbiana, pruebas de susceptibilidad a antimicrobianos y evaluación de compuestos bioactivos producidos por microorganismos, proporcionando herramientas estadísticas robustas para cuantificar y modelar respuestas biológicas a diferentes tratamientos, lo cual es fundamental en el desarrollo de nuevos productos biotecnológicos.
 

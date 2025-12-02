@@ -3,7 +3,7 @@ title: "Introducción"
 format: docx
 ---
 
-En el ámbito de la **microbiología industrial**, los requerimientos analíticos varían según el tipo de experimento y los objetivos de investigación. En este contexto, **R** y su entorno integrado **RStudio®** se han consolidado como herramientas fundamentales para el manejo, análisis e interpretación de datos. Su amplia comunidad de usuarios proporciona soporte constante y recursos actualizados, mientras que la extensa disponibilidad de **paquetes especializados** permite realizar análisis complejos con precisión, eficiencia y reproducibilidad \[\@Wickham2017r4ds\].
+En el ámbito de la **microbiología industrial y ciencias naturales**, los requerimientos analíticos varían según el tipo de experimento y los objetivos de investigación. En este contexto, **R** y su entorno integrado **RStudio®** se han consolidado como herramientas fundamentales para el manejo, análisis e interpretación de datos. Su amplia comunidad de usuarios proporciona soporte constante y recursos actualizados, mientras que la extensa disponibilidad de **paquetes especializados** permite realizar análisis complejos con precisión, eficiencia y reproducibilidad [@Wickham2017r4ds].
 
 La combinación de estas características convierte a R en una herramienta idónea para el **análisis de datos experimentales**, el **diseño de experimentos** y la **optimización de procesos biotecnológicos**, aspectos esenciales dentro de la microbiología aplicada e industrial.
 

@@ -1,5 +1,6 @@
 ---
 title: "Capítulo 5.Diseño de Bloques Completamente al Azar (DBCA)"
+format: pdf
 ---
 
 ![Nota. Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG)
@@ -236,7 +237,6 @@ Si el **p-value \> 0.05**, **no se rechaza H₀**, por lo que **los residuos son
 
 ```{r}
 dwtest(modeloDBCA)
-
 ```
 
 Interpretación: Debido a que el **valor** $\text{p}$ ($0.4159$) es mucho mayor que $0.05$, **no hay evidencia estadística suficiente para rechazar la hipótesis nula**. Se concluye, por lo tanto, que el supuesto de **independencia de los residuos** se cumple satisfactoriamente en el modelo DBCA. La cercanía del estadístico DW (2.042) al valor ideal de 2.0 refuerza esta conclusión.

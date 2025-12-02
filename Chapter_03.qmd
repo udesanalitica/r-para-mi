@@ -1,5 +1,6 @@
 ---
 title: "Capítulo 3. Generalidades del Diseño Experimental"
+format: html
 ---
 
 El diseño experimental corresponde a una metodología científica y estadística destinada a planear, ejecutar y analizar pruebas controladas, con el propósito de obtener evidencia objetiva que responda a interrogantes sobre procesos o fenómenos específicos. El **diseño de experimentos (DE)** se diferencia de la práctica empírica de prueba y error porque estructura el proceso investigativo bajo principios formales que permiten generar información confiable, optimizar recursos y reducir incertidumbre [@gutierrez2012analisis].

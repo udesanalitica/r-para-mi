@@ -1,7 +1,7 @@
 # Autores
 
 ::: callout-tip
-![](images/Autores/FAOM.png)
+![](images/Autores/FAOM.png){width="149"}
 
 ## Fredy Alejandro Ortiz Meneses ![](images/Logos/orcid.png){width="23" height="27"}
 
@@ -9,15 +9,15 @@ Microbiólogo con énfasis en Alimentos, Especialista en Pedagogía y Didáctica
 :::
 
 ::: callout-tip
-![](images/Autores/MOPP.jpg)
+![](images/Autores/MOPP.jpg){width="149"}
 
 ## Miguel Oswaldo Pérez Pulido ![](images/Logos/orcid.png){width="26" height="28"}
 
-Director de Analítica Académica. Licenciado en Matemáticas y Magíster en Estadística. Actualmente se desempeña como Director de Analítica Académica, adscrito a la Vicerrectoría de Enseñanza. Está vinculado a la Universidad de Santander (UDES) desde 2011, donde ha sido docente en programas de pregrado y posgrado de la Facultad de Ciencias Exactas, Naturales y Agropecuarias. Es investigador Asociado reconocido por MinCiencias en la convocatoria 957 de 2024 y miembro del grupo de investigación CIBAS.
+Licenciado en Matemáticas y Magíster en Estadística. Actualmente se desempeña como Director de Analítica Académica, adscrito a la Vicerrectoría de Enseñanza. Está vinculado a la Universidad de Santander (UDES) desde 2011, donde ha sido docente en programas de pregrado y posgrado de la Facultad de Ciencias Exactas, Naturales y Agropecuarias. Es investigador Asociado reconocido por MinCiencias en la convocatoria 957 de 2024 y miembro del grupo de investigación CIBAS.
 :::
 
 ::: callout-tip
-![](images/Autores/FJL.jpg)
+![](images/Autores/FJL.jpg){width="149"}
 
 ## Francisco Javier León ![](images/Logos/orcid.png){width="26" height="28"}
 

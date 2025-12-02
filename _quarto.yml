@@ -57,8 +57,6 @@ format:
     number-sections: true
   epub:
     cover-image: cover.png
-    code-copy: true
-    mathjax: true   # 👈 Esto habilita las fórmulas matemáticas
 
 website:
   page-footer:

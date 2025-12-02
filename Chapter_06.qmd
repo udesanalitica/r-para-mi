@@ -1,5 +1,6 @@
 ---
 title: "Capítulo 6. Uso de Inteligencia Artificial para la simulación de datos"
+format: html
 ---
 
 ## Integración de la Inteligencia Artificial en la Simulación de Procesos Microbiológicos Industriales
@@ -10,7 +11,7 @@ Según [@WangWangLiu2024], la IA ofrece soluciones innovadoras para el **anális
 
 Su aplicación resulta especialmente valiosa en la **industria alimentaria**, donde contribuye al control del crecimiento bacteriano y a la mejora de la seguridad y calidad de los alimentos. Modelos computacionales basados en teorías de sistemas dinámicos han demostrado su eficacia al reproducir entornos industriales virtuales, reduciendo riesgos y optimizando parámetros de proceso [@MelinCastillo1996].
 
-Asimismo, el **aprendizaje automático y profundo** ha revolucionado el procesamiento de datos microbiológicos, permitiendo la **caracterización de comunidades microbianas**, la interpretación de datos genómicos y el descubrimiento de metabolitos de interés biotecnológico [@KandilciYakiciKayar2024][@Gurajala2024]. Estas herramientas fortalecen la investigación en biotecnología industrial y microbiomas.
+Asimismo, el **aprendizaje automático y profundo** ha revolucionado el procesamiento de datos microbiológicos, permitiendo la **caracterización de comunidades microbianas**, la interpretación de datos genómicos y el descubrimiento de metabolitos de interés biotecnológico [@KandilciYakiciKayar2024; @Gurajala2024]. Estas herramientas fortalecen la investigación en biotecnología industrial y microbiomas.
 
 Otra innovación relevante es el desarrollo de **plataformas colaborativas** que democratizan el acceso a la simulación computacional, facilitando la construcción de modelos de crecimiento microbiano, producción metabólica y análisis de datos de secuenciación de nueva generación [@Wasan2024]. Esto promueve la cooperación entre el sector académico e industrial hacia bioprocesos más sostenibles.
 

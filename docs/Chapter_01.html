@@ -151,7 +151,8 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R para MI</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -186,7 +187,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DBCA)</span></a>
+  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DCA)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -244,7 +245,7 @@ div.csl-indent {
 </header>
 
 
-<p>El software <strong>R</strong> es un entorno de programación especializado en análisis estadístico, visualización de datos y modelado científico, ampliamente utilizado en la investigación y la industria. Su integración con <strong>RStudio</strong>, una interfaz de desarrollo amigable y versátil, facilita la escritura de código, la gestión de proyectos y la interpretación de resultados. A continuación, se describe el proceso de <strong>instalación y configuración</strong> del software R y de la interfaz <strong>RStudio</strong>, así como los pasos iniciales para familiarizarse con sus principales componentes y herramientas de trabajo.</p>
+<p>El software <strong>R</strong> es un entorno de programación especializado en análisis estadístico, visualización de datos y modelado científico, ampliamente utilizado en la investigación y la industria. Su integración con <strong>RStudio</strong>Ⓡ, una interfaz de desarrollo amigable y versátil, facilita la escritura de código, la gestión de proyectos y la interpretación de resultados. A continuación, se describe el proceso de <strong>instalación y configuración</strong> del software R y de la interfaz <strong>RStudio</strong>, así como los pasos iniciales para familiarizarse con sus principales componentes y herramientas de</p>
 <section id="instalación-y-configuración" class="level2">
 <h2 class="anchored" data-anchor-id="instalación-y-configuración">Instalación y configuración</h2>
 <p>La instalación del software R y la interfaz RStudio (ahora llamado <em>Posit RStudio®</em>) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R (<a href="#0" class="uri" style="font-size: 11pt;">https://www.r-project.org</a>); una vez instalado R, se puede proceder a descargar e instalar RStudio® desde su sitio web (<a href="#0" class="uri" style="font-size: 11pt;">https://posit.co/download/rstudio-desktop/</a>) (Figura 1).</p>
@@ -309,7 +310,7 @@ Importante
 <li><p><a href="https://readxl.tidyverse.org/"><strong><em>readxl</em></strong></a>, desarrollada por <span class="citation" data-cites="wickham2015">(<a href="references.html#ref-wickham2015" role="doc-biblioref">Wickham &amp; Bryan, 2015</a>)</span>, facilita la importación de datos desde hojas de cálculo Excel®, donde tradicionalmente los microbiólogos registran sus resultados experimentales.</p></li>
 <li><p><a href="https://cran.r-project.org/web/packages/car/index.html"><strong><em>car</em></strong></a> (Companion to Applied Regression), creada por <span class="citation" data-cites="Fox2019">(<a href="references.html#ref-Fox2019" role="doc-biblioref">Fox &amp; Weisberg, 2019</a>)</span>, ofrece herramientas esenciales para la verificación de supuestos estadísticos mediante gráficos QQ-plot, permitiendo evaluar la normalidad de los datos antes de aplicar pruebas paramétricas en experimentos de optimización de medios de cultivo y comparación de cepas microbianas.</p></li>
 </ul>
-<p>La revolución en el análisis de datos microbiológicos se materializa principalmente a través del libreria <a href="https://tidyverse.tidyverse.org/"><strong><em>tidyverse</em></strong></a>, desarrollado por <span class="citation" data-cites="Wickham2019">(<a href="references.html#ref-Wickham2019" role="doc-biblioref">Wickham et&nbsp;al., 2019</a>)</span>, que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye los siguientes paquetes:</p>
+<p>La revolución en el análisis de datos microbiológicos se materializa principalmente a través del librería <a href="https://tidyverse.tidyverse.org/"><strong><em>tidyverse</em></strong></a>, desarrollado por <span class="citation" data-cites="Wickham2019">(<a href="references.html#ref-Wickham2019" role="doc-biblioref">Wickham et&nbsp;al., 2019</a>)</span>, que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye los siguientes paquetes:</p>
 <ul>
 <li><p><a href="https://ggplot2.tidyverse.org/"><strong>ggplot2</strong></a> , para visualización de datos.</p></li>
 <li><p><a href="https://dplyr.tidyverse.org/"><strong>dplyr</strong></a> , para manipulación de datos.</p></li>
@@ -321,7 +322,7 @@ Importante
 <li><p><a href="https://github.com/tidyverse/forcats"><strong>forcats</strong></a> , para factores.</p></li>
 <li><p><a href="https://github.com/tidyverse/lubridate"><strong>lubridate</strong></a> , para fecha/hora.</p></li>
 </ul>
-<p>Los analísis se enriquecen, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, y tal es el caso de:</p>
+<p>Los análisis se enriquecen, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, y tal es el caso de:</p>
 <ul>
 <li><p><a href="https://cran.r-project.org/web/packages/gridExtra/index.html"><strong><em>gridExtra</em></strong></a>, desarrollada por <span class="citation" data-cites="Auguie2017">(<a href="references.html#ref-Auguie2017" role="doc-biblioref">Auguie, 2017</a>)</span>, la cual facilita la organización de múltiples gráficos en una sola visualización, permitiendo comparaciones efectivas entre diferentes condiciones experimentales.</p></li>
 <li><p><a href="https://cran.r-project.org/web/packages/lsr/index.html"><strong><em>lsr</em></strong></a> (Learning Statistics with R), creada por <span class="citation" data-cites="Navarro2015">(<a href="references.html#ref-Navarro2015" role="doc-biblioref">Navarro, 2015</a>)</span> proporciona funciones accesibles para análisis estadísticos fundamentales como pruebas t, ANOVA y cálculos de tamaño del efecto;</p></li>
@@ -342,7 +343,7 @@ Importante
 <li><p>El paquete <em>phyloseq</em> <span class="citation" data-cites="McMurdie2013">(<a href="references.html#ref-McMurdie2013" role="doc-biblioref">McMurdie &amp; Holmes, 2013</a>)</span>, se emplea en el análisis de datos de secuenciación en estudios de comunidades microbianas, permitiendo la integración de información taxonómica, filogenética y de abundancia en un solo entorno analítico; este avance ha sido fundamental para comprender la dinámica de <strong>poblaciones microbianas</strong> en procesos industriales como: el tratamiento de aguas residuales, la producción de biocombustibles y la fermentación alimentaria.</p></li>
 <li><p>El paquete microbiome, descrito por <span class="citation" data-cites="Lahti2017">(<a href="references.html#ref-Lahti2017" role="doc-biblioref">Lahti &amp; Shetty, 2017</a>)</span>, proporciona herramientas especializadas para el análisis de <strong>datos metagenómicos</strong>, facilitando la caracterización de comunidades microbianas y sus funciones metabólicas en entornos industriales, lo que resulta esencial para la optimización de bioprocesos y el control de calidad en la industria alimentaria.</p></li>
 </ul>
-<p>El <strong>diseño experimental</strong> en microbiología industrial se ha beneficiado significativamente de la aplicabilidad de R, permitiendo planificar y analizar experimentos de manera más rigurosa y eficiente.</p>
+<p>El <strong>diseño experimental</strong> en microbiología industrial y ciencias naturales se ha beneficiado significativamente de la <strong>aplicación</strong> de R, permitiendo planificar y analizar experimentos de manera más rigurosa y eficiente.</p>
 <ul>
 <li><p>El paquete <em>agricolae</em>, desarrollado por de Mendiburu (2021) <span class="citation" data-cites="Zhou2012">(<a href="references.html#ref-Zhou2012" role="doc-biblioref">Zhou et&nbsp;al., 2012</a>)</span> es utilizado para la implementación de diseños experimentales complejos como: bloques aleatorizados y diseños factoriales entre otros, al tiempo que frecuentemente son utilizados en estudios de optimización de medios de cultivo, condiciones de fermentación y producción de enzimas microbianas.</p></li>
 <li><p>Complementariamente, <span class="citation" data-cites="Ritz2005">(<a href="references.html#ref-Ritz2005" role="doc-biblioref">Ritz &amp; Streibig, 2005</a>)</span> presentaron el paquete <em>drc</em> (Dose-Response Curves), que ha facilitado el análisis de <strong>Curvas dosis-respuesta</strong> en estudios de inhibición microbiana, pruebas de susceptibilidad a antimicrobianos y evaluación de compuestos bioactivos producidos por microorganismos, proporcionando herramientas estadísticas robustas para cuantificar y modelar respuestas biológicas a diferentes tratamientos, lo cual es fundamental en el desarrollo de nuevos productos biotecnológicos.</p></li>
