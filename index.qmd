@@ -102,7 +102,7 @@ Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: An
 :::
 
 ``` bibtex
-@ebook {PerezPulido2025,
+@ebook {OrtizPerezLeon2025,
   author = {Ortiz, F., Pérez, M., y León, F.},
   title = {R para Microbiología Industrial: Análisis de Datos y 
   Diseño Experimental con un Enfoque Práctico},
