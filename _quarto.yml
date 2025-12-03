@@ -51,7 +51,9 @@ format:
     code-copy: true
     smooth-scroll: true
   pdf:
-    documentclass: scrreprt
+    documentclass: book
+    pdf-engine: xelatex
+    include-before-body: cover.tex
   docx:
     toc: true
     number-sections: true
