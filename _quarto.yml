@@ -45,9 +45,7 @@ format:
     smooth-scroll: true
   pdf:
     documentclass: scrreprt
-    pdf-engine: xelatex
-    number-sections: false
-    include-before-body: cover.tex
+    pdf-engine: xelatex   # ← OPCIONAL pero recomendable
   docx:
     toc: true
     number-sections: false
