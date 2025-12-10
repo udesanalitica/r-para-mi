@@ -9,7 +9,7 @@ El software **R** es un entorno de programación especializado en análisis esta
 
 La instalación del software R y la interfaz **RStudio®** (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar **RStudio®** desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (Figura 1).
 
-![Figura 1](images/1_Instalacion/Figura%201.png)
+![](images/1_Instalacion/Figura%201.png)
 
 Ambos programas están disponibles para múltiples sistemas operativos, incluyendo Windows, macOS y Linux (Figura 2).
 

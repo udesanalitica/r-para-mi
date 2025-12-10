@@ -4,10 +4,8 @@ project:
   preview:
     port: 4200
     browser: true
-
 lang: es
 cover-image: cover.png
-
 book:
   title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
   author:
@@ -15,18 +13,15 @@ book:
     - "Miguel Pérez"
     - "Francisco León"
   date: "2025-05-05"
-
   # GitHub
   site-url: "https://udesanalitica.github.io/r-para-mi/"
   repo-url: "https://github.com/udesanalitica/r-para-mi"
   repo-branch: main
   repo-actions: [edit, issue, source]
-
   favicon: favicon.png
   page-navigation: true
   search: true
   downloads: [pdf, epub]
-
   chapters:
     - index.qmd
     - autores.qmd
@@ -39,32 +34,29 @@ book:
     - Chapter_05.qmd
     - Chapter_06.qmd
     - references.qmd
-
 bibliography: references.bib
 csl: apa.csl
-
 format:
   html:
     theme: cosmo
     toc: true
-    number-sections: false
+    number-sections: true
     code-copy: true
     smooth-scroll: true
   pdf:
     documentclass: scrreprt
-    pdf-engine: xelatex   # ← OPCIONAL pero recomendable
+    pdf-engine: xelatex
+    number-sections: false
+    include-before-body: cover.tex
   docx:
     toc: true
     number-sections: false
   epub:
     cover-image: cover.png
-
 website:
   page-footer:
     left: "© 2025 Autores"
     right: "Publicado con Quarto y GitHub Pages"
-
 execute:
   freeze: auto
-
 editor: visual
