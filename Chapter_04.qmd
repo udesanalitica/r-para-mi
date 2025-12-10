@@ -3,9 +3,9 @@ title: "Capítulo 4. Diseño Completamente al Azar (DCA)"
 format: html
 ---
 
-![Nota. Mapa conceptual (p. 51). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/3_DCA/DCA.PNG)
+![Figura 25. Mapa conceptual (p. 51). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/3_DCA/DCA.PNG)
 
-El mapa conceptual organiza los elementos fundamentales de los **experimentos con un solo factor**. De este tipo de diseños se desprende el **Diseño Completamente al Azar (DCA)**, que utiliza herramientas como el **ANOVA**, los **diagramas de cajas** y las **gráficas de medias** para analizar las diferencias entre tratamientos.
+El mapa conceptual (Figura 25) organiza los elementos fundamentales de los **experimentos con un solo factor**. De este tipo de diseños se desprende el **Diseño Completamente al Azar (DCA)**, que utiliza herramientas como el **ANOVA**, los **diagramas de cajas** y las **gráficas de medias** para analizar las diferencias entre tratamientos.
 
 Tras el ANOVA, pueden aplicarse **pruebas de comparación múltiple**, como **LSD**, **Tukey** o **Duncan**, así como contrastes específicos para identificar tratamientos que difieren entre sí.
 
@@ -13,7 +13,7 @@ Además, el diseño requiere la **verificación de los supuestos del modelo**, e
 
 ## **Modelo teórico para el Diseño Completamente al Azar (DCA)**
 
-El **Diseño Completamente al Azar (DCA)** se utiliza cuando las unidades experimentales son homogéneas y los tratamientos se asignan completamente al azar, sin ningún tipo de agrupación o bloqueo. El modelo lineal aditivo general se expresa como:
+El **Diseño Completamente al Azar (DCA)** se utiliza cuando las unidades experimentales son homogéneas y los tratamientos se asignan completamente al azar [@gutierrez2012analisis; @Montgomery2017], sin ningún tipo de agrupación o bloqueo. El modelo lineal aditivo general se expresa como:
 
 $$
 Y_{ij} = \mu + \tau_i + \varepsilon_{ij} 
@@ -53,27 +53,27 @@ Tradicionalmente, el manejo de esta epifitia se ha fundamentado en la aplicació
 
 ### Sustratos de cultivo para *Penicillum* sp.
 
-Se empleó un **Diseño Completamente al Azar** con los siguientes tratamientos: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco. Se prepararon bolsas de polipropileno con cada sustrato, se inocularon con cinco discos de micelio de *Penicillum* sp. (0.5 mm de diámetro) y se incubaron de forma aleatorizada a 22 ± 2 °C durante ocho días. El experimento se realizó por quintuplicado, considerando cada bolsa como una repetición.
+Se empleó un **Diseño Completamente al Azar** con los siguientes tratamientos: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco (Figura 26). Se prepararon bolsas de polipropileno con cada sustrato, se inocularon con cinco discos de micelio de *Penicillum* sp. (0.5 mm de diámetro) y se incubaron de forma aleatorizada a 22 ± 2 °C durante ocho días. El experimento se realizó por quintuplicado, considerando cada bolsa como una repetición.
 
 **Resultados:** El maíz partido constituyó el sustrato óptimo para la producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido de la cebada Log~10~ 8,88 conidios/mL .
 
 Sustratos con Conidios de *Penicillium* sp.
 
-![Nota: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](images/3_DCA/sustrato.png){width="503"}
+![Figura 26: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](images/3_DCA/sustrato.png){width="503"}
 
 \
-La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0 al 6,0% generaron Porcentajes de Inhibición del Crecimiento micelial (PICM) del 40 al 50 % respectivamente al quinto día después de la inoculación (ddi).
+La evaluación in vitro reveló que las concentraciones de extracto crudo de 4,0 al 6,0% generaron Porcentajes de Inhibición del Crecimiento micelial (PICM) del 40 al 50 % respectivamente al quinto día después de la inoculación (ddi) (Figura 27).
 
 Efecto de los tratamientos in vitro frente al crecmiento de *Colletotrichum musae.*
 
-![Nota: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de *Penicillium* sp., al 4%; (D) Extracto de *Penicillium* sp., al 4,5%; (E) Extracto de *Penicillium* sp., al 5%; (F) Extracto de *Penicillium* sp., al 5,5%; (G) Extracto de *Penicillium* sp., al 6%.](images/3_DCA/experimentoinvitro.png){width="557"}
+![Figura 27: Prueba de inhibición in vitro de Colletotrichum musae, frente a diferentes tratamientos. (A) Testigo negativo; (B) Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de *Penicillium* sp., al 4%; (D) Extracto de *Penicillium* sp., al 4,5%; (E) Extracto de *Penicillium* sp., al 5%; (F) Extracto de *Penicillium* sp., al 5,5%; (G) Extracto de *Penicillium* sp., al 6%.](images/3_DCA/experimentoinvitro.png){width="557"}
 
 \
-Por otro lado, los ensayos in vivo evidenciaron una mayor eficacia del extracto crudo, donde las concentraciones de 8, 9, 10, 11, 12 y 13% generaron porcentajes de inhibición del área de la lesión (PIAL) de 60, 55, 70, 72, 77 y 80% respectivamente, sugiriendo que Penicillium digitatum podría representar una alternativa viable para el manejo preventivo de la antracnosis del banano.
+Por otro lado, los ensayos in vivo evidenciaron una mayor eficacia del extracto crudo, donde las concentraciones de 8, 9, 10, 11, 12 y 13% generaron porcentajes de inhibición del área de la lesión (PIAL) de 60, 55, 70, 72, 77 y 80% respectivamente, sugiriendo que Penicillium digitatum podría representar una alternativa viable para el manejo preventivo de la antracnosis del banano (Figura 28).
 
 Efecto in vivo de bananos infectados con *Colletotrichum musae* en los tratamientos.
 
-![Nota: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.](images/3_DCA/experimentobananos.png){width="584"}
+![Figura 28: Experimento in vivo de los bananos infectados con 107 conidios de Colletotrichum musae, frente a tratamientos (A los 7 días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo positivo); Extractos de Penicillium sp. a (C) 8%; (D) 9%; (E) 10%; (F) 11%; (G) 12%; (H) 13%.](images/3_DCA/experimentobananos.png){width="584"}
 
 **\
 Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de Extracto Crudo de Penicillium sp. para la Inhibición del Crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A. Curtis) Arx. Agente Causal de Antracnosis en Banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
@@ -83,7 +83,7 @@ Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evalu
 La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:
 
 | Variable      | Descripción                                                                                         |
-|----------------------|--------------------------------------------------|
+|-----------------------|-------------------------------------------------|
 | `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.                      |
 | `Repetición`  | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
 | `Resultado`   | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).  |

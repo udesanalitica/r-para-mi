@@ -3,15 +3,15 @@ title: "Capítulo 5.Diseño de Bloques Completamente al Azar (DBCA)"
 format: pdf
 ---
 
-![Nota. Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG)
+![Figura 29. Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG)
 
-El mapa conceptual presenta los principales componentes de los **diseños en bloques**, una estrategia experimental usada para controlar la variabilidad mediante la formación de grupos homogéneos llamados *bloques*. Entre estos diseños se encuentra el **Diseño en Bloques Completos al Azar (DBCA)**, el cual incorpora el *efecto de bloque* y requiere definir claramente las **hipótesis**, el **modelo estadístico**, así como la **selección y aleatorización** de las unidades experimentales. Su análisis se realiza a través del **ANOVA**, que permite evaluar si los tratamientos difieren más allá de la variación entre bloques.
+El mapa conceptual presenta los principales componentes de los **diseños en bloques** (Figura 29), una estrategia experimental usada para controlar la variabilidad mediante la formación de grupos homogéneos llamados *bloques*. Entre estos diseños se encuentra el **Diseño en Bloques Completos al Azar (DBCA)**, el cual incorpora el *efecto de bloque* y requiere definir claramente las **hipótesis**, el **modelo estadístico**, así como la **selección y aleatorización** de las unidades experimentales. Su análisis se realiza a través del **ANOVA**, que permite evaluar si los tratamientos difieren más allá de la variación entre bloques.
 
 Otros diseños relacionados incluyen el **diseño en bloques incompletos balanceados** y los diseños **en cuadro latino** y **grecolatino**, los cuales permiten controlar simultáneamente múltiples fuentes de variación. Cada uno de estos diseños exige un procedimiento estructurado que abarca la formulación del modelo, el análisis de varianza correspondiente y la **interpretación** de los resultados.
 
 ## Modelo teórico para el Diseño de Bloques Completamente al Azar (DBCA)
 
-El **Diseño en Bloques Completos al Azar (DBCA)** se utiliza cuando existe una fuente de variación conocida ---denominada *bloques*--- que puede influir en la variable de respuesta. Para controlar esa variabilidad, las unidades experimentales se agrupan en bloques homogéneos, y dentro de cada bloque los tratamientos se asignan aleatoriamente.
+El **Diseño en Bloques Completos al Azar (DBCA)** se utiliza cuando existe una fuente de variación conocida ---denominada *bloques*--- que puede influir en la variable de respuesta. Para controlar esa variabilidad, las unidades experimentales se agrupan en bloques homogéneos, y dentro de cada bloque los tratamientos se asignan aleatoriamente [@gutierrez2012analisis; @Montgomery2017].
 
 El modelo lineal aditivo correspondiente al DBCA se expresa como:
 
@@ -61,9 +61,9 @@ El **crecimiento de las plantas de frijol (*Phaseolus vulgaris*)** depende en gr
 
 Sin embargo, el aprovechamiento de esta simbiosis puede verse afectado por **factores edáficos y ambientales** como la **composición del suelo, la disponibilidad de humedad, la temperatura y la luz**, que influyen directamente en la actividad microbiana y en la eficiencia de la FBN.
 
-Por ello, resulta necesario **evaluar la respuesta del frijol frente a diferentes tratamientos de fertilización**, combinando **fuentes químicas y biológicas (bioinoculantes y abonos orgánicos)**, con el fin de identificar estrategias que promuevan un crecimiento óptimo y un manejo más sostenible del cultivo.
+Por ello, resulta necesario **evaluar la respuesta del frijol frente a diferentes tratamientos de fertilización**, combinando **fuentes químicas y biológicas (bioinoculantes y abonos orgánicos)**, con el fin de identificar estrategias que promuevan un crecimiento óptimo y un manejo más sostenible del cultivo (Figura 30).
 
-![Phaseolus vulgaris](images/4_DBCA/DBCA_frijol.png){width="326"}
+![Figura 30 *Phaseolus vulgaris*](images/4_DBCA/DBCA_frijol.png){width="326"}
 
 Imagen suminitrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
 :::

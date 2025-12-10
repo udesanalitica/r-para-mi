@@ -51,12 +51,11 @@ format:
     code-copy: true
     smooth-scroll: true
   pdf:
-    documentclass: book
-    pdf-engine: xelatex
-    include-before-body: cover.tex
+    documentclass: scrreprt
+    pdf-engine: xelatex   # ← OPCIONAL pero recomendable
   docx:
     toc: true
-    number-sections: true
+    number-sections: false
   epub:
     cover-image: cover.png
 

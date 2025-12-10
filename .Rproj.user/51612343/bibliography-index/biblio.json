@@ -1392,6 +1392,79 @@
             "publisher-place": "Bucaramanga, Colombia",
             "title": "Evaluación del crecimiento de <i>cordyceps militaris</i> en diferentes sustratos vegetales",
             "type": "thesis"
+        },
+        {
+            "ISBN": "970-686-048-7",
+            "author": [
+                {
+                    "family": "Kuehl",
+                    "given": "Robert O."
+                }
+            ],
+            "edition": "Segunda edición",
+            "id": "Kuehl2001",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "note": "Traducción del libro Designing Experiments, 2nd ed. Publicado en inglés por Duxbury, 2000. ISBN 0-534-36834-4",
+            "publisher": "Thomson Learning",
+            "publisher-place": "México",
+            "title": "Diseño de experimentos: Principios estadísticos de diseño y análisis de investigación",
+            "title-short": "Diseño de experimentos",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Bautista",
+                    "given": "Ezequiel Abraham López"
+                },
+                {
+                    "family": "Ramírez",
+                    "given": "Byron Humberto González"
+                }
+            ],
+            "edition": "2a edición revisada y ampliada",
+            "id": "LopezBautista2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "publisher": "Universidad de San Carlos de Guatemala, Facultad de Agronomía",
+            "publisher-place": "Guatemala",
+            "title": "Diseño y análisis de experimentos: Fundamentos y aplicaciones en agronomía",
+            "title-short": "Diseño y análisis de experimentos",
+            "type": "book"
+        },
+        {
+            "ISBN": "9781119113478",
+            "author": [
+                {
+                    "family": "Montgomery",
+                    "given": "Douglas C."
+                }
+            ],
+            "edition": "9th",
+            "id": "Montgomery2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "note": "Includes bibliographical references and index",
+            "publisher": "John Wiley & Sons",
+            "publisher-place": "Hoboken, NJ",
+            "title": "Design and analysis of experiments",
+            "type": "book"
         }
     ],
     "project_biblios": [

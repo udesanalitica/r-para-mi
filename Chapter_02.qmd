@@ -44,7 +44,7 @@ Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** seg�
 En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distintas ecuaciones de búsqueda relacionadas con el tema.
 
 | Ecuación de búsqueda                                                                  | Documentos encontrados |
-|-----------------------------------------------------|-------------------|
+|------------------------------------------------------|------------------|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions"                        | 225                    |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth"                                 | 191                    |
 | "Cordyceps militaris" AND "medium" AND "growth"                                       | 99                     |
@@ -57,7 +57,7 @@ En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distin
 Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. La interfaz *Biblioshiny* permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
 |  Nº | Módulo                                | Función general                                                                | Submódulos / indicadores                                                                     |
-|---------------:|----------------|-------------------|----------------------|
+|------------:|-------------|---------------------|-------------------------|
 |   1 | **Data**                              | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.).              | Import or Load; Merge Datasets                                                               |
 |   2 | **Filters**                           | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries                                                                |
 |   3 | **Overview**                          | Panorama general con indicadores descriptivos.                                 | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
@@ -86,102 +86,104 @@ El uso de Bibliometrix y Biblioshiny permite una comprensión argumentada del pa
 
 ### Instalación de bibliometrix
 
-Para iniciar el análisis bibliométrico, se procede a ingresar al programa RStudio®, al tiempo que se realiza la instalación de los paquetes: *bibliometrix* y *bibliometrixData*, desde la pestaña de Archivos y Gráficos en la sección de Packages (Figura 8).
+Para iniciar el análisis bibliométrico, se procede a ingresar al programa RStudio®, al tiempo que se realiza la instalación de los paquetes: *bibliometrix* y *bibliometrixData*, desde la pestaña de Archivos y Gráficos en la sección de Packages (Figura 6).
 
-![Figura 8.](images/2_Bibliometrix/Bibliometrix1.PNG)
+![Figura 6.](images/2_Bibliometrix/Bibliometrix1.PNG)
 
 Posteriormente, desde la Consola de RStudio se digitan y ejecutan los comandos:
 
 > library(bibliometrix)\
 > biblioshiny()
 
-Tambien se puede habilitar manualmente en la pestaña de Archivos y Gráficos de la interfaz de RStudio, pestaña de Packages (figura 9) seleccionado las librerias a usar.
+Tambien se puede habilitar manualmente en la pestaña de Archivos y Gráficos de la interfaz de RStudio, pestaña de Packages (figura 7) seleccionado las librerias a usar.
 
-![Figura 9.](images/2_Bibliometrix/Bibliometrix2.PNG)
+![Figura 7.](images/2_Bibliometrix/Bibliometrix2.PNG)
 
-Se abrirá el servidor de Bibliometrix (Figura 9) en el navegador web (Chrome, Mozilla, Edge, entre otros). Es importante aclarar que la interfaz de Bibliometrix únicamente pude ser ejecutada desde RStudio®.
+Se abrirá el servidor de Bibliometrix (Figura 8) en el navegador web (Chrome, Mozilla, Edge, entre otros). Es importante aclarar que la interfaz de Bibliometrix únicamente pude ser ejecutada desde RStudio®.
 
-![Figura 9.](images/2_Bibliometrix/Figura_9.png)
+![Figura 8.](images/2_Bibliometrix/Figura_9.png)
 
-En la parte izquierda se despliega el **menú de biblioshiny**, y se procede con la importación en "***Import or Load***" se carga el archivo CSV [@Aria2017], al tiempo que se seleccionan las casillas: ***Import raw file(s*****)**, la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: ***Surname and Initials***, y finalmente damos click en el botón de ***Start***  (Figura 10).
+En la parte izquierda se despliega el **menú de biblioshiny**, y se procede con la importación en "***Import or Load***" se carga el archivo CSV [@Aria2017], al tiempo que se seleccionan las casillas: ***Import raw file(s*****)**, la procedencia de la base de datos consultada (*Scopus,* en nuestro caso) , junto la opción: ***Surname and Initials***, y finalmente damos click en el botón de ***Start***  (Figura 9).
 
-![Figura 10.](images/2_Bibliometrix/Figura_10.png)
+![Figura 9.](images/2_Bibliometrix/Figura_10.png)
 
-Después se despliega una nueva ventana que muestra el estado de los componentes de los metadatos importados desde el archivo CSV (Figura 11), allí se muestra una tabla que resume la completitud de los metadatos (para nuestro ejemplo: 191 documentos de Scopus),.
+Después se despliega una nueva ventana que muestra el estado de los componentes de los metadatos importados desde el archivo CSV (Figura 10), allí se muestra una tabla que resume la completitud de los metadatos (para nuestro ejemplo: 191 documentos de Scopus),.
 
-![Figura 11.](images/2_Bibliometrix/Figura_11.png)
+![Figura 10.](images/2_Bibliometrix/Figura_11.png)
 
-Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" "Pobre" y "Completamente perdido" (Figura 11), y que al ser cerrado "Close" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el artículo científico (Figura 12).
+Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (Abstract, afiliación, autor, tipo de documento, etc.) utilizando *junto a* diferentes criterios de clasificación como son: "Excelente", "Bueno", "Aceptable" "Pobre" y "Completamente perdido" (Figura 11), y que al ser cerrado "Close" muestra una tabla dinámica con todos los datos importados incluyendo el DOI, desde el cual se puede acceder y leer directamente el artículo científico (Figura 10).
 
-![Figura 12](images/2_Bibliometrix/Figura_12.png)
+![Figura 11](images/2_Bibliometrix/Figura_12.png)
 
 ### Estructura
 
 #### **Modulo *Overview***
 
-El indicador ***Main information*** muestra los valores de los metadatos trabajados, para este ejemplo se tiene un periodo de análisis de1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, **se identificaron 903 autores**, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de **coautores** por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad **media de citas por documento** es de 25,69 (Figura 13).
+El indicador ***Main information*** muestra los valores de los metadatos trabajados, para este ejemplo se tiene un periodo de análisis de1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, **se identificaron 903 autores**, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de **coautores** por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad **media de citas por documento** es de 25,69 (Figura 12).
 
-![Figura 13](images/2_Bibliometrix/Figura_13.png)
+![Figura 12](images/2_Bibliometrix/Figura_13.png)
 
-Para la sección ***Average Citations Per Ye*****ar** (Traducido: Citas Promedio por año) muestra la evolución de publicaciones sobre *Cordyceps militaris* entre 1951 y 2025 (Figura 14). Entre **1951 y 2000**, la producción científica fue mínima, con casi nula variación. A partir de **2000**, comienza un crecimiento leve y sostenido, que se **acelera notablemente después de 2010**, alcanzando su punto máximo entre **2020 y 2024**, con más de **20 artículos anuales**. En **2025**, se observa una **caída abrupta**, posiblemente atribuida a datos incompletos o publicaciones aún en proceso. En síntesis, la tendencia general evidencia un **crecimiento exponencial de la investigación** sobre *Cordyceps militaris* en las dos últimas décadas, reflejando su creciente relevancia científica y biotecnológica.
+Para la sección ***Average Citations Per Ye*****ar** (Traducido: Citas Promedio por año) muestra la evolución de publicaciones sobre *Cordyceps militaris* entre 1951 y 2025 (Figura 13). Entre **1951 y 2000**, la producción científica fue mínima, con casi nula variación. A partir de **2000**, comienza un crecimiento leve y sostenido, que se **acelera notablemente después de 2010**, alcanzando su punto máximo entre **2020 y 2024**, con más de **20 artículos anuales**. En **2025**, se observa una **caída abrupta**, posiblemente atribuida a datos incompletos o publicaciones aún en proceso. En síntesis, la tendencia general evidencia un **crecimiento exponencial de la investigación** sobre *Cordyceps militaris* en las dos últimas décadas, reflejando su creciente relevancia científica y biotecnológica.
 
-![Figura 14](images/2_Bibliometrix/Figura_15.png)
+![Figura 13](images/2_Bibliometrix/Figura_15.png)
 
-La Figura 15 **"Three-Field Plot"** muestra la relación entre **países (AU_CO)**, **autores (AU)** y **descriptores temáticos (DE)** en la investigación sobre *Cordyceps militaris*. **China** lidera ampliamente la producción científica, seguida por **Tailandia**, **Reino Unido**, **Singapur** y **Estados Unidos**, evidenciando una fuerte concentración asiática en el tema. Los autores más productivos son **Li X**, **Li Y**, **Vongsangnak W** y **Zhang J**, quienes forman redes de colaboración relevantes dentro del campo. En cuanto a los **descriptores**, predominan términos como *Cordyceps militaris*, *biotecnología del hongo*, *compuestos bioactivos* y *análisis transcriptómico*, lo que refleja el enfoque de la investigación en los componentes biológicos y aplicaciones biotecnológicas del hongo. El gráfico confirma el **liderazgo científico de Asia** en el estudio de *Cordyceps militaris* y la \**concentración temática en la exploración de compuestos bioactivos y su potencial en salud y biotecnología*.
+La Figura 14 **"Three-Field Plot"** muestra la relación entre **países (AU_CO)**, **autores (AU)** y **descriptores temáticos (DE)** en la investigación sobre *Cordyceps militaris*. **China** lidera ampliamente la producción científica, seguida por **Tailandia**, **Reino Unido**, **Singapur** y **Estados Unidos**, evidenciando una fuerte concentración asiática en el tema. Los autores más productivos son **Li X**, **Li Y**, **Vongsangnak W** y **Zhang J**, quienes forman redes de colaboración relevantes dentro del campo. En cuanto a los **descriptores**, predominan términos como *Cordyceps militaris*, *biotecnología del hongo*, *compuestos bioactivos* y *análisis transcriptómico*, lo que refleja el enfoque de la investigación en los componentes biológicos y aplicaciones biotecnológicas del hongo. El gráfico confirma el **liderazgo científico de Asia** en el estudio de *Cordyceps militaris* y la *concentración temática en la exploración de compuestos bioactivos y su potencial en salud y biotecnología*.
 
-quarto
+![Figura 14](images/2_Bibliometrix/Figura_16.png)
+
+## Quarto
 
 #### **Modulo *Sources***
 
-Para el menú de *Sources* en la sección ***Most Relevant Sources*** (Traducido: Fuentes más Relevantes) la producción científica está liderada por: International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. **La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas**,las demás revistas como: Biology, Bioresource Technolgy, y Nutrients, que cuentan con 3 artículos cada una (Figura 16).
+Para el menú de *Sources* en la sección ***Most Relevant Sources*** (Traducido: Fuentes más Relevantes) la producción científica está liderada por: International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. **La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas**,las demás revistas como: Biology, Bioresource Technolgy, y Nutrients, que cuentan con 3 artículos cada una (Figura 15).
 
-![Figura 16](images/2_Bibliometrix/Figura_17.png){width="656"}
+![Figura 15](images/2_Bibliometrix/Figura_17.png){width="656"}
 
-En la sección de **Bradford's Law** (Traducido: La Ley de Bradford) y continuando con nuestro ejemplo didáctico de *Cordyceps mil*itaris ,se observa que: "International Journal of Medicinal Mushrooms", junto con "Mycosystema" y "Applied Microbiology and Biotechnology", conforman el núcleo de fuentes indexadas  más relevantes, aportando el mayor número de publicaciones, estas tres revistas están dentro del área sombreada, lo que **confirma su papel central en la diseminación del conocimiento** sobre *C. militari*s y compuestos bioactivoss. A medida que se avanza hacia la derecha del gráfico, el número de artículos por revista disminuye, lo que representa publicaciones de interés más disperso (Figura 17).
+En la sección de **Bradford's Law** (Traducido: La Ley de Bradford) y continuando con nuestro ejemplo didáctico de *Cordyceps mil*itaris ,se observa que: "International Journal of Medicinal Mushrooms", junto con "Mycosystema" y "Applied Microbiology and Biotechnology", conforman el núcleo de fuentes indexadas  más relevantes, aportando el mayor número de publicaciones, estas tres revistas están dentro del área sombreada, lo que **confirma su papel central en la diseminación del conocimiento** sobre *C. militari*s y compuestos bioactivoss. A medida que se avanza hacia la derecha del gráfico, el número de artículos por revista disminuye, lo que representa publicaciones de interés más disperso (Figura 16).
 
-![Figura 17](images/2_Bibliometrix/Figura_18.png){width="662"}
+![Figura 16](images/2_Bibliometrix/Figura_18.png){width="662"}
 
 #### **Modulo** *Authors*
 
-En la sección **"Authors' Production over Time"** (Producción de los autores a lo largo del tiempo) se evidencia que los investigadores **Li X., Li Y. y Wang Y .** han mantenido una **producción científica constante** en los últimos años, alcanzando **picos destacados en 2020 y 2022** (Figura 18), lo que demuestra su papel central en el estudio de *Cordyceps militaris*. La gráfica muestra una **mayor concentración de publicaciones entre 2019 y 2024**, lo que refleja un **crecimiento sostenido y reciente de la investigación** en este campo. Otros autores, como **Vongsangnak W.**, **Zhang J.**, **Laoteng K.** y **Thanwisai R.**, presentan una participación **más intermitente**, aunque continúan contribuyendo activamente en colaboraciones científicas internacionales. En conjunto, la visualización confirma una **expansión continua de la productividad académica**, impulsada por investigadores consolidados y por el aumento del interés global en las aplicaciones biotecnológicas y farmacológicas del hongo *Cordyceps militaris* .
+En la sección **"Authors' Production over Time"** (Producción de los autores a lo largo del tiempo) se evidencia que los investigadores **Li X., Li Y. y Wang Y .** han mantenido una **producción científica constante** en los últimos años, alcanzando **picos destacados en 2020 y 2022** (Figura 17), lo que demuestra su papel central en el estudio de *Cordyceps militaris*. La gráfica muestra una **mayor concentración de publicaciones entre 2019 y 2024**, lo que refleja un **crecimiento sostenido y reciente de la investigación** en este campo. Otros autores, como **Vongsangnak W.**, **Zhang J.**, **Laoteng K.** y **Thanwisai R.**, presentan una participación **más intermitente**, aunque continúan contribuyendo activamente en colaboraciones científicas internacionales. En conjunto, la visualización confirma una **expansión continua de la productividad académica**, impulsada por investigadores consolidados y por el aumento del interés global en las aplicaciones biotecnológicas y farmacológicas del hongo *Cordyceps militaris* .
 
-![Figura 18](images/2_Bibliometrix/Figura_19.png)
+![Figura 17](images/2_Bibliometrix/Figura_19.png)
 
-Para el menú de *Authors* específicamente en: ***Countries' Scientific Production*** (traducido: Producción científica de los países), el mapa muestra la distribución geográfica de la producción científica (Figura 19). China es el país con mayor producción científica (azul oscuro); otros países con destacada producción científica entre los que se incluyen: Estados Unidos, Corea del Sur, Tailandia, Japón, India y varios países europeos y asiáticos (azul celeste). **Algunos países no presentan producción registrada y aparecen coloreados en gris.** En la tabla se observa que China lidera con 702 publicaciones, seguida por Corea del Sur con 212, Tailandia con 83, Japón con 50 e India con 39. Otros países con menor producción incluyen Estados Unidos con 9, Reino Unido con 8, Alemania con 7, Italia con 6 y Colombia con 5 .
+Para el menú de *Authors* específicamente en: ***Countries' Scientific Production*** (Producción científica de los países), el mapa muestra la distribución geográfica de la producción científica (Figura 18). China es el país con mayor producción científica (azul oscuro); otros países con destacada producción científica entre los que se incluyen: Estados Unidos, Corea del Sur, Tailandia, Japón, India y varios países europeos y asiáticos (azul celeste). **Algunos países no presentan producción registrada y aparecen coloreados en gris.** En la gráfica se observa que China lidera con 702 publicaciones, seguida por Corea del Sur con 212, Tailandia con 83, Japón con 50 e India con 39. Otros países con menor producción incluyen Estados Unidos con 9, Reino Unido con 8, Alemania con 7, Italia con 6 y Colombia con 5 .
 
-![Figura 19](images/2_Bibliometrix/Figura_20.png)
+![Figura 17](images/2_Bibliometrix/Figura_20.png)
 
 #### **Modulo** *Document*
 
 En la sección **"Most Frequent Words"** (Palabras más frecuentes) del modulo **Documents**, la visualización identifica los términos que aparecen con mayor recurrencia en la literatura científica sobre *Cordyceps militaris*. Las palabras **"Cordyceps"** y **"Cordycepin"** destacan con **196** y **187** menciones respectivamente, reflejando su relevancia central en los estudios del área. Otros términos con alta frecuencia son **"article"** (109), **"Cordyceps militaris"** (108), **"nonhuman"** (92), **"metabolism"** (79), **"deoxyadenosines"** (77), **"controlled study"** (76), **"deoxyadenosine derivative"** (65) y **"adenosine"** (64). En conjunto, esta distribución de palabras clave evidencia que la investigación reciente se concentra en los **aspectos bioquímicos y farmacológicos** del hongo, especialmente en torno a sus compuestos activos y su aplicación en estudios experimentales (Figura 19).
 
-![Figura 20](images/2_Bibliometrix/Figura_21.png)
+![Figura 19](images/2_Bibliometrix/Figura_21.png)
 
-En la sección **"Reference Spectroscopy"** (Espectroscopía de referencias) del modulo **Documents**, la visualización muestra la evolución temporal de las **referencias citadas** en estudios de espectroscopía. Antes de **1990**, las citas registradas son casi inexistentes, indicando una actividad investigativa limitada. A partir de **1995**, se observa una **tendencia ascendente constante**, que se intensifica de forma notable hacia **2005**, evidenciando un crecimiento sostenido en la producción científica y en el interés por la temática. El **pico máximo** se alcanza entre **2015 y 2020**, con más de **400 referencias citadas por año**, lo que refleja la consolidación de la espectroscopía como herramienta fundamental en el análisis de compuestos bioactivos, como los del *Cordyceps militaris*. Después de **2018**, se percibe una **disminución progresiva** en las citas, seguida de una **caída abrupta posterior a 2020**, atribuible al **rezago natural en la citación de estudios recientes**, los cuales aún no han tenido el tiempo suficiente para acumular referencias (Figura 21).
+En la sección **"Reference Spectroscopy"** (Espectroscopía de referencias) del modulo **Documents**, la visualización muestra la evolución temporal de las **referencias citadas** en estudios de espectroscopía. Antes de **1990**, las citas registradas son casi inexistentes, indicando una actividad investigativa limitada. A partir de **1995**, se observa una **tendencia ascendente constante**, que se intensifica de forma notable hacia **2005**, evidenciando un crecimiento sostenido en la producción científica y en el interés por la temática. El **pico máximo** se alcanza entre **2015 y 2020**, con más de **400 referencias citadas por año**, lo que refleja la consolidación de la espectroscopía como herramienta fundamental en el análisis de compuestos bioactivos, como los del *Cordyceps militaris*. Después de **2018**, se percibe una **disminución progresiva** en las citas, seguida de una **caída abrupta posterior a 2020**, atribuible al **rezago natural en la citación de estudios recientes**, los cuales aún no han tenido el tiempo suficiente para acumular referencias (Figura 20).
 
-![Figura 21](images/2_Bibliometrix/Figura_22.png)
+![Figura 20](images/2_Bibliometrix/Figura_22.png)
 
 #### Modulo **Clustering (Conceptual Structure)**
 
-Para el menú de *Conceptual Structure* concretamente en: ***Co-occurrence Network*** (traducido: Red de Coocurrencias), la red se encuentra claramente dividida en dos comunidades principales, identificadas por los colores rojo y azul. **La comunidad roja**, dominada por términos como cordycepin, Cordyceps militaris, metabolism y article, se orienta al estudio bioquímico y farmacológico del compuesto, mientras que **la comunidad azul** está asociada a modelos experimentales, destacando términos como animal experiment, human, mouse y cell line. Esta segmentación temática sugiere una dualidad en la línea de investigación: una centrada en la caracterización química y otra en los efectos biológicos en modelos preclínicos. El análisis de centralidad (como grado y betweenness) permitiría identificar términos puente como: nonhuman o controlled study, que conectan ambas comunidades (Figura 22).
+Para el menú de *Conceptual Structure* concretamente en: ***Co-occurrence Network*** (traducido: Red de Coocurrencias), la red se encuentra claramente dividida en dos comunidades principales, identificadas por los colores rojo y azul. **La comunidad roja**, dominada por términos como cordycepin, C*ordyceps militaris*, metabolism y article, se orienta al estudio bioquímico y farmacológico del compuesto, mientras que **la comunidad azul** está asociada a modelos experimentales, destacando términos como animal experiment, human, mouse y cell line. Esta segmentación temática sugiere una dualidad en la línea de investigación: una centrada en la caracterización química y otra en los efectos biológicos en modelos preclínicos. El análisis de centralidad (como grado y betweenness), permitiría identificar términos puente como: nonhuman o controlled study, que conectan ambas comunidades (Figura 21).
 
-![Figura 22](images/2_Bibliometrix/Figura_23.png)
+![Figura 21](images/2_Bibliometrix/Figura_23.png)
 
-En el menú **Conceptual Structure**, específicamente en la opción **Factorial Analysis**, se presenta una representación bidimensional de los términos más relevantes identificados en el corpus bibliográfico analizado. En el **eje X (Dim 1)**, que explica el **50,18% de la variabilidad**, se agrupan términos estrechamente relacionados con **estudios experimentales in vivo e in vitro**, tales como *in vitro study*, *mouse*, *animal tissue* y *protein expression*, ubicados en el cuadrante inferior derecho. Este agrupamiento sugiere una fuerte carga temática asociada a **investigaciones biomédicas y farmacológicas**. Por su parte, el **eje Y (Dim 2)**, que explica un **9,68% adicional de la variabilidad**, concentra términos como *transcriptome* y *carbon*, vinculados a **estudios genéticos y metabólicos**, los cuales se encuentran espacialmente separados del resto de la nube léxica.
+En el menú **Conceptual Structure**, específicamente en la opción **Factorial Analysis**, se presenta una gráfica bidimensional de los términos más relevantes identificados en el corpus bibliográfico analizado. En el **eje X (Dim 1)**, que explica el **50,18% de la variabilidad**, se agrupan términos estrechamente relacionados con **estudios experimentales in vivo e in vitro**, tales como *in vitro study*, *mouse*, *animal tissue* y *protein expression*, ubicados en el cuadrante inferior derecho. Este agrupamiento sugiere una fuerte carga temática asociada a **investigaciones biomédicas y farmacológicas**. Por su parte, el **eje Y (Dim 2)**, que explica un **9,68% adicional de la variabilidad**, concentra términos como *transcriptome* y *carbon*, vinculados a **estudios genéticos y metabólicos**, los cuales se encuentran espacialmente separados del resto de la nube léxica.
 
-Esta segmentación espacial evidencia la existencia de **subdominios temáticos diferenciados** dentro del campo de estudio de los *Cordyceps* y sus derivados, revelando un **enfoque dual**: uno orientado hacia la **bioquímica y biotecnología del hongo**, y otro centrado en los **ensayos experimentales en organismos modelo** (Figura 23).
+Esta segmentación espacial evidencia la existencia de **subdominios temáticos diferenciados** dentro del campo de estudio de los *Cordyceps* y sus derivados, revelando un **enfoque dual**: uno orientado hacia la **bioquímica y biotecnología del hongo**, y otro centrado en los **ensayos experimentales en organismos modelo** (Figura 22).
 
-![Figura 23](images/2_Bibliometrix/Figura_24.png)
+![Figura 22](images/2_Bibliometrix/Figura_24.png)
 
 #### **Social Structure**
 
-En **Social Structure**, específicamente en la opción **Collaboration Network**, se presenta un análisis basado en **redes de coautoría**, las cuales, según Aria y Cuccurullo (2017), permiten identificar **patrones de colaboración y productividad científica** entre los autores. En el contexto del estudio sobre *Cordyceps militaris*, la figura muestra una **red de colaboración entre investigadores**, donde **cada nodo representa un autor** y **las líneas o aristas** indican la existencia de coautoría en publicaciones científicas.
+En **Social Structure**, específicamente en la opción **Collaboration Network**, se presenta un análisis basado en **redes de coautoría**, las cuales, según [@Aria2017], permiten identificar **patrones de colaboración y productividad científica** entre los autores. En el contexto del estudio sobre *Cordyceps militaris*, la figura muestra una **red de colaboración entre investigadores**, donde **cada nodo representa un autor** y **las líneas o aristas** indican la existencia de coautoría en publicaciones científicas.
 
-Se observan **múltiples grupos o comunidades de colaboración**, diferenciados por colores, lo que evidencia la existencia de **subgrupos de investigadores que trabajan conjuntamente de manera frecuente**. Algunos nodos, como **Li X** y **Vongsangnak W**, presentan un tamaño mayor, reflejando su **alto grado de colaboración** y centralidad dentro de la red. En contraste, otros autores aparecen más aislados, mostrando **menor interacción o participación** en proyectos conjuntos. Esta visualización permite comprender la **estructura social de la producción científica** sobre *Cordyceps militaris*, destacando los núcleos de liderazgo académico y las conexiones internacionales o institucionales más activas (Figura 24).
+Se observan **múltiples grupos o comunidades de colaboración**, diferenciados por colores, lo que evidencia la existencia de **subgrupos de investigadores que trabajan conjuntamente de manera frecuente**. Algunos nodos, como **Li X** y **Vongsangnak W**, presentan un tamaño mayor, reflejando su **alto grado de colaboración** y centralidad dentro de la red. En contraste, otros autores aparecen más aislados, mostrando **menor interacción o participación** en proyectos conjuntos. Esta visualización permite comprender la **estructura social de la producción científica** sobre *Cordyceps militaris*, destacando los núcleos de liderazgo académico y las conexiones internacionales o institucionales más activas (Figura 23).
 
-![Figura 24](images/2_Bibliometrix/Figura_25.png)
+![Figura 23](images/2_Bibliometrix/Figura_25.png)
 
 En la subcategoría **Social Structure → Countries' Collaboration World Map**, se visualizan las **redes internacionales de colaboración científica** sobre *Cordyceps* y su compuesto activo *cordycepina*.\
-El color azul indica el volumen de publicaciones ---a mayor intensidad, mayor producción---, destacando **China** como el principal nodo y centro de cooperación. Las conexiones con **Estados Unidos, Alemania, Corea del Sur y Australia** evidencian un **patrón transcontinental de investigación**, que promueve la **transferencia de conocimiento y la consolidación de redes globales** en el estudio de hongos medicinales (Figura 25).
+El color azul indica el volumen de publicaciones ---a mayor intensidad, mayor producción---, destacando **China** como el principal nodo y centro de cooperación. Las conexiones con **Estados Unidos, Alemania, Corea del Sur y Australia** evidencian un **patrón transcontinental de investigación**, que promueve la **transferencia de conocimiento y la consolidación de redes globales** en el estudio de hongos medicinales (Figura 24).
 
-![Figura 25](images/2_Bibliometrix/Figura_26.png){width="668"}
+![Figura 24](images/2_Bibliometrix/Figura_26.png){width="668"}

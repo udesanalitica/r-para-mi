@@ -9,7 +9,7 @@ El software **R** es un entorno de programación especializado en análisis esta
 
 La instalación del software R y la interfaz **RStudio®** (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar **RStudio®** desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (Figura 1).
 
-![Figura 1.](images/1_Instalacion/Figura%201.png)
+![Figura 1](images/1_Instalacion/Figura%201.png)
 
 Ambos programas están disponibles para múltiples sistemas operativos, incluyendo Windows, macOS y Linux (Figura 2).
 
@@ -37,11 +37,11 @@ Para actualizar R, se debe descargar e instalar la nueva versión desde el sitio
 
 ## Paquetes Esenciales para el análisis de datos
 
-De **R** se destaca su gran variedad de paquetes especializados que amplían sus capacidades analíticas y gráficas. En el contexto de la **microbiología industrial**, estas librerías permiten gestionar, transformar y visualizar datos experimentales con precisión, favoreciendo la interpretación de resultados y la toma de decisiones basadas en evidencia. Es por ello que se presenta un inventario de los **paquetes más utilizados en el análisis de datos microbiológicos**.
+De **R** se destaca su gran variedad de paquetes especializados que amplían sus capacidades analíticas y gráficas. En el contexto de la **microbiología industrial**, estas librerías permiten gestionar, transformar y visualizar datos experimentales con precisión, favoreciendo la interpretación de resultados y la toma de decisiones basadas en evidencia. Es por ello, que se presenta un inventario de los **paquetes más utilizados en el análisis de datos microbiológicos**.
 
 ## Inventario de Librerías y Paquetes de R aplicados para el análisis de datos en Microbiología Industrial.
 
-El ecosistema de librerías y paquetes de R constituye una herramienta fundamental para el análisis de datos en microbiología industrial, proporcionando soluciones específicas para cada etapa del proceso investigativo, y en este contexto, las librerías básicas como:
+El ecosistema de librerías y paquetes de R, constituye una herramienta fundamental para el análisis de datos en Microbiología Industrial, proporcionando soluciones específicas para cada etapa del proceso investigativo, y en este contexto, las librerías básicas como:
 
 -   [***readxl***](https://readxl.tidyverse.org/), desarrollada por [@wickham2015], facilita la importación de datos desde hojas de cálculo Excel®, donde tradicionalmente los microbiólogos registran sus resultados experimentales.
 
