@@ -76,19 +76,19 @@ editor: visual
 
 En el campo de la [Microbiología Industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) y el diseño de experimentos, la integración de herramientas estadísticas constituye un desafío pedagógico fundamental que requiere estrategias innovadoras de enseñanza-aprendizaje, y como profesores de estas áreas de aprendizaje hemos identificado que los estudiantes experimentan dificultades significativas al establecer conexiones entre los conceptos estadísticos y los resultados experimentales microbiológicos.
 
-En respuesta a esta problemática, surge la propuesta del libro " Aplicaciones del Software RStudio® en la Microbiología Industrial ", diseñado específicamente para articular las áreas de: Diseño de Experimentos y la Microbiología Industrial con ayuda de RStudio®, utilizando a lo largo de contenido ejemplos concretos derivados de trabajos de grado y proyectos académicos desarrollados en la [Universidad de Santander - UDES](https://udes.edu.co/).
+En respuesta a esta problemática, surge la propuesta del libro "Aplicaciones del software RStudio® en la microbiología industrial", diseñado específicamente para articular las áreas de: Diseño de Experimentos y la Microbiología Industrial con ayuda de RStudio®, utilizando a lo largo del contenido ejemplos concretos derivados de trabajos de grado y proyectos académicos desarrollados en la [Universidad de Santander - UDES](https://udes.edu.co/).
 
-La obra integra además temas relacionados con Análisis Bibliométrico eInteligencia Artificial, reconociendo de este modo que la microbiología contemporánea demanda no solo competencias técnicas, sino adaptación de nuevas habilidades en una disciplina científica en constante evolución, contribuyendo de esta forma a la formación de profesionales capaces de afrontar los desafíos emergentes del campo de microbiológico industrial, tanto para el presente como su futuro profesional.
+La obra integra además temas relacionados con análisis bibliométrico e inteligencia artificial, reconociendo de este modo que la microbiología contemporánea demanda no solo competencias técnicas, sino adaptación de nuevas habilidades en una disciplina científica en constante evolución, contribuyendo de esta forma a la formación de profesionales capaces de afrontar los desafíos emergentes en el campo de la microbiología industrial, tanto para el presente como su futuro profesional.
 
 **Fredy Alejandro Ortiz Meneses**\
-*Curso Microbiología General y Microbiología II*
+*Curso de Microbiología General y Microbiología II*
 
 **Miguel Oswaldo Pérez Pulido**\
-*Curso Proyecto II -- Microbiología Industrial\
+*Curso de Proyecto II -- Microbiología Industrial\
 Maestría en Estadística Aplicada y Analítica de Datos*
 
 **Francisco Javier León**\
-*Curso Proyecto I -- Profesor de Microbiología Industrial\
+*Curso de Proyecto I -- Profesor de Microbiología Industrial\
 Maestría en Estadística Aplicada y Analítica de Datos*
 
 ::: callout-tip
@@ -98,7 +98,7 @@ La presente obra constituye nuestra contribución a la formación integral de lo
 :::
 
 ::: {.callout-note title="Para citar"}
-Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico* Universidad de Santander. Vicerrectoría de Enseñanza.<https://udesanalitica.github.io/r-para-mi/>. ISBN: . https://doi.org/10.5281/zenodo.XXXXX
+Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico.* Universidad de Santander. Vicerrectoría de Enseñanza.<https://udesanalitica.github.io/r-para-mi/> ISBN: . https://doi.org/10.5281/zenodo.XXXXX
 :::
 
 ``` bibtex

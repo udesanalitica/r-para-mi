@@ -15,7 +15,7 @@ Ambos programas están disponibles para múltiples sistemas operativos, incluyen
 
 ![Figura 2.](images/1_Instalacion/Figura%202.png)
 
-Del mismo modo se deben descarga de diferentes directorios llamadas CRAN (Comprehensive R Archive Network o Red integral de archivo R) (Figura 3).
+Del mismo modo se deben descargar de diferentes directorios llamados CRAN (*Comprehensive R Archive Network o Red integral de archivo R*) (Figura 3).
 
 ![Figura 3.](images/1_Instalacion/Figura%203.png)
 
@@ -23,11 +23,11 @@ Finalmente descargar la última versión de R para Windows (Figura 4).
 
 ![Figura 4.](images/1_Instalacion/Figura%204.png)
 
-Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz (Figura 5). Esta dividida en varias secciones, incluyendo: (i) el editor de código o Script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo: muestra los objetos y datos cargados en la sesión actual y las (iv) pestañas de archivos y gráficos: permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
+Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz (Figura 5). Está dividida en varias secciones, incluyendo: (i) el editor de código o Script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo: muestra los objetos y datos cargados en la sesión actual y las (iv) pestañas de archivos y gráficos: permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
 
 ![Figura 5](images/1_Instalacion/Figura%205.png)
 
-Además de la interfaz básica, RStudio® permite la instalación y gestión de paquetes adicionales que amplían sus funcionalidades; para instalar un paquete, se puede utilizar la función install.packages ("*nombre_del_paquete*") en la consola de RStudio®; una vez instalado, el paquete se puede cargar en la sesión actual utilizando la función library (nombre_del_paquete).
+Además de la interfaz básica, RStudio® permite la instalación y gestión de paquetes adicionales que amplían sus funcionalidades; para instalar un paquete, se puede utilizar la función install.packages ("nombre_del_paquete") en la consola de RStudio®; una vez instalado, el paquete se puede cargar en la sesión actual utilizando la función library (nombre_del_paquete).
 
 ::: callout-important
 Mantener R y RStudio® actualizados es clave para aprovechar las últimas mejoras, nuevas funcionalidades y correcciones de errores. Ambos programas notifican automáticamente cuando hay versiones más recientes disponibles, por lo que se recomienda estar atento a estos avisos y actualizar oportunamente.
@@ -47,7 +47,7 @@ El ecosistema de librerías y paquetes de R, constituye una herramienta fundamen
 
 -   [***car***](https://cran.r-project.org/web/packages/car/index.html) (Companion to Applied Regression), creada por [@Fox2019], ofrece herramientas esenciales para la verificación de supuestos estadísticos mediante gráficos QQ-plot, permitiendo evaluar la normalidad de los datos antes de aplicar pruebas paramétricas en experimentos de optimización de medios de cultivo y comparación de cepas microbianas.
 
-La revolución en el análisis de datos microbiológicos se materializa principalmente a través del librería [***tidyverse***](https://tidyverse.tidyverse.org/), desarrollado por [@Wickham2019], que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye los siguientes paquetes:
+La revolución en el análisis de datos microbiológicos se materializa principalmente a través de la librería [***tidyverse***](https://tidyverse.tidyverse.org/), desarrollado por [@Wickham2019], que integra múltiples librerías bajo una lógica común de programación, Este conjunto incluye los siguientes paquetes:
 
 -   [**ggplot2**](https://ggplot2.tidyverse.org/) , para visualización de datos.
 
@@ -81,9 +81,9 @@ Las aplicaciones especializadas en análisis multivariado y modelado avanzado co
 
 -   [***nlme***](https://fhernanb.github.io/libro_modelos_mixtos/pac-nlme.html) desarrollado por [@Pinheiro2025] ofrece capacidades para modelar datos longitudinales con estructura jerárquica, típicos de estudios de cinética microbiana.
 
--   [***Agricolae***](https://cran.r-project.org/web/packages/agricolae/index.html) facilita el diseño experimental[@Mendiburu2020].
+-   [***Agricolae***](https://cran.r-project.org/web/packages/agricolae/index.html) facilita el diseño experimental [@Mendiburu2020].
 
--   [***Shiny***](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) permite desarrollar aplicaciones web interactivas para visualización dinámica de resultados, mejorando la colaboración y transparencia en la investigación microbiológica industrial[@Chang2021].
+-   [***Shiny***](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) permite desarrollar aplicaciones web interactivas para visualización dinámica de resultados, mejorando la colaboración y transparencia en la investigación microbiológica industrial [@Chang2021].
 
 ## Paquetes del software R para Microbiología Industrial
 
@@ -97,7 +97,7 @@ El **diseño experimental** en microbiología industrial y ciencias naturales se
 
 -   El paquete *agricolae*, desarrollado por de [@Mendiburu2021]es utilizado para la implementación de diseños experimentales complejos como: bloques aleatorizados y diseños factoriales entre otros, al tiempo que frecuentemente son utilizados en estudios de optimización de medios de cultivo, condiciones de fermentación y producción de enzimas microbianas.
 
--   Complementariamente, [@Ritz2005] presentaron el paquete *drc* (Dose-Response Curves), que ha facilitado el análisis de **Curvas dosis-respuesta** en estudios de inhibición microbiana, pruebas de susceptibilidad a antimicrobianos y evaluación de compuestos bioactivos producidos por microorganismos, proporcionando herramientas estadísticas robustas para cuantificar y modelar respuestas biológicas a diferentes tratamientos, lo cual es fundamental en el desarrollo de nuevos productos biotecnológicos.
+-   Complementariamente, [@Ritz2005] presentaron el paquete *drc* (Dose-Response Curves), que ha facilitado el análisis de **curvas dosis-respuesta** en estudios de inhibición microbiana, pruebas de susceptibilidad a antimicrobianos y evaluación de compuestos bioactivos producidos por microorganismos, proporcionando herramientas estadísticas robustas para cuantificar y modelar respuestas biológicas a diferentes tratamientos, lo cual es fundamental en el desarrollo de nuevos productos biotecnológicos.
 
 -   El paquete *ggplot2* desarrollado por [@Wickham2016], el cual ha permitido la creación de gráficos altamente informativos que facilitan la interpretación de resultados experimentales; en particular, la representación gráfica de cinéticas de crecimiento microbiano, producción de metabolitos y análisis multivariantes se ha vuelto más accesible e intuitiva para investigadores en el campo.
 

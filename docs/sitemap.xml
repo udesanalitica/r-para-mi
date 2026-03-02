@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://udesanalitica.github.io/r-para-mi/index.html</loc>
-    <lastmod>2025-12-02T19:13:47.292Z</lastmod>
+    <loc>https://udesanalitica.github.io/r-para-mi/Chapter_02.html</loc>
+    <lastmod>2026-03-02T13:25:54.528Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/autores.html</loc>
-    <lastmod>2025-11-13T15:44:47.567Z</lastmod>
+    <lastmod>2026-03-02T13:00:37.628Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/agradecimientos.html</loc>
-    <lastmod>2025-10-08T15:59:58.834Z</lastmod>
+    <lastmod>2026-03-02T13:03:57.481Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/intro.html</loc>
-    <lastmod>2025-12-02T16:38:52.895Z</lastmod>
+    <lastmod>2026-03-02T13:05:23.554Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/Chapter_01.html</loc>
-    <lastmod>2025-12-10T18:11:22.495Z</lastmod>
-  </url>
-  <url>
-    <loc>https://udesanalitica.github.io/r-para-mi/Chapter_02.html</loc>
-    <lastmod>2025-12-10T12:37:35.809Z</lastmod>
+    <lastmod>2026-03-02T13:11:52.210Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/Chapter_03.html</loc>
-    <lastmod>2025-12-10T12:31:43.137Z</lastmod>
+    <lastmod>2026-03-02T13:28:34.809Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/Chapter_04.html</loc>
-    <lastmod>2025-12-10T12:41:43.892Z</lastmod>
+    <lastmod>2026-03-02T13:35:13.919Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/Chapter_05.html</loc>
-    <lastmod>2025-12-10T12:41:43.059Z</lastmod>
+    <lastmod>2026-03-02T14:12:12.938Z</lastmod>
   </url>
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/Chapter_06.html</loc>
@@ -43,17 +39,5 @@
   <url>
     <loc>https://udesanalitica.github.io/r-para-mi/references.html</loc>
     <lastmod>2025-10-07T19:51:11.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://udesanalitica.github.io/r-para-mi/R-para-Microbiología-Industrial--Análisis-de-Datos-y-Diseño-Experimental-con-un-Enfoque-Práctico.pdf</loc>
-    <lastmod>2025-12-10T20:32:34.953Z</lastmod>
-  </url>
-  <url>
-    <loc>https://udesanalitica.github.io/r-para-mi/R-para-Microbiología-Industrial--Análisis-de-Datos-y-Diseño-Experimental-con-un-Enfoque-Práctico.docx</loc>
-    <lastmod>2025-12-10T20:32:40.182Z</lastmod>
-  </url>
-  <url>
-    <loc>https://udesanalitica.github.io/r-para-mi/R-para-Microbiología-Industrial--Análisis-de-Datos-y-Diseño-Experimental-con-un-Enfoque-Práctico.epub</loc>
-    <lastmod>2025-12-10T20:32:44.832Z</lastmod>
   </url>
 </urlset>

@@ -82,18 +82,18 @@ Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evalu
 
 La base de datos utilizada en este análisis corresponde a los resultados de un experimento agrícola que evalúa el comportamiento de cuatro cultivos diferentes bajo condiciones similares de manejo. La tabla contiene tres columnas principales:
 
-| Variable      | Descripción                                                                                         |
-|-----------------------|-------------------------------------------------|
-| `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz.                      |
-| `Repetición`  | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
-| `Resultado`   | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha).  |
+| Variable | Descripción |
+|-----------------------|------------------------------------------------|
+| `Tratamiento` | Tipo de cultivo evaluado. Incluye cuatro niveles: Arroz, Avena, Cebada y Maíz. |
+| `Repetición` | Número de repetición del tratamiento (del 1 al 4). Permite el análisis estadístico con replicación. |
+| `Resultado` | Valor numérico correspondiente a la variable respuesta medida (por ejemplo, rendimiento en kg/ha). |
 
 **Pasos para trabajar con R:**
 
 Especificar el directorio que me interesa donde se encuentra la base de datos.
 
 ::: callout-tip
-**Antes e inciar:** R lee / (slash o division) y no el de Windows \\
+**Antes de inciar:** R lee / (slash o división) y no el de Windows \\
 
 En **R**, `setwd()` es una función que significa **"set working directory"** o "establecer el directorio de trabajo". Se utiliza para **definir la carpeta predeterminada** en la que R buscará archivos para leer y donde guardará archivos por defecto.\
 
@@ -198,7 +198,7 @@ Se toma el Tratamiento para hacer un boxplot utilizando la variable "Resultado",
 ```{r, message=FALSE,}
 library(ggplot2)
 
-DCA$Treatamiento<-factor(DCA$Tratamiento) #transformamos una variable númerica en un factor categórico
+DCA$Tratamiento<-factor(DCA$Tratamiento) #transformamos una variable númerica en un factor categórico
 ggplot(DCA, aes(x = Tratamiento, y = Resultado, fill=Tratamiento)) + 
   geom_boxplot()
 ```
@@ -242,7 +242,7 @@ library(purrr)
 qqPlot(modeloDCA)
 ```
 
-**Interpretación:** El gráfico QQ muestra que los residuos estandarizados del modelo ANOVA se alinean adecuadamente con la línea diagonal, lo que indica que su distribución es aproximadamente normal. La mayoría de los puntos se ubican dentro de la banda de confianza, y no se observan desviaciones sistemáticas. Esta gráfica complementa el resultado del test de Shapiro-Wilk (p = 0.959), confirmando que se cumple el supuesto de normalidad de los residuos en el modelo.
+**Interpretación:** El gráfico QQ muestra que los residuos estandarizados del modelo ANOVA se alinean adecuadamente con la línea diagonal, lo que indica que su distribución es aproximadamente normal. La mayoría de los puntos se ubican dentro de la banda de confianza, y no se observan desviaciones sistemáticas. Esta gráfica complementa el resultado del test de Shapiro-Wilks (p = 0.959), confirmando que se cumple el supuesto de normalidad de los residuos en el modelo.
 
 ### **Homocedasticidad**
 

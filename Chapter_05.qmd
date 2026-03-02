@@ -45,12 +45,12 @@ De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaci
 
 ### Tabla ANOVA para un diseño en bloques completos al azar
 
-| Fuente de variabilidad | Suma de cuadrados | Grados de libertad | Cuadrado medio | Estadístico F                  | Valor-p      |
+| Fuente de variabilidad | Suma de cuadrados | Grados de libertad | Cuadrado medio | Estadístico F | Valor-p |
 |------------|------------|------------|------------|------------|------------|
-| Tratamientos           | SCTRAT            | $k - 1$            | CMTRAT         | $F_0 = \frac{CM_{TRAT}}{CM_E}$ | $P(F > F_0)$ |
-| Bloques                | SCB               | $b - 1$            | CMB            | $F_0 = \frac{CM_{B}}{CM_E}$    | $P(F > F_0)$ |
-| Error                  | SCE               | $(k - 1)(b - 1)$   | CME            | ---                            | ---          |
-| Total                  | SCT               | $kb - 1$           | ---            | ---                            | ---          |
+| Tratamientos | SCTRAT | $k - 1$ | CMTRAT | $F_0 = \frac{CM_{TRAT}}{CM_E}$ | $P(F > F_0)$ |
+| Bloques | SCB | $b - 1$ | CMB | $F_0 = \frac{CM_{B}}{CM_E}$ | $P(F > F_0)$ |
+| Error | SCE | $(k - 1)(b - 1)$ | CME | --- | --- |
+| Total | SCT | $kb - 1$ | --- | --- | --- |
 
 Nota: SC: Suma de cuadrados, CM: Cuadrado medio.
 
@@ -65,7 +65,7 @@ Por ello, resulta necesario **evaluar la respuesta del frijol frente a diferente
 
 ![Figura 30 *Phaseolus vulgaris*](images/4_DBCA/DBCA_frijol.png){width="326"}
 
-Imagen suminitrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
+Imagen suministrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
 :::
 
 ## Estructura de la base de datos
@@ -79,11 +79,11 @@ El parámetro evaluado, denominado **Resultado**, corresponde a una variable cua
 El diseño experimental corresponde a un **Diseño de Bloques Completamente al Azar (DBCA)**, en el cual se evaluaron diferentes tratamientos de fertilización en plantas de frijol (*Phaseolus vulgaris*).\
 Los bloques representan unidades experimentales homogéneas, y la variable de respuesta cuantifica el efecto del tratamiento sobre el crecimiento o bioacumulación.
 
-|                 | Tipo de variable      | Descripción                                                                                                                                              |
+|   | Tipo de variable | Descripción |
 |:------------------|:------------------|:---------------------------------|
-| **Tratamiento** | Cualitativa nominal   | Incluye los diferentes niveles de fertilización, como *NPK Comercial*, *NPK + Bioinoculante*, *Orgánico + NPK (50:50)*, entre otros.                     |
-| **Bloque**      | Cualitativa nominal   | Factor de bloqueo que agrupa las unidades experimentales bajo condiciones similares. Se identifican con letras (A, B, C, ...).                           |
-| **Resultado**   | Cuantitativa continua | Variable de respuesta que representa la medición obtenida (por ejemplo: altura, biomasa, concentración de metal, etc.), expresada con valores decimales. |
+| **Tratamiento** | Cualitativa nominal | Incluye los diferentes niveles de fertilización, como *NPK Comercial*, *NPK + Bioinoculante*, *Orgánico + NPK (50:50)*, entre otros. |
+| **Bloque** | Cualitativa nominal | Factor de bloqueo que agrupa las unidades experimentales bajo condiciones similares. Se identifican con letras (A, B, C, ...). |
+| **Resultado** | Cuantitativa continua | Variable de respuesta que representa la medición obtenida (por ejemplo: altura, biomasa, concentración de metal, etc.), expresada con valores decimales. |
 
 ### Instalar Paquetes (solo una vez)
 
@@ -178,7 +178,7 @@ res <- residuals(modeloDBCA)
 shapiro.test(res)
 ```
 
-**Interpretación:** La hipótesis nula de *Shapiro--Wilk* es que los datos provienen de una distribución normal , al tiempo que el  p-value = 0.9725 es  ≥ que 0.05, no hay evidencia para rechazar la normalidad, es por ello por lo que los residuos pueden considerarse normalmente distribuidos, lo cual respalda el supuesto de normalidad necesario para ANOVA.
+**Interpretación:** La hipótesis nula de *Shapiro--Wilk* es que los datos provienen de una distribución normal , al tiempo que el p-value = 0.9725 es ≥ que 0.05, no hay evidencia para rechazar la normalidad, es por ello por lo que los residuos pueden considerarse normalmente distribuidos, lo cual respalda el supuesto de normalidad necesario para ANOVA.
 
 **Gráfico Q-Q de los residuos estandarizados**
 
@@ -196,7 +196,7 @@ car::leveneTest(Resultado ~ Tratamiento, data = DBCA)
 fligner.test(Resultado ~ Tratamiento, data = DBCA)
 ```
 
-**Interpretación:** La hipótesis nula de *Bartlett* es que las varianzas entre los grupos son iguales, y como el *p-valor* =0.059 es ≥ 0.05, no se rechaza la hipótesis nula; no se rechaza la homogeneidad de varianzas, aunque está cerca del umbral. Esto sugiere que los datos cumplen razonablemente el supuesto de homocedasticidad, pero con un margen ajustado.
+**Interpretación:** La hipótesis nula de *Bartlett* es que las varianzas entre los grupos son iguales, y como el *p-valor* = 0.059 es ≥ 0.05, no se rechaza la hipótesis nula; no se rechaza la homogeneidad de varianzas, aunque está cerca del umbral. Esto sugiere que los datos cumplen razonablemente el supuesto de homocedasticidad, pero con un margen ajustado.
 
 ### Gráfico de Residuos vs. Valores Ajustados
 
