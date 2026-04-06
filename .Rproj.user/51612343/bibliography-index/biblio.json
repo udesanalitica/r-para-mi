@@ -1,30 +1,6 @@
 {
     "sources": [
         {
-            "DOI": "10.1093/comjnl/27.2.97",
-            "URL": "https://doi.org/10.1093/comjnl/27.2.97",
-            "author": [
-                {
-                    "family": "Knuth",
-                    "given": "Donald E."
-                }
-            ],
-            "container-title": "The Computer Journal",
-            "id": "knuth84",
-            "issue": "2",
-            "issued": {
-                "date-parts": [
-                    [
-                        1984
-                    ]
-                ]
-            },
-            "page": "97—111",
-            "title": "Literate programming",
-            "type": "article-journal",
-            "volume": "27"
-        },
-        {
             "DOI": "10.1126/science.1213847",
             "URL": "https://www.science.org/doi/abs/10.1126/science.1213847",
             "author": [

@@ -1,0 +1,3854 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  spanish,
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico},
+  pdfauthor={Fredy Ortiz; Miguel Pérez; Francisco León},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{R para Microbiología Industrial: Análisis de Datos y Diseño
+Experimental con un Enfoque Práctico}
+\author{Fredy Ortiz \and Miguel Pérez \and Francisco León}
+\date{2025-05-05}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Tabla de contenidos}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Prefacio}\label{prefacio}
+\addcontentsline{toc}{chapter}{Prefacio}
+
+\markboth{Prefacio}{Prefacio}
+
+``R para Microbiología Industrial: Análisis de Datos y Diseño
+Experimental con un Enfoque Práctico''
+
+En el campo de la
+\href{https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial}{Microbiología
+Industrial} y el diseño de experimentos, la integración de herramientas
+estadísticas constituye un desafío pedagógico fundamental que requiere
+estrategias innovadoras de enseñanza-aprendizaje, y como profesores de
+estas áreas de aprendizaje hemos identificado que los estudiantes
+experimentan dificultades significativas al establecer conexiones entre
+los conceptos estadísticos y los resultados experimentales
+microbiológicos.
+
+En respuesta a esta problemática, surge la propuesta del libro
+``Aplicaciones del software RStudio® en la microbiología industrial'',
+diseñado específicamente para articular las áreas de: Diseño de
+Experimentos y la Microbiología Industrial con ayuda de RStudio®,
+utilizando a lo largo del contenido ejemplos concretos derivados de
+trabajos de grado y proyectos académicos desarrollados en la
+\href{https://udes.edu.co/}{Universidad de Santander - UDES}.
+
+La obra integra además temas relacionados con análisis bibliométrico e
+inteligencia artificial, reconociendo de este modo que la microbiología
+contemporánea demanda no solo competencias técnicas, sino adaptación de
+nuevas habilidades en una disciplina científica en constante evolución,
+contribuyendo de esta forma a la formación de profesionales capaces de
+afrontar los desafíos emergentes en el campo de la microbiología
+industrial, tanto para el presente como su futuro profesional.
+
+\textbf{Fredy Alejandro Ortiz Meneses}\\
+\emph{Curso de Microbiología General y Microbiología II}
+
+\textbf{Miguel Oswaldo Pérez Pulido}\\
+\emph{Curso de Proyecto II -- Microbiología Industrial\\
+Maestría en Estadística Aplicada y Analítica de Datos}
+
+\textbf{Francisco Javier León}\\
+\emph{Curso de Proyecto I -- Profesor de Microbiología Industrial\\
+Maestría en Estadística Aplicada y Analítica de Datos}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Lo que significa este libro}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+La presente obra constituye nuestra contribución a la formación integral
+de los Microbiólogos Industriales en su desarrollo como científicos.
+Esperamos que su contenido no solo fortalezca su experiencia académica,
+sino que además les provea de las competencias prácticas indispensables
+para afrontar los desafíos contemporáneos y futuros del ámbito
+profesional.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, colframe=quarto-callout-note-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Para citar}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+Ortiz, F., Pérez, M., y León, F. (2025). \emph{R para Microbiología
+Industrial: Análisis de Datos y Diseño Experimental con un Enfoque
+Práctico.} Universidad de Santander. Vicerrectoría de
+Enseñanza.\url{https://udesanalitica.github.io/r-para-mi/} ISBN: .
+https://doi.org/10.5281/zenodo.XXXXX
+
+\end{tcolorbox}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{@ebook \{OrtizPerezLeon2025,}
+\CommentTok{  author = \{Ortiz, F., Pérez, M., y León, F.\},}
+\CommentTok{  title = \{R para Microbiología Industrial: Análisis de Datos y }
+\CommentTok{  Diseño Experimental con un Enfoque Práctico\},}
+\CommentTok{  institution = \{Universidad de Santander (UDES)\},}
+\CommentTok{  year = \{2025\},}
+\CommentTok{  note = \{Vicerrectoría de Enseñanza\},}
+\CommentTok{  url = \{\textbackslash{}url\{https://udesanalitica.github.io/r{-}para{-}mi/\}\},}
+\CommentTok{  type = \{e{-}book\},}
+\CommentTok{  doi = \{10.5281/zenodo.XXXXX\},}
+\CommentTok{  isbn = \{\}}
+\CommentTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, colframe=quarto-callout-note-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Derechos de Autor}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+Universidad de Santander (UDES)\\
+Calle 70 \#N° 55-210\\
+Bucaramanga, Santander, Colombia\\
+\url{https://www.udes.edu.co/}
+
+\end{tcolorbox}
+
+\bookmarksetup{startatroot}
+
+\chapter{Autores}\label{autores}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+\includegraphics[width=1.55208in,height=\textheight,keepaspectratio]{images/Autores/FAOM.png}
+
+\section[Fredy Alejandro Ortiz Meneses ]{\texorpdfstring{Fredy Alejandro
+Ortiz Meneses
+\protect\includegraphics[width=0.23958in,height=0.28125in]{images/Logos/orcid.png}}{Fredy Alejandro Ortiz Meneses }}\label{fredy-alejandro-ortiz-meneses}
+
+Microbiólogo con énfasis en alimentos, especialista en pedagogía y
+didácticas específicas y magíster en fitopatología. Vinculado a la
+Universidad de Santander (UDES) desde 2016, como profesor de los cursos
+de microbiología II y microbiología general del programa de
+Microbiología Industrial. Es investigador júnior reconocido por
+MinCiencias en la convocatoria 957 del 2024 y miembro del grupo de
+investigación MICROBIOTA.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+\includegraphics[width=1.55208in,height=\textheight,keepaspectratio]{images/Autores/MOPP.jpg}
+
+\section[Miguel Oswaldo Pérez Pulido ]{\texorpdfstring{Miguel Oswaldo
+Pérez Pulido
+\protect\includegraphics[width=0.27083in,height=0.29167in]{images/Logos/orcid.png}}{Miguel Oswaldo Pérez Pulido }}\label{miguel-oswaldo-puxe9rez-pulido}
+
+Licenciado en matemáticas y magíster en estadística. Actualmente se
+desempeña como Director de Analítica Académica, adscrito a la
+Vicerrectoría de Enseñanza. Está vinculado a la Universidad de Santander
+(UDES) desde 2011, donde ha sido docente en programas de pregrado y
+posgrado de la Facultad de Ciencias Exactas, Naturales y Agropecuarias.
+Es investigador asociado reconocido por MinCiencias en la convocatoria
+957 de 2024 y miembro del grupo de investigación CIBAS.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+\includegraphics[width=1.55208in,height=\textheight,keepaspectratio]{images/Autores/FJL.jpg}
+
+\section[Francisco Javier León ]{\texorpdfstring{Francisco Javier León
+\protect\includegraphics[width=0.27083in,height=0.29167in]{images/Logos/orcid.png}}{Francisco Javier León }}\label{francisco-javier-leuxf3n}
+
+Bacteriólogo y laboratorista clínico, con formación avanzada como
+magíster en estadística aplicada, Magíster en ciencias básicas
+biomédicas y especialista en educación con nuevas tecnologías. Está
+vinculado a la Universidad de Santander (UDES) desde 2007, donde ha sido
+docente en la Facultad de Ciencias Exactas, Naturales y Agropecuarias.
+Actualmente, se desempeña como Coordinador de Analítica Académica,
+adscrito a la Vicerrectoría de Enseñanza. Es investigador júnior
+reconocido por MinCiencias en la convocatoria 957 de 2024 y miembro del
+grupo de investigación CIBAS.
+
+\end{tcolorbox}
+
+\bookmarksetup{startatroot}
+
+\chapter{Agradecimientos}\label{agradecimientos}
+
+En primer lugar, queremos expresar nuestro más sincero agradecimiento a
+todos los estudiantes y profesores del programa de microbiología que, a
+lo largo del tiempo, han compartido con nosotros sus inquietudes y retos
+al intentar conectar el análisis estadístico con la microbiología
+industrial.
+
+Nuestro agradecimiento se extiende a los colegas académicos,
+especialmente a los profesores: Christian Andrey Chacín Zambrano y
+Daniel Adyro Martínez; y a los estudiantes graduados que generosamente
+compartieron sus experiencias y bases de datos, provenientes de
+importantes experimentos académicos. Sus aportes han sido fundamentales
+para dar vida a este manual y hacerlo relevante y aplicable a
+situaciones reales dentro del contexto de la microbiología industrial.
+
+Asimismo, manifestamos gratitud a Robert Gentleman y Ross Ihaka,
+creadores del software R, así como a todos los colaboradores de la
+comunidad de R y RStudio®. Gracias a esta inciativa hemos encontrado que
+estas herramientas se han mantenido accesibles para la comunidad
+científica.
+
+A la Universidad de Santander (UDES) y a su Departamento de Desarrollo
+Profesoral, por la apertura de la Convocatoria Interna
+\textbf{Producción de Material Profesoral (2025)}, gracias a esta
+iniciativa, hemos encontrado un espacio de apoyo institucional que
+valora la producción material educativo de calidad, gracias a ello, nos
+sentimos motivados a seguir desarrollando herramientas que fortalezcan
+una enseñanza efectiva en los campos de la Microbiología Industrial y la
+Estadística Aplicada.
+
+\bookmarksetup{startatroot}
+
+\chapter{Introducción}\label{introducciuxf3n}
+
+En el ámbito de la \textbf{microbiología industrial y las ciencias
+naturales}, los requerimientos analíticos varían según el tipo de
+experimento y los objetivos de investigación. En este contexto,
+\textbf{R} y su entorno integrado \textbf{RStudio®} se han consolidado
+como herramientas fundamentales para el manejo, análisis e
+interpretación de datos. Su amplia comunidad de usuarios proporciona
+soporte constante y recursos actualizados, mientras que la extensa
+disponibilidad de \textbf{paquetes especializados} permite realizar
+análisis complejos con precisión, eficiencia y reproducibilidad (Wickham
+\& Grolemund, 2017).
+
+La combinación de estas características convierte a R en una herramienta
+idónea para el \textbf{análisis de datos experimentales}, el
+\textbf{diseño de experimentos} y la \textbf{optimización de procesos
+biotecnológicos}, aspectos esenciales dentro de la microbiología
+aplicada e industrial.
+
+Este libro ofrece una \textbf{guía integral} orientada al uso práctico
+de R en el análisis de datos experimentales, con énfasis en la
+aplicación de métodos estadísticos dentro del contexto biotecnológico.
+La obra está organizada de manera que el lector pueda avanzar
+progresivamente desde los fundamentos del entorno R hasta la
+implementación de diseños experimentales con datos reales.
+
+En el \textbf{Capítulo 1}, se introduce el software R y la interfaz
+RStudio®, abordando su instalación, configuración y principales
+características. El \textbf{Capítulo 2} presenta un análisis
+bibliométrico que permite comprender el crecimiento y relevancia del uso
+de R en la gestión del diseño experimental y la investigación
+microbiológica.
+
+El \textbf{Capítulo 3} desarrolla las \textbf{generalidades del diseño
+experimental}, revisando los principios fundamentales, los factores de
+variación y la estructura básica de un experimento correctamente
+planificado.\\
+Posteriormente, el \textbf{Capítulo 4} describe el \textbf{Diseño
+Completamente al Azar (DCA)}, aplicado a experimentos con una sola
+fuente de variación, mientras que el \textbf{Capítulo 5} aborda el
+\textbf{Diseño de Bloques Completamente al Azar (DBCA)}, donde se
+controla la variabilidad experimental a través del uso de bloques.
+
+Finalmente, el \textbf{Capítulo 6} explora el \textbf{uso de la
+inteligencia artificial y la simulación de datos} como herramientas
+emergentes para la modelación y análisis de fenómenos microbiológicos,
+mostrando cómo los métodos computacionales modernos pueden complementar
+los enfoques tradicionales de la estadística experimental.
+
+El libro busca fortalecer las \textbf{competencias analíticas,
+estadísticas y computacionales} de los estudiantes, investigadores y
+profesionales de la microbiología industrial, promoviendo una
+integración efectiva entre la estadística aplicada, la experimentación
+biotecnológica y el análisis de datos reproducible.
+
+\bookmarksetup{startatroot}
+
+\chapter{Capítulo 1. Introducción al software R y la interfaz
+RStudio}\label{capuxedtulo-1.-introducciuxf3n-al-software-r-y-la-interfaz-rstudio}
+
+El software \textbf{R} es un entorno de programación especializado en
+análisis estadístico, visualización de datos y modelado científico,
+ampliamente utilizado en la investigación y la industria. Su integración
+con \textbf{RStudio®}, una interfaz de desarrollo amigable y versátil,
+facilita la escritura de código, la gestión de proyectos y la
+interpretación de resultados. A continuación, se describe el proceso de
+\textbf{instalación y configuración} del software \textbf{R} y de la
+interfaz \textbf{RStudio®}, así como los pasos iniciales para
+familiarizarse con sus principales componentes y herramientas de
+
+\section{Instalación y
+configuración}\label{instalaciuxf3n-y-configuraciuxf3n}
+
+La instalación del software R y la interfaz \textbf{RStudio®} (ahora
+llamado \emph{Posit RStudio®}) es un proceso sencillo que puede
+completarse en unos pocos pasos; primero, se debe descargar e instalar R
+desde el sitio web oficial del Proyecto R
+(\hyperref[0]{https://www.r-project.org}); una vez instalado R, se puede
+proceder a descargar e instalar \textbf{RStudio®} desde su sitio web
+(\hyperref[0]{https://posit.co/download/rstudio-desktop/}) (Figura 1).
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/1_Instalacion/Figura 1.png}}
+
+Ambos programas están disponibles para múltiples sistemas operativos,
+incluyendo Windows, macOS y Linux (Figura 2).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/1_Instalacion/Figura 2.png}}
+
+}
+
+\caption{Figura 2.}
+
+\end{figure}%
+
+Del mismo modo se deben descargar de diferentes directorios llamados
+CRAN (\emph{Comprehensive R Archive Network o Red integral de archivo
+R}) (Figura 3).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/1_Instalacion/Figura 3.png}}
+
+}
+
+\caption{Figura 3.}
+
+\end{figure}%
+
+Finalmente descargar la última versión de R para Windows (Figura 4).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/1_Instalacion/Figura 4.png}}
+
+}
+
+\caption{Figura 4.}
+
+\end{figure}%
+
+Una vez instalados R y RStudio®, es importante familiarizarse con la
+interfaz (Figura 5). Está dividida en varias secciones, incluyendo: (i)
+el editor de código o Script, el cual permite escribir y editar las
+instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar
+comandos interactivos; (iii) el entorno de trabajo: muestra los objetos
+y datos cargados en la sesión actual y las (iv) pestañas de archivos y
+gráficos: permiten gestionar archivos y visualizar gráficos generados
+por R (R Core Team, 2021).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/1_Instalacion/Figura 5.png}}
+
+}
+
+\caption{Figura 5}
+
+\end{figure}%
+
+Además de la interfaz básica, RStudio® permite la instalación y gestión
+de paquetes adicionales que amplían sus funcionalidades; para instalar
+un paquete, se puede utilizar la función install.packages
+(``nombre\_del\_paquete'') en la consola de RStudio®; una vez instalado,
+el paquete se puede cargar en la sesión actual utilizando la función
+library (nombre\_del\_paquete).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, colframe=quarto-callout-important-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Importante}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+Mantener R y RStudio® actualizados es clave para aprovechar las últimas
+mejoras, nuevas funcionalidades y correcciones de errores. Ambos
+programas notifican automáticamente cuando hay versiones más recientes
+disponibles, por lo que se recomienda estar atento a estos avisos y
+actualizar oportunamente.
+
+\end{tcolorbox}
+
+Para actualizar R, se debe descargar e instalar la nueva versión desde
+el sitio web del Proyecto R; para actualizar RStudio®, se puede utilizar
+la opción de actualización en el menú de ayuda de RStudio®; mantener el
+software actualizado garantiza un rendimiento óptimo y acceso a las
+últimas funcionalidades (R Core Team, 2021) (R Core Team, 2023; RStudio
+Team, 2023).
+
+\section{Paquetes Esenciales para el análisis de
+datos}\label{paquetes-esenciales-para-el-anuxe1lisis-de-datos}
+
+De \textbf{R} se destaca su gran variedad de paquetes especializados que
+amplían sus capacidades analíticas y gráficas. En el contexto de la
+\textbf{microbiología industrial}, estas librerías permiten gestionar,
+transformar y visualizar datos experimentales con precisión,
+favoreciendo la interpretación de resultados y la toma de decisiones
+basadas en evidencia. Es por ello, que se presenta un inventario de los
+\textbf{paquetes más utilizados en el análisis de datos
+microbiológicos}.
+
+\section{Inventario de Librerías y Paquetes de R aplicados para el
+análisis de datos en Microbiología
+Industrial.}\label{inventario-de-libreruxedas-y-paquetes-de-r-aplicados-para-el-anuxe1lisis-de-datos-en-microbiologuxeda-industrial.}
+
+El ecosistema de librerías y paquetes de R, constituye una herramienta
+fundamental para el análisis de datos en Microbiología Industrial,
+proporcionando soluciones específicas para cada etapa del proceso
+investigativo, y en este contexto, las librerías básicas como:
+
+\begin{itemize}
+\item
+  \href{https://readxl.tidyverse.org/}{\textbf{\emph{readxl}}},
+  desarrollada por (Wickham \& Bryan, 2015), facilita la importación de
+  datos desde hojas de cálculo Excel®, donde tradicionalmente los
+  microbiólogos registran sus resultados experimentales.
+\item
+  \href{https://cran.r-project.org/web/packages/car/index.html}{\textbf{\emph{car}}}
+  (Companion to Applied Regression), creada por (Fox \& Weisberg, 2019),
+  ofrece herramientas esenciales para la verificación de supuestos
+  estadísticos mediante gráficos QQ-plot, permitiendo evaluar la
+  normalidad de los datos antes de aplicar pruebas paramétricas en
+  experimentos de optimización de medios de cultivo y comparación de
+  cepas microbianas.
+\end{itemize}
+
+La revolución en el análisis de datos microbiológicos se materializa
+principalmente a través de la librería
+\href{https://tidyverse.tidyverse.org/}{\textbf{\emph{tidyverse}}},
+desarrollado por (Wickham et~al., 2019), que integra múltiples librerías
+bajo una lógica común de programación, Este conjunto incluye los
+siguientes paquetes:
+
+\begin{itemize}
+\item
+  \href{https://ggplot2.tidyverse.org/}{\textbf{ggplot2}} , para
+  visualización de datos.
+\item
+  \href{https://dplyr.tidyverse.org/}{\textbf{dplyr}} , para
+  manipulación de datos.
+\item
+  \href{https://tidyr.tidyverse.org/}{\textbf{tidyr}} , para ordenar
+  datos.
+\item
+  \href{https://readr.tidyverse.org/}{\textbf{readr}} , para importar
+  datos.
+\item
+  \href{https://purrr.tidyverse.org/}{\textbf{purrr}} , para
+  programación funcional.
+\item
+  \href{https://tibble.tidyverse.org/}{\textbf{tibble}} , para tibbles,
+  una reinvención moderna de los marcos de datos.
+\item
+  \href{https://github.com/tidyverse/stringr}{\textbf{stringr}} , para
+  cadenas.
+\item
+  \href{https://github.com/tidyverse/forcats}{\textbf{forcats}} , para
+  factores.
+\item
+  \href{https://github.com/tidyverse/lubridate}{\textbf{lubridate}} ,
+  para fecha/hora.
+\end{itemize}
+
+Los análisis se enriquecen, considerablemente con librerías
+especializadas que abordan necesidades específicas de la investigación
+microbiológica industrial, y tal es el caso de:
+
+\begin{itemize}
+\item
+  \href{https://cran.r-project.org/web/packages/gridExtra/index.html}{\textbf{\emph{gridExtra}}},
+  desarrollada por (Auguie, 2017), la cual facilita la organización de
+  múltiples gráficos en una sola visualización, permitiendo
+  comparaciones efectivas entre diferentes condiciones experimentales.
+\item
+  \href{https://cran.r-project.org/web/packages/lsr/index.html}{\textbf{\emph{lsr}}}
+  (Learning Statistics with R), creada por (Navarro, 2015) proporciona
+  funciones accesibles para análisis estadísticos fundamentales como
+  pruebas t, ANOVA y cálculos de tamaño del efecto;
+\item
+  \href{https://www.bibliometrix.org/home/}{\textbf{Bibliometrix}},
+  desarrollado por (Aria \& Cuccurullo, 2017) permite realizar análisis
+  bibliométrico de publicaciones científicas, identificando tendencias
+  emergentes y redes de colaboración que orientan nuevas
+  investigaciones.
+\end{itemize}
+
+Las aplicaciones especializadas en análisis multivariado y modelado
+avanzado complementan este inventario tecnológico, y es donde converge:
+
+\begin{itemize}
+\item
+  \href{https://cran.r-project.org/web/packages/vegan/index.html}{\textbf{\emph{vegan}}},
+  desarrollada por (Oksanen et~al., 2020), la cual proporciona
+  proporciona herramientas para análisis de diversidad ecológica
+  mediante técnicas como PCA (Análisis de Componentes Principales), NMDS
+  (Escalamiento Multidimensional No Métric) permitiendo visualizar
+  relaciones complejas entre comunidades microbianas y variables
+  ambientales en procesos industriales.
+\item
+  \href{https://fhernanb.github.io/libro_modelos_mixtos/pac-nlme.html}{\textbf{\emph{nlme}}}
+  desarrollado por (Pinheiro et~al., 2025) ofrece capacidades para
+  modelar datos longitudinales con estructura jerárquica, típicos de
+  estudios de cinética microbiana.
+\item
+  \href{https://cran.r-project.org/web/packages/agricolae/index.html}{\textbf{\emph{Agricolae}}}
+  facilita el diseño experimental (Mendiburu, 2020).
+\item
+  \href{https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/}{\textbf{\emph{Shiny}}}
+  permite desarrollar aplicaciones web interactivas para visualización
+  dinámica de resultados, mejorando la colaboración y transparencia en
+  la investigación microbiológica industrial (Chang et~al., 2021).
+\end{itemize}
+
+\section{Paquetes del software R para Microbiología
+Industrial}\label{paquetes-del-software-r-para-microbiologuxeda-industrial}
+
+El uso de R como herramienta de análisis estadístico en la microbiología
+industrial ha experimentado un crecimiento exponencial en la última
+década, según (Mohammadi et~al., 2019) R proporciona una plataforma
+versátil que permite analizar datos complejos derivados de experimentos
+microbiológicos, facilitando la identificación de patrones de
+crecimiento microbiano, optimización de condiciones de cultivo y
+evaluación de la producción de metabolitos secundarios, lo que resulta
+crucial para el desarrollo y mejora de procesos biotecnológicos en
+entornos industriales.
+
+\begin{itemize}
+\item
+  El paquete \emph{phyloseq} (McMurdie \& Holmes, 2013), se emplea en el
+  análisis de datos de secuenciación en estudios de comunidades
+  microbianas, permitiendo la integración de información taxonómica,
+  filogenética y de abundancia en un solo entorno analítico; este avance
+  ha sido fundamental para comprender la dinámica de \textbf{poblaciones
+  microbianas} en procesos industriales como: el tratamiento de aguas
+  residuales, la producción de biocombustibles y la fermentación
+  alimentaria.
+\item
+  El paquete microbiome, descrito por (Lahti \& Shetty, 2017),
+  proporciona herramientas especializadas para el análisis de
+  \textbf{datos metagenómicos}, facilitando la caracterización de
+  comunidades microbianas y sus funciones metabólicas en entornos
+  industriales, lo que resulta esencial para la optimización de
+  bioprocesos y el control de calidad en la industria alimentaria.
+\end{itemize}
+
+El \textbf{diseño experimental} en microbiología industrial y ciencias
+naturales se ha beneficiado significativamente de la \textbf{aplicación}
+de R, permitiendo planificar y analizar experimentos de manera más
+rigurosa y eficiente.
+
+\begin{itemize}
+\item
+  El paquete \emph{agricolae}, desarrollado por de (Mendiburu, 2021)es
+  utilizado para la implementación de diseños experimentales complejos
+  como: bloques aleatorizados y diseños factoriales entre otros, al
+  tiempo que frecuentemente son utilizados en estudios de optimización
+  de medios de cultivo, condiciones de fermentación y producción de
+  enzimas microbianas.
+\item
+  Complementariamente, (Ritz \& Streibig, 2005) presentaron el paquete
+  \emph{drc} (Dose-Response Curves), que ha facilitado el análisis de
+  \textbf{curvas dosis-respuesta} en estudios de inhibición microbiana,
+  pruebas de susceptibilidad a antimicrobianos y evaluación de
+  compuestos bioactivos producidos por microorganismos, proporcionando
+  herramientas estadísticas robustas para cuantificar y modelar
+  respuestas biológicas a diferentes tratamientos, lo cual es
+  fundamental en el desarrollo de nuevos productos biotecnológicos.
+\item
+  El paquete \emph{ggplot2} desarrollado por (Wickham, 2016), el cual ha
+  permitido la creación de gráficos altamente informativos que facilitan
+  la interpretación de resultados experimentales; en particular, la
+  representación gráfica de cinéticas de crecimiento microbiano,
+  producción de metabolitos y análisis multivariantes se ha vuelto más
+  accesible e intuitiva para investigadores en el campo.
+\item
+  De manera similar el paquete \emph{ggtree}, creado por (Yu et~al.,
+  2017), ha revolucionado la visualización de datos filogenéticos en
+  estudios de diversidad microbiana industrial, permitiendo representar
+  relaciones evolutivas entre microorganismos de interés biotecnológico
+  y correlacionarlas con características fenotípicas relevantes para
+  procesos industriales, lo que facilita la selección de cepas
+  microbianas con potencial biotecnológico.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-caution-color!10!white, opacityback=0, colframe=quarto-callout-caution-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Expandir para aprender son el analis de datos ómicos}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+El análisis de datos ómicos en microbiología industrial se ha visto
+significativamente potenciado gracias al aporte de (Love et~al., 2014)
+quienes introdujeron \emph{DESeq2}, un paquete que ha transformado el
+análisis de datos de RNA-seq en estudios transcriptómicos de
+microorganismos industriales, permitiendo identificar genes
+diferencialmente expresados bajo diversas condiciones de cultivo o
+modificaciones genéticas; lo que contribuye a la mejora de cepas
+microbianas industriales y a optimizar rutas metabólicas de interés
+comercial; paralelamente (Rohart et~al., 2017) desarrollaron el paquete
+mixOmics, el cual facilita la integración de múltiples conjuntos de
+datos ómicos, como:
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\tightlist
+\item
+  transcriptómica,
+\item
+  proteómica y
+\item
+  metabolómica,
+\end{enumerate}
+
+Proporcionando una visión holística de los sistemas microbianos en
+contextos industriales, lo que permite desentrañar complejas redes
+regulatorias y metabólicas que subyacen a procesos biotecnológicos
+importantes como de compuestos bioactivos.
+
+\end{tcolorbox}
+
+\bookmarksetup{startatroot}
+
+\chapter{Capítulo 2. Análisis bibliométrico para la gestión del diseño
+experimentos}\label{capuxedtulo-2.-anuxe1lisis-bibliomuxe9trico-para-la-gestiuxf3n-del-diseuxf1o-experimentos}
+
+El \textbf{Capítulo 2} aborda el análisis bibliométrico como una
+herramienta esencial para la \textbf{gestión del conocimiento en el
+diseño experimental}, permitiendo identificar tendencias, autores,
+revistas y enfoques metodológicos relevantes dentro del campo de la
+microbiología industrial. La inclusión de este capítulo tiene como
+propósito \textbf{fortalecer la fundamentación teórica y metodológica}
+del lector, proporcionándole una visión panorámica de la producción
+científica relacionada con el tema. A través del uso de técnicas de
+minería de datos bibliográficos y del software \emph{R}, se ejemplifica
+cómo la bibliometría contribuye a \textbf{orientar la planificación y
+optimización de los diseños experimentales}, facilitando la toma de
+decisiones basadas en evidencia científica actual. De este modo, el
+capítulo no solo enriquece el marco conceptual del libro, sino que
+también promueve una práctica investigativa más informada, sistemática y
+alineada con las tendencias globales en investigación aplicada.
+
+\section{Etapas del análisis
+bibliométrico}\label{etapas-del-anuxe1lisis-bibliomuxe9trico}
+
+El análisis bibliométrico es un proceso estructurado que permite
+examinar de manera sistemática la producción científica sobre un tema
+determinado. Para garantizar resultados rigurosos y reproducibles, este
+procedimiento se desarrolla en varias etapas que van desde la
+\textbf{definición del tema y la búsqueda en bases de datos}, hasta la
+\textbf{depuración, análisis e interpretación de los resultados}
+mediante herramientas especializadas como \emph{Bibliometrix} y su
+interfaz \emph{Biblioshiny}.
+
+A continuación, se describen las etapas del proceso:
+
+\subsection{\texorpdfstring{\textbf{1. Definición del tema y palabras
+clave}}{1. Definición del tema y palabras clave}}\label{definiciuxf3n-del-tema-y-palabras-clave}
+
+La primera etapa consiste en \textbf{delimitar el tema de estudio} y
+seleccionar las \textbf{palabras clave} que representen el objeto de
+investigación. Por ejemplo, en este ejercicio se emplearon los datos del
+trabajo de grado (sin publicar) \emph{``Evaluación del crecimiento de
+Cordyceps militaris en diferentes sustratos vegetales''} (Chala \&
+Ortiz, 2025).
+
+Algunas palabras clave empleadas fueron:
+
+\begin{itemize}
+\item
+  \emph{Cultivation}: proceso de cultivar \emph{Cordyceps militaris} en
+  condiciones controladas para estudiar su crecimiento.
+\item
+  \emph{Mycelial growth}: crecimiento del micelio, parte vegetativa del
+  hongo.
+\item
+  \emph{Substrate optimization}: mejora de los sustratos de cultivo para
+  maximizar el crecimiento y la producción de metabolitos.
+\item
+  \emph{Bioactive compounds}: compuestos bioactivos como la cordicepina,
+  con propiedades medicinales.
+\item
+  \emph{Fermentation conditions}: condiciones de fermentación
+  (temperatura, pH, nutrientes) que influyen en el crecimiento del
+  hongo.
+\end{itemize}
+
+Las combinaciones de estas palabras se construyen utilizando
+\textbf{operadores booleanos} (AND, OR, NOT) para lograr ecuaciones de
+búsqueda precisas.
+
+Por ejemplo:
+
+\begin{quote}
+\texttt{"Cordyceps\ militaris"\ AND\ ("substrate\ optimization"\ OR\ "culture\ medium")\ AND\ "growth"}
+\end{quote}
+
+\subsection{\texorpdfstring{\textbf{2. Búsqueda y descarga de
+información en bases de
+datos}}{2. Búsqueda y descarga de información en bases de datos}}\label{buxfasqueda-y-descarga-de-informaciuxf3n-en-bases-de-datos}
+
+Una vez definidas las palabras clave, se realiza la \textbf{búsqueda
+sistemática} en bases de datos compatibles con \emph{Bibliometrix},
+como: \href{www.webofscience.com}{\textbf{Web of Science}} ,
+\href{www.scopus.com}{\textbf{Scopus}},
+\href{www.openalex.org}{\textbf{OpenAlex}},
+\href{www.dimensions.ai}{\textbf{Dimensions}},
+\href{www.lens.org}{\textbf{The Lens}};
+\href{https://pubmed.ncbi.nlm.nih.gov/}{\textbf{PubMed}}y
+\href{www.cochranelibrary.com}{\textbf{Cochrane Library}}
+
+Durante esta etapa se deben aplicar filtros de búsqueda: \textbf{Periodo
+de tiempo, Tipo de documento} (artículo, revisión, conferencia),
+\textbf{Área temática.}
+
+Luego, los \textbf{metadatos} deben descargarse en formato \textbf{CSV,
+BibTeX o RIS} según lo admita la base. Por ejemplo, en Scopus puede
+exportarse como \emph{CSV (UTF-8)} con la opción ``Full Record''. Se
+recomienda nombrar los archivos de forma clara (p.~ej.
+\texttt{Cordyceps\_Scopus\_2025.csv}).
+
+En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras
+aplicar distintas ecuaciones de búsqueda relacionadas con el tema.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7361}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2639}}@{}}
+\caption{Tabla 1. Salida de resultados para cada uno de los operadores
+booleanos, introducidos dentro de la plataforma de Scopus®, y que están
+con el tema de investigación de \emph{Cordyceps
+militaris.}}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Ecuación de búsqueda
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Documentos encontrados
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Ecuación de búsqueda
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Documentos encontrados
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+``Cordyceps militaris'' AND (``metabolite'' OR ``growth conditions'' &
+225 \\
+``Cordyceps militaris'' AND (``cordycepin'') AND ``growth'' & 191 \\
+``Cordyceps militaris'' AND ``medium'' AND ``growth'' & 99 \\
+``Cordyceps militaris'' AND (``substrate optimization'' OR ``culture
+medium'') AND ``growth'' & 40 \\
+\end{longtable}
+
+\subsection{\texorpdfstring{\textbf{3. Importación y análisis en
+Bibliometrix /
+Biblioshiny}}{3. Importación y análisis en Bibliometrix / Biblioshiny}}\label{importaciuxf3n-y-anuxe1lisis-en-bibliometrix-biblioshiny}
+
+Con los archivos descargados, se procede a su análisis mediante
+\emph{Bibliometrix}, un paquete de R que facilita la recopilación,
+análisis y visualización de información científica de forma integral
+(Aria \& Cuccurullo, 2017). La interfaz \emph{Biblioshiny} permite
+ejecutar estos análisis de manera interactiva y sin necesidad de
+programación. \textbf{Bibliometrix} (a través de su interfaz
+\textbf{Biblioshiny}) está estructurado en \textbf{8 módulos
+principales} o menús, y dentro de cada uno hay \textbf{submódulos o
+indicadores específicos}.
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2192}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2192}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2603}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3014}}@{}}
+\caption{Módulos principales de Bibliometrix /
+Biblioshiny}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+Nº
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Módulo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Función general
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Submódulos / indicadores
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+Nº
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Módulo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Función general
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Submódulos / indicadores
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & \textbf{Data} & Importar/cargar bases bibliográficas (Scopus, WoS,
+PubMed, etc.). & Import or Load; Merge Datasets \\
+2 & \textbf{Filters} & Filtrar el corpus por año, tipo de documento,
+autores, países, palabras clave. & Time Span; Authors; Countries \\
+3 & \textbf{Overview} & Panorama general con indicadores descriptivos. &
+Main Information; Annual Scientific Production; Average Citations per
+Year; Three-Field Plot \\
+4 & \textbf{Sources} & Análisis de revistas/fuentes. & Most Relevant
+Sources; Bradford's Law \\
+5 & \textbf{Authors} & Productividad, impacto y colaboración de autores.
+& Authors' Production Over Time; Most Cited Authors; Collaboration
+Network \\
+6 & \textbf{Documents} & Documentos más citados y patrones de citación.
+& Most Cited Documents; Reference Spectroscopy \\
+7 & \textbf{Clustering (Conceptual Structure)} & Estructura
+temática/conceptual del campo. & Co-occurrence Network; Thematic Map;
+Factorial Analysis \\
+8 & \textbf{Social Structure} & Redes de colaboración entre autores,
+instituciones y países. & Collaboration Network; Country Scientific
+Production; Collaboration World Map \\
+\end{longtable}
+
+\subsection{\texorpdfstring{\textbf{4. Interpretación y comunicación de
+resultados}}{4. Interpretación y comunicación de resultados}}\label{interpretaciuxf3n-y-comunicaciuxf3n-de-resultados}
+
+Los resultados obtenidos se interpretan según el contexto de estudio. En
+el caso de la \textbf{microbiología industrial}, el uso de
+\emph{Bibliometrix} permite identificar líneas emergentes de
+investigación, autores influyentes, colaboraciones internacionales y
+vacíos en la literatura.
+
+A través de las visualizaciones interactivas de \emph{Biblioshiny}, es
+posible construir \textbf{mapas de conocimiento}, \textbf{redes de
+colaboración} y \textbf{tendencias temáticas}, que facilitan la toma de
+decisiones basadas en evidencia científica.\\
+De esta forma, el análisis bibliométrico se consolida como una
+herramienta que fortalece la \textbf{planificación de proyectos}, la
+\textbf{vinculación académica} y la \textbf{comprensión del panorama
+científico actual} en el campo de la microbiología industrial.
+
+\section{\texorpdfstring{El paquete
+\href{https://www.bibliometrix.org/home/}{\textbf{Bibliometrix}}}{El paquete Bibliometrix}}\label{el-paquete-bibliometrix}
+
+Desarrollado en R, constituye una herramienta clave para el análisis
+bibliométrico en distintas áreas del conocimiento, entre ellas la
+\hyperref[0]{\textbf{microbiología industrial}} y el \textbf{diseño
+experimental}. Su enfoque de código abierto permite recopilar, analizar
+y visualizar información científica de manera integral, ofreciendo una
+visión clara sobre las principales tendencias y la evolución de la
+investigación en cada campo (Aria \& Cuccurullo, 2017).
+
+En la \textbf{microbiología industrial},
+\href{https://www.bibliometrix.org/home/}{\textbf{Bibliometrix}} se ha
+convertido en un apoyo fundamental para reconocer \textbf{líneas
+emergentes de investigación}, \textbf{colaboraciones internacionales} y
+\textbf{autores influyentes} que marcan el desarrollo del área (Aria \&
+Cuccurullo, 2017). A través de su interfaz visual
+\href{https://www.bibliometrix.org/home/index.php/layout/biblioshiny}{\textbf{Biblioshiny}},
+los análisis complejos se vuelven accesibles incluso para quienes no
+tienen experiencia en programación. Esta accesibilidad favorece la
+creación de \textbf{mapas de conocimiento}, \textbf{redes de
+colaboración} y \textbf{agrupamientos temáticos} que ayudan a
+identificar oportunidades de trabajo conjunto, vacíos en la literatura o
+la evolución de determinadas técnicas experimentales.
+
+El uso de Bibliometrix y Biblioshiny permite una comprensión argumentada
+del panorama científico, fomentando decisiones de investigación basadas
+en evidencia y fortaleciendo la planificación de proyectos dentro de la
+microbiología industrial.
+
+\subsection{Instalación de
+bibliometrix}\label{instalaciuxf3n-de-bibliometrix}
+
+Para iniciar el análisis bibliométrico, se procede a ingresar al
+programa RStudio®, al tiempo que se realiza la instalación de los
+paquetes: \emph{bibliometrix} y \emph{bibliometrixData}, desde la
+pestaña de Archivos y Gráficos en la sección de Packages (Figura 6).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Bibliometrix1.PNG}}
+
+}
+
+\caption{Figura 6.}
+
+\end{figure}%
+
+Posteriormente, desde la Consola de RStudio se digitan y ejecutan los
+comandos:
+
+\begin{quote}
+library(bibliometrix)\\
+biblioshiny()
+\end{quote}
+
+También se puede habilitar manualmente en la pestaña de Archivos y
+Gráficos de la interfaz de RStudio, pestaña de Packages (figura 7)
+seleccionado las librerias a usar.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Bibliometrix2.PNG}}
+
+}
+
+\caption{Figura 7.}
+
+\end{figure}%
+
+Se abrirá el servidor de Bibliometrix (Figura 8) en el navegador web
+(Chrome, Mozilla, Edge, entre otros). Es importante aclarar que la
+interfaz de Bibliometrix únicamente pude ser ejecutada desde RStudio®.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_9.png}}
+
+}
+
+\caption{Figura 8.}
+
+\end{figure}%
+
+En la parte izquierda se despliega el \textbf{menú de biblioshiny}, y se
+procede con la importación en ``\textbf{\emph{Import or Load}}'' se
+carga el archivo CSV (Aria \& Cuccurullo, 2017), al tiempo que se
+seleccionan las casillas: \textbf{\emph{Import raw file(s})}, la
+procedencia de la base de datos consultada (\emph{Scopus,} en nuestro
+caso) , junto la opción: \textbf{\emph{Surname and Initials}}, y
+finalmente damos click en el botón de \textbf{\emph{Start}} ~(Figura 9).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_10.png}}
+
+}
+
+\caption{Figura 9.}
+
+\end{figure}%
+
+Después se despliega una nueva ventana que muestra el estado de los
+componentes de los metadatos importados desde el archivo CSV (Figura
+10), allí se muestra una tabla que resume la completitud de los
+metadatos (para nuestro ejemplo: 191 documentos de Scopus),.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_11.png}}
+
+}
+
+\caption{Figura 10.}
+
+\end{figure}%
+
+Así mismo Bibliometrix evalúa cada uno de los diferentes campos de
+metadatos (Abstract, afiliación, autor, tipo de documento, etc.)
+utilizando \emph{junto a} diferentes criterios de clasificación como
+son: ``Excelente'', ``Bueno'', ``Aceptable'' ``Pobre'' y ``Completamente
+perdido'' (Figura 11), y que al ser cerrado ``Close'' muestra una tabla
+dinámica con todos los datos importados incluyendo el DOI, desde el cual
+se puede acceder y leer directamente el artículo científico (Figura 10).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_12.png}}
+
+}
+
+\caption{Figura 11}
+
+\end{figure}%
+
+\subsection{Estructura}\label{estructura}
+
+\subsubsection{\texorpdfstring{\textbf{Modulo
+\emph{Overview}}}{Modulo Overview}}\label{modulo-overview}
+
+El indicador \textbf{\emph{Main information}} muestra los valores de los
+metadatos trabajados, para este ejemplo se tiene un periodo de análisis
+de 1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de
+crecimiento anual es de 0,94\%, \textbf{se identificaron 903 autores},
+sin registros un solo autor; la coautoría internacional alcanza un valor
+de 15,18\% y el promedio de \textbf{coautores} por documento es de 6,19.
+Se encontraron 543 palabras clave de autor y 7474 referencias, la edad
+promedio de los documentos es de 7,34 años y la cantidad \textbf{media
+de citas por documento} es de 25,69 (Figura 12).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_13.png}}
+
+}
+
+\caption{Figura 12}
+
+\end{figure}%
+
+Para la sección \textbf{\emph{Average Citations Per Ye}ar} (Traducido:
+Citas Promedio Por Año) muestra la evolución de publicaciones sobre
+\emph{Cordyceps militaris} entre 1951 y 2025 (Figura 13). Entre
+\textbf{1951 y 2000}, la producción científica fue mínima, con casi nula
+variación. A partir de \textbf{2000}, comienza un crecimiento leve y
+sostenido, que se \textbf{acelera notablemente después de 2010},
+alcanzando su punto máximo entre \textbf{2020 y 2024}, con más de
+\textbf{20 artículos anuales}. En \textbf{2025}, se observa una
+\textbf{caída abrupta}, posiblemente atribuida a datos incompletos o
+publicaciones aún en proceso. En síntesis, la tendencia general
+evidencia un \textbf{crecimiento exponencial de la investigación} sobre
+\emph{Cordyceps militaris} en las dos últimas décadas, reflejando su
+creciente relevancia científica y biotecnológica.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_15.png}}
+
+}
+
+\caption{Figura 13}
+
+\end{figure}%
+
+La Figura 14 \textbf{``Three-Field Plot''} muestra la relación entre
+\textbf{países (AU\_CO)}, \textbf{autores (AU)} y \textbf{descriptores
+temáticos (DE)} en la investigación sobre \emph{Cordyceps militaris}.
+\textbf{China} lidera ampliamente la producción científica, seguida por
+\textbf{Tailandia}, \textbf{Reino Unido}, \textbf{Singapur} y
+\textbf{Estados Unidos}, evidenciando una fuerte concentración asiática
+en el tema. Los autores más productivos son \textbf{Li X}, \textbf{Li
+Y}, \textbf{Vongsangnak W} y \textbf{Zhang J}, quienes forman redes de
+colaboración relevantes dentro del campo. En cuanto a los
+\textbf{descriptores}, predominan términos como \emph{Cordyceps
+militaris}, \emph{biotecnología del hongo}, \emph{compuestos bioactivos}
+y \emph{análisis transcriptómico}, lo que refleja el enfoque de la
+investigación en los componentes biológicos y aplicaciones
+biotecnológicas del hongo. El gráfico confirma el \textbf{liderazgo
+científico de Asia} en el estudio de \emph{Cordyceps militaris} y la
+\emph{concentración temática en la exploración de compuestos bioactivos
+y su potencial en salud y biotecnología}.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_16.png}}
+
+}
+
+\caption{Figura 14}
+
+\end{figure}%
+
+\section{Quarto}\label{quarto}
+
+\subsubsection{\texorpdfstring{\textbf{Modulo
+\emph{Sources}}}{Modulo Sources}}\label{modulo-sources}
+
+Para el menú de \emph{Sources} en la sección \textbf{\emph{Most Relevant
+Sources}} (Traducido: Fuentes Más Relevantes) la producción científica
+está liderada por: International Journal of Medicinal Mushrooms con 15
+artículos publicados, seguido de Mycosystema con 8, le sigue: Applied
+Microbiology and Biotechnology con 5. Dichas revistas destacan por su
+enfoque en microbiología, biotecnología y farmacología, áreas clave
+dentro del estudio abordado. \textbf{La distribución sugiere que la
+investigación en este campo se encuentra bien representada en revistas
+especializadas},las demás revistas como: Biology, Bioresource
+Technology, y Nutrients, que cuentan con 3 artículos cada una (Figura
+15).
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=6.83333in,height=\textheight,keepaspectratio]{images/2_Bibliometrix/Figura_17.png}
+
+}
+
+\caption{Figura 15}
+
+\end{figure}%
+
+En la sección de \textbf{Bradford's Law} (Traducido: La Ley de Bradford)
+y continuando con nuestro ejemplo didáctico de \emph{Cordyceps
+mil}itaris ,se observa que: ``International Journal of Medicinal
+Mushrooms'', junto con ``Mycosystema'' y ``Applied Microbiology and
+Biotechnology'', conforman el núcleo de fuentes indexadas ~más
+relevantes, aportando el mayor número de publicaciones, estas tres
+revistas están dentro del área sombreada, lo que \textbf{confirma su
+papel central en la diseminación del conocimiento} sobre \emph{C.
+militari}s y compuestos bioactivoss. A medida que se avanza hacia la
+derecha del gráfico, el número de artículos por revista disminuye, lo
+que representa publicaciones de interés más disperso (Figura 16).
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=6.89583in,height=\textheight,keepaspectratio]{images/2_Bibliometrix/Figura_18.png}
+
+}
+
+\caption{Figura 16}
+
+\end{figure}%
+
+\subsubsection{\texorpdfstring{\textbf{Modulo}
+\emph{Authors}}{Modulo Authors}}\label{modulo-authors}
+
+En la sección \textbf{``Authors' Production over Time''} (Producción de
+los Autores a lo Largo del Tiempo) se evidencia que los investigadores
+\textbf{Li X., Li Y. y Wang Y .} han mantenido una \textbf{producción
+científica constante} en los últimos años, alcanzando \textbf{picos
+destacados en 2020 y 2022} (Figura 17), lo que demuestra su papel
+central en el estudio de \emph{Cordyceps militaris}. La gráfica muestra
+una \textbf{mayor concentración de publicaciones entre 2019 y 2024}, lo
+que refleja un \textbf{crecimiento sostenido y reciente de la
+investigación} en este campo. Otros autores, como \textbf{Vongsangnak
+W.}, \textbf{Zhang J.}, \textbf{Laoteng K.} y \textbf{Thanwisai R.},
+presentan una participación \textbf{más intermitente}, aunque continúan
+contribuyendo activamente en colaboraciones científicas internacionales.
+En conjunto, la visualización confirma una \textbf{expansión continua de
+la productividad académica}, impulsada por investigadores consolidados y
+por el aumento del interés global en las aplicaciones biotecnológicas y
+farmacológicas del hongo \emph{Cordyceps militaris} .
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_19.png}}
+
+}
+
+\caption{Figura 17}
+
+\end{figure}%
+
+Para el menú de \emph{Authors} específicamente en:
+\textbf{\emph{Countries' Scientific Production}} (Producción Científica
+de los Países), el mapa muestra la distribución geográfica de la
+producción científica (Figura 18). China es el país con mayor producción
+científica (azul oscuro); otros países con destacada producción
+científica entre los que se incluyen: Estados Unidos, Corea del Sur,
+Tailandia, Japón, India y varios países europeos y asiáticos (azul
+celeste). \textbf{Algunos países no presentan producción registrada y
+aparecen coloreados en gris.} En la gráfica se observa que China lidera
+con 702 publicaciones, seguida por Corea del Sur con 212, Tailandia con
+83, Japón con 50 e India con 39. Otros países con menor producción
+incluyen Estados Unidos con 9, Reino Unido con 8, Alemania con 7, Italia
+con 6 y Colombia con 5 .
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_20.png}}
+
+}
+
+\caption{Figura 17}
+
+\end{figure}%
+
+\subsubsection{\texorpdfstring{\textbf{Modulo}
+\emph{Document}}{Modulo Document}}\label{modulo-document}
+
+En la sección \textbf{``Most Frequent Words''} (Traducido: Palabras Más
+Frecuentes) del modulo \textbf{Documents}, la visualización identifica
+los términos que aparecen con mayor recurrencia en la literatura
+científica sobre \emph{Cordyceps militaris}. Las palabras
+\textbf{``Cordyceps''} y \textbf{``Cordycepin''} destacan con
+\textbf{196} y \textbf{187} menciones respectivamente, reflejando su
+relevancia central en los estudios del área. Otros términos con alta
+frecuencia son \textbf{``article''} (109), \textbf{``Cordyceps
+militaris''} (108), \textbf{``nonhuman''} (92), \textbf{``metabolism''}
+(79), \textbf{``deoxyadenosines''} (77), \textbf{``controlled study''}
+(76), \textbf{``deoxyadenosine derivative''} (65) y
+\textbf{``adenosine''} (64). En conjunto, esta distribución de palabras
+clave evidencia que la investigación reciente se concentra en los
+\textbf{aspectos bioquímicos y farmacológicos} del hongo, especialmente
+en torno a sus compuestos activos y su aplicación en estudios
+experimentales (Figura 19).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_21.png}}
+
+}
+
+\caption{Figura 19}
+
+\end{figure}%
+
+En la sección \textbf{``Reference Spectroscopy''} (Traducido:
+Espectroscopía de Referencias) del modulo \textbf{Documents}, la
+visualización muestra la evolución temporal de las \textbf{referencias
+citadas} en estudios de espectroscopía. Antes de \textbf{1990}, las
+citas registradas son casi inexistentes, indicando una actividad
+investigativa limitada. A partir de \textbf{1995}, se observa una
+\textbf{tendencia ascendente constante}, que se intensifica de forma
+notable hacia \textbf{2005}, evidenciando un crecimiento sostenido en la
+producción científica y en el interés por la temática. El \textbf{pico
+máximo} se alcanza entre \textbf{2015 y 2020}, con más de \textbf{400
+referencias citadas por año}, lo que refleja la consolidación de la
+espectroscopía como herramienta fundamental en el análisis de compuestos
+bioactivos, como los del \emph{Cordyceps militaris}. Después de
+\textbf{2018}, se percibe una \textbf{disminución progresiva} en las
+citas, seguida de una \textbf{caída abrupta posterior a 2020},
+atribuible al \textbf{rezago natural en la citación de estudios
+recientes}, los cuales aún no han tenido el tiempo suficiente para
+acumular referencias (Figura 20).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_22.png}}
+
+}
+
+\caption{Figura 20}
+
+\end{figure}%
+
+\subsubsection{\texorpdfstring{Modulo \textbf{Clustering (Conceptual
+Structure)}}{Modulo Clustering (Conceptual Structure)}}\label{modulo-clustering-conceptual-structure}
+
+Para el menú de \emph{Conceptual Structure} concretamente en:
+\textbf{\emph{Co-occurrence Network}} (Traducido: Red de Coocurrencias),
+la red se encuentra claramente dividida en dos comunidades principales,
+identificadas por los colores rojo y azul. \textbf{La comunidad roja},
+dominada por términos como cordycepin, C\emph{ordyceps militaris},
+metabolism y article, se orienta al estudio bioquímico y farmacológico
+del compuesto, mientras que \textbf{la comunidad azul} está asociada a
+modelos experimentales, destacando términos como animal experiment,
+human, mouse y cell line. Esta segmentación temática sugiere una
+dualidad en la línea de investigación: una centrada en la
+caracterización química y otra en los efectos biológicos en modelos
+preclínicos. El análisis de centralidad (como grado y betweenness),
+permitiría identificar términos puente como: nonhuman o controlled
+study, que conectan ambas comunidades (Figura 21).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_23.png}}
+
+}
+
+\caption{Figura 21}
+
+\end{figure}%
+
+En el menú \textbf{Conceptual Structure}, específicamente en la opción
+\textbf{Factorial Analysis}, se presenta una gráfica bidimensional de
+los términos más relevantes identificados en el corpus bibliográfico
+analizado. En el \textbf{eje X (Dim 1)}, que explica el \textbf{50,18\%
+de la variabilidad}, se agrupan términos estrechamente relacionados con
+\textbf{estudios experimentales in vivo e in vitro}, tales como \emph{in
+vitro study}, \emph{mouse}, \emph{animal tissue} y \emph{protein
+expression}, ubicados en el cuadrante inferior derecho. Este
+agrupamiento sugiere una fuerte carga temática asociada a
+\textbf{investigaciones biomédicas y farmacológicas}. Por su parte, el
+\textbf{eje Y (Dim 2)}, que explica un \textbf{9,68\% adicional de la
+variabilidad}, concentra términos como \emph{transcriptome} y
+\emph{carbon}, vinculados a \textbf{estudios genéticos y metabólicos},
+los cuales se encuentran espacialmente separados del resto de la nube
+léxica.
+
+Esta segmentación espacial evidencia la existencia de
+\textbf{subdominios temáticos diferenciados} dentro del campo de estudio
+de los \emph{Cordyceps} y sus derivados, revelando un \textbf{enfoque
+dual}: uno orientado hacia la \textbf{bioquímica y biotecnología del
+hongo}, y otro centrado en los \textbf{ensayos experimentales en
+organismos modelo} (Figura 22).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_24.png}}
+
+}
+
+\caption{Figura 22}
+
+\end{figure}%
+
+\subsubsection{\texorpdfstring{\textbf{Social
+Structure}}{Social Structure}}\label{social-structure}
+
+En \textbf{Social Structure}, específicamente en la opción
+\textbf{Collaboration Network}, se presenta un análisis basado en
+\textbf{redes de coautoría}, las cuales, según (Aria \& Cuccurullo,
+2017), permiten identificar \textbf{patrones de colaboración y
+productividad científica} entre los autores. En el contexto del estudio
+sobre \emph{Cordyceps militaris}, la figura muestra una \textbf{red de
+colaboración entre investigadores}, donde \textbf{cada nodo representa
+un autor} y \textbf{las líneas o aristas} indican la existencia de
+coautoría en publicaciones científicas.
+
+Se observan \textbf{múltiples grupos o comunidades de colaboración},
+diferenciados por colores, lo que evidencia la existencia de
+\textbf{subgrupos de investigadores que trabajan conjuntamente de manera
+frecuente}. Algunos nodos, como \textbf{Li X} y \textbf{Vongsangnak W},
+presentan un tamaño mayor, reflejando su \textbf{alto grado de
+colaboración} y centralidad dentro de la red. En contraste, otros
+autores aparecen más aislados, mostrando \textbf{menor interacción o
+participación} en proyectos conjuntos. Esta visualización permite
+comprender la \textbf{estructura social de la producción científica}
+sobre \emph{Cordyceps militaris}, destacando los núcleos de liderazgo
+académico y las conexiones internacionales o institucionales más activas
+(Figura 23).
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/2_Bibliometrix/Figura_25.png}}
+
+}
+
+\caption{Figura 23}
+
+\end{figure}%
+
+En la subcategoría \textbf{Social Structure → Countries' Collaboration
+World Map}, se visualizan las \textbf{redes internacionales de
+colaboración científica} sobre \emph{Cordyceps} y su compuesto activo
+\emph{cordycepina}.\\
+El color azul indica el volumen de publicaciones ---a mayor intensidad,
+mayor producción---, destacando \textbf{China} como el principal nodo y
+centro de cooperación. Las conexiones con \textbf{Estados Unidos,
+Alemania, Corea del Sur y Australia} evidencian un \textbf{patrón
+transcontinental de investigación}, que promueve la
+\textbf{transferencia de conocimiento y la consolidación de redes
+globales} en el estudio de hongos medicinales (Figura 24).
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=6.95833in,height=\textheight,keepaspectratio]{images/2_Bibliometrix/Figura_26.png}
+
+}
+
+\caption{Figura 24}
+
+\end{figure}%
+
+\bookmarksetup{startatroot}
+
+\chapter{Capítulo 3. Generalidades del Diseño
+Experimental}\label{capuxedtulo-3.-generalidades-del-diseuxf1o-experimental}
+
+El diseño experimental corresponde a una metodología científica y
+estadística destinada a planear, ejecutar y analizar pruebas
+controladas, con el propósito de obtener evidencia objetiva que responda
+a interrogantes sobre procesos o fenómenos específicos. El
+\textbf{diseño de experimentos (DE)} se diferencia de la práctica
+empírica de prueba y error porque estructura el proceso investigativo
+bajo principios formales que permiten generar información confiable,
+optimizar recursos y reducir incertidumbre (Gutiérrez Pulido \& Vara
+Salazar, 2012).
+
+El DE se da en ámbitos industriales y de investigación aplicada, los
+experimentos suelen realizarse para resolver problemas de calidad,
+mejorar procesos o comprobar hipótesis sobre materiales, condiciones de
+operación o métodos de trabajo. Sin embargo, cuando estas pruebas
+carecen de planeación rigurosa, se corre el riesgo de interpretar datos
+de manera subjetiva y desaprovechar el potencial de la variabilidad
+natural del sistema. Por ello, el DE proporciona un marco que asegura
+resultados válidos y generalizables (Kuehl, 2001; Montgomery, 2017).
+
+En cuanto a la terminología básica, conceptos como unidad experimental,
+tratamiento, factor controlable y no controlable, niveles de los
+factores, variable de respuesta, repetición y matriz de diseño, es
+requerido manejarlos. Estos términos constituyen la gramática operativa
+del diseño experimental, permitiendo estructurar adecuadamente las
+hipótesis y la recolección de datos. Además, se distingue entre error
+aleatorio y error experimental, resaltando la necesidad de minimizar y
+cuantificar ambos para garantizar validez estadística (Bautista \&
+Ramírez, 2016; Gutiérrez Pulido \& Vara Salazar, 2012). Entre las etapas
+del diseño experimental, es incluyen:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Planeación:} formulación del problema, identificación de
+  factores y niveles, selección de variables de respuesta y definición
+  de objetivos.
+\item
+  \textbf{Ejecución:} implementación del plan experimental bajo
+  condiciones de control y aleatorización.
+\item
+  \textbf{Análisis:} aplicación de métodos estadísticos, principalmente
+  análisis de varianza (ANOVA), para estimar efectos principales e
+  interacciones.
+\item
+  \textbf{Interpretación:} extracción de conclusiones técnicas y toma de
+  decisiones basadas en la evidencia.
+\end{itemize}
+
+Un aporte central son los principios básicos del DE:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Aleatorización}, que asegura independencia de los errores y
+  evita sesgos sistemáticos.
+\item
+  \textbf{Replicación,} que incrementa la precisión de las estimaciones
+  al cuantificar la variabilidad experimental.
+\item
+  \textbf{Bloqueo}, que controla fuentes de variación no deseadas
+  (turno, lote, operador), incrementando la potencia estadística del
+  experimento.
+\end{itemize}
+
+Estos principios permiten estructurar experimentos que sean eficientes
+en costo y tiempo, pero robustos en cuanto a la validez de sus
+conclusiones.
+
+La clasificación de diseños va desde los más simples (completamente al
+azar, bloques completos, cuadrados latinos) hasta los más complejos
+(factoriales, fraccionados, superficies de respuesta, diseños robustos).
+Se subraya que la selección depende de los objetivos, el número de
+factores, las restricciones prácticas y el tipo de información buscada.
+También se enfatiza que la decisión debe considerar tanto la
+significancia estadística como la significancia práctica, es decir, el
+impacto real de los resultados sobre el proceso o fenómeno bajo estudio
+(Gutiérrez Pulido \& Vara Salazar, 2012).
+
+\subsection{Tipos de diseños
+experimentales}\label{tipos-de-diseuxf1os-experimentales}
+
+La selección de un diseño experimental depende de distintos factores que
+condicionan su pertinencia y aplicabilidad en cada situación. Entre los
+aspectos determinantes se encuentran: los objetivos que se persiguen con
+el estudio, la cantidad de factores que se desea analizar, el número de
+niveles que adoptará cada factor, los efectos que se pretende
+identificar en la relación causa-efecto y, finalmente, las restricciones
+de costo, tiempo y precisión que impone la investigación (Bautista \&
+Ramírez, 2016; Gutiérrez Pulido \& Vara Salazar, 2012).
+
+Estos elementos no actúan de forma aislada, ya que la modificación de
+cualquiera de ellos obliga generalmente a replantear el diseño a
+utilizar. En consecuencia, resultan fundamentales para guiar la
+clasificación de los diseños experimentales.
+
+El \textbf{objetivo del experimento} constituye el criterio principal
+para diferenciar entre tipos de diseño, mientras que los demás factores
+funcionan como subcriterios de clasificación. Bajo esta perspectiva, los
+diseños pueden agruparse en varias categorías: aquellos orientados a la
+comparación de dos o más tratamientos; los que examinan el efecto de
+diversos factores sobre una o varias variables de respuesta; los que
+buscan establecer el punto óptimo de operación de un proceso; los que se
+enfocan en la optimización de mezclas; y finalmente, los dirigidos a
+lograr que un producto o proceso se mantenga estable frente a factores
+no controlables (Kuehl, 2001).
+
+Así, la clasificación general de los diseños experimentales responde al
+objetivo central del estudio, y dentro de cada categoría se consideran
+elementos adicionales como el número de factores, los tipos de efectos a
+investigar y las restricciones prácticas que condicionan la ejecución.
+
+\subsection{\texorpdfstring{\textbf{Clasificación de los diseños
+experimentales}}{Clasificación de los diseños experimentales}}\label{clasificaciuxf3n-de-los-diseuxf1os-experimentales}
+
+La siguente clasificación es tomada el libro de (Gutiérrez Pulido \&
+Vara Salazar, 2012).
+
+\textbf{Diseños para comparar dos o más tratamientos}\\
+🔹 Diseño completamente al azar\\
+🔹 Diseño de bloques completos al azar\\
+🔹 Diseño de cuadros latino y grecolatino
+
+\textbf{Diseños para estudiar efectos de varios factores sobre una o más
+variables de respuesta}\\
+🔹 Diseños factoriales 2ᵏ\\
+🔹 Diseños factoriales 3ᵏ\\
+🔹 Diseños fraccionados 2ᵏ⁻ᵖ\\
+🔹 Diseños anidados\\
+🔹 Diseños en parcelas divididas
+
+\textbf{Diseños para la optimización de procesos}\\
+\textbf{➤ Modelo de primer orden}\\
+🔹 Diseños factoriales 2ᵏ y 2ᵏ⁻ᵖ\\
+🔹 Diseño de Plackett-Burman\\
+🔹 Diseño simplex\\
+\textbf{➤ Modelo de segundo orden}\\
+🔹 Diseño de composición central\\
+🔹 Diseño de Box-Behnken\\
+🔹 Diseños factoriales 3ᵏ y 3ᵏ⁻ᵖ
+
+\textbf{Diseños robustos}\\
+🔹 Arreglos ortogonales (factoriales)\\
+🔹 Diseño con arreglos interno y externo
+
+\textbf{Diseños de mezclas}\\
+🔹 Diseño simplex-reticular\\
+🔹 Diseño simplex con centroide\\
+🔹 Diseño sin restricciones\\
+🔹 Diseño axial
+
+\subsection{Verificación de los supuestos del
+modelo}\label{verificaciuxf3n-de-los-supuestos-del-modelo}
+
+En todo \textbf{diseño experimental (DE)}, el cumplimiento de los
+\textbf{supuestos estadísticos} es fundamental para garantizar la
+\textbf{validez y confiabilidad} de los resultados obtenidos. Ignorar
+estas condiciones puede conducir a interpretaciones incorrectas o a la
+aplicación inadecuada de las pruebas estadísticas (Gutiérrez Pulido \&
+Vara Salazar, 2012; Montgomery, 2017). A continuación, se describen los
+tres supuestos básicos del \textbf{ANOVA} y las pruebas utilizadas para
+su verificación, tanto en forma \textbf{numérica} como \textbf{gráfica}:
+
+\textbf{Normalidad:}\\
+Este supuesto establece que los residuos del modelo deben seguir una
+\textbf{distribución normal}. Se evalúa estadísticamente mediante la
+\textbf{prueba de Shapiro--Wilk} y de forma visual a través de
+\textbf{gráficos QQ-plot} o \textbf{histogramas de residuos}, que
+permiten identificar desviaciones importantes de la normalidad.
+
+\textbf{Homocedasticidad (Varianza constante):\\
+}Supone que la \textbf{variabilidad de los datos dentro de cada grupo}
+es similar entre tratamientos. Este supuesto puede comprobarse mediante
+las pruebas de \textbf{Bartlett}, \textbf{Levene} y
+\textbf{Fligner--Killeen}, y de manera gráfica a través del
+\textbf{gráfico de residuos vs.~valores ajustados}, donde se espera una
+dispersión aleatoria de los puntos alrededor de la línea horizontal sin
+formación de patrones.
+
+\textbf{Independencia:\\
+}Es un supuesto esencial en los modelos estadísticos, ya que garantiza
+que los errores no estén correlacionados entre sí. La \textbf{prueba de
+Durbin-Watson} evalúa de forma analítica la independencia entre residuos
+consecutivos. Un valor de \emph{p} mayor a 0.05 sugiere independencia,
+mientras que valores menores indican posible autocorrelación y violación
+del supuesto. Gráficamente, puede verificarse \textbf{representando los
+residuos en función del orden de recolección de los datos (tiempo o
+secuencia experimental)}. Si los puntos se distribuyen
+\textbf{aleatoriamente alrededor de la línea cero}, sin mostrar una
+tendencia clara, se considera que los residuos son independientes y el
+supuesto se cumple. Por el contrario, la presencia de \textbf{patrones
+sistemáticos o tendencias no aleatorias} indica una posible
+\textbf{autocorrelación}, lo que sugiere que el orden de ejecución
+influyó en los resultados.
+
+\bookmarksetup{startatroot}
+
+\chapter{Capítulo 4. Diseño Completamente al Azar
+(DCA)}\label{capuxedtulo-4.-diseuxf1o-completamente-al-azar-dca}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/3_DCA/DCA.PNG}}
+
+}
+
+\caption{Figura 25. Mapa conceptual (p.~51). Gutiérrez Pulido, H., y De
+la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.).
+McGraw-Hill/Interamericana de México. ISBN: 9786071507259.}
+
+\end{figure}%
+
+El mapa conceptual (Figura 25) organiza los elementos fundamentales de
+los \textbf{experimentos con un solo factor}. De este tipo de diseños se
+desprende el \textbf{Diseño Completamente al Azar (DCA)}, que utiliza
+herramientas como el \textbf{ANOVA}, los \textbf{diagramas de cajas} y
+las \textbf{gráficas de medias} para analizar las diferencias entre
+tratamientos.
+
+Tras el ANOVA, pueden aplicarse \textbf{pruebas de comparación
+múltiple}, como \textbf{LSD}, \textbf{Tukey} o \textbf{Duncan}, así como
+contrastes específicos para identificar tratamientos que difieren entre
+sí.
+
+Además, el diseño requiere la \textbf{verificación de los supuestos del
+modelo}, entre ellos la normalidad, la homogeneidad de varianzas y la
+independencia de los errores. Finalmente, se considera también el
+\textbf{tamaño de la muestra}, que influye en la precisión y potencia
+del experimento.
+
+\section{\texorpdfstring{\textbf{Modelo teórico para el Diseño
+Completamente al Azar
+(DCA)}}{Modelo teórico para el Diseño Completamente al Azar (DCA)}}\label{modelo-teuxf3rico-para-el-diseuxf1o-completamente-al-azar-dca}
+
+El \textbf{Diseño Completamente al Azar (DCA)} se utiliza cuando las
+unidades experimentales son homogéneas y los tratamientos se asignan
+completamente al azar (Gutiérrez Pulido \& Vara Salazar, 2012;
+Montgomery, 2017), sin ningún tipo de agrupación o bloqueo. El modelo
+lineal aditivo general se expresa como:
+
+\[
+Y_{ij} = \mu + \tau_i + \varepsilon_{ij} 
+\] donde:
+
+\begin{itemize}
+\item
+  \(Y_{ij}\): valor observado del tratamiento \(i\) en la repetición
+  \(j\)
+\item
+  \(\mu\): media general
+\item
+  \(\displaystyle \tau_i\): efecto del tratamiento \(i\)
+\item
+  \(\displaystyle \varepsilon_{ij}\): error aleatorio asociado, asumido
+  \(\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)\)
+\end{itemize}
+
+El objetivo principal es comparar las medias poblacionales de los
+tratamientos para determinar si existen diferencias significativas entre
+ellos. En términos estadísticos, al comparar \(k\) tratamientos, la
+hipótesis fundamental es:
+
+\[
+H_0: \mu_1 = \mu_2 = \cdots = \mu_k
+\]
+
+frente a la alternativa:
+
+\[
+H_A: \mu_i \ne \mu_j \quad \text{para algún } i \ne j
+\]
+
+La estrategia consiste en obtener observaciones de cada tratamiento y
+aplicar el análisis de varianza (ANOVA) para decidir si las diferencias
+observadas entre las medias provienen de los tratamientos o simplemente
+del error experimental.
+
+\section{Problema}\label{problema}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, colframe=quarto-callout-note-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+La \textbf{antracnosis del banano} 🍌, causada por \emph{Colletotrichum
+musae} (Berk. y M.A.~Curtis) Arx, representa una problemática
+fitosanitaria de considerable relevancia económica en la industria
+bananera mundial, puesto que genera pérdidas postcosecha que oscilan
+entre el 10 y 80\% debido al deterioro de la calidad visual del fruto,
+dicho patógeno desarrolla lesiones (formación de acérvulos) de
+coloración marrón oscuro a negro en el epicarpio del fruto, las cuales
+afectan la calidad visual del fruto (Vásquez-Castillo et~al., 2019).
+
+Tradicionalmente, el manejo de esta epifitia se ha fundamentado en la
+aplicación de fungicidas sintéticos como: tiabendazol, azoxystrobin y
+trifloxystrobin; no obstante, estas sustancias generan impactos
+ambientales adversos y residualidad ((Arias B., 2007), por ello, la
+búsqueda de alternativas de biocontrol sostenibles ha cobrado especial
+relevancia, particularmente mediante el uso de extractos fúngicos con
+propiedades antagónicas.
+
+\end{tcolorbox}
+
+\textbf{Metodología:} El estudio se estructuró a partir del
+\textbf{Diseño Completamente al Azar} para la evaluación de sustratos
+para la evaluación de la actividad inhibitoria.
+
+\subsection{\texorpdfstring{Sustratos de cultivo para \emph{Penicillum}
+sp.}{Sustratos de cultivo para Penicillum sp.}}\label{sustratos-de-cultivo-para-penicillum-sp.}
+
+Se empleó un \textbf{Diseño Completamente al Azar} con los siguientes
+tratamientos: avena en hojuelas, maíz partido, semillas de cebada y
+arroz blanco (Figura 26). Se prepararon bolsas de polipropileno con cada
+sustrato, se inocularon con cinco discos de micelio de \emph{Penicillum}
+sp. (0.5 mm de diámetro) y se incubaron de forma aleatorizada a 22 ± 2
+°C durante ocho días. El experimento se realizó por quintuplicado,
+considerando cada bolsa como una repetición.
+
+\textbf{Resultados:} El maíz partido constituyó el sustrato óptimo para
+la producción conidial de \emph{Penicillium digitatum}, alcanzando
+valores de Log\textsubscript{10} 9,13 conidios/mL, seguido de la cebada
+Log\textsubscript{10} 8,88 conidios/mL .
+
+Sustratos con Conidios de \emph{Penicillium} sp.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=5.23958in,height=\textheight,keepaspectratio]{images/3_DCA/sustrato.png}
+
+}
+
+\caption{Figura 26: Dilución de conidios y sustrato, en solución
+tween80® 0,01\%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).}
+
+\end{figure}%
+
+\hfill\break
+La evaluación in vitro reveló que las concentraciones de extracto crudo
+de 4,0 al 6,0\% generaron Porcentajes de Inhibición del Crecimiento
+micelial (PICM) del 40 al 50 \% respectivamente al quinto día después de
+la inoculación (ddi) (Figura 27).
+
+Efecto de los tratamientos in vitro frente al crecmiento de
+\emph{Colletotrichum musae.}
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=5.80208in,height=\textheight,keepaspectratio]{images/3_DCA/experimentoinvitro.png}
+
+}
+
+\caption{Figura 27: Prueba de inhibición in vitro de Colletotrichum
+musae, frente a diferentes tratamientos. (A) Testigo negativo; (B)
+Testigo positivo (Amistar a 60mg/100mL); (C) Extracto de
+\emph{Penicillium} sp., al 4\%; (D) Extracto de \emph{Penicillium} sp.,
+al 4,5\%; (E) Extracto de \emph{Penicillium} sp., al 5\%; (F) Extracto
+de \emph{Penicillium} sp., al 5,5\%; (G) Extracto de \emph{Penicillium}
+sp., al 6\%.}
+
+\end{figure}%
+
+\hfill\break
+Por otro lado, los ensayos in vivo evidenciaron una mayor eficacia del
+extracto crudo, donde las concentraciones de 8, 9, 10, 11, 12 y 13\%
+generaron porcentajes de inhibición del área de la lesión (PIAL) de 60,
+55, 70, 72, 77 y 80\% respectivamente, sugiriendo que Penicillium
+digitatum podría representar una alternativa viable para el manejo
+preventivo de la antracnosis del banano (Figura 28).
+
+Efecto in vivo de bananos infectados con \emph{Colletotrichum musae} en
+los tratamientos.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=6.08333in,height=\textheight,keepaspectratio]{images/3_DCA/experimentobananos.png}
+
+}
+
+\caption{Figura 28: Experimento in vivo de los bananos infectados con
+107 conidios de Colletotrichum musae, frente a tratamientos (A los 7
+días de la inoculación). (A) Testigo negativo; (B) Azoxystrobin (Testigo
+positivo); Extractos de Penicillium sp. a (C) 8\%; (D) 9\%; (E) 10\%;
+(F) 11\%; (G) 12\%; (H) 13\%.}
+
+\end{figure}%
+
+\textbf{\hfill\break
+Para mayor información puede consultar:} Mejía-Sarmiento, J. S. (2022).
+Evaluación de Extracto Crudo de Penicillium sp. para la Inhibición del
+Crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A.
+Curtis) Arx. Agente Causal de Antracnosis en Banano {[}Tesis de
+pregrado, Universidad de Santander UDES{]}. Repositorio Institucional
+UDES. \url{https://repositorio.udes.edu.co/handle/001/8674}
+
+\subsection{Estructura de la base de
+datos}\label{estructura-de-la-base-de-datos}
+
+La base de datos utilizada en este análisis corresponde a los resultados
+de un experimento agrícola que evalúa el comportamiento de cuatro
+cultivos diferentes bajo condiciones similares de manejo. La tabla
+contiene tres columnas principales:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3239}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6761}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Descripción
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Tratamiento} & Tipo de cultivo evaluado. Incluye cuatro niveles:
+Arroz, Avena, Cebada y Maíz. \\
+\texttt{Repetición} & Número de repetición del tratamiento (del 1 al 4).
+Permite el análisis estadístico con replicación. \\
+\texttt{Resultado} & Valor numérico correspondiente a la variable
+respuesta medida (por ejemplo, rendimiento en kg/ha). \\
+\end{longtable}
+
+\textbf{Pasos para trabajar con R:}
+
+Especificar el directorio que me interesa donde se encuentra la base de
+datos.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+\textbf{Antes de inciar:} R lee / (slash o división) y no el de Windows
+\textbackslash{}
+
+En \textbf{R}, \texttt{setwd()} es una función que significa
+\textbf{``set working directory''} o ``establecer el directorio de
+trabajo''. Se utiliza para \textbf{definir la carpeta predeterminada} en
+la que R buscará archivos para leer y donde guardará archivos por
+defecto.\\
+
+Por ejemplo: setwd (``D:/OneDrive - Universidad de Santander/Material
+Docente 2025/CodigoR''\,``)
+
+\end{tcolorbox}
+
+\subsection{Cargar las librerias necesarias para el
+análisis}\label{cargar-las-librerias-necesarias-para-el-anuxe1lisis}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(stringr)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(car)}
+\FunctionTok{library}\NormalTok{(lmtest)}
+\FunctionTok{library}\NormalTok{(agricolae)}
+\FunctionTok{library}\NormalTok{(multcomp)}
+\FunctionTok{library}\NormalTok{(emmeans)}
+\FunctionTok{library}\NormalTok{(multcompView)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Importar datos desde
+Excel}\label{importar-datos-desde-excel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{DCA }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/R{-}Proyectos/r{-}para{-}mi/data/DCA\_Penicillium/dca.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exploración inicial y estructura de la base de
+datos}\label{exploraciuxf3n-inicial-y-estructura-de-la-base-de-datos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{View}\NormalTok{(DCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(DCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 6 x 3
+  Tratamiento Repeticion Resultado
+  <chr>            <dbl>     <dbl>
+1 Arroz                1      8.76
+2 Arroz                2      8.74
+3 Arroz                3      8.72
+4 Arroz                4      8.72
+5 Avena                1      8.39
+6 Avena                2      8.37
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(DCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Tratamiento" "Repeticion"  "Resultado"  
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(DCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+tibble [16 x 3] (S3: tbl_df/tbl/data.frame)
+ $ Tratamiento: chr [1:16] "Arroz" "Arroz" "Arroz" "Arroz" ...
+ $ Repeticion : num [1:16] 1 2 3 4 1 2 3 4 1 2 ...
+ $ Resultado  : num [1:16] 8.76 8.74 8.72 8.72 8.39 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(DCA}\SpecialCharTok{$}\NormalTok{Resultado)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  8.341   8.635   8.792   8.775   8.954   9.141 
+\end{verbatim}
+
+\textbf{Convertir las variables en factor}
+
+En un diseño experimental, los factores como \textbf{Tratamiento} y
+\textbf{Repetición} deben declararse como variables \textbf{categóricas
+(factor).} Esto le indica a R que los niveles de cada variable no son
+numéricos, sino categorías que representan tratamientos o bloques,
+permitiendo aplicar correctamente el ANOVA.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Convertir a factor o numérico según corresponda}
+\NormalTok{DCA}\SpecialCharTok{$}\NormalTok{Tratamiento }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(DCA}\SpecialCharTok{$}\NormalTok{Tratamiento)}
+\NormalTok{DCA}\SpecialCharTok{$}\NormalTok{Repeticion  }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(DCA}\SpecialCharTok{$}\NormalTok{Repeticion)}
+\NormalTok{DCA}\SpecialCharTok{$}\NormalTok{Resultado   }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(DCA}\SpecialCharTok{$}\NormalTok{Resultado)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Análisis de la Varianza - ANOVA}
+
+Cuando se desea saber si varios grupos (Ej. tratamientos) presentan
+diferencias reales en sus promedios, una de las herramientas
+estadísticas más utilizadas es el Análisis de la Varianza, conocido como
+ANOVA. Esta técnica permite examinar si los valores medios de tres o más
+grupos son lo suficientemente distintos como para concluir que no se
+trata de simples fluctuaciones aleatorias.
+
+El enfoque de ANOVA se basa en comparar dos tipos de variación: por un
+lado, l\textbf{a variabilidad que se observa entre los distintos
+grupos}, y por otro, \textbf{la variabilidad que existe dentro de cada
+grupo individual}. Si al analizar los datos se encuentra que la
+variación entre los grupos supera notablemente la que ocurre dentro de
+ellos, es razonable pensar que las diferencias en los promedios reflejan
+algo más que el azar. En cambio, si la variabilidad interna es más
+pronunciada, entonces es posible que las diferencias observadas no sean
+significativas y respondan a variaciones normales del comportamiento de
+los datos.
+
+\textbf{Código de R para ANOVA}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modeloDCA }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento }\SpecialCharTok{+}\NormalTok{ Repeticion, }\AttributeTok{data =}\NormalTok{ DCA)}
+\FunctionTok{summary}\NormalTok{(modeloDCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+Tratamiento  3 1.1794  0.3931 642.488 8.21e-11 ***
+Repeticion   3 0.0016  0.0005   0.892    0.482    
+Residuals    9 0.0055  0.0006                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\textbf{Interpretación:} La prueba ANOVA muestra diferencias
+significativas entre los tratamientos (p \textless{} 0.001). El valor de
+F (642.488) indica que la variación entre tratamientos es mucho mayor
+que la variación dentro de los grupos, lo que sugiere que al menos uno
+de los tratamientos afecta significativamente el resultado.
+
+\textbf{Modelo Lineal}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modelo\_lm }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento }\SpecialCharTok{+}\NormalTok{ Repeticion, }\AttributeTok{data =}\NormalTok{ DCA)}
+\FunctionTok{summary}\NormalTok{(modelo\_lm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+lm(formula = Resultado ~ Tratamiento + Repeticion, data = DCA)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.033923 -0.010081  0.000141  0.016481  0.026449 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        8.75105    0.01636 534.860  < 2e-16 ***
+TratamientoAvena  -0.35848    0.01749 -20.495 7.32e-09 ***
+TratamientoCebada  0.12669    0.01749   7.243 4.85e-05 ***
+TratamientoMaiz    0.39630    0.01749  22.657 3.01e-09 ***
+Repeticion2       -0.01994    0.01749  -1.140    0.284    
+Repeticion3       -0.02568    0.01749  -1.468    0.176    
+Repeticion4       -0.02304    0.01749  -1.317    0.220    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.02474 on 9 degrees of freedom
+Multiple R-squared:  0.9954,    Adjusted R-squared:  0.9923 
+F-statistic: 321.7 on 6 and 9 DF,  p-value: 5.608e-10
+\end{verbatim}
+
+\textbf{Interpretación:} El modelo lineal confirma que el tratamiento
+influye significativamente en los resultados (p \textless{} 0.001). El
+tratamiento ``Arroz'' actúa como referencia, con una media estimada de
+8.75. Comparado con este:
+
+\begin{verbatim}
+Avena presenta una media significativamente menor (–0.36, p < 0.001).
+
+Cebada muestra un aumento moderado (+0.13, p < 0.001).
+
+Maíz tiene el mayor incremento (+0.40, p < 0.001).
+\end{verbatim}
+
+El modelo explica el 99.4\% de la variabilidad en los datos (R² =
+0.994), y el error estándar residual es bajo (0.0244), lo que indica un
+ajuste excelente.
+
+\textbf{Gráfico Boxplot}
+
+Se toma el Tratamiento para hacer un boxplot utilizando la variable
+``Resultado'', pero primero se transformar en factor la variable
+Tratamiento:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\NormalTok{DCA}\SpecialCharTok{$}\NormalTok{Tratamiento}\OtherTok{\textless{}{-}}\FunctionTok{factor}\NormalTok{(DCA}\SpecialCharTok{$}\NormalTok{Tratamiento) }\CommentTok{\#transformamos una variable númerica en un factor categórico}
+\FunctionTok{ggplot}\NormalTok{(DCA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Tratamiento, }\AttributeTok{y =}\NormalTok{ Resultado, }\AttributeTok{fill=}\NormalTok{Tratamiento)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_04_files/figure-pdf/unnamed-chunk-11-1.pdf}}
+
+\textbf{Interpretación:} Las diferencias en las medianas entre
+tratamientos son claras y consistentes con los resultados del ANOVA y
+del modelo lineal, lo que sugiere un efecto significativo del tipo de
+cultivo sobre la variable resultado.
+
+\section{\texorpdfstring{\textbf{Supuestos del
+modelo}}{Supuestos del modelo}}\label{supuestos-del-modelo}
+
+Antes de interpretar los resultados, se verifican los supuestos de
+\textbf{normalidad, homogeneidad de varianzas} e \textbf{independencia
+de los residuos}.
+
+\subsection{\texorpdfstring{\textbf{Normalidad}}{Normalidad}}\label{normalidad}
+
+Para verificar la normalidad de los residuos utilizaremos la prueba de
+Shapiro-Wilks cuyo script es el siguiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{shapiro.test}\NormalTok{(}\FunctionTok{residuals}\NormalTok{(modeloDCA))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Shapiro-Wilk normality test
+
+data:  residuals(modeloDCA)
+W = 0.93432, p-value = 0.2851
+\end{verbatim}
+
+\textbf{Interpretación:} El test de Shapiro-Wilk aplicado a los residuos
+del modelo ANOVA devuelve un valor de p = 0.934, que es mucho mayor que
+0.05. Esto indica que no hay evidencia estadística para rechazar la
+hipótesis nula de normalidad. Por lo tanto, se concluye que los residuos
+del modelo siguen una distribución normal, cumpliendo así uno de los
+supuestos fundamentales del análisis de varianza.
+
+\subsection{\texorpdfstring{\textbf{Gráficos para evaluar la
+normalidad}}{Gráficos para evaluar la normalidad}}\label{gruxe1ficos-para-evaluar-la-normalidad}
+
+Para construir el gráfico QQ (QQ plot) y evaluar la normalidad de los
+datos, se utiliza la función correspondiente del paquete car. Si no está
+instalado previamente, es necesario instalar también el paquete auxiliar
+carData.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Instalación (si es necesario) }
+\CommentTok{\# install.packages ("car") }
+\CommentTok{\# install.packages ("carData") }
+\CommentTok{\# install.packages ("dplyr") }
+\CommentTok{\# install.packages ("purrr")}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Cargar los paquetes (librerias)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(car) }\CommentTok{\#Grafico de QQ plot}
+\FunctionTok{library}\NormalTok{(carData)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(purrr)}
+
+\FunctionTok{qqPlot}\NormalTok{(modeloDCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_04_files/figure-pdf/unnamed-chunk-14-1.pdf}}
+
+\begin{verbatim}
+[1] 12 13
+\end{verbatim}
+
+\textbf{Interpretación:} El gráfico QQ muestra que los residuos
+estandarizados del modelo ANOVA se alinean adecuadamente con la línea
+diagonal, lo que indica que su distribución es aproximadamente normal.
+La mayoría de los puntos se ubican dentro de la banda de confianza, y no
+se observan desviaciones sistemáticas. Esta gráfica complementa el
+resultado del test de Shapiro-Wilks (p = 0.959), confirmando que se
+cumple el supuesto de normalidad de los residuos en el modelo.
+
+\subsection{\texorpdfstring{\textbf{Homocedasticidad}}{Homocedasticidad}}\label{homocedasticidad}
+
+Para evaluar el supuesto de homogeneidad de varianzas entre los grupos
+(homocedasticidad), se aplicará la prueba de Bartlett, la cual es
+apropiada cuando los datos provienen de poblaciones aproximadamente
+normales. Esta prueba contrasta la hipótesis nula de igualdad de
+varianzas frente a la alternativa de varianzas diferentes. El
+procedimiento se implementa mediante el siguiente script:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{bartlett.test}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento, }\AttributeTok{data =}\NormalTok{ DCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Bartlett test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Bartlett's K-squared = 2.2722, df = 3, p-value = 0.5179
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{leveneTest}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento, }\AttributeTok{data =}\NormalTok{ DCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(>F)
+group  3  0.9985 0.4268
+      12               
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{fligner.test}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento, }\AttributeTok{data =}\NormalTok{ DCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Fligner-Killeen test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Fligner-Killeen:med chi-squared = 3.0752, df = 3, p-value = 0.3802
+\end{verbatim}
+
+\textbf{Interpretación:} Dado que el valor de p es mayor que 0.05 (p =
+0.5179), no se rechaza la hipótesis nula. Por tanto, se asume que las
+varianzas entre los tratamientos son homogéneas, cumpliéndose este
+supuesto clave para el análisis de varianza y para la aplicación de
+pruebas a posteriori como LSD.
+
+\subsection{Gráfico de residuos vs valores
+ajustados}\label{gruxe1fico-de-residuos-vs-valores-ajustados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos\_homocedasticidad }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+\AttributeTok{Valores\_Ajustados =} \FunctionTok{fitted}\NormalTok{(modeloDCA),}
+\AttributeTok{Residuos\_Std =} \FunctionTok{rstandard}\NormalTok{(modeloDCA)}
+\NormalTok{)}
+
+\FunctionTok{ggplot}\NormalTok{(datos\_homocedasticidad, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Valores\_Ajustados, }\AttributeTok{y =}\NormalTok{ Residuos\_Std)) }\SpecialCharTok{+}
+\FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}
+\AttributeTok{title =} \StringTok{"Gráfico de Residuos vs Valores Ajustados"}\NormalTok{,}
+\AttributeTok{x =} \StringTok{"Valores ajustados (predichos)"}\NormalTok{,}
+\AttributeTok{y =} \StringTok{"Residuos estandarizados"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_04_files/figure-pdf/unnamed-chunk-16-1.pdf}}
+
+\subsection{Independencia de residuos}\label{independencia-de-residuos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dwtest}\NormalTok{(modeloDCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Durbin-Watson test
+
+data:  modeloDCA
+DW = 1.7707, p-value = 0.1387
+alternative hypothesis: true autocorrelation is greater than 0
+\end{verbatim}
+
+\textbf{Interpretación:} El resultado del \textbf{test de
+Durbin--Watson} (DW = 1.77; \emph{p} = 0.1387) indica que \textbf{no
+existe evidencia significativa de autocorrelación} entre los residuos
+del modelo. Dado que el valor de \emph{p} es mayor que 0.05, se
+\textbf{acepta la hipótesis nula de independencia}, lo que significa que
+los residuos son independientes entre sí y el modelo \textbf{cumple con
+este supuesto del ANOVA}.
+
+\section{\texorpdfstring{\textbf{Pruebas
+aposteriori}}{Pruebas aposteriori}}\label{pruebas-aposteriori}
+
+\subsection{Prueba LSD (Least Significant
+Difference)}\label{prueba-lsd-least-significant-difference}
+
+Para identificar diferencias específicas entre las medias de los
+tratamientos, una vez detectada significancia en el análisis de
+varianza, se aplicará una prueba de comparaciones múltiples a
+posteriori. En este caso, se empleará la técnica LSD (Least Significant
+Difference), que permite realizar comparaciones pareadas entre
+tratamientos asumiendo homogeneidad de varianzas. La implementación de
+esta prueba requiere la carga del paquete agricolae, utilizando el
+siguiente script. Instalación si es necesario:
+install.packages(``agricolae''). Carga del paquete: library(agricolae).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(agricolae)}
+\NormalTok{Grupos }\OtherTok{\textless{}{-}} \FunctionTok{LSD.test}\NormalTok{(}\AttributeTok{y =}\NormalTok{ modeloDCA, }\AttributeTok{trt =} \StringTok{"Tratamiento"}\NormalTok{, }\AttributeTok{group =}\NormalTok{ T, }\AttributeTok{console =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Study: modeloDCA ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  0.0006118755 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+       Resultado        std r         se      LCL      UCL      Min      Max
+Arroz   8.733890 0.02192214 4 0.01236806 8.705912 8.761869 8.715318 8.762183
+Avena   8.375414 0.02519485 4 0.01236806 8.347436 8.403393 8.341039 8.395990
+Cebada  8.860578 0.03330518 4 0.01236806 8.832600 8.888557 8.822181 8.900695
+Maiz    9.130190 0.01251613 4 0.01236806 9.102211 9.158168 9.113429 9.140539
+            Q25      Q50      Q75
+Arroz  8.717232 8.729030 8.745688
+Avena  8.364419 8.382314 8.393309
+Cebada 8.842075 8.859719 8.878222
+Maiz   9.124249 9.133395 9.139335
+
+Alpha: 0.05 ; DF Error: 9
+Critical Value of t: 2.262157 
+
+least Significant Difference: 0.03956756 
+
+Treatments with the same letter are not significantly different.
+
+       Resultado groups
+Maiz    9.130190      a
+Cebada  8.860578      b
+Arroz   8.733890      c
+Avena   8.375414      d
+\end{verbatim}
+
+\textbf{Intrepretación:} La prueba LSD reveló que los cuatro
+tratamientos presentan diferencias estadísticamente significativas entre
+sus medias. El tratamiento Maíz obtuvo el mayor rendimiento promedio,
+seguido por Cebada, Arroz y Avena, en ese orden descendente.
+
+Otra opcion cuando cambiamos el argumento ``group'' a F (false), se
+interpreta a mi parecer de forma mas sencilla la diferencia entre las
+medias. A continuación, se presentan las pruebas de comparaciones
+múltiples a posteriori aplicadas al modelo de ANOVA ajustado. Se
+incluyen la prueba LSD, la prueba de Tukey y el test de Scheffé, las
+cuales permiten identificar diferencias estadísticamente significativas
+entre los tratamientos evaluados:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Grupos}\OtherTok{\textless{}{-}} \FunctionTok{LSD.test}\NormalTok{(}\AttributeTok{y =}\NormalTok{ modeloDCA, }\AttributeTok{trt =} \StringTok{"Tratamiento"}\NormalTok{, }\AttributeTok{group =}\NormalTok{ F, }\AttributeTok{console =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Study: modeloDCA ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  0.0006118755 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+       Resultado        std r         se      LCL      UCL      Min      Max
+Arroz   8.733890 0.02192214 4 0.01236806 8.705912 8.761869 8.715318 8.762183
+Avena   8.375414 0.02519485 4 0.01236806 8.347436 8.403393 8.341039 8.395990
+Cebada  8.860578 0.03330518 4 0.01236806 8.832600 8.888557 8.822181 8.900695
+Maiz    9.130190 0.01251613 4 0.01236806 9.102211 9.158168 9.113429 9.140539
+            Q25      Q50      Q75
+Arroz  8.717232 8.729030 8.745688
+Avena  8.364419 8.382314 8.393309
+Cebada 8.842075 8.859719 8.878222
+Maiz   9.124249 9.133395 9.139335
+
+Alpha: 0.05 ; DF Error: 9
+Critical Value of t: 2.262157 
+
+Comparison between treatments means
+
+               difference pvalue signif.        LCL         UCL
+Arroz - Avena   0.3584760      0     ***  0.3189084  0.39804355
+Arroz - Cebada -0.1266884      0     *** -0.1662559 -0.08712081
+Arroz - Maiz   -0.3962994      0     *** -0.4358670 -0.35673188
+Avena - Cebada -0.4851644      0     *** -0.5247319 -0.44559679
+Avena - Maiz   -0.7547754      0     *** -0.7943430 -0.71520787
+Cebada - Maiz  -0.2696111      0     *** -0.3091786 -0.23004351
+\end{verbatim}
+
+\textbf{Interpretación:} todas las diferencias entre tratamientos son
+altamente significativas (p \textless{} 0.001). Esto confirma que
+ninguno de los tratamientos comparte una media similar.
+
+\subsection{Prueba de Tukey}\label{prueba-de-tukey}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(agricolae)}
+
+\CommentTok{\# Prueba de Tukey HSD}
+\FunctionTok{HSD.test}\NormalTok{(modeloDCA, }\StringTok{"Tratamiento"}\NormalTok{, }\AttributeTok{group =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{console =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Study: modeloDCA ~ "Tratamiento"
+
+HSD Test for Resultado 
+
+Mean Square Error:  0.0006118755 
+
+Tratamiento,  means
+
+       Resultado        std r         se      Min      Max      Q25      Q50
+Arroz   8.733890 0.02192214 4 0.01236806 8.715318 8.762183 8.717232 8.729030
+Avena   8.375414 0.02519485 4 0.01236806 8.341039 8.395990 8.364419 8.382314
+Cebada  8.860578 0.03330518 4 0.01236806 8.822181 8.900695 8.842075 8.859719
+Maiz    9.130190 0.01251613 4 0.01236806 9.113429 9.140539 9.124249 9.133395
+            Q75
+Arroz  8.745688
+Avena  8.393309
+Cebada 8.878222
+Maiz   9.139335
+
+Alpha: 0.05 ; DF Error: 9 
+Critical Value of Studentized Range: 4.41489 
+
+Minimun Significant Difference: 0.05460362 
+
+Treatments with the same letter are not significantly different.
+
+       Resultado groups
+Maiz    9.130190      a
+Cebada  8.860578      b
+Arroz   8.733890      c
+Avena   8.375414      d
+\end{verbatim}
+
+\textbf{Interpretación:} La prueba de Tukey también confirma diferencias
+estadísticamente significativas en todas las comparaciones, manteniendo
+control del error familiar. El gráfico generado muestra intervalos de
+confianza del 95\% que no se solapan, lo que respalda visualmente los
+resultados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{TukeyHSD}\NormalTok{(modeloDCA))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_04_files/figure-pdf/unnamed-chunk-21-1.pdf}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_04_files/figure-pdf/unnamed-chunk-21-2.pdf}}
+
+\textbf{Interpretación:} El gráfico muestra los intervalos de confianza
+del 95\,\% para las diferencias de medias entre los tratamientos,
+ajustados por comparaciones múltiples (family-wise). Ninguno de los
+intervalos cruza la línea vertical en cero, lo cual indica que todas las
+comparaciones entre pares de tratamientos son estadísticamente
+significativas. La diferencia más grande se observa entre Maíz y Avena,
+mientras que la más pequeña, aunque significativa, es entre Cebada y
+Arroz. Este resultado es coherente con los análisis previos (ANOVA, LSD
+y Scheffé), y respalda que cada tratamiento tiene un efecto
+significativamente distinto sobre la variable ``Resultado''.
+
+\subsection{Prueba de Scheffé}\label{prueba-de-scheffuxe9}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{scheffe.test}\NormalTok{(modeloDCA, }\StringTok{"Tratamiento"}\NormalTok{,}\AttributeTok{console=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Study: modeloDCA ~ "Tratamiento"
+
+Scheffe Test for Resultado 
+
+Mean Square Error  : 0.0006118755 
+
+Tratamiento,  means
+
+       Resultado        std r         se      Min      Max      Q25      Q50
+Arroz   8.733890 0.02192214 4 0.01236806 8.715318 8.762183 8.717232 8.729030
+Avena   8.375414 0.02519485 4 0.01236806 8.341039 8.395990 8.364419 8.382314
+Cebada  8.860578 0.03330518 4 0.01236806 8.822181 8.900695 8.842075 8.859719
+Maiz    9.130190 0.01251613 4 0.01236806 9.113429 9.140539 9.124249 9.133395
+            Q75
+Arroz  8.745688
+Avena  8.393309
+Cebada 8.878222
+Maiz   9.139335
+
+Alpha: 0.05 ; DF Error: 9 
+Critical Value of F: 3.862548 
+
+Minimum Significant Difference: 0.05954073 
+
+Means with the same letter are not significantly different.
+
+       Resultado groups
+Maiz    9.130190      a
+Cebada  8.860578      b
+Arroz   8.733890      c
+Avena   8.375414      d
+\end{verbatim}
+
+\textbf{Interpretación:} A pesar de ser una prueba más conservadora, el
+test de Scheffé también encontró diferencias significativas entre todos
+los tratamientos. El análisis agrupó los tratamientos en distintos
+niveles.Mínima diferencia significativa (Scheffé): 0.0558. Valor crítico
+de F: 3.4903
+
+\textbf{Conclusión general} Las tres pruebas aplicadas (LSD, Tukey y
+Scheffé) coinciden en que todos los tratamientos difieren
+significativamente entre sí. El tratamiento con mayor rendimiento fue
+Maíz, seguido por Cebada, Arroz y Avena, en orden descendente. Esto
+respalda la conclusión de que el tipo de tratamiento influye de manera
+significativa sobre la variable respuesta.
+
+\bookmarksetup{startatroot}
+
+\chapter{Capítulo 5.Diseño de Bloques Completamente al Azar
+(DBCA)}\label{capuxedtulo-5.diseuxf1o-de-bloques-completamente-al-azar-dbca}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/4_DBCA/DBCA.PNG}}
+
+}
+
+\caption{Figura 29. Mapa conceptual (p.~85). Gutiérrez Pulido, H., y De
+la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.).
+McGraw-Hill/Interamericana de México. ISBN: 9786071507259.}
+
+\end{figure}%
+
+El mapa conceptual presenta los principales componentes de los
+\textbf{diseños en bloques} (Figura 29), una estrategia experimental
+usada para controlar la variabilidad mediante la formación de grupos
+homogéneos llamados \emph{bloques}. Entre estos diseños se encuentra el
+\textbf{Diseño en Bloques Completos al Azar (DBCA)}, el cual incorpora
+el \emph{efecto de bloque} y requiere definir claramente las
+\textbf{hipótesis}, el \textbf{modelo estadístico}, así como la
+\textbf{selección y aleatorización} de las unidades experimentales. Su
+análisis se realiza a través del \textbf{ANOVA}, que permite evaluar si
+los tratamientos difieren más allá de la variación entre bloques.
+
+Otros diseños relacionados incluyen el \textbf{diseño en bloques
+incompletos balanceados} y los diseños \textbf{en cuadro latino} y
+\textbf{grecolatino}, los cuales permiten controlar simultáneamente
+múltiples fuentes de variación. Cada uno de estos diseños exige un
+procedimiento estructurado que abarca la formulación del modelo, el
+análisis de varianza correspondiente y la \textbf{interpretación} de los
+resultados.
+
+\section{Modelo teórico para el Diseño de Bloques Completamente al Azar
+(DBCA)}\label{modelo-teuxf3rico-para-el-diseuxf1o-de-bloques-completamente-al-azar-dbca}
+
+El \textbf{Diseño en Bloques Completos al Azar (DBCA)} se utiliza cuando
+existe una fuente de variación conocida ---denominada \emph{bloques}---
+que puede influir en la variable de respuesta. Para controlar esa
+variabilidad, las unidades experimentales se agrupan en bloques
+homogéneos, y dentro de cada bloque los tratamientos se asignan
+aleatoriamente (Gutiérrez Pulido \& Vara Salazar, 2012; Montgomery,
+2017).
+
+El modelo lineal aditivo correspondiente al DBCA se expresa como:
+
+\[
+Y_{ij} = \mu + \tau_i + \beta_j + \varepsilon_{ij}
+\]
+
+donde:
+
+\begin{itemize}
+\tightlist
+\item
+  \(Y_{ij}\): valor observado del tratamiento \(i\) en el bloque \(j\)
+\item
+  \(\mu\): media general
+\item
+  \(\displaystyle \tau_i\): efecto del tratamiento \(i\)
+\item
+  \(\displaystyle \beta_j\): efecto del bloque \(j\)
+\item
+  \(\displaystyle \varepsilon_{ij}\): error aleatorio asociado, con
+  \(\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)\)
+\end{itemize}
+
+Para ello se formulan las siguientes hipótesis estadísticas:
+
+\[
+H_0 : \mu_1 = \mu_2 = \cdots = \mu_k
+\]
+
+\[
+H_A : \mu_i \ne \mu_j \quad \text{para algún } i \ne j
+\]
+
+Estas hipótesis permiten evaluar si existen diferencias significativas
+entre los tratamientos más allá de la variabilidad explicada por los
+bloques.
+
+\section{Análisis de varianza}\label{anuxe1lisis-de-varianza}
+
+De acuerdo con (Gutiérrez Pulido \& Vara Salazar, 2012), las hipótesis
+planteadas en las ecuaciones anteriores se evalúan mediante un análisis
+de varianza de dos vías, debido a que en el DBCA es necesario considerar
+simultáneamente dos fuentes de variación: los tratamientos y los
+bloques. La Tabla presenta el formato general del ANOVA correspondiente
+a un diseño en bloques completos al azar.
+
+\subsection{Tabla ANOVA para un diseño en bloques completos al
+azar}\label{tabla-anova-para-un-diseuxf1o-en-bloques-completos-al-azar}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Fuente de variabilidad
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Suma de cuadrados
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Grados de libertad
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cuadrado medio
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estadístico F
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Valor-p
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Tratamientos & SCTRAT & \(k - 1\) & CMTRAT &
+\(F_0 = \frac{CM_{TRAT}}{CM_E}\) & \(P(F > F_0)\) \\
+Bloques & SCB & \(b - 1\) & CMB & \(F_0 = \frac{CM_{B}}{CM_E}\) &
+\(P(F > F_0)\) \\
+Error & SCE & \((k - 1)(b - 1)\) & CME & --- & --- \\
+Total & SCT & \(kb - 1\) & --- & --- & --- \\
+\end{longtable}
+
+Nota: SC: Suma de cuadrados, CM: Cuadrado medio.
+
+\section{Problema}\label{problema-1}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, colframe=quarto-callout-note-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+El \textbf{crecimiento de las plantas de frijol (\emph{Phaseolus
+vulgaris})} depende en gran medida de la interacción entre sus raíces y
+los \textbf{microorganismos del suelo}, especialmente los
+\textbf{rizobios}, los cuales establecen una relación simbiótica
+formando \textbf{nódulos radiculares} que facilitan la \textbf{fijación
+biológica de nitrógeno (FBN)}. Este proceso aporta una fuente natural y
+sostenible de nitrógeno, fundamental para el desarrollo y rendimiento de
+las plantas.
+
+Sin embargo, el aprovechamiento de esta simbiosis puede verse afectado
+por \textbf{factores edáficos y ambientales} como la \textbf{composición
+del suelo, la disponibilidad de humedad, la temperatura y la luz}, que
+influyen directamente en la actividad microbiana y en la eficiencia de
+la FBN.
+
+Por ello, resulta necesario \textbf{evaluar la respuesta del frijol
+frente a diferentes tratamientos de fertilización}, combinando
+\textbf{fuentes químicas y biológicas (bioinoculantes y abonos
+orgánicos)}, con el fin de identificar estrategias que promuevan un
+crecimiento óptimo y un manejo más sostenible del cultivo (Figura 30).
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=3.39583in,height=\textheight,keepaspectratio]{images/4_DBCA/DBCA_frijol.png}
+
+}
+
+\caption{Figura 30 \emph{Phaseolus vulgaris}}
+
+\end{figure}%
+
+Imagen suministrada por el profesor Christian Chacín. Laboratorio de
+Cultivos Vegetales UDES (2025).
+
+\end{tcolorbox}
+
+\section{Estructura de la base de
+datos}\label{estructura-de-la-base-de-datos-1}
+
+El presente experimento se estructuró bajo un \textbf{Diseño de Bloques
+Completamente al Azar (DBCA)} con el objetivo de evaluar el efecto de
+diferentes tratamientos de fertilización sobre el crecimiento de las
+plantas de frijol (\emph{Phaseolus vulgaris}). Este diseño permite
+controlar la variabilidad asociada a factores ambientales no
+experimentales mediante la conformación de bloques homogéneos.\\
+En este caso, se consideraron \textbf{tres bloques (A, B y C)} que
+representan unidades experimentales con condiciones similares dentro de
+cada uno, y se aplicaron \textbf{cuatro tratamientos} de fertilización:
+\textbf{NPK Comercial}, \textbf{NPK + Bioinoculante}, \textbf{Orgánico +
+NPK (50:50)} y \textbf{Orgánico + NPK}.\\
+El parámetro evaluado, denominado \textbf{Resultado}, corresponde a una
+variable cuantitativa continua (por ejemplo, biomasa, concentración de
+metal o altura), expresada en valores decimales.
+
+\subsection{Descripción de las variables del
+experimento}\label{descripciuxf3n-de-las-variables-del-experimento}
+
+El diseño experimental corresponde a un \textbf{Diseño de Bloques
+Completamente al Azar (DBCA)}, en el cual se evaluaron diferentes
+tratamientos de fertilización en plantas de frijol (\emph{Phaseolus
+vulgaris}).\\
+Los bloques representan unidades experimentales homogéneas, y la
+variable de respuesta cuantifica el efecto del tratamiento sobre el
+crecimiento o bioacumulación.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2639}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2639}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4722}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tipo de variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Descripción
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Tratamiento} & Cualitativa nominal & Incluye los diferentes
+niveles de fertilización, como \emph{NPK Comercial}, \emph{NPK +
+Bioinoculante}, \emph{Orgánico + NPK (50:50)}, entre otros. \\
+\textbf{Bloque} & Cualitativa nominal & Factor de bloqueo que agrupa las
+unidades experimentales bajo condiciones similares. Se identifican con
+letras (A, B, C, \ldots). \\
+\textbf{Resultado} & Cuantitativa continua & Variable de respuesta que
+representa la medición obtenida (por ejemplo: altura, biomasa,
+concentración de metal, etc.), expresada con valores decimales. \\
+\end{longtable}
+
+\subsection{Instalar Paquetes (solo una
+vez)}\label{instalar-paquetes-solo-una-vez}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("readxl")}
+\CommentTok{\#install.packages("car") }
+\CommentTok{\#install.packages("agricolae") }
+\CommentTok{\#install.packages("lmtest") }
+\CommentTok{\#install.packages("ggplot2")}
+\CommentTok{\#install.packages("gtable")}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Cargar las librerias necesarias para el
+análisis}\label{cargar-las-librerias-necesarias-para-el-anuxe1lisis-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
+\FunctionTok{library}\NormalTok{(readxl) }
+\FunctionTok{library}\NormalTok{(car) }
+\FunctionTok{library}\NormalTok{(agricolae)}
+\FunctionTok{library}\NormalTok{(lmtest) }
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Importar datos desde
+Excel}\label{importar-datos-desde-excel-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{DBCA }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/R{-}Proyectos/r{-}para{-}mi/data/DBCA\_Frijol/DBCA\_frijol.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exploración inicial y estructura de la base de
+datos}\label{exploraciuxf3n-inicial-y-estructura-de-la-base-de-datos-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{View}\NormalTok{(DBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(DBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "Tratamiento" "Bloque"      "Resultado"  
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(DBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+tibble [120 x 3] (S3: tbl_df/tbl/data.frame)
+ $ Tratamiento: chr [1:120] "NPK Comercial" "NPK Comercial" "NPK Comercial" "NPK Comercial" ...
+ $ Bloque     : chr [1:120] "A" "A" "A" "A" ...
+ $ Resultado  : num [1:120] 51.5 49.6 51.9 54.6 49.3 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(DBCA}\SpecialCharTok{$}\NormalTok{Resultado)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  44.71   52.30   56.76   57.26   61.24   72.39 
+\end{verbatim}
+
+\subsection{Convertir variables a
+factores}\label{convertir-variables-a-factores}
+
+Para garantizar un análisis correcto bajo el \textbf{Diseño de Bloques
+Completamente al Azar (DBCA)}, las variables \textbf{Tratamiento} y
+\textbf{Bloque} se convierten a factores en R. Esta conversión permite
+que el modelo ANOVA reconozca dichos elementos como variables
+categóricas y no como valores numéricos, asegurando una interpretación
+adecuada de los efectos experimentales.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DBCA}\SpecialCharTok{$}\NormalTok{Tratamiento }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(DBCA}\SpecialCharTok{$}\NormalTok{Tratamiento) }
+\NormalTok{DBCA}\SpecialCharTok{$}\NormalTok{Bloque }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(DBCA}\SpecialCharTok{$}\NormalTok{Bloque)}
+\FunctionTok{str}\NormalTok{ (DBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+tibble [120 x 3] (S3: tbl_df/tbl/data.frame)
+ $ Tratamiento: Factor w/ 4 levels "NPK + Bioinoculante",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Bloque     : Factor w/ 3 levels "A","B","C": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Resultado  : num [1:120] 51.5 49.6 51.9 54.6 49.3 ...
+\end{verbatim}
+
+\section{ANOVA para Diseño de Bloques Completamente al Azar
+-DBCA-}\label{anova-para-diseuxf1o-de-bloques-completamente-al-azar--dbca-}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modeloDBCA }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento }\SpecialCharTok{+}\NormalTok{ Bloque, }\AttributeTok{data =}\NormalTok{ DBCA)}
+\FunctionTok{summary}\NormalTok{(modeloDBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+             Df Sum Sq Mean Sq F value Pr(>F)    
+Tratamiento   3   3602  1200.6 153.749 <2e-16 ***
+Bloque        2     11     5.4   0.688  0.505    
+Residuals   114    890     7.8                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\textbf{Interpretación:} Los resultados del Análisis de Varianza (ANOVA)
+se ajustan a un modelo de Diseño de Bloques Completamente al Azar
+(DBCA), donde se evaluó el efecto del factor \textbf{Tratamiento} sobre
+una variable de \textbf{Resultado}, controlando la variabilidad mediante
+el factor \textbf{Bloque}.
+
+1. \textbf{Efecto del Tratamiento}. El análisis indica que el factor
+Tratamiento es altamente significativo sobre la variable de Resultado.
+Dado que el valor \(\text{p}\) es extremadamente pequeño (denotado por
+`***'), se \textbf{rechaza la hipótesis nula} de que no hay diferencias
+entre las medias de los tratamientos. Esto significa que existe una
+\textbf{diferencia estadísticamente significativa} en el Resultado al
+menos entre dos de los niveles de Tratamiento. \textbf{Grados de
+Libertad (Df):} 3. \textbf{Valor F (F value):} 153.749. \textbf{Valor p
+(}\(\text{Pr}(>F)\)): \(<2 \text{e}-16\) (Menor que \(0.001\))
+
+2. \textbf{Efecto del Bloque.} El análisis de la fuente de variación
+\textbf{Bloque} evalúa si el agrupamiento de las unidades experimentales
+fue efectivo para reducir la variabilidad del error. El valor
+\(\text{p}\) (0.505) es \textbf{mayor que el nivel de significancia}
+comúnmente utilizado (\(\alpha = 0.05\)). Por lo tanto, el factor
+\textbf{Bloque no resultó ser significativo}. Esto indica que la
+variabilidad atribuida a las diferencias entre los Bloques no es mayor
+que la variabilidad aleatoria, sugiriendo que la inclusión del bloqueo
+no fue esencial o efectivo en este experimento particular.\textbf{Grados
+de Libertad (Df):} 2. \textbf{Valor F (F value):} 0.688. \textbf{Valor p
+(}\(\text{Pr}(>F)\)): 0.505
+
+3. \textbf{Resumen del Modelo.} El factor \textbf{Tratamiento ejerce una
+influencia significativa} en el Resultado. Sin embargo, el factor
+\textbf{Bloque no contribuye significativamente} a explicar la variación
+del Resultado. Se requiere un análisis \emph{post-hoc} (como Tukey o
+Sidak) para determinar cuáles pares específicos de Tratamientos difieren
+entre sí.
+
+\section{Verificación de supuestos}\label{verificaciuxf3n-de-supuestos}
+
+El ANOVA requiere cumplir tres supuestos básicos para garantizar la
+validez de los resultados. Ignorar estos supuestos puede generar
+conclusiones erróneas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Normalidad}, que implica que los datos se aproximen a una
+  distribución normal, evaluada comúnmente con la prueba de
+  \textbf{Shapiro--Wilk}.
+\item
+  \textbf{Homogeneidad de varianzas (homocedasticidad)}, que supone una
+  variabilidad similar entre los grupos.
+\item
+  \textbf{Independencia de las observaciones}, donde los datos de un
+  grupo no deben influir en los de otro.
+\end{enumerate}
+
+\subsection{Normalidad de residuos
+(Shapiro-Wilk)}\label{normalidad-de-residuos-shapiro-wilk}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res }\OtherTok{\textless{}{-}} \FunctionTok{residuals}\NormalTok{(modeloDBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{shapiro.test}\NormalTok{(res)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Shapiro-Wilk normality test
+
+data:  res
+W = 0.99559, p-value = 0.9725
+\end{verbatim}
+
+\textbf{Interpretación:} La hipótesis nula de \emph{Shapiro--Wilk} es
+que los datos provienen de una distribución normal , al tiempo que el
+p-value = 0.9725 es ≥ que 0.05, no hay evidencia para rechazar la
+normalidad, es por ello por lo que los residuos pueden considerarse
+normalmente distribuidos, lo cual respalda el supuesto de normalidad
+necesario para ANOVA.
+
+\textbf{Gráfico Q-Q de los residuos estandarizados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qqnorm}\NormalTok{(res)}
+\FunctionTok{qqline}\NormalTok{(res, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_05_files/figure-pdf/unnamed-chunk-12-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(res, }\AttributeTok{main =} \StringTok{"Histograma de residuos"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Residuos"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_05_files/figure-pdf/unnamed-chunk-12-2.pdf}}
+
+\subsection{Homocedasticidad}\label{homocedasticidad-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{bartlett.test}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento, }\AttributeTok{data =}\NormalTok{ DBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Bartlett test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Bartlett's K-squared = 7.4355, df = 3, p-value = 0.05924
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{car}\SpecialCharTok{::}\FunctionTok{leveneTest}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento, }\AttributeTok{data =}\NormalTok{ DBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(>F)
+group   3  1.3691 0.2557
+      116               
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{fligner.test}\NormalTok{(Resultado }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Tratamiento, }\AttributeTok{data =}\NormalTok{ DBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Fligner-Killeen test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Fligner-Killeen:med chi-squared = 3.3125, df = 3, p-value = 0.3459
+\end{verbatim}
+
+\textbf{Interpretación:} La hipótesis nula de \emph{Bartlett} es que las
+varianzas entre los grupos son iguales, y como el \emph{p-valor} = 0.059
+es ≥ 0.05, no se rechaza la hipótesis nula; no se rechaza la
+homogeneidad de varianzas, aunque está cerca del umbral. Esto sugiere
+que los datos cumplen razonablemente el supuesto de homocedasticidad,
+pero con un margen ajustado.
+
+\subsection{Gráfico de Residuos vs.~Valores
+Ajustados}\label{gruxe1fico-de-residuos-vs.-valores-ajustados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. Extraer valores ajustados y residuos del modelo DBCA}
+\NormalTok{datos\_homocedasticidad }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Valores\_Ajustados =} \FunctionTok{fitted}\NormalTok{(modeloDBCA),     }\CommentTok{\# valores predichos del modelo}
+  \AttributeTok{Residuos\_Std =} \FunctionTok{rstandard}\NormalTok{(modeloDBCA)        }\CommentTok{\# residuos estandarizados}
+\NormalTok{)}
+
+\CommentTok{\# 2. Gráfico de residuos vs valores ajustados}
+\FunctionTok{ggplot}\NormalTok{(datos\_homocedasticidad, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Valores\_Ajustados, }\AttributeTok{y =}\NormalTok{ Residuos\_Std)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Gráfico de Residuos vs. Valores Ajustados (Homogeneidad de Varianzas)"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Valores ajustados (predichos)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Residuos estandarizados"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_05_files/figure-pdf/unnamed-chunk-14-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Interpretación:}
+\CommentTok{\# Los puntos deben dispersarse aleatoriamente alrededor de y = 0}
+\CommentTok{\# sin formar patrones o conos, indicando homogeneidad de varianzas.}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Interpretación:} Tanto las pruebas estadísticas
+(\textbf{Bartlett, Levene y Fligner-Killeen}) como el \textbf{gráfico de
+residuos} indican que se cumple el supuesto de \textbf{homogeneidad de
+varianzas} en el modelo DBCA. Por tanto, el análisis de varianza (ANOVA)
+puede aplicarse de forma válida, ya que la variabilidad dentro de los
+grupos de tratamiento es similar y no se detectan violaciones
+importantes de este supuesto.
+
+\subsection{Independencia de
+residuos}\label{independencia-de-residuos-1}
+
+El \textbf{Durbin--Watson test} evalúa la \textbf{independencia de los
+residuos}:
+
+\textbf{Hipótesis nula (H₀):} los residuos son independientes.\\
+\textbf{Hipótesis alternativa (H₁):} los residuos están
+autocorrelacionados.\\
+\strut \\
+Si el \textbf{p-value \textgreater{} 0.05}, \textbf{no se rechaza H₀},
+por lo que \textbf{los residuos son independientes} (el supuesto se
+cumple). Si el \textbf{p-value \textless{} 0.05}, existe
+\textbf{autocorrelación} y el supuesto no se cumple.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dwtest}\NormalTok{(modeloDBCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Durbin-Watson test
+
+data:  modeloDBCA
+DW = 2.042, p-value = 0.4159
+alternative hypothesis: true autocorrelation is greater than 0
+\end{verbatim}
+
+Interpretación: Debido a que el \textbf{valor} \(\text{p}\) (\(0.4159\))
+es mucho mayor que \(0.05\), \textbf{no hay evidencia estadística
+suficiente para rechazar la hipótesis nula}. Se concluye, por lo tanto,
+que el supuesto de \textbf{independencia de los residuos} se cumple
+satisfactoriamente en el modelo DBCA. La cercanía del estadístico DW
+(2.042) al valor ideal de 2.0 refuerza esta conclusión.
+
+\section{\texorpdfstring{\textbf{Pruebas
+aposteriori}}{Pruebas aposteriori}}\label{pruebas-aposteriori-1}
+
+En el marco del \textbf{Diseño de Bloques Completamente al Azar (DBCA)}
+aplicado al cultivo de frijol, una vez verificados los supuestos de
+\textbf{normalidad} y \textbf{homogeneidad de varianzas}, se procede a
+realizar las \textbf{pruebas de comparación múltiple de medias}. Estas
+pruebas, como las de \textbf{Tukey} o \textbf{Duncan}, permiten
+identificar qué tratamientos presentan diferencias significativas en su
+efecto sobre la altura de las plantas.
+
+El uso del DBCA contribuye a \textbf{reducir la variabilidad
+experimental} al controlar los factores externos mediante el bloqueo, lo
+que incrementa la \textbf{precisión y confiabilidad} de las
+comparaciones. En consecuencia, las diferencias observadas entre
+tratamientos reflejan principalmente los \textbf{efectos reales de las
+condiciones aplicadas}, y no la influencia del azar o de fuentes de
+variación no controladas.
+
+\subsection{Tukey HSD (agrupamiento con
+letras)}\label{tukey-hsd-agrupamiento-con-letras}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{HSD.test}\NormalTok{(modeloDBCA, }\StringTok{"Tratamiento"}\NormalTok{, }\AttributeTok{group =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{console =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Study: modeloDBCA ~ "Tratamiento"
+
+HSD Test for Resultado 
+
+Mean Square Error:  7.808829 
+
+Tratamiento,  means
+
+                       Resultado      std  r        se   Min   Max     Q25
+NPK + Bioinoculante     54.25933 2.395591 30 0.5101904 49.26 58.09 52.9100
+NPK Comercial           50.29667 2.453096 30 0.5101904 44.71 54.74 48.5975
+Orgánico + NPK          64.78000 3.621806 30 0.5101904 57.14 72.39 62.1700
+Organico + NPK (50:50)  59.71300 2.488591 30 0.5101904 55.73 65.66 58.2425
+                          Q50     Q75
+NPK + Bioinoculante    54.045 55.9275
+NPK Comercial          50.080 51.8625
+Orgánico + NPK         65.070 66.9650
+Organico + NPK (50:50) 59.480 61.0025
+
+Alpha: 0.05 ; DF Error: 114 
+Critical Value of Studentized Range: 3.687325 
+
+Minimun Significant Difference: 1.881238 
+
+Treatments with the same letter are not significantly different.
+
+                       Resultado groups
+Orgánico + NPK          64.78000      a
+Organico + NPK (50:50)  59.71300      b
+NPK + Bioinoculante     54.25933      c
+NPK Comercial           50.29667      d
+\end{verbatim}
+
+\textbf{Interpretación:} La prueba de \textbf{Tukey HSD}, aplicada al
+\textbf{Diseño de Bloques Completamente al Azar (DBCA)} para la variable
+\emph{altura de las plantas de frijol}, indica que el
+\textbf{Tratamiento 4} obtuvo la mayor media (64.78 cm; grupo \emph{a}),
+seguido del \textbf{Tratamiento 3} (59.71 cm; grupo \emph{b}), luego el
+\textbf{Tratamiento 2} (54.26 cm; grupo \emph{c}), y finalmente el
+\textbf{Tratamiento 1} (50.29 cm; grupo \emph{d}), con la menor media.
+El valor de la \textbf{diferencia mínima significativa (HSD)} fue de
+\textbf{1.88}, más estricto que el obtenido con la prueba \textbf{LSD}
+(1.43). Aun así, los tratamientos mantienen una \textbf{separación
+completa}, sin letras compartidas entre grupos, lo que evidencia que
+\textbf{todas las medias difieren significativamente entre sí} al nivel
+de confianza del 95 \%.
+
+Estos resultados confirman que los tratamientos ejercieron
+\textbf{efectos claramente diferenciados} sobre la altura de las
+plantas, y que las diferencias observadas \textbf{no se deben al azar}.
+La consistencia entre las pruebas de \textbf{LSD y Tukey} respalda la
+\textbf{robustez y confiabilidad del experimento}.
+
+\subsection{Comparaciones múltiples con
+LSD}\label{comparaciones-muxfaltiples-con-lsd}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{out\_LSD }\OtherTok{\textless{}{-}} \FunctionTok{LSD.test}\NormalTok{(modeloDBCA, }\StringTok{"Tratamiento"}\NormalTok{, }\AttributeTok{group =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{console =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Study: modeloDBCA ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  7.808829 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+                       Resultado      std  r        se      LCL      UCL   Min
+NPK + Bioinoculante     54.25933 2.395591 30 0.5101904 53.24865 55.27002 49.26
+NPK Comercial           50.29667 2.453096 30 0.5101904 49.28598 51.30735 44.71
+Orgánico + NPK          64.78000 3.621806 30 0.5101904 63.76932 65.79068 57.14
+Organico + NPK (50:50)  59.71300 2.488591 30 0.5101904 58.70232 60.72368 55.73
+                         Max     Q25    Q50     Q75
+NPK + Bioinoculante    58.09 52.9100 54.045 55.9275
+NPK Comercial          54.74 48.5975 50.080 51.8625
+Orgánico + NPK         72.39 62.1700 65.070 66.9650
+Organico + NPK (50:50) 65.66 58.2425 59.480 61.0025
+
+Alpha: 0.05 ; DF Error: 114
+Critical Value of t: 1.980992 
+
+least Significant Difference: 1.429322 
+
+Treatments with the same letter are not significantly different.
+
+                       Resultado groups
+Orgánico + NPK          64.78000      a
+Organico + NPK (50:50)  59.71300      b
+NPK + Bioinoculante     54.25933      c
+NPK Comercial           50.29667      d
+\end{verbatim}
+
+\textbf{Interpretación:} El resultado de la prueba \textbf{LSD (Least
+Significant Difference)} aplicada al \textbf{Diseño de Bloques
+Completamente al Azar (DBCA)} para la variable \emph{altura de las
+plantas de frijol} evidencia una clara \textbf{separación de medias
+entre tratamientos}. El \textbf{Tratamiento 4} presentó la mayor altura
+promedio (64.78 cm; grupo \emph{a}), seguido del \textbf{Tratamiento 3}
+(59.71 cm; grupo \emph{b}), el \textbf{Tratamiento 2} (54.26 cm; grupo
+\emph{c}) y finalmente el \textbf{Tratamiento 1} (50.29 cm; grupo
+\emph{d}), con la menor media. El valor de la \textbf{diferencia mínima
+significativa (LSD)} fue de \textbf{1.43}, indicando que cualquier
+diferencia superior a este umbral es \textbf{estadísticamente
+significativa al 95 \% de confianza}. Ninguno de los tratamientos
+comparte letra, lo que confirma que \textbf{todos difieren
+significativamente entre sí}. Estos resultados respaldan que los
+tratamientos generaron \textbf{efectos distintos y consistentes} sobre
+la altura de las plantas de frijol, más allá de la variabilidad natural
+controlada mediante los bloques.
+
+\subsection{Visualización de
+resultados}\label{visualizaciuxf3n-de-resultados}
+
+\subsubsection{Caja y Bigote (Boxplot en
+ggplot2)}\label{caja-y-bigote-boxplot-en-ggplot2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(DBCA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Tratamiento, }\AttributeTok{y =}\NormalTok{ Resultado, }\AttributeTok{fill =}\NormalTok{ Tratamiento)) }\SpecialCharTok{+} \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{( }\AttributeTok{title =} \StringTok{"Distribución del resultado por tratamiento"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Tratamiento"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Resultado"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Chapter_05_files/figure-pdf/unnamed-chunk-18-1.pdf}}
+
+\textbf{Interpretación:} La gráfica muestra la \textbf{distribución de
+los valores de altura de las plantas de \emph{Phaseolus vulgaris}} bajo
+cuatro tratamientos de fertilización evaluados mediante un
+\textbf{Diseño de Bloques Completamente al Azar (DBCA)}. Se observa una
+\textbf{tendencia ascendente} en la mediana y en el rango de los
+resultados desde \textbf{NPK Comercial} hasta \textbf{Orgánico + NPK},
+lo que indica un efecto progresivamente favorable de los tratamientos
+sobre el crecimiento de las plantas.
+
+El \textbf{tratamiento Orgánico + NPK} presenta las mayores alturas
+promedio, seguido de \textbf{Orgánico + NPK (50:50)}, \textbf{NPK +
+Bioinoculante} y finalmente \textbf{NPK Comercial}, que registra los
+valores más bajos. La \textbf{variabilidad dentro de cada grupo} se
+mantiene controlada, aunque se identifica un \textbf{valor atípico en el
+tratamiento Orgánico + NPK (50:50)}, algo común en ensayos biológicos
+debido a la variación natural entre individuos.
+
+Estos resultados \textbf{coinciden con las pruebas de comparación de
+medias (LSD y Tukey)}, en las que los tratamientos se agrupan en
+\textbf{cuatro categorías estadísticas distintas (a, b, c y d)},
+confirmando que las diferencias en altura entre los tratamientos son
+\textbf{estadísticamente significativas} y reflejan \textbf{efectos
+reales} de las condiciones de fertilización aplicadas.
+
+\bookmarksetup{startatroot}
+
+\chapter{Capítulo 6. Uso de Inteligencia Artificial para la simulación
+de
+datos}\label{capuxedtulo-6.-uso-de-inteligencia-artificial-para-la-simulaciuxf3n-de-datos}
+
+\section{Integración de la Inteligencia Artificial en la Simulación de
+Procesos Microbiológicos
+Industriales}\label{integraciuxf3n-de-la-inteligencia-artificial-en-la-simulaciuxf3n-de-procesos-microbioluxf3gicos-industriales}
+
+La integración de herramientas de \textbf{inteligencia artificial (IA)}
+en la simulación de datos microbiológicos representa un cambio
+paradigmático en la investigación y el desarrollo de procesos
+biotecnológicos. Estas tecnologías permiten generar \textbf{datos
+sintéticos} que imitan comportamientos reales, facilitando la
+\textbf{validación de modelos estadísticos} antes de ejecutar
+experimentos en laboratorio (Amore \& Philip, 2023). En este sentido, la
+IA impulsa la generación de datos experimentales, el desarrollo de
+modelos predictivos robustos y su aplicación a escala industrial.
+
+Según (Wang et~al., 2024), la IA ofrece soluciones innovadoras para el
+\textbf{análisis y simulación de datos}, al recrear dinámicas
+microbianas complejas y anticipar el efecto de cambios ambientales.
+Aunque no reemplaza la experimentación real, la complementa mediante
+escenarios virtuales que optimizan recursos y agilizan la toma de
+decisiones.
+
+Su aplicación resulta especialmente valiosa en la \textbf{industria
+alimentaria}, donde contribuye al control del crecimiento bacteriano y a
+la mejora de la seguridad y calidad de los alimentos. Modelos
+computacionales basados en teorías de sistemas dinámicos han demostrado
+su eficacia al reproducir entornos industriales virtuales, reduciendo
+riesgos y optimizando parámetros de proceso (Melin \& Castillo, 1996).
+
+Asimismo, el \textbf{aprendizaje automático y profundo} ha revolucionado
+el procesamiento de datos microbiológicos, permitiendo la
+\textbf{caracterización de comunidades microbianas}, la interpretación
+de datos genómicos y el descubrimiento de metabolitos de interés
+biotecnológico (Gurajala, 2024; Kandilci et~al., 2024). Estas
+herramientas fortalecen la investigación en biotecnología industrial y
+microbiomas.
+
+Otra innovación relevante es el desarrollo de \textbf{plataformas
+colaborativas} que democratizan el acceso a la simulación computacional,
+facilitando la construcción de modelos de crecimiento microbiano,
+producción metabólica y análisis de datos de secuenciación de nueva
+generación (Wasan, 2024). Esto promueve la cooperación entre el sector
+académico e industrial hacia bioprocesos más sostenibles.
+
+De igual modo, (Fernández-Marín et~al., 2025) destacan que los
+\textbf{modelos generativos} implementados en entornos como \emph{Google
+Colab} permiten crear conjuntos de datos sintéticos que reproducen
+patrones reales, superando limitaciones derivadas de la variabilidad
+biológica y las restricciones de bioseguridad. La combinación de IA y
+herramientas estadísticas posibilita validar hipótesis, explorar
+escenarios hipotéticos y mejorar la \textbf{reproducibilidad
+experimental} en fermentaciones y control de contaminantes.
+
+Finalmente, el futuro se orienta hacia la creación de \textbf{gemelos
+digitales} de bioprocesos: representaciones virtuales que integran datos
+biológicos, químicos y físicos para simular sistemas industriales
+completos. Esta línea emergente promete transformar la microbiología
+industrial al predecir el comportamiento de procesos con un nivel de
+detalle sin precedentes, impulsando la ingeniería de enzimas, la
+fermentación de precisión y la producción de biomoléculas de alto valor
+(Amore \& Philip, 2023).
+
+\section{\texorpdfstring{\textbf{Diseño de \emph{Prompts} para la
+Simulación de Datos en Microbiología
+Industrial}}{Diseño de Prompts para la Simulación de Datos en Microbiología Industrial}}\label{diseuxf1o-de-prompts-para-la-simulaciuxf3n-de-datos-en-microbiologuxeda-industrial}
+
+Desarrollar un \emph{prompt} que permita generar un conjunto de datos
+simulados de crecimiento microbiano empleando una herramienta de
+Inteligencia Artificial (IA) generativa.
+
+\textbf{Objetivo:} Aplicar principios de simulación de datos mediante IA
+para recrear escenarios experimentales propios de la microbiología
+industrial, obteniendo información sintética que pueda analizarse
+estadísticamente en \textbf{RStudio®}.
+
+\textbf{Instrucciones:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Copia y adapta el siguiente \emph{prompt} en una herramienta de IA
+  generativa como \textbf{ChatGPT}, \textbf{Claude}, \textbf{Copilot} o
+  \textbf{Gemini}.
+\item
+  Sustituye los textos entre corchetes \texttt{{[}\ {]}} con tus propios
+  valores o condiciones experimentales.
+\item
+  La simulación debe incorporar elementos \textbf{aleatorios} para
+  reproducir la variabilidad natural de los experimentos
+  biotecnológicos.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Primer modelo de Prompt}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+Genera un conjunto de datos simulados que imiten un experimento de
+crecimiento de \textbf{{[}nombre del microorganismo{]}} en condiciones
+industriales. Usa como base los siguientes parámetros experimentales:
+{[}l\textbf{istar variables clave: temperatura, pH, concentración de
+sustrato, tiempo de incubación{]}}. Los datos deben incluir valores de
+densidad óptica (OD600), biomasa y metabolito producido.\\
+\strut \\
+El nuevo dataset debe tener al \textbf{menos 200 observaciones} y debe
+ser entregado en \textbf{formato CSV} para ser procesado en RStudio.
+
+Una vez generado el dataset sintético, descárgalo en formato CSV y
+guárdalo en tu carpeta de trabajo de RStudio.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Segundo modelo de Prompt}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+Actúa como un investigador en Ingeniería de Bioprocesos y Microbiología
+Industrial. Genera un dataset simulado que represente la producción de
+amilasa por \emph{Bacillus subtilis} en un biorreactor en lote.
+
+Usa como variables de entrada:\\
+(i)Temperatura (28--42 °C),\\
+(ii) pH inicial (5.0--8.0),\\
+(iii) Concentración de almidón soluble (5--50 g/L),\\
+(iv) Aireación (0.5--2.0 vvm),\\
+(v) Tiempo de fermentación (0--96 h).\\
+\strut \\
+Incluye como variables de salida:\\
+(i) Biomasa (g/L),\\
+(ii) Actividad de amilasa (U/mL),\\
+(iii) Consumo de sustrato (\%) y\\
+(iv) pH final.
+
+El dataset debe contener al menos 300 observaciones, estar en formato
+CSV, incluir variabilidad experimental (ruido aleatorio) y mantener
+relaciones biológicas plausibles (ejemplo: mayor sustrato y aireación →
+mayor biomasa y actividad enzimática hasta cierto límite).\\
+\strut \\
+Este dataset será procesado y analizado en RStudio mediante estadística
+descriptiva, regresión y visualización multivariante.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tercer modelo de Prompt}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+Actúa como un microbiólogo industrial y bioestadístico. Genera un
+conjunto de datos simulados que representen curvas de crecimiento de
+\emph{Escherichia coli} en medios líquidos bajo distintas condiciones.\\
+\strut \\
+Considera como variables de entrada:\\
+(i) fuente de carbono (glucosa, lactosa, glicerol),\\
+(ii) concentración inicial de sustrato (5--50 g/L),\\
+(iii) temperatura (25--40 °C),\\
+(iv) pH inicial (5.5--7.5) y\\
+(v) tiempo de incubación (0--48 h).\\
+\strut \\
+Incluye como variables de salida:\\
+\strut \\
+(i) OD600,\\
+(ii) fase de crecimiento y\\
+(iii) velocidad específica de crecimiento (µ).\\
+\strut \\
+El dataset debe tener al menos 250 observaciones, exportarse en formato
+CSV, presentar curvas sigmoides biológicamente plausibles y reflejar
+variabilidad experimental realista.\\
+\strut \\
+Los datos se utilizarán en RStudio para modelar parámetros cinéticos y
+comparar el efecto de las condiciones de cultivo sobre el crecimiento
+bacteriano.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, leftrule=.75mm, toptitle=1mm, coltitle=black, toprule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Cuarto modelo de Prompt}, arc=.35mm, breakable, opacitybacktitle=0.6, left=2mm, rightrule=.15mm]
+
+Actúa como un microbiólogo industrial y bioestadístico. Genera un
+conjunto de datos simulados que representen el Porcentaje de Inhibición
+del Área de la Lesión (PIAL) en frutos de banano tratados con extractos
+vegetales (Neem, Ajo, Jengibre y Canela) frente a \emph{Colletotrichum
+musae}. Usa concentraciones de 1, 2.5, 5 y 10 \%. Cada tratamiento debe
+contar con 5 repeticiones biológicas.
+
+Emplea un diseño de Mediciones Repetidas en el Tiempo, con evaluaciones
+a los 3, 5, 7, 9 y 11 días después de la inoculación (ddi).
+
+El archivo debe contener las siguientes columnas:\\
+(i) Tratamiento,\\
+(ii) Repetición,\\
+(iii) días después de la inoculación,\\
+(iv) PIAL.\\
+\strut \\
+Los valores de PIAL deben mostrar tendencias biológicas plausibles:\\
+(i) El control (sin extracto) debe presentar progresión rápida de la
+lesión (PIAL cercano a 0\%),\\
+(ii) Los extractos vegetales deben mostrar distintos niveles de
+eficacia, algunos con inhibiciones superiores al 50\%.~\\
+\strut \\
+El dataset debe tener al menos 250 observaciones totales.\\
+\strut \\
+Exporta en formato CSV y asegúrate de que los datos reflejen tendencias
+biológicas plausibles: mayor concentración debe asociarse con mayor
+inhibición, cada extracto debe mostrar eficacia diferenciada y los
+valores deben incluir variabilidad experimental.
+
+\end{tcolorbox}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Referencias}\label{referencias}
+\addcontentsline{toc}{chapter}{Referencias}
+
+\markboth{Referencias}{Referencias}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-AmorePhilip2023}
+Amore, A., \& Philip, S. (2023). Artificial intelligence in food
+biotechnology: trends and perspectives. \emph{Frontiers in Industrial
+Microbiology}. \url{https://doi.org/10.3389/finmi.2023.1255505}
+
+\bibitem[\citeproctext]{ref-Aria2017}
+Aria, M., \& Cuccurullo, C. (2017). {bibliometrix: An R-tool for
+comprehensive science mapping analysis}. \emph{Journal of Informetrics},
+\emph{11}(4), 959---975. \url{https://doi.org/10.1016/j.joi.2017.08.007}
+
+\bibitem[\citeproctext]{ref-Arias2007}
+Arias B., C. L. (2007). Control Qu{í}mico de la Antracnosis del Mango
+({Mangifera indica L.}) en pre y postcosecha. \emph{Bioagro},
+\emph{19}(1), 19---25.
+\url{http://www.ucla.edu.ve/bioagro/Rev19(1)/3.\%20Control\%20qu\%C3\%ADmico\%20de\%20la\%20antracnosis.pdf}
+
+\bibitem[\citeproctext]{ref-Auguie2017}
+Auguie, B. (2017). \emph{{gridExtra: Miscellaneous Functions for "Grid"
+Graphics}}. \url{https://CRAN.R-project.org/package=gridExtra}
+
+\bibitem[\citeproctext]{ref-LopezBautista2016}
+Bautista, E. A. L., \& Ramírez, B. H. G. (2016). \emph{Diseño y análisis
+de experimentos: Fundamentos y aplicaciones en agronomía} (2a edición
+revisada y ampliada). Universidad de San Carlos de Guatemala, Facultad
+de Agronomía.
+
+\bibitem[\citeproctext]{ref-Chala2025}
+Chala, E., \& Ortiz, F. (2025). \emph{Evaluación del crecimiento de
+\emph{Cordyceps militaris} en diferentes sustratos vegetales} {[}Trabajo
+de Grado{]}. Universidad de Santander.
+
+\bibitem[\citeproctext]{ref-Chang2021}
+Chang, W., Cheng, J., Allaire, J., Xie, Y., \& McPherson, J. (2021).
+\emph{shiny: Web Application Framework for R}.
+\url{https://CRAN.R-project.org/package=shiny}
+
+\bibitem[\citeproctext]{ref-FernandezMarin2025}
+Fernández-Marín, M. Á., Montero-Murillo, J. R., \& González-Tolmo, D.
+(2025). Caso de estudio sobre simulación de datos para investigaciones
+académicas mediante Inteligencia Artificial Generativa y Google Colab.
+\emph{Revista Mexicana de Investigación e Intervención Educativa},
+\emph{4}(S1), 18---26. \url{https://doi.org/10.62697/rmiie.v4iS1.143}
+
+\bibitem[\citeproctext]{ref-Fox2019}
+Fox, J., \& Weisberg, S. (2019). \emph{{An R Companion to Applied
+Regression}} (3.ª ed.). Sage Publications.
+\url{https://uk.sagepub.com/en-gb/eur/an-r-companion-to-applied-regression/book246125}
+
+\bibitem[\citeproctext]{ref-Gurajala2024}
+Gurajala, S. (2024). Artificial intelligence (AI) and medical
+microbiology: A narrative review. \emph{Indian Journal of Microbiology
+Research}. \url{https://doi.org/10.18231/j.ijmr.2024.029}
+
+\bibitem[\citeproctext]{ref-gutierrez2012analisis}
+Gutiérrez Pulido, H., \& Vara Salazar, R. de la. (2012).
+\emph{An{á}lisis y dise{ñ}o de experimentos} (3.ª ed.).
+McGraw-Hill/Interamericana Editores, S.A. de C.V.
+
+\bibitem[\citeproctext]{ref-KandilciYakiciKayar2024}
+Kandilci, M., Yakıcı, G., \& Kayar, M. (2024). Artificial intelligence
+and microbiology. \emph{Experimental and Applied Medical Science}.
+\url{https://doi.org/10.46871/eams.1458704}
+
+\bibitem[\citeproctext]{ref-Kuehl2001}
+Kuehl, R. O. (2001). \emph{Diseño de experimentos: Principios
+estadísticos de diseño y análisis de investigación} (Segunda edición).
+Thomson Learning.
+
+\bibitem[\citeproctext]{ref-Lahti2017}
+Lahti, L., \& Shetty, S. (2017). \emph{{microbiome R package}}.
+\url{http://microbiome.github.io/microbiome}
+
+\bibitem[\citeproctext]{ref-Love2014}
+Love, M. I., Huber, W., \& Anders, S. (2014). {Moderated estimation of
+fold change and dispersion for RNA-seq data with DESeq2}. \emph{Genome
+Biology}, \emph{15}(12), 550.
+\url{https://doi.org/10.1186/s13059-014-0550-8}
+
+\bibitem[\citeproctext]{ref-McMurdie2013}
+McMurdie, P. J., \& Holmes, S. (2013). {phyloseq: An R package for
+reproducible interactive analysis and graphics of microbiome census
+data}. \emph{PLOS ONE}, \emph{8}(4), e61217.
+\url{https://doi.org/10.1371/journal.pone.0061217}
+
+\bibitem[\citeproctext]{ref-MelinCastillo1996}
+Melin, P., \& Castillo, O. (1996). Modelling and simulation for bacteria
+growth control in the food industry using artificial intelligence.
+\emph{Proceedings of the IEEE International Conference on Systems, Man,
+and Cybernetics}, 676---681.
+\url{https://www.witpress.com/elibrary/wit-transactions-on-information-and-communication-technologies/16/13768}
+
+\bibitem[\citeproctext]{ref-Mendiburu2020}
+Mendiburu, F. (2020). \emph{agricolae: Statistical Procedures for
+Agricultural Research}.
+\url{https://CRAN.R-project.org/package=agricolae}
+
+\bibitem[\citeproctext]{ref-Mendiburu2021}
+Mendiburu, F. (2021). \emph{{agricolae: Statistical procedures for
+agricultural research}}.
+\url{https://CRAN.R-project.org/package=agricolae}
+
+\bibitem[\citeproctext]{ref-Mohammadi2019}
+Mohammadi, R., Ghomi, S. M. T. F., \& Nazari, F. (2019). {The
+application of R software for the assessment of microbial fermentation
+processes}. \emph{Journal of Microbiological Methods}, \emph{156},
+54---58. \url{https://doi.org/10.1016/j.mimet.2018.12.003}
+
+\bibitem[\citeproctext]{ref-Montgomery2017}
+Montgomery, D. C. (2017). \emph{Design and Analysis of Experiments} (9th
+ed.). John Wiley \& Sons.
+
+\bibitem[\citeproctext]{ref-Navarro2015}
+Navarro, D. J. (2015). \emph{{Learning Statistics with R: A tutorial for
+psychology students and other beginners}} (Versión 0.5). University of
+Adelaide. \url{https://learningstatisticswithr.com/}
+
+\bibitem[\citeproctext]{ref-Oksanen2020}
+Oksanen, J., Blanchet, F. G., Friendly, M., Kindt, R., Legendre, P.,
+McGlinn, D., Minchin, P. R., O'Hara, R. B., Simpson, G. L., Solymos, P.,
+Stevens, M. H. H., Szoecs, E., \& Wagner, H. (2020). \emph{{vegan:
+Community ecology package}}.
+\url{https://CRAN.R-project.org/package=vegan}
+
+\bibitem[\citeproctext]{ref-Pinheiro2025}
+Pinheiro, J., Bates, D., DebRoy, S., Sarkar, D., \& Team, R. C. (2025).
+\emph{{nlme: Linear and nonlinear mixed effects models}}.
+\url{https://CRAN.R-project.org/package=nlme}
+
+\bibitem[\citeproctext]{ref-Rcore2021}
+R Core Team. (2021). \emph{R: A Language and Environment for Statistical
+Computing}. R Foundation for Statistical Computing.
+\url{https://www.R-project.org/}
+
+\bibitem[\citeproctext]{ref-Ritz2005}
+Ritz, C., \& Streibig, J. C. (2005). {Bioassay analysis using R}.
+\emph{Journal of Statistical Software}, \emph{12}(5), 1---22.
+\url{https://doi.org/10.18637/jss.v012.i05}
+
+\bibitem[\citeproctext]{ref-Rohart2017}
+Rohart, F., Gautier, B., Singh, A., \& Lê Cao, K.-A. (2017). {mixOmics:
+An R package for 'omics feature selection and multiple data
+integration}. \emph{PLOS Computational Biology}, \emph{13}(11),
+e1005752. \url{https://doi.org/10.1371/journal.pcbi.1005752}
+
+\bibitem[\citeproctext]{ref-Vasquez-Castillo2019}
+Vásquez-Castillo, W., Racines-Oliva, M., Moncayo, P., Viera, W., \&
+Seraquive, M. (2019). Calidad del fruto y p{é}rdidas postcosecha de
+banano org{á}nico ({Musa acuminata}) en el {Ecuador}. \emph{Enfoque
+UTE}, \emph{10}(4), 57---66.
+\url{https://doi.org/10.29019/enfoque.v10n4.545}
+
+\bibitem[\citeproctext]{ref-WangWangLiu2024}
+Wang, X. W., Wang, T., \& Liu, Y. Y. (2024). Artificial intelligence for
+microbiology and microbiome research. \emph{arXiv}.
+\url{https://doi.org/10.48550/arXiv.2411.01098}
+
+\bibitem[\citeproctext]{ref-Wasan2024}
+Wasan, R. K. (2024). The role of artificial intelligence (AI) in
+microbiology laboratories for diagnosis of microorganisms: A review
+study. \emph{International Journal of Life Sciences Biotechnology and
+Pharma Research}. \url{https://doi.org/10.69605/ijlbpr_13.8.2024.66}
+
+\bibitem[\citeproctext]{ref-Wickham2016}
+Wickham, H. (2016). \emph{{ggplot2: Elegant graphics for data analysis}}
+(2.ª ed.). Springer. \url{https://doi.org/10.1007/978-3-319-24277-4}
+
+\bibitem[\citeproctext]{ref-Wickham2019}
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
+François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M.,
+Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J.,
+Robinson, D., Seidel, D. P., Spinu, V., \& Yutani, H. (2019). {Welcome
+to the tidyverse}. \emph{Journal of Open Source Software}, \emph{4}(43),
+1686. \url{https://doi.org/10.21105/joss.01686}
+
+\bibitem[\citeproctext]{ref-wickham2015}
+Wickham, H., \& Bryan, J. (2015). \emph{readxl: Read Excel Files}.
+\url{https://CRAN.R-project.org/package=readxl}
+
+\bibitem[\citeproctext]{ref-Wickham2017r4ds}
+Wickham, H., \& Grolemund, G. (2017). \emph{R for Data Science: Import,
+Tidy, Transform, Visualize, and Model Data}. O'Reilly Media.
+\url{https://r4ds.had.co.nz}
+
+\bibitem[\citeproctext]{ref-Yu2017}
+Yu, G., Smith, D. K., Zhu, H., Guan, Y., \& Lam, T. T. Y. (2017).
+{ggtree: An R package for visualization and annotation of phylogenetic
+trees with their covariates and other associated data}. \emph{Methods in
+Ecology and Evolution}, \emph{8}(1), 28---36.
+\url{https://doi.org/10.1111/2041-210X.12628}
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
