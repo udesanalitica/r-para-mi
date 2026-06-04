@@ -1,5 +1,5 @@
 ---
-title: "Capítulo 5. Diseño en Bloques Completos al Azar (DBCA)"
+title: "Diseño en Bloques Completos al Azar (DBCA)"
 format: pdf
 ---
 
@@ -61,13 +61,13 @@ El crecimiento de las plantas de frijol (*Phaseolus vulgaris*) depende en gran m
 
 No obstante, la eficiencia de esta simbiosis puede verse afectada por factores edáficos y ambientales como la composición del suelo, la disponibilidad de humedad, la temperatura y la intensidad lumínica, los cuales generan variabilidad en las condiciones experimentales y pueden influir directamente sobre el crecimiento de las plantas y la actividad microbiana asociada.
 
-Debido a esta variabilidad, resulta apropiado emplear un Diseño en Bloques Completos al Azar (DBCA), donde los bloques permiten controlar parcialmente el efecto de factores ambientales no controlados. En este contexto, se evaluó la respuesta del frijol frente a diferentes tratamientos de fertilización que combinan fuentes químicas y biológicas, incluyendo bioinoculantes y abonos orgánicos, con el propósito de identificar diferencias significativas en el crecimiento del cultivo y promover estrategias de manejo más sostenibles (Figura 30)
-
-![Figura 30.Plantas de *Phaseolus vulgaris* utilizadas en el experimento.](images/4_DBCA/DBCA_frijol.png){width="326"}
-
-Imagen suministrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
+Debido a esta variabilidad, resulta apropiado emplear un Diseño en Bloques Completos al Azar (DBCA), donde los bloques permiten controlar parcialmente el efecto de factores ambientales no controlados. En este contexto, se evaluó la respuesta del frijol frente a diferentes tratamientos de fertilización que combinan fuentes químicas y biológicas, incluyendo bioinoculantes y abonos orgánicos, con el propósito de identificar diferencias significativas en el crecimiento del cultivo y promover estrategias de manejo más sostenibles (@fig-DBCA_frijol)
 :::
 
+
+![Plantas de Phaseolus vulgaris utilizadas en el experimento.](images/4_DBCA/DBCA_frijol.png){width="326"}{#fig-DBCA_frijol}
+
+Imagen suministrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
 ## Estructura de la base de datos
 
 El presente experimento se estructuró bajo un **Diseño en Bloques Completos al Azar (DBCA)** con el objetivo de evaluar el efecto de diferentes tratamientos de fertilización sobre el crecimiento de plantas de frijol (*Phaseolus vulgaris*). Este diseño permite controlar parcialmente la variabilidad asociada a factores ambientales no experimentales mediante la conformación de bloques homogéneos.

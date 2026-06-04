@@ -1,5 +1,5 @@
 ---
-title: "Capítulo 2. Análisis bibliométrico para la gestión del diseño experimentos"
+title: "Análisis bibliométrico para la gestión del diseño experimentos"
 format: html
 ---
 

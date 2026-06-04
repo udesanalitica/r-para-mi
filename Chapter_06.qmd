@@ -1,5 +1,5 @@
 ---
-title: "Capítulo 6. Uso de Inteligencia Artificial para la simulación de datos"
+title: "Uso de Inteligencia Artificial para la simulación de datos"
 format: html
 ---
 

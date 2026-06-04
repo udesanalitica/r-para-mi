@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Capítulo 4. Diseño Completamente al Azar (DCA) – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
+<title>7&nbsp; Diseño Completamente al Azar (DCA) – R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,7 +168,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_04.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DCA)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_04.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Diseño Completamente al Azar (DCA)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -240,37 +240,37 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Capítulo 1. Introducción al software R y la interfaz RStudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción al software R y la interfaz RStudio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Capítulo 2. Análisis bibliométrico para la gestión del diseño experimentos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis bibliométrico para la gestión del diseño experimentos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Capítulo 3. Generalidades del Diseño Experimental</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Generalidades del Diseño Experimental</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DCA)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Diseño Completamente al Azar (DCA)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Capítulo 5. Diseño en Bloques Completos al Azar (DBCA)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diseño en Bloques Completos al Azar (DBCA)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Chapter_06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Capítulo 6. Uso de Inteligencia Artificial para la simulación de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso de Inteligencia Artificial para la simulación de datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -325,7 +325,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Capítulo 4. Diseño Completamente al Azar (DCA)</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Diseño Completamente al Azar (DCA)</span></h1>
 </div>
 
 
@@ -394,18 +394,22 @@ Nota
 <section id="sustratos-de-cultivo-para-penicillum-sp." class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="sustratos-de-cultivo-para-penicillum-sp."><span class="header-section-number">7.1.1</span> Sustratos de cultivo para <em>Penicillum</em> sp.</h3>
 <p>Se empleó un Diseño Completamente al Azar (DCA) con cuatro tratamientos correspondientes a diferentes sustratos de cultivo: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco (Figura 26). Para cada tratamiento, se prepararon bolsas de polipropileno con el respectivo sustrato, las cuales fueron inoculadas con cinco discos de micelio de <em>Penicillium</em> sp. (5 mm de diámetro) e incubadas aleatoriamente a 22 ± 2 °C durante ocho días. El experimento se realizó por cuadruplicado, considerando cada bolsa como una unidad experimental.</p>
-<p><strong>Resultados</strong>: El maíz partido presentó la mayor producción conidial de <em>Penicillium digitatum</em>, alcanzando valores de Log<sub>10</sub> 9,13 conidios/mL, seguido por la cebada con valores de Log<sub>10</sub> 8,88 conidios/mL. Estos resultados evidencian diferencias en la capacidad de los sustratos para favorecer el crecimiento y la esporulación del hongo.</p>
+<p><strong>Resultados</strong>: El maíz partido presentó la mayor producción conidial de <em>Penicillium digitatum</em>, alcanzando valores de Log<sub>10</sub> 9,13 conidios/mL, seguido por la cebada con valores de Log<sub>10</sub> 8,88 conidios/mL. Estos resultados evidencian diferencias en la capacidad de los sustratos para favorecer el crecimiento y la esporulación del hongo. Como se observa en la <a href="#fig-sustrato" class="quarto-xref">Figura&nbsp;<span>7.2</span></a>.</p>
 <p>Sustratos con Conidios de <em>Penicillium</em> sp.</p>
-<p><img src="images/3_DCA/sustrato.png" class="img-fluid" width="503" alt="Figura 26: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).">{#fig-sustrato}</p>
-<p><br>
-Los ensayos <em>in vitro</em> evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo, donde las concentraciones entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) de 40 a 50 % al quinto día después de la inoculación (ddi) ({<span class="quarto-unresolved-ref">?fig-sustrato</span>}).</p>
-<p>Efecto de los tratamientos in vitro frente al crecmiento de <em>Colletotrichum musae.</em></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/3_DCA/experimentoinvitro.png" class="img-fluid figure-img" width="557"></p>
-<figcaption>Ensayo de inhibición <em>in vitro</em> de <em>Colletotrichum musae</em> frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de <em>Penicillium</em> sp. al 4,0 %; (D) extracto de <em>Penicillium</em> sp. al 4,5 %; (E) extracto de <em>Penicillium</em> sp. al 5,0 %; (F) extracto de <em>Penicillium</em> sp. al 5,5 %; y (G) extracto de <em>Penicillium</em> sp. al 6,0 %.</figcaption>
+<div id="fig-sustrato" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sustrato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/3_DCA/sustrato.png" id="fig-sustrato" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-sustrato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.2
+</figcaption>
 </figure>
 </div>
+<p>Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).</p>
+<p>Los ensayos <em>in vitro</em> evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo, donde las concentraciones entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) de 40 a 50 % al quinto día después de la inoculación (ddi). Como se observa en la <span class="quarto-unresolved-ref">?fig-experimentoinvitro</span> sobre los efectos de los tratamientos in vitro frente al crecmiento de <em>Colletotrichum musae.</em></p>
+<p><img src="images/3_DCA/experimentoinvitro.png" class="img-fluid" width="549">{#fig-experimentoinvitro}</p>
+<p>Ensayo de inhibición in vitro de Colletotrichum musae frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de Penicillium sp. al 4,0 %; (D) extracto de Penicillium sp. al 4,5 %; (E) extracto de Penicillium sp. al 5,0 %; (F) extracto de Penicillium sp. al 5,5 %; y (G) extracto de Penicillium sp. al 6,0 %.</p>
 <p>También se realizaron ensayos in vivo para evaluar el efecto del extracto en frutos infectados; sin embargo, este componente corresponde a una fase aplicada del estudio y no será desarrollado en este apartado, cuyo énfasis se centra en el diseño experimental y el análisis estadístico de los tratamientos.</p>
 <p><strong>Para mayor información puede consultar:</strong> Mejía-Sarmiento, J. S. (2022). Evaluación de Extracto Crudo de <em>Penicillium</em> sp. para la Inhibición del Crecimiento in vitro e in vivo de <em>Colletotrichum musae</em> (Berk. y M. A. Curtis) Arx. Agente Causal de Antracnosis en Banano [Tesis de pregrado, Universidad de Santander UDES]. Repositorio Institucional UDES. <a href="https://repositorio.udes.edu.co/handle/001/8674" class="uri">https://repositorio.udes.edu.co/handle/001/8674</a></p>
 </section>
@@ -414,8 +418,8 @@ Los ensayos <em>in vitro</em> evidenciaron un efecto inhibitorio dependiente de 
 <p>La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un <strong>Diseño Completamente al Azar (DCA)</strong> para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de <em>Penicillium</em> sp. Cada tratamiento fue establecido de manera independiente y distribuido aleatoriamente bajo condiciones controladas de laboratorio.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1365,13 +1369,13 @@ Vásquez-Castillo, W., Racines-Oliva, M., Moncayo, P., Viera, W., &amp; Seraquiv
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Chapter_03.html" class="pagination-link" aria-label="Capítulo 3. Generalidades del Diseño Experimental">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Capítulo 3. Generalidades del Diseño Experimental</span></span>
+      <a href="./Chapter_03.html" class="pagination-link" aria-label="Generalidades del Diseño Experimental">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Generalidades del Diseño Experimental</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Chapter_05.html" class="pagination-link" aria-label="Capítulo 5. Diseño en Bloques Completos al Azar (DBCA)">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Capítulo 5. Diseño en Bloques Completos al Azar (DBCA)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Chapter_05.html" class="pagination-link" aria-label="Diseño en Bloques Completos al Azar (DBCA)">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diseño en Bloques Completos al Azar (DBCA)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

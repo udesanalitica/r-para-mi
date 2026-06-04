@@ -1,5 +1,5 @@
 ---
-title: "Capítulo 4. Diseño Completamente al Azar (DCA)"
+title: "Diseño Completamente al Azar (DCA)"
 format: html
 ---
 
@@ -53,18 +53,19 @@ Tradicionalmente, el manejo de esta epifitia se ha basado en la aplicación de f
 
 Se empleó un Diseño Completamente al Azar (DCA) con cuatro tratamientos correspondientes a diferentes sustratos de cultivo: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco (Figura 26). Para cada tratamiento, se prepararon bolsas de polipropileno con el respectivo sustrato, las cuales fueron inoculadas con cinco discos de micelio de *Penicillium* sp. (5 mm de diámetro) e incubadas aleatoriamente a 22 ± 2 °C durante ocho días. El experimento se realizó por cuadruplicado, considerando cada bolsa como una unidad experimental.
 
-**Resultados**: El maíz partido presentó la mayor producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido por la cebada con valores de Log~10~ 8,88 conidios/mL. Estos resultados evidencian diferencias en la capacidad de los sustratos para favorecer el crecimiento y la esporulación del hongo.
+**Resultados**: El maíz partido presentó la mayor producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido por la cebada con valores de Log~10~ 8,88 conidios/mL. Estos resultados evidencian diferencias en la capacidad de los sustratos para favorecer el crecimiento y la esporulación del hongo. Como se observa en la @fig-sustrato.
 
 Sustratos con Conidios de *Penicillium* sp.
 
-![Figura 26: Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).](images/3_DCA/sustrato.png){width="503"}{#fig-sustrato}
+![](images/3_DCA/sustrato.png){#fig-sustrato}
 
-\
-Los ensayos *in vitro* evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo, donde las concentraciones entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) de 40 a 50 % al quinto día después de la inoculación (ddi) ({@fig-sustrato}).
+Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).
 
-Efecto de los tratamientos in vitro frente al crecmiento de *Colletotrichum musae.*
+Los ensayos *in vitro* evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo, donde las concentraciones entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) de 40 a 50 % al quinto día después de la inoculación (ddi). Como se observa en la @fig-experimentoinvitro sobre los efectos de los tratamientos in vitro frente al crecmiento de *Colletotrichum musae.*
 
-![Ensayo de inhibición *in vitro* de *Colletotrichum musae* frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de *Penicillium* sp. al 4,0 %; (D) extracto de *Penicillium* sp. al 4,5 %; (E) extracto de *Penicillium* sp. al 5,0 %; (F) extracto de *Penicillium* sp. al 5,5 %; y (G) extracto de *Penicillium* sp. al 6,0 %.](images/3_DCA/experimentoinvitro.png){width="557"}
+![](images/3_DCA/experimentoinvitro.png){width="549"}{#fig-experimentoinvitro}
+
+Ensayo de inhibición in vitro de Colletotrichum musae frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de Penicillium sp. al 4,0 %; (D) extracto de Penicillium sp. al 4,5 %; (E) extracto de Penicillium sp. al 5,0 %; (F) extracto de Penicillium sp. al 5,5 %; y (G) extracto de Penicillium sp. al 6,0 %.
 
 También se realizaron ensayos in vivo para evaluar el efecto del extracto en frutos infectados; sin embargo, este componente corresponde a una fase aplicada del estudio y no será desarrollado en este apartado, cuyo énfasis se centra en el diseño experimental y el análisis estadístico de los tratamientos.
 
@@ -75,7 +76,7 @@ También se realizaron ensayos in vivo para evaluar el efecto del extracto en fr
 La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un **Diseño Completamente al Azar (DCA)** para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de *Penicillium* sp. Cada tratamiento fue establecido de manera independiente y distribuido aleatoriamente bajo condiciones controladas de laboratorio.
 
 | Variable | Descripción |
-|-------------------|-----------------------------------------------------|
+|------------------------------------|------------------------------------|
 | `Tratamiento` | Sustrato de cultivo evaluado. Incluye cuatro niveles: arroz blanco, avena en hojuelas, cebada y maíz partido. |
 | `Repetición` | Identificador de la unidad experimental correspondiente a cada tratamiento. Cada tratamiento fue evaluado con cuatro repeticiones independientes. |
 | `Resultado` | Variable respuesta cuantitativa correspondiente a la producción conidial expresada en Log\~10\~ conidios/mL. |

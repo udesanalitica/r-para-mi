@@ -1,5 +1,5 @@
 ---
-title: "Capítulo 1. Introducción al software R y la interfaz RStudio"
+title: "Introducción al software R y la interfaz RStudio"
 format: html
 ---
 
@@ -15,12 +15,9 @@ Ambos programas están disponibles para múltiples sistemas operativos, incluyen
 
 ![](images/1_Instalacion/Figura2.png){#fig-Figura2 fig-pos="H"}
 
-
 Del mismo modo se deben descargar de diferentes directorios llamados CRAN (*Comprehensive R Archive Network o Red integral de archivo R*)(@fig-Figura3).
 
 ![](images/1_Instalacion/Figura3.png){#fig-Figura3 fig-pos="H"}
-
-## Versión de R para Windows
 
 Finalmente descargar la última versión de R para Windows (@fig-Figura4).
 
