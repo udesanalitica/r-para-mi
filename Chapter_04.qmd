@@ -78,7 +78,7 @@ La base de datos utilizada en este análisis corresponde a un experimento desarr
 | `Tratamiento` | Sustrato de cultivo evaluado. Incluye cuatro niveles: arroz blanco, avena en hojuelas, cebada y maíz partido. |
 | `Repetición` | Identificador de la unidad experimental correspondiente a cada tratamiento. Cada tratamiento fue evaluado con cuatro repeticiones independientes. |
 | `Resultado` | Variable respuesta cuantitativa correspondiente a la producción conidial expresada en Log\~10\~ conidios/mL. |
-: Estructira de la base de datos DC {#tbl-estructura}
+: Estructura de la base de datos DCA {#tbl-estructura}
 
 
 **Pasos para trabajar con R:**
