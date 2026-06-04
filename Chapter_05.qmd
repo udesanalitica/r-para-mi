@@ -46,7 +46,7 @@ De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaci
 ### Tabla ANOVA para un diseño en bloques completos al azar
 
 | Fuente de variabilidad | Suma de cuadrados | Grados de libertad | Cuadrado medio | Estadístico F | Valor-p |
-|------------|------------|-------------|------------|------------|------------|
+|------------|------------|------------|------------|------------|------------|
 | Tratamientos | $SC_{TRAT}$ | $k - 1$ | $CM_{TRAT}$ | $F_0 = \frac{CM_{TRAT}}{CM_E}$ | $P(F > F_0)$ |
 | Bloques | $SC_B$ | $b - 1$ | $CM_B$ | $F_0 = \frac{CM_{B}}{CM_E}$ | $P(F > F_0)$ |
 | Error | $SC_E$ | $(k - 1)(b - 1)$ | $CM_E$ | --- | --- |
@@ -94,17 +94,17 @@ La variable respuesta, denominada `Resultado`, corresponde a una variable cuanti
 
 > Los bloques correspondieron a diferentes sectores del área experimental con condiciones ambientales relativamente homogéneas, utilizados para controlar parcialmente la variabilidad asociada a factores externos como humedad, iluminación o características del suelo.
 
-### Descripción de las variables del experimento
+## Descripción de las variables del experimento
 
 El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (DBCA), en el cual se evaluaron diferentes tratamientos de fertilización en plantas de frijol (*Phaseolus vulgaris*). Los bloques representan grupos homogéneos de unidades experimentales, mientras que la variable respuesta cuantifica el efecto de los tratamientos sobre el crecimiento vegetal.
 
 |   | Tipo de variable | Descripción |
-|:------------------|:------------------|:---------------------------------|
+|:-----------------------|:-----------------------|:-----------------------|
 | **Tratamiento** | Cualitativa nominal | Incluye los diferentes tratamientos de fertilización evaluados: NPK comercial, NPK + bioinoculante, Orgánico + NPK (50:50) y fertilización orgánica. |
 | **Bloque** | Cualitativa nominal | Factor de bloqueo que agrupa las unidades experimentales bajo condiciones similares. Los bloques se identifican como A, B y C. |
 | **Resultado** | Cuantitativa continua | Variable respuesta asociada al crecimiento de las plantas, expresada en valores decimales (por ejemplo, altura de planta en cm). |
 
-### Instalar Paquetes (solo una vez)
+## Instalar Paquetes (solo una vez)
 
 ```{r}
 #install.packages("readxl")
@@ -115,7 +115,7 @@ El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (D
 #install.packages("gtable")
 ```
 
-### Cargar las librerias necesarias para el análisis
+## Cargar las librerias necesarias para el análisis
 
 ```{r, warning=FALSE}
 suppressPackageStartupMessages({
@@ -127,7 +127,7 @@ library(ggplot2)
 })
 ```
 
-### Importar datos desde Excel
+## Importar datos desde Excel
 
 ```{r}
 library(readxl)
@@ -137,7 +137,7 @@ DBCA$Tratamiento[DBCA$Tratamiento == "Organico + NPK (50:50)"] <-
 "Orgánico + NPK (50:50)"
 ```
 
-### Exploración inicial y estructura de la base de datos
+## Exploración inicial y estructura de la base de datos
 
 ```{r}
 View(DBCA)
@@ -155,7 +155,7 @@ str(DBCA)
 summary(DBCA$Resultado)
 ```
 
-### Convertir variables a factores
+## Convertir variables a factores
 
 Para garantizar un análisis adecuado bajo un **Diseño en Bloques Completos al Azar (DBCA)**, las variables `Tratamiento` y `Bloque` deben definirse como factores en R. Esta conversión permite que el modelo estadístico reconozca ambas variables como factores categóricos asociados a los efectos experimentales del estudio, evitando que sean interpretadas como variables numéricas continuas.
 
@@ -167,7 +167,7 @@ DBCA$Bloque      <- as.factor(DBCA$Bloque)
 DBCA$Resultado   <- as.numeric(DBCA$Resultado)
 ```
 
-### Modelo lineal para DBCA
+## Modelo lineal para DBCA
 
 Con el fin de evaluar simultáneamente el efecto de los tratamientos de fertilización y de los bloques experimentales sobre la variable respuesta, se ajustó un modelo lineal correspondiente al Diseño en Bloques Completos al Azar (DBCA). Este modelo incorpora tanto el efecto de los tratamientos como la variabilidad asociada a los bloques, permitiendo controlar parcialmente las diferencias ambientales presentes en el experimento.
 
@@ -182,7 +182,7 @@ summary(modeloDBCA)
 
 ## Interpretación
 
-El análisis del modelo lineal evidenció que el factor `Tratamiento` presentó un efecto altamente significativo sobre la variable respuesta ($F = 153.749$;$p < 2 \times 10^{-16}$), indicando que existen diferencias estadísticas entre las medias de los tratamientos evaluados.
+El análisis del modelo lineal evidenció que el factor `Tratamiento` presentó un efecto altamente significativo sobre la variable respuesta ($F = 153.749$; $p < 2 \times 10^{-16}$), indicando que existen diferencias estadísticas entre las medias de los tratamientos evaluados.
 
 Por otro lado, el factor `Bloque` no mostró un efecto significativo ($F = 0.688$; $p = 0.505$), lo que sugiere que la variabilidad entre bloques fue baja y no contribuyó significativamente a explicar la variación observada en el experimento.
 
@@ -205,13 +205,13 @@ El factor `Tratamiento` mostró diferencias altamente significativas entre sus m
 
 Estos resultados sugieren que el tipo de fertilización influye significativamente sobre la variable respuesta evaluada.
 
--    Grados de libertad: $Df=3$
+-   Grados de libertad: $Df=3$
 
--    Cuadrado medio: $CM_{TRAT} = 1200.6$
+-   Cuadrado medio: $CM_{TRAT} = 1200.6$
 
--    Estadístico F: $F = 153.749$
+-   Estadístico F: $F = 153.749$
 
--    Valor de p: $p < 2 \times 10^{-16}$
+-   Valor de p: $p < 2 \times 10^{-16}$
 
 2\. **Efecto del Bloque.**
 
@@ -223,15 +223,15 @@ Aunque el bloqueo fue incorporado para controlar posibles fuentes de variación 
 
 <!-- -->
 
--    Cuadrado medio: $CM_B = 5.4$
+-   Cuadrado medio: $CM_B = 5.4$
 
 <!-- -->
 
--    Estadístico F: $F = 0.688$
+-   Estadístico F: $F = 0.688$
 
 <!-- -->
 
--    Valor de p: $p = 0.505$
+-   Valor de p: $p = 0.505$
 
 3\. **Resumen del Modelo.**
 
@@ -281,7 +281,7 @@ qqline(res, col = "red")
 hist(res, main = "Histograma de residuos", xlab = "Residuos")
 ```
 
-## Interpretación
+### Interpretación
 
 El gráfico Q-Q mostró que los residuos estandarizados se distribuyen cercanos a la línea diagonal de referencia, sin evidenciar desviaciones importantes o patrones sistemáticos. Esto sugiere que los residuos presentan una distribución aproximadamente normal, respaldando visualmente el cumplimiento del supuesto de normalidad requerido para el análisis de varianza (ANOVA).
 
@@ -347,9 +347,9 @@ Para evaluar este supuesto se aplicó la prueba de Durbin-Watson, la cual permit
 
 Las hipótesis evaluadas fueron:
 
--    **Hipótesis nula (H₀):** los residuos son independientes;
+-   **Hipótesis nula (H₀):** los residuos son independientes;
 
--    **Hipótesis alternativa (H₁):** los residuos presentan autocorrelación.
+-   **Hipótesis alternativa (H₁):** los residuos presentan autocorrelación.
 
 Valores de **p-value \> 0.05**, indican que no existen evidencias suficientes para rechazar la hipótesis nula de independencia.
 

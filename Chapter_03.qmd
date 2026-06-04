@@ -32,47 +32,15 @@ Estos elementos no actúan de forma aislada, ya que la modificación de cualquie
 
 El **objetivo del experimento** constituye el criterio principal para diferenciar entre tipos de diseño, mientras que los demás factores funcionan como subcriterios de clasificación. Bajo esta perspectiva, los diseños pueden agruparse en varias categorías: aquellos orientados a la comparación de dos o más tratamientos; los que examinan el efecto de diversos factores sobre una o varias variables de respuesta; los que buscan establecer el punto óptimo de operación de un proceso; los que se enfocan en la optimización de mezclas; y finalmente, los dirigidos a lograr que un producto o proceso se mantenga estable frente a factores no controlables [@Kuehl2001].
 
-Así, la clasificación general de los diseños experimentales responde al objetivo central del estudio, y dentro de cada categoría se consideran elementos adicionales como el número de factores, los tipos de efectos a investigar y las restricciones prácticas que condicionan la ejecución.
+Así, la clasificación general de los diseños experimentales responde al objetivo central del estudio, y dentro de cada categoría se consideran elementos adicionales como el número de factores, los tipos de efectos a investigar y las restricciones prácticas que condicionan la ejecución (@fig-disenos).
 
 ### **Clasificación de los diseños experimentales**
 
-La siguente clasificación es tomada el libro de [@gutierrez2012analisis].
-
-**Diseños para comparar dos o más tratamientos**\
-🔹 Diseño completamente al azar\
-🔹 Diseño de bloques completos al azar\
-🔹 Diseño de cuadros latino y grecolatino
-
-**Diseños para estudiar efectos de varios factores sobre una o más variables de respuesta**\
-🔹 Diseños factoriales 2ᵏ\
-🔹 Diseños factoriales 3ᵏ\
-🔹 Diseños fraccionados 2ᵏ⁻ᵖ\
-🔹 Diseños anidados\
-🔹 Diseños en parcelas divididas
-
-**Diseños para la optimización de procesos**\
-**➤ Modelo de primer orden**\
-🔹 Diseños factoriales 2ᵏ y 2ᵏ⁻ᵖ\
-🔹 Diseño de Plackett-Burman\
-🔹 Diseño simplex\
-**➤ Modelo de segundo orden**\
-🔹 Diseño de composición central\
-🔹 Diseño de Box-Behnken\
-🔹 Diseños factoriales 3ᵏ y 3ᵏ⁻ᵖ
-
-**Diseños robustos**\
-🔹 Arreglos ortogonales (factoriales)\
-🔹 Diseño con arreglos interno y externo
-
-**Diseños de mezclas**\
-🔹 Diseño simplex-reticular\
-🔹 Diseño simplex con centroide\
-🔹 Diseño sin restricciones\
-🔹 Diseño axial
+![](images/3_DCA/diseno.jpg){#fig-disenos}
 
 ### Verificación de los supuestos del modelo
 
-En todo **diseño experimental (DE)**, el cumplimiento de los **supuestos estadísticos** es fundamental para garantizar la **validez y confiabilidad** de los resultados obtenidos. Ignorar estas condiciones puede conducir a interpretaciones incorrectas o a la aplicación inadecuada de las pruebas estadísticas [@gutierrez2012analisis; @Montgomery2017]. A continuación, se describen los tres supuestos básicos del **ANOVA** y las pruebas utilizadas para su verificación, tanto en forma **numérica** como **gráfica**:
+En la (@fig-supuestos2) se presentan los supuestos:
 
 **Normalidad:**\
 Este supuesto establece que los residuos del modelo deben seguir una **distribución normal**. Se evalúa estadísticamente mediante la **prueba de Shapiro--Wilk** y de forma visual a través de **gráficos QQ-plot** o **histogramas de residuos**, que permiten identificar desviaciones importantes de la normalidad.
@@ -82,3 +50,5 @@ Este supuesto establece que los residuos del modelo deben seguir una **distribuc
 
 **Independencia:\
 **Es un supuesto esencial en los modelos estadísticos, ya que garantiza que los errores no estén correlacionados entre sí. La **prueba de Durbin-Watson** evalúa de forma analítica la independencia entre residuos consecutivos. Un valor de *p* mayor a 0.05 sugiere independencia, mientras que valores menores indican posible autocorrelación y violación del supuesto. Gráficamente, puede verificarse **representando los residuos en función del orden de recolección de los datos (tiempo o secuencia experimental)**. Si los puntos se distribuyen **aleatoriamente alrededor de la línea cero**, sin mostrar una tendencia clara, se considera que los residuos son independientes y el supuesto se cumple. Por el contrario, la presencia de **patrones sistemáticos o tendencias no aleatorias** indica una posible **autocorrelación**, lo que sugiere que el orden de ejecución influyó en los resultados.
+
+![](images/3_DCA/supuestos2.png){#fig-supuestos2}

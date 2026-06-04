@@ -1,31 +1,34 @@
 ---
 title: "Capítulo 1. Introducción al software R y la interfaz RStudio"
-format: docx
+format: html
 ---
 
 El software **R** es un entorno de programación especializado en análisis estadístico, visualización de datos y modelado científico, ampliamente utilizado en la investigación y la industria. Su integración con **RStudio®**, una interfaz de desarrollo amigable y versátil, facilita la escritura de código, la gestión de proyectos y la interpretación de resultados. A continuación, se describe el proceso de **instalación y configuración** del software **R** y de la interfaz **RStudio®**, así como los pasos iniciales para familiarizarse con sus principales componentes y herramientas de
 
 ## Instalación y configuración
 
-La instalación del software R y la interfaz **RStudio®** (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar **RStudio®** desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (Figura 1).
+La instalación del software R y la interfaz **RStudio®** (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar **RStudio®** desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (@fig-Figura1).
 
-![](images/1_Instalacion/Figura%201.png)
+![](images/1_Instalacion/Figura1.png){#fig-Figura1 fig-pos="H"}
 
-Ambos programas están disponibles para múltiples sistemas operativos, incluyendo Windows, macOS y Linux (Figura 2).
+Ambos programas están disponibles para múltiples sistemas operativos, incluyendo Windows, macOS y Linux (@fig-Figura2).
 
-![Figura 2.](images/1_Instalacion/Figura%202.png)
+![](images/1_Instalacion/Figura2.png){#fig-Figura2 fig-pos="H"}
 
-Del mismo modo se deben descargar de diferentes directorios llamados CRAN (*Comprehensive R Archive Network o Red integral de archivo R*) (Figura 3).
 
-![Figura 3.](images/1_Instalacion/Figura%203.png)
+Del mismo modo se deben descargar de diferentes directorios llamados CRAN (*Comprehensive R Archive Network o Red integral de archivo R*)(@fig-Figura3).
 
-Finalmente descargar la última versión de R para Windows (Figura 4).
+![](images/1_Instalacion/Figura3.png){#fig-Figura3 fig-pos="H"}
 
-![Figura 4.](images/1_Instalacion/Figura%204.png)
+## Versión de R para Windows
 
-Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz (Figura 5). Está dividida en varias secciones, incluyendo: (i) el editor de código o Script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo: muestra los objetos y datos cargados en la sesión actual y las (iv) pestañas de archivos y gráficos: permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
+Finalmente descargar la última versión de R para Windows (@fig-Figura4).
 
-![Figura 5](images/1_Instalacion/Figura%205.png)
+![](images/1_Instalacion/Figura4.png){#fig-Figura4 fig-pos="H"}
+
+Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz (@fig-Figura5). Está dividida en varias secciones, incluyendo: (i) el editor de código o Script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo: muestra los objetos y datos cargados en la sesión actual y las (iv) pestañas de archivos y gráficos: permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
+
+![](images/1_Instalacion/Figura5.png){#fig-Figura5 fig-pos="H"}
 
 Además de la interfaz básica, RStudio® permite la instalación y gestión de paquetes adicionales que amplían sus funcionalidades; para instalar un paquete, se puede utilizar la función install.packages ("nombre_del_paquete") en la consola de RStudio®; una vez instalado, el paquete se puede cargar en la sesión actual utilizando la función library (nombre_del_paquete).
 
