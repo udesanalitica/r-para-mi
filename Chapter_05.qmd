@@ -41,9 +41,7 @@ Estas hipótesis permiten evaluar si existen diferencias significativas entre lo
 
 ## Análisis de varianza
 
-De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaciones anteriores se evalúan mediante un análisis de varianza de dos vías, debido a que en el DBCA es necesario considerar simultáneamente dos fuentes de variación: los tratamientos y los bloques. La Tabla presenta el formato general del ANOVA correspondiente a un diseño en bloques completos al azar.
-
-### Tabla ANOVA para un diseño en bloques completos al azar
+De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaciones anteriores se evalúan mediante un análisis de varianza de dos vías, debido a que en el DBCA es necesario considerar simultáneamente dos fuentes de variación: los tratamientos y los bloques. La @tbl-anova presenta el formato general del ANOVA correspondiente a un diseño en bloques completos al azar.
 
 | Fuente de variabilidad | Suma de cuadrados | Grados de libertad | Cuadrado medio | Estadístico F | Valor-p |
 |------------|------------|------------|------------|------------|------------|
@@ -52,22 +50,22 @@ De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaci
 | Error | $SC_E$ | $(k - 1)(b - 1)$ | $CM_E$ | --- | --- |
 | Total | $SC_T$ | $kb - 1$ | --- | --- | --- |
 
+:ANOVA para un diseño en bloques completos al azar {#tbl-anova} 
+
 Nota: SC: Suma de cuadrados; CM: Cuadrado medio; $k$: número de tratamientos; $b$: número de bloques. TRAT: Tratamiento.
 
 ## Problema
 
-::: callout-note
 El crecimiento de las plantas de frijol (*Phaseolus vulgaris*) depende en gran medida de la interacción entre sus raíces y los microorganismos del suelo, especialmente los rizobios, los cuales establecen una relación simbiótica mediante la formación de nódulos radiculares que facilitan la fijación biológica de nitrógeno (FBN). Este proceso constituye una fuente natural y sostenible de nitrógeno, fundamental para el desarrollo y rendimiento del cultivo.
 
 No obstante, la eficiencia de esta simbiosis puede verse afectada por factores edáficos y ambientales como la composición del suelo, la disponibilidad de humedad, la temperatura y la intensidad lumínica, los cuales generan variabilidad en las condiciones experimentales y pueden influir directamente sobre el crecimiento de las plantas y la actividad microbiana asociada.
 
-Debido a esta variabilidad, resulta apropiado emplear un Diseño en Bloques Completos al Azar (DBCA), donde los bloques permiten controlar parcialmente el efecto de factores ambientales no controlados. En este contexto, se evaluó la respuesta del frijol frente a diferentes tratamientos de fertilización que combinan fuentes químicas y biológicas, incluyendo bioinoculantes y abonos orgánicos, con el propósito de identificar diferencias significativas en el crecimiento del cultivo y promover estrategias de manejo más sostenibles (@fig-DBCA_frijol)
-:::
+Debido a esta variabilidad, resulta apropiado emplear un Diseño en Bloques Completos al Azar (DBCA), ya que permite controlar parcialmente el efecto de factores ambientales no controlados mediante la agrupación de unidades experimentales homogéneas en bloques. En este estudio se evaluó la respuesta del cultivo de frijol (Phaseolus vulgaris) a diferentes tratamientos de fertilización que combinan fuentes químicas y biológicas, incluyendo bioinoculantes y abonos orgánicos. El objetivo fue determinar si existen diferencias significativas en el crecimiento del cultivo y generar evidencia que contribuya al desarrollo de estrategias de manejo agronómico más sostenibles. La Figura @fig-DBCA_frijol presenta las plantas utilizadas en el experimento.
 
-
-![Plantas de Phaseolus vulgaris utilizadas en el experimento.](images/4_DBCA/DBCA_frijol.png){width="326"}{#fig-DBCA_frijol}
+![Plantas de *Phaseolus vulgaris* utilizadas en el experimento de fertilización bajo un Diseño en Bloques Completos al Azar (DBCA).](images/4_DBCA/DBCA_frijol.png){#fig-DBCA_frijol width="60%"}
 
 Imagen suministrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
+
 ## Estructura de la base de datos
 
 El presente experimento se estructuró bajo un **Diseño en Bloques Completos al Azar (DBCA)** con el objetivo de evaluar el efecto de diferentes tratamientos de fertilización sobre el crecimiento de plantas de frijol (*Phaseolus vulgaris*). Este diseño permite controlar parcialmente la variabilidad asociada a factores ambientales no experimentales mediante la conformación de bloques homogéneos.
@@ -96,13 +94,14 @@ La variable respuesta, denominada `Resultado`, corresponde a una variable cuanti
 
 ## Descripción de las variables del experimento
 
-El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (DBCA), en el cual se evaluaron diferentes tratamientos de fertilización en plantas de frijol (*Phaseolus vulgaris*). Los bloques representan grupos homogéneos de unidades experimentales, mientras que la variable respuesta cuantifica el efecto de los tratamientos sobre el crecimiento vegetal.
+El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (DBCA), en el cual se evaluaron diferentes tratamientos de fertilización en plantas de frijol (*Phaseolus vulgaris*). Los bloques representan grupos homogéneos de unidades experimentales, mientras que la variable respuesta cuantifica el efecto de los tratamientos sobre el crecimiento vegetal. En la @tbl-dbca se muestran las variables del experimento.
 
 |   | Tipo de variable | Descripción |
 |:-----------------------|:-----------------------|:-----------------------|
 | **Tratamiento** | Cualitativa nominal | Incluye los diferentes tratamientos de fertilización evaluados: NPK comercial, NPK + bioinoculante, Orgánico + NPK (50:50) y fertilización orgánica. |
 | **Bloque** | Cualitativa nominal | Factor de bloqueo que agrupa las unidades experimentales bajo condiciones similares. Los bloques se identifican como A, B y C. |
 | **Resultado** | Cuantitativa continua | Variable respuesta asociada al crecimiento de las plantas, expresada en valores decimales (por ejemplo, altura de planta en cm). |
+:Descripción de las variables de la base de datos {#tbl-dbca}
 
 ## Instalar Paquetes (solo una vez)
 

@@ -61,11 +61,9 @@ Sustratos con Conidios de *Penicillium* sp.
 
 Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).
 
-Los ensayos *in vitro* evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo, donde las concentraciones entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) de 40 a 50 % al quinto día después de la inoculación (ddi). Como se observa en la @fig-experimentoinvitro sobre los efectos de los tratamientos in vitro frente al crecmiento de *Colletotrichum musae.*
+Los ensayos *in vitro* evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo, donde las concentraciones entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) de 40 a 50 % al quinto día después de la inoculación (ddi). Como se observa en la Figura @fig-experimentoinvitro, los tratamientos *in vitro* presentaron diferencias en la inhibición del crecimiento de *Colletotrichum musae*. Ensayos de inhibición realizados in vitro de *Colletotrichum musae* frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de Penicillium sp. al 4,0 %; (D) extracto de Penicillium sp. al 4,5 %; (E) extracto de Penicillium sp. al 5,0 %; (F) extracto de Penicillium sp. al 5,5 %; y (G) extracto de Penicillium sp. al 6,0 %.
 
-![](images/3_DCA/experimentoinvitro.png){width="549"}{#fig-experimentoinvitro}
-
-Ensayo de inhibición in vitro de Colletotrichum musae frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de Penicillium sp. al 4,0 %; (D) extracto de Penicillium sp. al 4,5 %; (E) extracto de Penicillium sp. al 5,0 %; (F) extracto de Penicillium sp. al 5,5 %; y (G) extracto de Penicillium sp. al 6,0 %.
+![Ensayo de inhibición *in vitro* de *Colletotrichum musae* frente a diferentes tratamientos.](images/3_DCA/experimentoinvitro.png){#fig-experimentoinvitro width="80%"}
 
 También se realizaron ensayos in vivo para evaluar el efecto del extracto en frutos infectados; sin embargo, este componente corresponde a una fase aplicada del estudio y no será desarrollado en este apartado, cuyo énfasis se centra en el diseño experimental y el análisis estadístico de los tratamientos.
 
@@ -73,13 +71,15 @@ También se realizaron ensayos in vivo para evaluar el efecto del extracto en fr
 
 ### Estructura de la base de datos
 
-La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un **Diseño Completamente al Azar (DCA)** para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de *Penicillium* sp. Cada tratamiento fue establecido de manera independiente y distribuido aleatoriamente bajo condiciones controladas de laboratorio.
+La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un **Diseño Completamente al Azar (DCA)** para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de *Penicillium* sp. Cada tratamiento fue establecido de manera independiente (@tbl-estructura) y distribuido aleatoriamente bajo condiciones controladas de laboratorio.
 
 | Variable | Descripción |
 |------------------------------------|------------------------------------|
 | `Tratamiento` | Sustrato de cultivo evaluado. Incluye cuatro niveles: arroz blanco, avena en hojuelas, cebada y maíz partido. |
 | `Repetición` | Identificador de la unidad experimental correspondiente a cada tratamiento. Cada tratamiento fue evaluado con cuatro repeticiones independientes. |
 | `Resultado` | Variable respuesta cuantitativa correspondiente a la producción conidial expresada en Log\~10\~ conidios/mL. |
+: Estructira de la base de datos DC {#tbl-estructura}
+
 
 **Pasos para trabajar con R:**
 
@@ -139,7 +139,7 @@ str(DCA)
 summary(DCA$Resultado)
 ```
 
-### **Convertir las variables en factor**
+### Convertir las variables en factor
 
 En un diseño experimental, variables como `Tratamiento` deben declararse como variables categóricas (*factor*), ya que sus niveles representan categorías experimentales y no valores numéricos continuos. Esto permite que R interprete correctamente la estructura del experimento y aplique adecuadamente el análisis de varianza (ANOVA).
 
@@ -183,7 +183,7 @@ El modelo explicó el 99.4 % de la variabilidad observada en los datos (R² = 0.
 
 El estadístico global del modelo fue altamente significativo (*F* = 660.4; *p* = 1.393 × 10⁻¹³), confirmando diferencias estadísticamente significativas entre los tratamientos evaluados.
 
-### **Análisis de la Varianza - ANOVA**
+### Análisis de la Varianza - ANOVA
 
 Cuando se desea determinar si existen diferencias estadísticamente significativas entre los promedios de varios tratamientos, una de las herramientas más utilizadas es el **Análisis de la Varianza (ANOVA)**. En este caso, el ANOVA permite evaluar si los sustratos de cultivo (Arroz blanco, avena en hojuelas, cebada y maíz partido) generan diferencias significativas en la producción conidial de *Penicillium* sp.
 
@@ -220,11 +220,11 @@ ggplot(DCA, aes(x = Tratamiento, y = Resultado, fill = Tratamiento)) +
 
 **Interpretación:** El gráfico boxplot evidenció diferencias claras entre los tratamientos evaluados. El tratamiento Maíz presentó los mayores valores de producción conidial, mientras que Avena mostró los valores más bajos. Asimismo, la dispersión dentro de cada tratamiento fue reducida, lo que sugiere una baja variabilidad experimental y resultados consistentes entre las repeticiones.
 
-## **Supuestos del modelo**
+## Supuestos del modelo
 
 Antes de interpretar los resultados del modelo lineal y del análisis de varianza (ANOVA), es necesario verificar el cumplimiento de los supuestos estadísticos asociados al modelo. En este estudio se evaluaron los **supuestos de normalidad**, **homogeneidad de varianzas** e **independencia de los residuos**.
 
-### **Normalidad**
+### Normalidad
 
 La normalidad de los residuos se evaluó mediante la prueba de Shapiro-Wilk, la cual contrasta la hipótesis nula de que los residuos provienen de una distribución normal. Un valor de *p* mayor a 0.05 indica que no existen evidencias suficientes para rechazar el supuesto de normalidad.
 
@@ -236,7 +236,7 @@ shapiro.test(residuals(modeloDCA))
 
 **Interpretación:** La prueba de Shapiro-Wilk aplicada a los residuos del modelo arrojó un valor de W = 0.979 y un valor de *p* = 0.959, superior al nivel de significancia de 0.05. Por lo tanto, no existen evidencias estadísticas para rechazar la hipótesis nula de normalidad, indicando que los residuos del modelo presentan una distribución aproximadamente normal. En consecuencia, se considera cumplido el supuesto de normalidad requerido para el análisis de varianza (ANOVA).
 
-### **Gráficos para evaluar la normalidad**
+### Gráficos para evaluar la normalidad
 
 Para construir el gráfico QQ (QQ plot) y evaluar la normalidad de los datos, se utiliza la función correspondiente del paquete car. Si no está instalado previamente, es necesario instalar también el paquete auxiliar carData.
 
@@ -261,7 +261,7 @@ qqPlot(modeloDCA)
 
 **Interpretación:** El gráfico QQ muestra que los residuos estandarizados del modelo ANOVA se alinean adecuadamente con la línea diagonal, lo que indica que su distribución es aproximadamente normal. La mayoría de los puntos se ubican dentro de la banda de confianza, y no se observan desviaciones sistemáticas. Esta gráfica complementa el resultado del test de Shapiro-Wilks (p = 0.959), confirmando que se cumple el supuesto de normalidad de los residuos en el modelo.
 
-### **Homocedasticidad**
+### Homocedasticidad
 
 La homogeneidad de varianzas entre tratamientos constituye uno de los supuestos fundamentales del análisis de varianza (ANOVA). Para evaluar este supuesto, se aplicó la prueba de Bartlett, la cual resulta apropiada cuando los residuos presentan una distribución aproximadamente normal. Esta prueba contrasta la hipótesis nula de igualdad de varianzas entre los tratamientos frente a la hipótesis alternativa de diferencias en las varianzas.
 
@@ -315,7 +315,7 @@ dwtest(modeloDCA)
 
 **Interpretación:** La prueba de Durbin-Watson arrojó un estadístico $DW=1.866$ y un valor de *p* = 0.1238, superior al nivel de significancia de 0.05. Estos resultados indican que no existe evidencia estadísticamente significativa de autocorrelación entre los residuos del modelo. Por lo tanto, se considera cumplido el supuesto de independencia de los errores requerido para el análisis de varianza (ANOVA)..
 
-## **Pruebas aposteriori**
+## Pruebas aposteriori
 
 ### Prueba LSD (Least Significant Difference)
 

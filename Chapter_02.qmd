@@ -11,7 +11,7 @@ El análisis bibliométrico es un proceso estructurado que permite examinar de m
 
 A continuación, se describen las etapas del proceso:
 
-### **Definición del tema y palabras clave**
+### Definición del tema y palabras clave
 
 La primera etapa consiste en **delimitar el tema de estudio** y seleccionar las **palabras clave** que representen el objeto de investigación. Por ejemplo, en este ejercicio se emplearon los datos del trabajo de grado (sin publicar) *"Evaluación del crecimiento de Cordyceps militaris en diferentes sustratos vegetales"* [@Chala2025].
 
@@ -33,7 +33,7 @@ Por ejemplo:
 
 > `"Cordyceps militaris" AND ("substrate optimization" OR "culture medium") AND "growth"`
 
-### **Búsqueda y descarga de información en bases de datos**
+### Búsqueda y descarga de información en bases de datos
 
 Una vez definidas las palabras clave, se realiza la **búsqueda sistemática** en bases de datos compatibles con *Bibliometrix*, como: [**Web of Science**](www.webofscience.com) , [**Scopus**](www.scopus.com), [**OpenAlex**](www.openalex.org), [**Dimensions**](www.dimensions.ai), [**The Lens**](www.lens.org); [**PubMed**](https://pubmed.ncbi.nlm.nih.gov/)y [**Cochrane Library**](www.cochranelibrary.com)
 
@@ -41,7 +41,7 @@ Durante esta etapa se deben aplicar filtros de búsqueda: **Periodo de tiempo, T
 
 Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** según lo admita la base. Por ejemplo, en Scopus puede exportarse como *CSV (UTF-8)* con la opción "Full Record". Se recomienda nombrar los archivos de forma clara (p. ej. `Cordyceps_Scopus_2025.csv`).
 
-En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distintas ecuaciones de búsqueda relacionadas con el tema.
+En la Tabla @tbl-busqueda-scopus se presentan los resultados obtenidos a partir de las diferentes ecuaciones de búsqueda formuladas mediante operadores booleanos en la base de datos Scopus®. Estas estrategias permitieron identificar y cuantificar la producción científica relacionada con Cordyceps militaris, facilitando la selección de la ecuación de búsqueda más adecuada para el desarrollo de la revisión bibliográfica.
 
 | Ecuación de búsqueda | Documentos encontrados |
 |-----------------------------------------------------|-------------------|
@@ -49,12 +49,12 @@ En la Tabla 1 se presenta un ejemplo de resultados obtenidos tras aplicar distin
 | "Cordyceps militaris" AND ("cordycepin") AND "growth" | 191 |
 | "Cordyceps militaris" AND "medium" AND "growth" | 99 |
 | "Cordyceps militaris" AND ("substrate optimization" OR "culture medium") AND "growth" | 40 |
+: Resultados obtenidos para las diferentes ecuaciones de búsqueda aplicadas en Scopus® sobre la temática de *Cordyceps militaris*. {#tbl-busqueda-scopus}
 
-: Tabla 1. Salida de resultados para cada uno de los operadores booleanos, introducidos dentro de la plataforma de Scopus®, y que están con el tema de investigación de *Cordyceps militaris.*
+### Importación y análisis en Bibliometrix / Biblioshiny
 
-### **Importación y análisis en Bibliometrix / Biblioshiny**
+Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. En la @tbl-bibliomterix se muestran los módulos de la interfaz *Biblioshiny* que permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
-Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. La interfaz *Biblioshiny* permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
 | Nº | Módulo | Función general | Submódulos / indicadores |
 |---------------:|----------------|-------------------|----------------------|
@@ -67,9 +67,9 @@ Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*,
 | 7 | **Clustering (Conceptual Structure)** | Estructura temática/conceptual del campo. | Co-occurrence Network; Thematic Map; Factorial Analysis |
 | 8 | **Social Structure** | Redes de colaboración entre autores, instituciones y países. | Collaboration Network; Country Scientific Production; Collaboration World Map |
 
-Módulos principales de Bibliometrix / Biblioshiny
+: Módulos principales de Bibliometrix / Biblioshiny {#tbl-bibliomterix}
 
-### **Interpretación y comunicación de resultados**
+### Interpretación y comunicación de resultados
 
 Los resultados obtenidos se interpretan según el contexto de estudio. En el caso de la **microbiología industrial**, el uso de *Bibliometrix* permite identificar líneas emergentes de investigación, autores influyentes, colaboraciones internacionales y vacíos en la literatura.
 
@@ -117,7 +117,7 @@ Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (
 
 ### Estructura
 
-#### **Modulo *Overview***
+#### Modulo Overview
 
 El indicador ***Main information*** muestra los valores de los metadatos trabajados, para este ejemplo se tiene un periodo de análisis de 1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, **se identificaron 903 autores**, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de **coautores** por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad **media de citas por documento** es de 25,69 (@fig-Figura_13).
 
@@ -133,7 +133,7 @@ La @fig-Figura_16 **"Three-Field Plot"** muestra la relación entre **países (A
 
 ## Quarto
 
-#### **Modulo *Sources***
+#### Modulo Sources
 
 Para el menú de *Sources* en la sección ***Most Relevant Sources*** (Traducido: Fuentes Más Relevantes) la producción científica está liderada por: International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. **La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas**,las demás revistas como: Biology, Bioresource Technology, y Nutrients, que cuentan con 3 artículos cada una (@fig-Figura_17).
 
@@ -143,7 +143,7 @@ En la sección de **Bradford's Law** (Traducido: La Ley de Bradford) y continuan
 
 ![](images/2_Bibliometrix/Figura_18.png){width="662"}{#fig-Figura_18}
 
-#### **Modulo** *Authors*
+#### Modulo Authors
 
 En la sección **"Authors' Production over Time"** (Producción de los Autores a lo Largo del Tiempo) se evidencia que los investigadores **Li X., Li Y. y Wang Y .** han mantenido una **producción científica constante** en los últimos años, alcanzando **picos destacados en 2020 y 2022** (@fig-Figura_19), lo que demuestra su papel central en el estudio de *Cordyceps militaris*. La gráfica muestra una **mayor concentración de publicaciones entre 2019 y 2024**, lo que refleja un **crecimiento sostenido y reciente de la investigación** en este campo. Otros autores, como **Vongsangnak W.**, **Zhang J.**, **Laoteng K.** y **Thanwisai R.**, presentan una participación **más intermitente**, aunque continúan contribuyendo activamente en colaboraciones científicas internacionales. En conjunto, la visualización confirma una **expansión continua de la productividad académica**, impulsada por investigadores consolidados y por el aumento del interés global en las aplicaciones biotecnológicas y farmacológicas del hongo *Cordyceps militaris* .
 
@@ -153,7 +153,7 @@ Para el menú de *Authors* específicamente en: ***Countries' Scientific Product
 
 ![](images/2_Bibliometrix/Figura_20.png){#fig-Figura_20}
 
-#### **Modulo** *Document*
+#### Modulo Document
 
 En la sección **"Most Frequent Words"** (Traducido: Palabras Más Frecuentes) del modulo **Documents**, la visualización identifica los términos que aparecen con mayor recurrencia en la literatura científica sobre *Cordyceps militaris*. Las palabras **"Cordyceps"** y **"Cordycepin"** destacan con **196** y **187** menciones respectivamente, reflejando su relevancia central en los estudios del área. Otros términos con alta frecuencia son **"article"** (109), **"Cordyceps militaris"** (108), **"nonhuman"** (92), **"metabolism"** (79), **"deoxyadenosines"** (77), **"controlled study"** (76), **"deoxyadenosine derivative"** (65) y **"adenosine"** (64). En conjunto, esta distribución de palabras clave evidencia que la investigación reciente se concentra en los **aspectos bioquímicos y farmacológicos** del hongo, especialmente en torno a sus compuestos activos y su aplicación en estudios experimentales (@fig-Figura_21).
 
@@ -163,7 +163,7 @@ En la sección **"Reference Spectroscopy"** (Traducido: Espectroscopía de Refer
 
 ![](images/2_Bibliometrix/Figura_22.png){@fig-Figura_22}
 
-#### Modulo **Clustering (Conceptual Structure)**
+#### Modulo Clustering (Conceptual Structure)
 
 Para el menú de *Conceptual Structure* concretamente en: ***Co-occurrence Network*** (Traducido: Red de Coocurrencias), la red se encuentra claramente dividida en dos comunidades principales, identificadas por los colores rojo y azul. **La comunidad roja**, dominada por términos como cordycepin, C*ordyceps militaris*, metabolism y article, se orienta al estudio bioquímico y farmacológico del compuesto, mientras que **la comunidad azul** está asociada a modelos experimentales, destacando términos como animal experiment, human, mouse y cell line. Esta segmentación temática sugiere una dualidad en la línea de investigación: una centrada en la caracterización química y otra en los efectos biológicos en modelos preclínicos. El análisis de centralidad (como grado y betweenness), permitiría identificar términos puente como: nonhuman o controlled study, que conectan ambas comunidades (@fig-Figura_23).
 
@@ -175,7 +175,7 @@ Esta segmentación espacial evidencia la existencia de **subdominios temáticos 
 
 ![](images/2_Bibliometrix/Figura_24.png){#fig-Figura_24}
 
-#### **Social Structure**
+#### Social Structure
 
 En **Social Structure**, específicamente en la opción **Collaboration Network**, se presenta un análisis basado en **redes de coautoría**, las cuales, según [@Aria2017], permiten identificar **patrones de colaboración y productividad científica** entre los autores. En el contexto del estudio sobre *Cordyceps militaris*, la figura muestra una **red de colaboración entre investigadores**, donde **cada nodo representa un autor** y **las líneas o aristas** indican la existencia de coautoría en publicaciones científicas.
 
@@ -186,4 +186,4 @@ Se observan **múltiples grupos o comunidades de colaboración**, diferenciados 
 En la subcategoría **Social Structure → Countries' Collaboration World Map**, se visualizan las **redes internacionales de colaboración científica** sobre *Cordyceps* y su compuesto activo *cordycepina*.\
 El color azul indica el volumen de publicaciones ---a mayor intensidad, mayor producción---, destacando **China** como el principal nodo y centro de cooperación. Las conexiones con **Estados Unidos, Alemania, Corea del Sur y Australia** evidencian un **patrón transcontinental de investigación**, que promueve la **transferencia de conocimiento y la consolidación de redes globales** en el estudio de hongos medicinales (@fig-Figura_26).
 
-![](images/2_Bibliometrix/Figura_26.png){width="668"}{#fig-Figura_26}
+![](images/2_Bibliometrix/Figura_26.png){#fig-Figura_26 width=80%}

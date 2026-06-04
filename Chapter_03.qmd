@@ -40,8 +40,6 @@ Así, la clasificación general de los diseños experimentales responde al objet
 
 ### Verificación de los supuestos del modelo
 
-En la (@fig-supuestos2) se presentan los supuestos:
-
 **Normalidad:**\
 Este supuesto establece que los residuos del modelo deben seguir una **distribución normal**. Se evalúa estadísticamente mediante la **prueba de Shapiro--Wilk** y de forma visual a través de **gráficos QQ-plot** o **histogramas de residuos**, que permiten identificar desviaciones importantes de la normalidad.
 
@@ -50,5 +48,7 @@ Este supuesto establece que los residuos del modelo deben seguir una **distribuc
 
 **Independencia:\
 **Es un supuesto esencial en los modelos estadísticos, ya que garantiza que los errores no estén correlacionados entre sí. La **prueba de Durbin-Watson** evalúa de forma analítica la independencia entre residuos consecutivos. Un valor de *p* mayor a 0.05 sugiere independencia, mientras que valores menores indican posible autocorrelación y violación del supuesto. Gráficamente, puede verificarse **representando los residuos en función del orden de recolección de los datos (tiempo o secuencia experimental)**. Si los puntos se distribuyen **aleatoriamente alrededor de la línea cero**, sin mostrar una tendencia clara, se considera que los residuos son independientes y el supuesto se cumple. Por el contrario, la presencia de **patrones sistemáticos o tendencias no aleatorias** indica una posible **autocorrelación**, lo que sugiere que el orden de ejecución influyó en los resultados.
+
+En la (@fig-supuestos2) se presentan los supuestos:
 
 ![](images/3_DCA/supuestos2.png){#fig-supuestos2 width="586"}

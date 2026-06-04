@@ -19,7 +19,7 @@ De igual modo, [@FernandezMarin2025] destacan que los **modelos generativos** im
 
 Finalmente, el futuro se orienta hacia la creación de **gemelos digitales** de bioprocesos: representaciones virtuales que integran datos biológicos, químicos y físicos para simular sistemas industriales completos. Esta línea emergente promete transformar la microbiología industrial al predecir el comportamiento de procesos con un nivel de detalle sin precedentes, impulsando la ingeniería de enzimas, la fermentación de precisión y la producción de biomoléculas de alto valor [@AmorePhilip2023].
 
-## **Diseño de *Prompts* para la Simulación de Datos en Microbiología Industrial**
+## Diseño de *Prompts* para la Simulación de Datos en Microbiología Industrial
 
 Desarrollar un *prompt* que permita generar un conjunto de datos simulados de crecimiento microbiano empleando una herramienta de Inteligencia Artificial (IA) generativa.
 
