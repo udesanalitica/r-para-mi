@@ -1,5 +1,5 @@
 ---
-title: "Generalidades del Diseño Experimental"
+title: "Generalidades del diseño experimental"
 format: html
 ---
 

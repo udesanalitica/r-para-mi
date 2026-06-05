@@ -3,9 +3,9 @@ title: "Diseño en Bloques Completos al Azar (DBCA)"
 format: pdf
 ---
 
-![Figura 29. Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG)
+![Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG){#fig-DBCA}
 
-La figura 29 presenta los principales componentes de los **diseños en bloques** (Figura 29), una estrategia experimental usada para controlar la variabilidad mediante la formación de grupos homogéneos llamados *bloques*. Entre estos diseños se encuentra el **Diseño en Bloques Completos al Azar (DBCA)**, el cual incorpora el *efecto de bloque* y requiere definir claramente las **hipótesis**, el **modelo estadístico**, así como la **selección y aleatorización** de las unidades experimentales. El análisis estadístico del DBCA se realiza mediante un **ANOVA de dos vías**, el cual permite evaluar simultáneamente el efecto de los tratamientos y de los bloques sobre la variable respuesta.
+La @fig-DBCA presenta los principales componentes de los **diseños en bloques**, una estrategia experimental usada para controlar la variabilidad mediante la formación de grupos homogéneos llamados *bloques*. Entre estos diseños se encuentra el **Diseño en Bloques Completos al Azar (DBCA)**, el cual incorpora el *efecto de bloque* y requiere definir claramente las **hipótesis**, el **modelo estadístico**, así como la **selección y aleatorización** de las unidades experimentales. El análisis estadístico del DBCA se realiza mediante un **ANOVA de dos vías**, el cual permite evaluar simultáneamente el efecto de los tratamientos y de los bloques sobre la variable respuesta.
 
 Otros diseños relacionados incluyen el **diseño en bloques incompletos balanceados** y los diseños **en cuadro latino** y **grecolatino**, los cuales permiten controlar simultáneamente múltiples fuentes de variación. Cada uno de estos diseños exige un procedimiento estructurado que abarca la formulación del modelo, el análisis de varianza correspondiente y la **interpretación** de los resultados.
 
@@ -103,7 +103,7 @@ El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (D
 | **Resultado** | Cuantitativa continua | Variable respuesta asociada al crecimiento de las plantas, expresada en valores decimales (por ejemplo, altura de planta en cm). |
 :Descripción de las variables de la base de datos {#tbl-dbca}
 
-## Instalar Paquetes (solo una vez)
+## Instalar paquetes (solo una vez)
 
 ```{r}
 #install.packages("readxl")
@@ -114,7 +114,7 @@ El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (D
 #install.packages("gtable")
 ```
 
-## Cargar las librerias necesarias para el análisis
+## Cargar las librerías necesarias para el análisis
 
 ```{r, warning=FALSE}
 suppressPackageStartupMessages({
@@ -156,7 +156,7 @@ summary(DBCA$Resultado)
 
 ## Convertir variables a factores
 
-Para garantizar un análisis adecuado bajo un **Diseño en Bloques Completos al Azar (DBCA)**, las variables `Tratamiento` y `Bloque` deben definirse como factores en R. Esta conversión permite que el modelo estadístico reconozca ambas variables como factores categóricos asociados a los efectos experimentales del estudio, evitando que sean interpretadas como variables numéricas continuas.
+Para garantizar un análisis adecuado bajo un **Diseño en Bloques Completos al Azar (DBCA)**, las variables `tratamiento` y `bloque` deben definirse como factores en R. Esta conversión permite que el modelo estadístico reconozca ambas variables como factores categóricos asociados a los efectos experimentales del estudio, evitando que sean interpretadas como variables numéricas continuas.
 
 La variable `Resultado`, por su parte, se mantiene como una variable cuantitativa continua.
 
@@ -179,11 +179,9 @@ modeloDBCA <- aov(Resultado ~ Tratamiento + Bloque,
 summary(modeloDBCA)
 ```
 
-## Interpretación
+**Interpretación:** el análisis del modelo lineal evidenció que el factor `tratamiento` presentó un efecto altamente significativo sobre la variable respuesta ($F = 153.749$; $p < 2 \times 10^{-16}$), indicando que existen diferencias estadísticas entre las medias de los tratamientos evaluados.
 
-El análisis del modelo lineal evidenció que el factor `Tratamiento` presentó un efecto altamente significativo sobre la variable respuesta ($F = 153.749$; $p < 2 \times 10^{-16}$), indicando que existen diferencias estadísticas entre las medias de los tratamientos evaluados.
-
-Por otro lado, el factor `Bloque` no mostró un efecto significativo ($F = 0.688$; $p = 0.505$), lo que sugiere que la variabilidad entre bloques fue baja y no contribuyó significativamente a explicar la variación observada en el experimento.
+Por otro lado, el factor `bloque` no mostró un efecto significativo ($F = 0.688$; $p = 0.505$), lo que sugiere que la variabilidad entre bloques fue baja y no contribuyó significativamente a explicar la variación observada en el experimento.
 
 En conjunto, los resultados indican que las diferencias detectadas en la altura de las plantas se deben principalmente al efecto de los tratamientos de fertilización y no a variaciones asociadas a los bloques experimentales.
 
@@ -194,13 +192,13 @@ modeloDBCA <- aov(Resultado ~ Tratamiento + Bloque, data = DBCA)
 summary(modeloDBCA)
 ```
 
-**Interpretación:** Los resultados del análisis de varianza (ANOVA) correspondientes al Diseño en Bloques Completos al Azar (DBCA) evidenciaron un efecto altamente significativo del factor `Tratamiento` sobre la variable respuesta `Resultado`, mientras que el factor `Bloque` no presentó un efecto estadísticamente significativo.
+**Interpretación:** los resultados del análisis de varianza (ANOVA) correspondientes al Diseño en Bloques Completos al Azar (DBCA) evidenciaron un efecto altamente significativo del factor `tratamiento` sobre la variable respuesta `resultado`, mientras que el factor `bloque` no presentó un efecto estadísticamente significativo.
 
-1\. **Efecto del Tratamiento**.
+1\. **Efecto del tratamiento**.
 
-El análisis indica que el factor Tratamiento es altamente significativo sobre la variable de Resultado. Dado que el valor $\text{p}$ es extremadamente pequeño (denotado por '\*\*\*'), se **rechaza la hipótesis nula** de que no hay diferencias entre las medias de los tratamientos. Esto significa que existe una **diferencia estadísticamente significativa** en el Resultado al menos entre dos de los niveles de Tratamiento. **Grados de Libertad (Df):** 3. **Valor F (F value):** 153.749. **Valor p (**$\text{Pr}(>F)$): $<2 \text{e}-16$ (Menor que $0.001$)
+El análisis indica que el factor tratamiento es altamente significativo sobre la variable de resultado. Dado que el valor $\text{p}$ es extremadamente pequeño (denotado por '\*\*\*'), se **rechaza la hipótesis nula** de que no hay diferencias entre las medias de los tratamientos. Esto significa que existe una **diferencia estadísticamente significativa** en el Resultado al menos entre dos de los niveles de Tratamiento. **Grados de Libertad (Df):** 3. **Valor F (F value):** 153.749. **Valor p (**$\text{Pr}(>F)$): $<2 \text{e}-16$ (Menor que $0.001$)
 
-El factor `Tratamiento` mostró diferencias altamente significativas entre sus media ($F=153.749$, $p < 2 \times 10^{-16}$. En consecuencia, se rechaza la hipótesis nula de igualdad de medias entre tratamientos, indicando que al menos uno de los tratamientos de fertilización produjo un efecto diferente sobre el crecimiento de las plantas de frijol.
+El factor `tratamiento` mostró diferencias altamente significativas entre sus media ($F=153.749$, $p < 2 \times 10^{-16}$. En consecuencia, se rechaza la hipótesis nula de igualdad de medias entre tratamientos, indicando que al menos uno de los tratamientos de fertilización produjo un efecto diferente sobre el crecimiento de las plantas de frijol.
 
 Estos resultados sugieren que el tipo de fertilización influye significativamente sobre la variable respuesta evaluada.
 
@@ -212,9 +210,9 @@ Estos resultados sugieren que el tipo de fertilización influye significativamen
 
 -   Valor de p: $p < 2 \times 10^{-16}$
 
-2\. **Efecto del Bloque.**
+2\. **Efecto del bloque.**
 
-El factor `Bloque` no presentó diferencias estadísticamente significativas ($F = 0.688$; $p = 0.505$). Esto indica que la variabilidad asociada a los bloques no fue suficientemente grande para afectar significativamente la variable respuesta.
+El factor `bloque` no presentó diferencias estadísticamente significativas ($F = 0.688$; $p = 0.505$). Esto indica que la variabilidad asociada a los bloques no fue suficientemente grande para afectar significativamente la variable respuesta.
 
 Aunque el bloqueo fue incorporado para controlar posibles fuentes de variación ambiental, los resultados sugieren que las condiciones entre bloques fueron relativamente homogéneas o que el efecto de los tratamientos fue considerablemente mayor que la variabilidad atribuida al bloqueo.
 
@@ -232,9 +230,9 @@ Aunque el bloqueo fue incorporado para controlar posibles fuentes de variación 
 
 -   Valor de p: $p = 0.505$
 
-3\. **Resumen del Modelo.**
+3\. **Resumen del modelo.**
 
-El análisis evidenció que el factor `Tratamiento` ejerce una influencia significativa sobre la variable respuesta, mientras que el factor `Bloque` no contribuyó significativamente a explicar la variabilidad observada en los datos.
+El análisis evidenció que el factor `tratamiento` ejerce una influencia significativa sobre la variable respuesta, mientras que el factor `bloque` no contribuyó significativamente a explicar la variabilidad observada en los datos.
 
 Dado que el efecto de tratamientos resultó significativo, es necesario realizar pruebas de comparaciones múltiples *a posteriori* (por ejemplo, Tukey, LSD o Scheffé) con el fin de identificar específicamente cuáles tratamientos difieren entre sí.
 
@@ -264,7 +262,7 @@ res <- residuals(modeloDBCA)
 shapiro.test(res)
 ```
 
-**Interpretación:** La prueba de Shapiro-Wilk aplicada a los residuos del modelo arrojó un estadístico $W = 0.995$ y un valor de $p = 0.9725$, superior al nivel de significancia de 0.05. Por lo tanto, no existen evidencias estadísticas para rechazar la hipótesis nula de normalidad, indicando que los residuos del modelo presentan una distribución aproximadamente normal. En consecuencia, se considera cumplido el supuesto de normalidad requerido para el análisis de varianza (ANOVA).
+**Interpretación:** la prueba de Shapiro-Wilk aplicada a los residuos del modelo arrojó un estadístico $W = 0.995$ y un valor de $p = 0.9725$, superior al nivel de significancia de 0.05. Por lo tanto, no existen evidencias estadísticas para rechazar la hipótesis nula de normalidad, indicando que los residuos del modelo presentan una distribución aproximadamente normal. En consecuencia, se considera cumplido el supuesto de normalidad requerido para el análisis de varianza (ANOVA).
 
 **Gráfico Q-Q de los residuos estandarizados**
 
@@ -280,9 +278,7 @@ qqline(res, col = "red")
 hist(res, main = "Histograma de residuos", xlab = "Residuos")
 ```
 
-### Interpretación
-
-El gráfico Q-Q mostró que los residuos estandarizados se distribuyen cercanos a la línea diagonal de referencia, sin evidenciar desviaciones importantes o patrones sistemáticos. Esto sugiere que los residuos presentan una distribución aproximadamente normal, respaldando visualmente el cumplimiento del supuesto de normalidad requerido para el análisis de varianza (ANOVA).
+**Interpretación:** el gráfico Q-Q mostró que los residuos estandarizados se distribuyen cercanos a la línea diagonal de referencia, sin evidenciar desviaciones importantes o patrones sistemáticos. Esto sugiere que los residuos presentan una distribución aproximadamente normal, respaldando visualmente el cumplimiento del supuesto de normalidad requerido para el análisis de varianza (ANOVA).
 
 ### Homocedasticidad
 
@@ -296,9 +292,7 @@ car::leveneTest(Resultado ~ Tratamiento, data = DBCA)
 fligner.test(Resultado ~ Tratamiento, data = DBCA)
 ```
 
-**Interpretación:**
-
-Las pruebas de Bartlett, Levene y Fligner-Killeen presentaron valores de ppp superiores al nivel de significancia de 0.05, indicando que no existen evidencias estadísticas suficientes para rechazar la hipótesis nula de igualdad de varianzas entre tratamientos.
+**Interpretación:** las pruebas de Bartlett, Levene y Fligner-Killeen presentaron valores de ppp superiores al nivel de significancia de 0.05, indicando que no existen evidencias estadísticas suficientes para rechazar la hipótesis nula de igualdad de varianzas entre tratamientos.
 
 Aunque el valor obtenido en la prueba de Bartlett ($p = 0.059$) se encuentra cercano al umbral de significancia, los resultados en conjunto sugieren que el supuesto de homocedasticidad se cumple razonablemente para el modelo analizado, permitiendo continuar con la interpretación del ANOVA y las pruebas de comparación múltiple.
 
@@ -332,9 +326,7 @@ ggplot(datos_homocedasticidad, aes(x = Valores_Ajustados, y = Residuos_Std)) +
 
 ```
 
-**Interpretación:**
-
-Las pruebas de Bartlett, Levene y Fligner-Killeen, junto con el análisis gráfico de residuos, evidenciaron que el modelo cumple razonablemente el supuesto de homogeneidad de varianzas. El gráfico mostró una dispersión aleatoria de los residuos alrededor de la línea horizontal en cero, sin patrones sistemáticos ni cambios importantes en la variabilidad.
+**Interpretación:** las pruebas de Bartlett, Levene y Fligner-Killeen, junto con el análisis gráfico de residuos, evidenciaron que el modelo cumple razonablemente el supuesto de homogeneidad de varianzas. El gráfico mostró una dispersión aleatoria de los residuos alrededor de la línea horizontal en cero, sin patrones sistemáticos ni cambios importantes en la variabilidad.
 
 En consecuencia, se considera válido el uso del análisis de varianza (ANOVA) bajo el Diseño en Bloques Completos al Azar (DBCA), dado que no se detectaron violaciones importantes del supuesto de homocedasticidad.
 
@@ -356,13 +348,11 @@ Valores de **p-value \> 0.05**, indican que no existen evidencias suficientes pa
 dwtest(modeloDBCA)
 ```
 
-**Interpretación:**
-
-La prueba de Durbin-Watson arrojó un valor de $DW = 2.042$ y un valor de $p = 0.4159$, superior al nivel de significancia de 0.05. En consecuencia, no existen evidencias estadísticas suficientes para rechazar la hipótesis nula de independencia de los residuos.
+**Interpretación:** la prueba de Durbin-Watson arrojó un valor de $DW = 2.042$ y un valor de $p = 0.4159$, superior al nivel de significancia de 0.05. En consecuencia, no existen evidencias estadísticas suficientes para rechazar la hipótesis nula de independencia de los residuos.
 
 Adicionalmente, la cercanía del estadístico $DW$ al valor teórico de 2.042 respalda la ausencia de autocorrelación entre los errores experimentales. Por lo tanto, se considera cumplido el supuesto de independencia requerido para la validez del análisis de varianza bajo el Diseño en Bloques Completos al Azar (DBCA).
 
-## **Pruebas aposteriori**
+## Pruebas aposteriori
 
 Una vez verificados los supuestos de normalidad, homogeneidad de varianzas e independencia de los residuos, se realizaron pruebas de comparaciones múltiples *a posteriori* con el propósito de identificar cuáles tratamientos presentan diferencias estadísticamente significativas sobre la variable respuesta evaluada.
 
@@ -376,9 +366,7 @@ El uso del DBCA contribuye a reducir la variabilidad experimental asociada a fac
 HSD.test(modeloDBCA, "Tratamiento", group = TRUE, console = TRUE)
 ```
 
-**Interpretación:**
-
-La prueba de Tukey HSD aplicada al Diseño en Bloques Completos al Azar (DBCA) evidenció diferencias estadísticamente significativas entre todos los tratamientos evaluados sobre la altura de las plantas de frijol. El Tratamiento 4 presentó la mayor media (64.78 cm; grupo a), seguido del Tratamiento 3 (59.71 cm; grupo b), el Tratamiento 2 (54.26 cm; grupo c) y el Tratamiento 1 (50.29 cm; grupo d), el cual registró la menor media.
+**Interpretación:** la prueba de Tukey HSD aplicada al Diseño en Bloques Completos al Azar (DBCA) evidenció diferencias estadísticamente significativas entre todos los tratamientos evaluados sobre la altura de las plantas de frijol. El Tratamiento 4 presentó la mayor media (64.78 cm; grupo a), seguido del Tratamiento 3 (59.71 cm; grupo b), el Tratamiento 2 (54.26 cm; grupo c) y el Tratamiento 1 (50.29 cm; grupo d), el cual registró la menor media.
 
 La diferencia mínima significativa obtenida mediante la prueba de Tukey fue de 1.88, superior a la observada en la prueba LSD (1.43), lo que refleja el carácter más conservador del método Tukey para el control del error por comparaciones múltiples. A pesar de ello, los tratamientos mantuvieron una separación completa, sin letras compartidas entre grupos, indicando que todas las medias difieren significativamente entre sí al nivel de confianza del 95 %.
 
@@ -390,9 +378,7 @@ Estos resultados confirman que los tratamientos ejercieron efectos claramente di
 out_LSD <- LSD.test(modeloDBCA, "Tratamiento", group = TRUE, console = TRUE)
 ```
 
-**Interpretación:**
-
-La prueba LSD (*Least Significant Difference*) aplicada al Diseño en Bloques Completos al Azar (DBCA) evidenció diferencias estadísticamente significativas entre las medias de altura de las plantas de frijol para todos los tratamientos evaluados. El Tratamiento 4 presentó la mayor altura promedio (64.78 cm; grupo a), seguido del Tratamiento 3 (59.71 cm; grupo b), el Tratamiento 2 (54.26 cm; grupo c) y finalmente el Tratamiento 1 (50.29 cm; grupo d), el cual registró la menor media.
+**Interpretación:** la prueba LSD (*Least Significant Difference*) aplicada al Diseño en Bloques Completos al Azar (DBCA) evidenció diferencias estadísticamente significativas entre las medias de altura de las plantas de frijol para todos los tratamientos evaluados. El Tratamiento 4 presentó la mayor altura promedio (64.78 cm; grupo a), seguido del Tratamiento 3 (59.71 cm; grupo b), el Tratamiento 2 (54.26 cm; grupo c) y finalmente el Tratamiento 1 (50.29 cm; grupo d), el cual registró la menor media.
 
 La diferencia mínima significativa obtenida mediante la prueba LSD fue de 1.43, indicando que diferencias superiores a este valor se consideran estadísticamente significativas al nivel de confianza del 95 %. La ausencia de letras compartidas entre tratamientos confirma que todas las medias difieren significativamente entre sí.
 
@@ -406,9 +392,7 @@ Estos resultados indican que los tratamientos ejercieron efectos diferenciados s
 ggplot(DBCA, aes(x = Tratamiento, y = Resultado, fill = Tratamiento)) + geom_boxplot() + theme_minimal() + labs( title = "Distribución del resultado por tratamiento", x = "Tratamiento", y = "Resultado")
 ```
 
-**Interpretación:**
-
-La gráfica de cajas y bigotes muestra la distribución de las alturas de las plantas de *Phaseolus vulgaris* bajo los diferentes tratamientos de fertilización evaluados mediante un Diseño en Bloques Completos al Azar (DBCA). Se observa una tendencia creciente en las medianas de los tratamientos, evidenciando un efecto progresivamente favorable sobre el crecimiento vegetal desde NPK Comercial hasta Orgánico + NPK.
+**Interpretación:** la gráfica de cajas y bigotes muestra la distribución de las alturas de las plantas de *Phaseolus vulgaris* bajo los diferentes tratamientos de fertilización evaluados mediante un Diseño en Bloques Completos al Azar (DBCA). Se observa una tendencia creciente en las medianas de los tratamientos, evidenciando un efecto progresivamente favorable sobre el crecimiento vegetal desde NPK Comercial hasta Orgánico + NPK.
 
 El tratamiento Orgánico + NPK presentó las mayores alturas promedio, seguido de Orgánico + NPK (50:50), NPK + Bioinoculante y finalmente NPK Comercial, el cual registró los valores más bajos. La dispersión de los datos dentro de cada tratamiento fue relativamente homogénea, aunque se identificó un valor atípico en el tratamiento Orgánico + NPK (50:50), comportamiento frecuente en experimentos biológicos debido a la variabilidad natural entre individuos.
 

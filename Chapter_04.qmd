@@ -11,7 +11,7 @@ Cuando el ANOVA detecta diferencias significativas entre tratamientos, pueden ap
 
 Adicionalmente, este diseño requiere verificar los supuestos del modelo estadístico, entre ellos la normalidad de los residuos, la homogeneidad de varianzas y la independencia de los errores. Asimismo, el tamaño de muestra y el número de repeticiones influyen directamente sobre la precisión y potencia experimental.
 
-El Diseño Completamente al Azar (DCA) se utiliza cuando las unidades experimentales son homogéneas y los tratamientos son asignados completamente al azar [@gutierrez2012analisis; @Montgomery2017], sin ningún tipo de agrupación o bloqueo. El modelo lineal aditivo general se expresa como:.
+El **Diseño Completamente al Azar (DCA)** se utiliza cuando las unidades experimentales son homogéneas y los tratamientos son asignados completamente al azar [@gutierrez2012analisis; @Montgomery2017], sin ningún tipo de agrupación o bloqueo. El modelo lineal aditivo general se expresa como:.
 
 $$
 Y_{ij} = \mu + \tau_i + \varepsilon_{ij} 
@@ -47,31 +47,31 @@ La antracnosis del banano 🍌, causada por *Colletotrichum musae* (Berk. y M.A.
 Tradicionalmente, el manejo de esta epifitia se ha basado en la aplicación de fungicidas sintéticos como tiabendazol, azoxystrobin y trifloxystrobin. Sin embargo, el uso continuo de estas sustancias puede generar impactos ambientales adversos, residualidad química y posibles problemas de resistencia del patógeno [@Arias2007]. En este contexto, la búsqueda de alternativas sostenibles de biocontrol ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.
 :::
 
-**Metodología:** Se empleó un *Diseño Completamente al Azar (DCA)* con el fin de evaluar el efecto de distintos sustratos de cultivo sobre la actividad inhibitoria de extractos de *Penicillium* sp. frente a Colletotrichum musae..
+**Metodología:** se empleó un *Diseño Completamente al Azar (DCA)* con el fin de evaluar el efecto de distintos sustratos de cultivo sobre la actividad inhibitoria de extractos de *Penicillium* sp. frente a Colletotrichum musae..
 
 ### Sustratos de cultivo para *Penicillum* sp.
 
 Se empleó un Diseño Completamente al Azar (DCA) con cuatro tratamientos correspondientes a diferentes sustratos de cultivo: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco (Figura 26). Para cada tratamiento, se prepararon bolsas de polipropileno con el respectivo sustrato, las cuales fueron inoculadas con cinco discos de micelio de *Penicillium* sp. (5 mm de diámetro) e incubadas aleatoriamente a 22 ± 2 °C durante ocho días. El experimento se realizó por cuadruplicado, considerando cada bolsa como una unidad experimental.
 
-**Resultados**: El maíz partido presentó la mayor producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido por la cebada con valores de Log~10~ 8,88 conidios/mL. Estos resultados evidencian diferencias en la capacidad de los sustratos para favorecer el crecimiento y la esporulación del hongo. Como se observa en la @fig-sustrato.
+**Resultados**: el maíz partido presentó la mayor producción conidial de *Penicillium digitatum*, alcanzando valores de Log~10~ 9,13 conidios/mL, seguido por la cebada con valores de Log~10~ 8,88 conidios/mL. Estos resultados evidencian diferencias en la capacidad de los sustratos para favorecer el crecimiento y la esporulación del hongo. Como se observa en la @fig-sustrato.
 
-Sustratos con Conidios de *Penicillium* sp.
+Sustratos con conidios de *Penicillium* sp.
 
 ![](images/3_DCA/sustrato.png){#fig-sustrato}
 
-Dilución de conidios y sustrato, en solución tween80® 0,01%: Avena (A); Arroz (B); Cebada (C); Maíz Partido (D).
+Dilución de conidios y sustrato, en solución tween80® 0,01%: avena (A); arroz (B); cebada (C); maíz partido (D).
 
-Los ensayos in vitro evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo de Penicillium sp. Las concentraciones comprendidas entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) entre 40 y 50 % al quinto día después de la inoculación (ddi). Como se observa en la Figura @fig-experimentoinvitro, el incremento en la concentración del extracto estuvo asociado con una mayor inhibición del crecimiento de Colletotrichum musae, lo que sugiere un efecto antifúngico del metabolito evaluado.
+Los ensayos in vitro evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo de Penicillium sp. Las concentraciones comprendidas entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) entre 40 y 50 % al quinto día después de la inoculación (ddi). Como se observa en la  @fig-experimentoinvitro, el incremento en la concentración del extracto estuvo asociado con una mayor inhibición del crecimiento de Colletotrichum musae, lo que sugiere un efecto antifúngico del metabolito evaluado.
 
 ![Ensayo de inhibición *in vitro* de *Colletotrichum musae* frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de *Penicillium* sp. al 4,0 %; (D) extracto de *Penicillium* sp. al 4,5 %; (E) extracto de *Penicillium* sp. al 5,0 %; (F) extracto de *Penicillium* sp. al 5,5 %; y (G) extracto de *Penicillium* sp. al 6,0 %.](images/3_DCA/experimentoinvitro.png){#fig-experimentoinvitro width=80%}
 
 También se realizaron ensayos in vivo para evaluar el efecto del extracto en frutos infectados; sin embargo, este componente corresponde a una fase aplicada del estudio y no será desarrollado en este apartado, cuyo énfasis se centra en el diseño experimental y el análisis estadístico de los tratamientos.
 
-**Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de Extracto Crudo de *Penicillium* sp. para la Inhibición del Crecimiento in vitro e in vivo de *Colletotrichum musae* (Berk. y M. A. Curtis) Arx. Agente Causal de Antracnosis en Banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
+**Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de extracto crudo de *Penicillium* sp. para la inhibición del crecimiento in vitro e in vivo de *Colletotrichum musae* (Berk. y M. A. Curtis) Arx. agente causal de antracnosis en banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
 
 ### Estructura de la base de datos
 
-La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un **Diseño Completamente al Azar (DCA)** para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de *Penicillium* sp. Cada tratamiento fue establecido de manera independiente (@tbl-estructura) y distribuido aleatoriamente bajo condiciones controladas de laboratorio.
+La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un **Diseño Completamente al Azar (DCA)** para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de *Penicillium* sp. cada tratamiento fue establecido de manera independiente (@tbl-estructura) y distribuido aleatoriamente bajo condiciones controladas de laboratorio.
 
 | Variable | Descripción |
 |------------------------------------|------------------------------------|
@@ -93,7 +93,7 @@ En **R**, `setwd()` es una función que significa **"set working directory"** o 
 Por ejemplo: setwd ("D:/OneDrive - Universidad de Santander/Material Docente 2025/CodigoR"")
 :::
 
-### Cargar las librerias necesarias para el análisis
+### Cargar las librerías necesarias para el análisis
 
 ```{r, warning=FALSE}
 suppressPackageStartupMessages({
@@ -141,7 +141,7 @@ summary(DCA$Resultado)
 
 ### Convertir las variables en factor
 
-En un diseño experimental, variables como `Tratamiento` deben declararse como variables categóricas (*factor*), ya que sus niveles representan categorías experimentales y no valores numéricos continuos. Esto permite que R interprete correctamente la estructura del experimento y aplique adecuadamente el análisis de varianza (ANOVA).
+En un diseño experimental, variables como `tratamiento` deben declararse como variables categóricas (*factor*), ya que sus niveles representan categorías experimentales y no valores numéricos continuos. Esto permite que R interprete correctamente la estructura del experimento y aplique adecuadamente el análisis de varianza (ANOVA).
 
 La variable `Repeticion` puede mantenerse como identificador de las unidades experimentales, facilitando la organización y trazabilidad de los datos durante el análisis.
 
@@ -169,7 +169,7 @@ modelo_lm <- lm(Resultado ~ Tratamiento, data = DCA)
 summary(modelo_lm)
 ```
 
-**Interpretación:** El modelo lineal evidenció que el tipo de sustrato influye significativamente sobre la producción conidial de *Penicillium* sp. (*p* \< 0.001). En el modelo, el tratamiento de referencia corresponde al arroz, con una media estimada de 8.73 Log\~10\~ conidios/mL.
+**Interpretación:** el modelo lineal evidenció que el tipo de sustrato influye significativamente sobre la producción conidial de *Penicillium* sp. (*p* \< 0.001). En el modelo, el tratamiento de referencia corresponde al arroz, con una media estimada de 8.73 Log\~10\~ conidios/mL.
 
 En comparación con este tratamiento:
 
@@ -183,9 +183,9 @@ El modelo explicó el 99.4 % de la variabilidad observada en los datos (R² = 0.
 
 El estadístico global del modelo fue altamente significativo (*F* = 660.4; *p* = 1.393 × 10⁻¹³), confirmando diferencias estadísticamente significativas entre los tratamientos evaluados.
 
-### Análisis de la Varianza - ANOVA
+### Análisis de la varianza - ANOVA
 
-Cuando se desea determinar si existen diferencias estadísticamente significativas entre los promedios de varios tratamientos, una de las herramientas más utilizadas es el **Análisis de la Varianza (ANOVA)**. En este caso, el ANOVA permite evaluar si los sustratos de cultivo (Arroz blanco, avena en hojuelas, cebada y maíz partido) generan diferencias significativas en la producción conidial de *Penicillium* sp.
+Cuando se desea determinar si existen diferencias estadísticamente significativas entre los promedios de varios tratamientos, una de las herramientas más utilizadas es el **análisis de la varianza (ANOVA)**. En este caso, el ANOVA permite evaluar si los sustratos de cultivo (arroz blanco, avena en hojuelas, cebada y maíz partido) generan diferencias significativas en la producción conidial de *Penicillium* sp.
 
 El ANOVA compara dos fuentes de variación: la variabilidad observada **entre los tratamientos** y la variabilidad existente **dentro de cada tratamiento**, asociada a las repeticiones experimentales. Si la variación entre tratamientos es mayor que la variación interna, se puede inferir que al menos uno de los sustratos tiene un efecto significativo sobre la variable respuesta.
 
@@ -198,7 +198,7 @@ modeloDCA <- aov(Resultado ~ Tratamiento, data = DCA)
 summary(modeloDCA)
 ```
 
-**Interpretación:** El modelo ANOVA mostró un efecto significativo del tratamiento sobre la variable respuesta (*F* = 660.4; *p* = 1.39 × 10⁻¹³). Estos resultados indican que existen diferencias significativas entre los sustratos evaluados en relación con la producción conidial de *Penicillium* sp.
+**Interpretación:** el modelo ANOVA mostró un efecto significativo del tratamiento sobre la variable respuesta (*F* = 660.4; *p* = 1.39 × 10⁻¹³). Estos resultados indican que existen diferencias significativas entre los sustratos evaluados en relación con la producción conidial de *Penicillium* sp.
 
 ## Exploración gráfica de los datos
 
@@ -206,7 +206,7 @@ summary(modeloDCA)
 
 Con el fin de visualizar la distribución de la variable respuesta en cada tratamiento, se construyó un diagrama de cajas y bigotes (*boxplot*). Este gráfico permite comparar medianas, dispersión de los datos, posibles valores atípicos y diferencias generales entre tratamientos.
 
-Para ello, la variable `Tratamiento` se definió como categórica (*factor*) en R:
+Para ello, la variable `tratamiento` se definió como categórica (*factor*) en R:
 
 ```{r, message=FALSE,}
 library(ggplot2)
@@ -218,7 +218,7 @@ ggplot(DCA, aes(x = Tratamiento, y = Resultado, fill = Tratamiento)) +
   theme_minimal()
 ```
 
-**Interpretación:** El gráfico boxplot evidenció diferencias claras entre los tratamientos evaluados. El tratamiento Maíz presentó los mayores valores de producción conidial, mientras que Avena mostró los valores más bajos. Asimismo, la dispersión dentro de cada tratamiento fue reducida, lo que sugiere una baja variabilidad experimental y resultados consistentes entre las repeticiones.
+**Interpretación:** el gráfico boxplot evidenció diferencias claras entre los tratamientos evaluados. El tratamiento Maíz presentó los mayores valores de producción conidial, mientras que Avena mostró los valores más bajos. Asimismo, la dispersión dentro de cada tratamiento fue reducida, lo que sugiere una baja variabilidad experimental y resultados consistentes entre las repeticiones.
 
 ## Supuestos del modelo
 
@@ -234,7 +234,7 @@ El análisis se realizó utilizando el siguiente script en R:
 shapiro.test(residuals(modeloDCA))
 ```
 
-**Interpretación:** La prueba de Shapiro-Wilk aplicada a los residuos del modelo arrojó un valor de W = 0.979 y un valor de *p* = 0.959, superior al nivel de significancia de 0.05. Por lo tanto, no existen evidencias estadísticas para rechazar la hipótesis nula de normalidad, indicando que los residuos del modelo presentan una distribución aproximadamente normal. En consecuencia, se considera cumplido el supuesto de normalidad requerido para el análisis de varianza (ANOVA).
+**Interpretación:** la prueba de Shapiro-Wilk aplicada a los residuos del modelo arrojó un valor de W = 0.979 y un valor de *p* = 0.959, superior al nivel de significancia de 0.05. Por lo tanto, no existen evidencias estadísticas para rechazar la hipótesis nula de normalidad, indicando que los residuos del modelo presentan una distribución aproximadamente normal. En consecuencia, se considera cumplido el supuesto de normalidad requerido para el análisis de varianza (ANOVA).
 
 ### Gráficos para evaluar la normalidad
 
@@ -259,7 +259,7 @@ library(purrr)
 qqPlot(modeloDCA)
 ```
 
-**Interpretación:** El gráfico QQ muestra que los residuos estandarizados del modelo ANOVA se alinean adecuadamente con la línea diagonal, lo que indica que su distribución es aproximadamente normal. La mayoría de los puntos se ubican dentro de la banda de confianza, y no se observan desviaciones sistemáticas. Esta gráfica complementa el resultado del test de Shapiro-Wilks (p = 0.959), confirmando que se cumple el supuesto de normalidad de los residuos en el modelo.
+**Interpretación:** el gráfico QQ muestra que los residuos estandarizados del modelo ANOVA se alinean adecuadamente con la línea diagonal, lo que indica que su distribución es aproximadamente normal. La mayoría de los puntos se ubican dentro de la banda de confianza, y no se observan desviaciones sistemáticas. Esta gráfica complementa el resultado del test de Shapiro-Wilks (p = 0.959), confirmando que se cumple el supuesto de normalidad de los residuos en el modelo.
 
 ### Homocedasticidad
 
@@ -275,7 +275,7 @@ leveneTest(Resultado ~ Tratamiento, data = DCA)
 fligner.test(Resultado ~ Tratamiento, data = DCA)
 ```
 
-**Interpretación:** Las pruebas de Bartlett (p=0.5179), Levene (p=0.4268) y Fligner-Killeen (p=0.3802) presentaron valores de *p* superiores a 0.05, por lo que no existen evidencias estadísticas para rechazar la hipótesis nula de igualdad de varianzas entre los tratamientos. Estos resultados indican que la variabilidad de los datos es homogénea entre los grupos evaluados, cumpliéndose el supuesto de homocedasticidad requerido para el análisis de varianza (ANOVA) y la aplicación de pruebas de comparación múltiple..
+**Interpretación:** las pruebas de Bartlett (p=0.5179), Levene (p=0.4268) y Fligner-Killeen (p=0.3802) presentaron valores de *p* superiores a 0.05, por lo que no existen evidencias estadísticas para rechazar la hipótesis nula de igualdad de varianzas entre los tratamientos. Estos resultados indican que la variabilidad de los datos es homogénea entre los grupos evaluados, cumpliéndose el supuesto de homocedasticidad requerido para el análisis de varianza (ANOVA) y la aplicación de pruebas de comparación múltiple..
 
 ### Gráfico de residuos vs valores ajustados
 
@@ -299,7 +299,7 @@ y = "Residuos estandarizados"
 
 ```
 
-**Interpretación:** El gráfico de residuos versus valores ajustados mostró una distribución aleatoria de los residuos alrededor de la línea horizontal en cero, sin evidenciar patrones sistemáticos ni cambios importantes en la dispersión. Esto sugiere que la variabilidad de los residuos se mantiene aproximadamente constante a lo largo de los valores ajustados, respaldando el cumplimiento del supuesto de homocedasticidad del modelo.
+**Interpretación:** el gráfico de residuos versus valores ajustados mostró una distribución aleatoria de los residuos alrededor de la línea horizontal en cero, sin evidenciar patrones sistemáticos ni cambios importantes en la dispersión. Esto sugiere que la variabilidad de los residuos se mantiene aproximadamente constante a lo largo de los valores ajustados, respaldando el cumplimiento del supuesto de homocedasticidad del modelo.
 
 ### Independencia de residuos
 
@@ -313,7 +313,7 @@ El análisis se realizó mediante el siguiente script en R:
 dwtest(modeloDCA)
 ```
 
-**Interpretación:** La prueba de Durbin-Watson arrojó un estadístico $DW=1.866$ y un valor de *p* = 0.1238, superior al nivel de significancia de 0.05. Estos resultados indican que no existe evidencia estadísticamente significativa de autocorrelación entre los residuos del modelo. Por lo tanto, se considera cumplido el supuesto de independencia de los errores requerido para el análisis de varianza (ANOVA)..
+**Interpretación:** la prueba de Durbin-Watson arrojó un estadístico $DW=1.866$ y un valor de *p* = 0.1238, superior al nivel de significancia de 0.05. Estos resultados indican que no existe evidencia estadísticamente significativa de autocorrelación entre los residuos del modelo. Por lo tanto, se considera cumplido el supuesto de independencia de los errores requerido para el análisis de varianza (ANOVA).
 
 ## Pruebas aposteriori
 
@@ -328,7 +328,7 @@ library(agricolae)
 Grupos <- LSD.test(y = modeloDCA, trt = "Tratamiento", group = T, console = T)
 ```
 
-**Intrepretación:** La prueba LSD (*Least Significant Difference*) evidenció diferencias estadísticamente significativas entre todos los tratamientos evaluados (α=0.05). El tratamiento Maíz presentó la mayor producción conidial promedio (9.13 Log\~10\~ conidios/mL), seguido por Cebada (8.86 Log\~10\~ conidios/mL), Arroz (8.73 Log\~10\~ conidios/mL) y Avena (8.38 Log\~10\~ conidios/mL).
+**Intrepretación:** la prueba LSD (*Least Significant Difference*) evidenció diferencias estadísticamente significativas entre todos los tratamientos evaluados (α=0.05). El tratamiento maíz presentó la mayor producción conidial promedio (9.13 Log\~10\~ conidios/mL), seguido por Cebada (8.86 Log\~10\~ conidios/mL), Arroz (8.73 Log\~10\~ conidios/mL) y Avena (8.38 Log\~10\~ conidios/mL).
 
 El agrupamiento por letras mostró que cada tratamiento pertenece a un grupo estadístico diferente (a, b, c y d), indicando que todas las medias difieren significativamente entre sí. Estos resultados confirman que el tipo de sustrato influye significativamente sobre la producción conidial de *Penicillium* sp., siendo el maíz el sustrato más favorable para el crecimiento y esporulación del hongo.
 
@@ -338,9 +338,9 @@ Cuando el argumento `group = FALSE` es utilizado, la prueba LSD presenta las com
 Grupos<- LSD.test(y = modeloDCA, trt = "Tratamiento", group = F, console = T)
 ```
 
-**Interpretación:** La prueba LSD de comparaciones múltiples mostró que todas las diferencias entre tratamientos fueron estadísticamente significativas (*p* \< 0.001). Esto indica que ninguno de los sustratos evaluados presentó medias similares en términos de producción conidial de *Penicillium* sp.
+**Interpretación:** la prueba LSD de comparaciones múltiples mostró que todas las diferencias entre tratamientos fueron estadísticamente significativas (*p* \< 0.001). Esto indica que ninguno de los sustratos evaluados presentó medias similares en términos de producción conidial de *Penicillium* sp.
 
-La mayor diferencia se observó entre los tratamientos Avena y Maíz (−0.755 Log\~10\~ conidios/mL), evidenciando un comportamiento claramente contrastante entre ambos sustratos. Por otro lado, la menor diferencia, aunque significativa, se presentó entre Arroz y Cebada (−0.127 Log\~10\~ conidios/mL).
+La mayor diferencia se observó entre los tratamientos avena y maíz (−0.755 Log\~10\~ conidios/mL), evidenciando un comportamiento claramente contrastante entre ambos sustratos. Por otro lado, la menor diferencia, aunque significativa, se presentó entre arroz y cebada (−0.127 Log\~10\~ conidios/mL).
 
 Estos resultados confirman que el tipo de sustrato influye significativamente sobre la producción conidial del hongo, siendo el maíz el tratamiento que favoreció en mayor medida el crecimiento y esporulación de *Penicillium* sp.
 
@@ -357,9 +357,9 @@ HSD.test(modeloDCA, "Tratamiento", group = TRUE, console = TRUE)
 
 ```
 
-**Interpretación:** La prueba de Tukey HSD confirmó diferencias estadísticamente significativas entre todos los tratamientos evaluados (α=0.05). El análisis de agrupamiento mostró que cada tratamiento pertenece a un grupo estadístico diferente (a, b, c y d), indicando que ninguna de las medias comparte similitud estadística.
+**Interpretación:** la prueba de Tukey HSD confirmó diferencias estadísticamente significativas entre todos los tratamientos evaluados (α=0.05). El análisis de agrupamiento mostró que cada tratamiento pertenece a un grupo estadístico diferente (a, b, c y d), indicando que ninguna de las medias comparte similitud estadística.
 
-El tratamiento Maíz presentó la mayor producción conidial promedio (9.13 Log\~10\~ conidios/mL), seguido por Cebada (8.86 Log\~10\~ conidios/mL), Arroz (8.73 Log\~10\~ conidios/mL) y Avena (8.38 Log\~10\~ conidios/mL). La diferencia mínima significativa obtenida mediante la prueba de Tukey fue de 0.0512, confirmando que las diferencias observadas entre tratamientos superan el umbral requerido para considerarse estadísticamente significativas.
+El tratamiento Maíz presentó la mayor producción conidial promedio (9.13 Log\~10\~ conidios/mL), seguido por cebada (8.86 Log\~10\~ conidios/mL), Arroz (8.73 Log\~10\~ conidios/mL) y avena (8.38 Log\~10\~ conidios/mL). La diferencia mínima significativa obtenida mediante la prueba de Tukey fue de 0.0512, confirmando que las diferencias observadas entre tratamientos superan el umbral requerido para considerarse estadísticamente significativas.
 
 Estos resultados corroboran los hallazgos obtenidos mediante el ANOVA y la prueba LSD, evidenciando que el tipo de sustrato influye significativamente sobre la producción conidial de *Penicillium* sp., siendo el maíz el sustrato más favorable para el crecimiento y esporulación del hongo.
 
@@ -367,9 +367,9 @@ Estos resultados corroboran los hallazgos obtenidos mediante el ANOVA y la prueb
 plot(TukeyHSD(modeloDCA))
 ```
 
-**Interpretación:** El gráfico de Tukey HSD muestra los intervalos de confianza del 95 % para las diferencias de medias entre tratamientos, ajustados por comparaciones múltiples (*family-wise error rate*). Ninguno de los intervalos cruza la línea vertical de referencia en cero, indicando que todas las comparaciones pareadas entre tratamientos presentan diferencias estadísticamente significativas.
+**Interpretación:** el gráfico de Tukey HSD muestra los intervalos de confianza del 95 % para las diferencias de medias entre tratamientos, ajustados por comparaciones múltiples (*family-wise error rate*). Ninguno de los intervalos cruza la línea vertical de referencia en cero, indicando que todas las comparaciones pareadas entre tratamientos presentan diferencias estadísticamente significativas.
 
-La mayor diferencia se observó entre los tratamientos Maíz y Avena, mientras que la menor diferencia, aunque estadísticamente significativa, se presentó entre Cebada y Arroz. Estos resultados son consistentes con los análisis previos obtenidos mediante ANOVA y la prueba LSD, confirmando que cada sustrato ejerce un efecto diferencial sobre la producción conidial de *Penicillium* sp.
+La mayor diferencia se observó entre los tratamientos maíz y Avena, mientras que la menor diferencia, aunque estadísticamente significativa, se presentó entre cebada y arroz. Estos resultados son consistentes con los análisis previos obtenidos mediante ANOVA y la prueba LSD, confirmando que cada sustrato ejerce un efecto diferencial sobre la producción conidial de *Penicillium* sp.
 
 ### Prueba de Scheffé
 
@@ -381,12 +381,12 @@ El análisis se realizó utilizando el siguiente script en R:
 scheffe.test(modeloDCA, "Tratamiento",console=TRUE)
 ```
 
-**Interpretación:** La prueba de Scheffé confirmó diferencias estadísticamente significativas entre los tratamientos evaluados. A pesar de ser una prueba más conservadora en comparación con LSD y Tukey, los resultados mantuvieron la misma tendencia observada previamente, indicando que los tratamientos presentan medias significativamente diferentes entre sí.
+**Interpretación:** la prueba de Scheffé confirmó diferencias estadísticamente significativas entre los tratamientos evaluados. A pesar de ser una prueba más conservadora en comparación con LSD y Tukey, los resultados mantuvieron la misma tendencia observada previamente, indicando que los tratamientos presentan medias significativamente diferentes entre sí.
 
-El análisis evidenció que el tratamiento Maíz presentó la mayor producción conidial, seguido por Cebada, Arroz y Avena. Estos resultados refuerzan la conclusión de que el tipo de sustrato influye significativamente sobre la producción conidial de *Penicillium* sp.
+El análisis evidenció que el tratamiento maíz presentó la mayor producción conidial, seguido por cebada, arroz y avena. Estos resultados refuerzan la conclusión de que el tipo de sustrato influye significativamente sobre la producción conidial de *Penicillium* sp.
 
 **Conclusión general**
 
-Las pruebas de comparaciones múltiples LSD, Tukey y Scheffé coincidieron en evidenciar diferencias estadísticamente significativas entre todos los tratamientos evaluados. En todos los casos, el tratamiento Maíz presentó la mayor producción conidial promedio, seguido por Cebada, Arroz y Avena, respectivamente.
+Las pruebas de comparaciones múltiples LSD, Tukey y Scheffé coincidieron en evidenciar diferencias estadísticamente significativas entre todos los tratamientos evaluados. En todos los casos, el tratamiento Maíz presentó la mayor producción conidial promedio, seguido por cebada, arroz y avena, respectivamente.
 
 La consistencia observada entre las diferentes pruebas estadísticas fortalece la confiabilidad de los resultados obtenidos y confirma que el tipo de sustrato influye significativamente sobre la producción conidial de *Penicillium* sp. En particular, el maíz se identificó como el sustrato más favorable para el crecimiento y esporulación del hongo bajo las condiciones evaluadas.

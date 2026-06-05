@@ -1,8 +1,6 @@
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-# Prefacio {.unnumbered}
+---
+title: "Prefacio"
+---
 
 "R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico"
 

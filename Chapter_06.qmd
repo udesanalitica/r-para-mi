@@ -1,9 +1,9 @@
 ---
-title: "Uso de Inteligencia Artificial para la simulación de datos"
+title: "Uso de inteligencia artificial para la simulación de datos"
 format: html
 ---
 
-## Integración de la Inteligencia Artificial en la Simulación de Procesos Microbiológicos Industriales
+## Integración de la inteligencia artificial en la simulación de procesos microbiológicos industriales
 
 La integración de herramientas de **inteligencia artificial (IA)** en la simulación de datos microbiológicos representa un cambio paradigmático en la investigación y el desarrollo de procesos biotecnológicos. Estas tecnologías permiten generar **datos sintéticos** que imitan comportamientos reales, facilitando la **validación de modelos estadísticos** antes de ejecutar experimentos en laboratorio [@AmorePhilip2023]. En este sentido, la IA impulsa la generación de datos experimentales, el desarrollo de modelos predictivos robustos y su aplicación a escala industrial.
 
@@ -19,11 +19,11 @@ De igual modo, [@FernandezMarin2025] destacan que los **modelos generativos** im
 
 Finalmente, el futuro se orienta hacia la creación de **gemelos digitales** de bioprocesos: representaciones virtuales que integran datos biológicos, químicos y físicos para simular sistemas industriales completos. Esta línea emergente promete transformar la microbiología industrial al predecir el comportamiento de procesos con un nivel de detalle sin precedentes, impulsando la ingeniería de enzimas, la fermentación de precisión y la producción de biomoléculas de alto valor [@AmorePhilip2023].
 
-## Diseño de *Prompts* para la Simulación de Datos en Microbiología Industrial
+## Diseño de *prompt* para la simulación de datos en microbiología industrial
 
-Desarrollar un *prompt* que permita generar un conjunto de datos simulados de crecimiento microbiano empleando una herramienta de Inteligencia Artificial (IA) generativa.
+Desarrollar un *prompt* que permita generar un conjunto de datos simulados de crecimiento microbiano empleando una herramienta de inteligencia artificial (IA) generativa.
 
-**Objetivo:** Aplicar principios de simulación de datos mediante IA para recrear escenarios experimentales propios de la microbiología industrial, obteniendo información sintética que pueda analizarse estadísticamente en **RStudio®**.
+**Objetivo:** aplicar principios de simulación de datos mediante IA para recrear escenarios experimentales propios de la microbiología industrial, obteniendo información sintética que pueda analizarse estadísticamente en **RStudio®**.
 
 **Instrucciones:**
 
@@ -46,7 +46,7 @@ Una vez generado el dataset sintético, descárgalo en formato CSV y guárdalo e
 ::: callout-tip
 ## Segundo modelo de Prompt
 
-Actúa como un investigador en Ingeniería de Bioprocesos y Microbiología Industrial. Genera un dataset simulado que represente la producción de amilasa por *Bacillus subtilis* en un biorreactor en lote.
+Actúa como un investigador en ingeniería de bioprocesos y mMicrobiología industrial. Genera un dataset simulado que represente la producción de amilasa por *Bacillus subtilis* en un biorreactor en lote.
 
 Usa como variables de entrada:\
 (i)Temperatura (28--42 °C),\
@@ -92,19 +92,19 @@ Los datos se utilizarán en RStudio para modelar parámetros cinéticos y compar
 ::: callout-tip
 ## Cuarto modelo de Prompt
 
-Actúa como un microbiólogo industrial y bioestadístico. Genera un conjunto de datos simulados que representen el Porcentaje de Inhibición del Área de la Lesión (PIAL) en frutos de banano tratados con extractos vegetales (Neem, Ajo, Jengibre y Canela) frente a *Colletotrichum musae*. Usa concentraciones de 1, 2.5, 5 y 10 %. Cada tratamiento debe contar con 5 repeticiones biológicas.
+Actúa como un microbiólogo industrial y bioestadístico. Genera un conjunto de datos simulados que representen el pPorcentaje de inhibición del área de la lesión (PIAL) en frutos de banano tratados con extractos vegetales (Neem, ajo, jengibre y canela) frente a *Colletotrichum musae*. Usa concentraciones de 1, 2.5, 5 y 10 %. Cada tratamiento debe contar con 5 repeticiones biológicas.
 
-Emplea un diseño de Mediciones Repetidas en el Tiempo, con evaluaciones a los 3, 5, 7, 9 y 11 días después de la inoculación (ddi).
+Emplea un diseño de mediciones repetidas en el tiempo, con evaluaciones a los 3, 5, 7, 9 y 11 días después de la inoculación (ddi).
 
 El archivo debe contener las siguientes columnas:\
 (i) Tratamiento,\
 (ii) Repetición,\
-(iii) días después de la inoculación,\
+(iii) Días después de la inoculación,\
 (iv) PIAL.\
 \
 Los valores de PIAL deben mostrar tendencias biológicas plausibles:\
 (i) El control (sin extracto) debe presentar progresión rápida de la lesión (PIAL cercano a 0%),\
-(ii) Los extractos vegetales deben mostrar distintos niveles de eficacia, algunos con inhibiciones superiores al 50%. \
+(ii) Los extractos vegetales deben mostrar distintos niveles de eficacia, algunos con inhibiciones superiores al 50%.\
 \
 El dataset debe tener al menos 250 observaciones totales.\
 \
