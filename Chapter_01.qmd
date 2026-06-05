@@ -7,15 +7,15 @@ El software **R** es un entorno de programación especializado en análisis esta
 
 ## Instalación y configuración
 
-La instalación del software R y la interfaz **RStudio®** (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos; primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}); una vez instalado R, se puede proceder a descargar e instalar **RStudio®** desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (@fig-Figura1).
+La instalación del software R y la interfaz **RStudio®** (ahora llamado *Posit RStudio®*) es un proceso sencillo que puede completarse en unos pocos pasos. Primero, se debe descargar e instalar R desde el sitio web oficial del Proyecto R ([https://www.r-project.org](#0){.uri style="font-size: 11pt;"}). Una vez instalado R, se puede proceder a descargar e instalar **RStudio®** desde su sitio web ([https://posit.co/download/rstudio-desktop/](#0){.uri style="font-size: 11pt;"}) (@fig-Figura1).
 
 ![](images/1_Instalacion/Figura1.png){#fig-Figura1 fig-pos="H"}
 
-Ambos programas están disponibles para múltiples sistemas operativos, incluyendo Windows, macOS y Linux (@fig-Figura2).
+Ambos programas están disponibles para múltiples sistemas operativos, incluidos Windows, macOS y Linux (@fig-Figura2).
 
 ![](images/1_Instalacion/Figura2.png){#fig-Figura2 fig-pos="H"}
 
-Del mismo modo se deben descargar de diferentes directorios llamados CRAN (*Comprehensive R Archive Network o Red integral de archivo R*)(@fig-Figura3).
+Del mismo modo, se deben descargar de diferentes directorios llamados CRAN (*Comprehensive R Archive Network o Red integral de archivo R*)(@fig-Figura3).
 
 ![](images/1_Instalacion/Figura3.png){#fig-Figura3 fig-pos="H"}
 
@@ -23,11 +23,11 @@ Finalmente descargar la última versión de R para Windows (@fig-Figura4).
 
 ![](images/1_Instalacion/Figura4.png){#fig-Figura4 fig-pos="H"}
 
-Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz (@fig-Figura5). Está dividida en varias secciones, incluyendo: (i) el editor de código o Script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola: se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo: muestra los objetos y datos cargados en la sesión actual y las (iv) pestañas de archivos y gráficos: permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
+Una vez instalados R y RStudio®, es importante familiarizarse con la interfaz (@fig-Figura5). Está dividida en varias secciones, que incluyen: (i) el editor de código o script, el cual permite escribir y editar las instrucciones o Scripts; (ii) la consola, que se utiliza para ejecutar comandos interactivos; (iii) el entorno de trabajo, que muestra los objetos y datos cargados en la sesión actual y (iv) las pestañas de archivos y gráficos, que permiten gestionar archivos y visualizar gráficos generados por R [@Rcore2021].
 
 ![](images/1_Instalacion/Figura5.png){#fig-Figura5 fig-pos="H"}
 
-Además de la interfaz básica, RStudio® permite la instalación y gestión de paquetes adicionales que amplían sus funcionalidades; para instalar un paquete, se puede utilizar la función install.packages ("nombre_del_paquete") en la consola de RStudio®; una vez instalado, el paquete se puede cargar en la sesión actual utilizando la función library (nombre_del_paquete).
+Además de la interfaz básica, RStudio® permite la instalación y gestión de paquetes adicionales que amplían sus funcionalidades. Para instalar un paquete, se puede utilizar la función install.packages ("nombre_del_paquete") en la consola de RStudio®; una vez instalado, el paquete se puede cargar en la sesión actual utilizando la función library (nombre_del_paquete).
 
 ::: callout-important
 Mantener R y RStudio® actualizados es clave para aprovechar las últimas mejoras, nuevas funcionalidades y correcciones de errores. Ambos programas notifican automáticamente cuando hay versiones más recientes disponibles, por lo que se recomienda estar atento a estos avisos y actualizar oportunamente.
@@ -35,13 +35,13 @@ Mantener R y RStudio® actualizados es clave para aprovechar las últimas mejora
 
 Para actualizar R, se debe descargar e instalar la nueva versión desde el sitio web del Proyecto R; para actualizar RStudio®, se puede utilizar la opción de actualización en el menú de ayuda de RStudio®; mantener el software actualizado garantiza un rendimiento óptimo y acceso a las últimas funcionalidades [@Rcore2021] (R Core Team, 2023; RStudio Team, 2023).
 
-## Paquetes Esenciales para el análisis de datos
+## Paquetes esenciales para el análisis de datos
 
 De **R** se destaca su gran variedad de paquetes especializados que amplían sus capacidades analíticas y gráficas. En el contexto de la **microbiología industrial**, estas librerías permiten gestionar, transformar y visualizar datos experimentales con precisión, favoreciendo la interpretación de resultados y la toma de decisiones basadas en evidencia. Es por ello, que se presenta un inventario de los **paquetes más utilizados en el análisis de datos microbiológicos**.
 
-## Inventario de Librerías y Paquetes de R aplicados para el análisis de datos en Microbiología Industrial.
+## Inventario de librerías y paquetes de R aplicados para el análisis de datos en microbiología industrial.
 
-El ecosistema de librerías y paquetes de R, constituye una herramienta fundamental para el análisis de datos en Microbiología Industrial, proporcionando soluciones específicas para cada etapa del proceso investigativo, y en este contexto, las librerías básicas como:
+El ecosistema de librerías y paquetes de R, constituye una herramienta fundamental para el análisis de datos en microbiología industrial, proporcionando soluciones específicas para cada etapa del proceso investigativo, y en este contexto, las librerías básicas como:
 
 -   [***readxl***](https://readxl.tidyverse.org/), desarrollada por [@wickham2015], facilita la importación de datos desde hojas de cálculo Excel®, donde tradicionalmente los microbiólogos registran sus resultados experimentales.
 
@@ -67,7 +67,7 @@ La revolución en el análisis de datos microbiológicos se materializa principa
 
 -   [**lubridate**](https://github.com/tidyverse/lubridate) , para fecha/hora.
 
-Los análisis se enriquecen, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, y tal es el caso de:
+Los análisis se enriquecen, considerablemente con librerías especializadas que abordan necesidades específicas de la investigación microbiológica industrial, como es el caso de:
 
 -   [***gridExtra***](https://cran.r-project.org/web/packages/gridExtra/index.html), desarrollada por [@Auguie2017], la cual facilita la organización de múltiples gráficos en una sola visualización, permitiendo comparaciones efectivas entre diferentes condiciones experimentales.
 
@@ -85,7 +85,7 @@ Las aplicaciones especializadas en análisis multivariado y modelado avanzado co
 
 -   [***Shiny***](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) permite desarrollar aplicaciones web interactivas para visualización dinámica de resultados, mejorando la colaboración y transparencia en la investigación microbiológica industrial [@Chang2021].
 
-## Paquetes del software R para Microbiología Industrial
+## Paquetes del software R para microbiología industrial
 
 El uso de R como herramienta de análisis estadístico en la microbiología industrial ha experimentado un crecimiento exponencial en la última década, según [@Mohammadi2019] R proporciona una plataforma versátil que permite analizar datos complejos derivados de experimentos microbiológicos, facilitando la identificación de patrones de crecimiento microbiano, optimización de condiciones de cultivo y evaluación de la producción de metabolitos secundarios, lo que resulta crucial para el desarrollo y mejora de procesos biotecnológicos en entornos industriales.
 
@@ -106,7 +106,7 @@ El **diseño experimental** en microbiología industrial y ciencias naturales se
 ::: {.callout-caution collapse="true"}
 ## Expandir para aprender son el analis de datos ómicos
 
-El análisis de datos ómicos en microbiología industrial se ha visto significativamente potenciado gracias al aporte de [@Love2014] quienes introdujeron *DESeq2*, un paquete que ha transformado el análisis de datos de RNA-seq en estudios transcriptómicos de microorganismos industriales, permitiendo identificar genes diferencialmente expresados bajo diversas condiciones de cultivo o modificaciones genéticas; lo que contribuye a la mejora de cepas microbianas industriales y a optimizar rutas metabólicas de interés comercial; paralelamente [@Rohart2017] desarrollaron el paquete mixOmics, el cual facilita la integración de múltiples conjuntos de datos ómicos, como:
+El análisis de datos ómicos en microbiología industrial se ha visto significativamente potenciado gracias al aporte de [@Love2014] quienes introdujeron *DESeq2*, un paquete que ha transformado el análisis de datos de RNA-seq en estudios transcriptómicos de microorganismos industriales, permitiendo identificar genes diferencialmente expresados bajo diversas condiciones de cultivo o modificaciones genéticas; lo que contribuye a la mejora de cepas microbianas industriales y a optimizar rutas metabólicas de interés comercial. Paralelamente [@Rohart2017] desarrollaron el paquete mixOmics, el cual facilita la integración de múltiples conjuntos de datos ómicos, como:
 
 (i) transcriptómica,
 (ii) proteómica y

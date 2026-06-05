@@ -7,11 +7,11 @@ project:
 lang: es
 cover-image: cover.png
 book:
-  title: "R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico"
+  title: "R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico"
   author:
-    - "Fredy Ortiz"
-    - "Miguel Pérez"
-    - "Francisco León"
+    - "Fredy Alejandro Ortiz Meneses"
+    - "Miguel Oswaldo Pérez Pulido"
+    - "Francisco Javier León"
   date: "2025-05-05"
   # GitHub
   site-url: "https://udesanalitica.github.io/r-para-mi/"

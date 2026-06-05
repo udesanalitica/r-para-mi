@@ -3,11 +3,11 @@ title: "Análisis bibliométrico para la gestión del diseño experimentos"
 format: html
 ---
 
-El **Capítulo 2** aborda el análisis bibliométrico como una herramienta esencial para la **gestión del conocimiento en el diseño experimental**, permitiendo identificar tendencias, autores, revistas y enfoques metodológicos relevantes dentro del campo de la microbiología industrial. La inclusión de este capítulo tiene como propósito **fortalecer la fundamentación teórica y metodológica** del lector, proporcionándole una visión panorámica de la producción científica relacionada con el tema. A través del uso de técnicas de minería de datos bibliográficos y del software *R*, se ejemplifica cómo la bibliometría contribuye a **orientar la planificación y optimización de los diseños experimentales**, facilitando la toma de decisiones basadas en evidencia científica actual. De este modo, el capítulo no solo enriquece el marco conceptual del libro, sino que también promueve una práctica investigativa más informada, sistemática y alineada con las tendencias globales en investigación aplicada.
+En este tema se aborda el análisis bibliométrico como una herramienta esencial para la **gestión del conocimiento en el diseño experimental**, permitiendo identificar tendencias, autores, revistas y enfoques metodológicos relevantes dentro del campo de la microbiología industrial. La inclusión de este capítulo tiene como propósito **fortalecer la fundamentación teórica y metodológica** del lector, proporcionándole una visión panorámica de la producción científica relacionada con el tema. A través del uso de técnicas de minería de datos bibliográficos y del software *R*, se ejemplifica cómo la bibliometría contribuye a **orientar la planificación y optimización de los diseños experimentales**, facilitando la toma de decisiones basadas en evidencia científica actual. De este modo, el capítulo no solo enriquece el marco conceptual del libro, sino que también promueve una práctica investigativa más informada, sistemática y alineada con las tendencias globales en investigación aplicada.
 
 ## Etapas del análisis bibliométrico
 
-El análisis bibliométrico es un proceso estructurado que permite examinar de manera sistemática la producción científica sobre un tema determinado. Para garantizar resultados rigurosos y reproducibles, este procedimiento se desarrolla en varias etapas que van desde la **definición del tema y la búsqueda en bases de datos**, hasta la **depuración, análisis e interpretación de los resultados** mediante herramientas especializadas como *Bibliometrix* y su interfaz *Biblioshiny*.
+El análisis bibliométrico es un proceso estructurado que permite examinar de manera sistemática la producción científica sobre un tema determinado. Para garantizar resultados rigurosos y reproducibles, este procedimiento se desarrolla en varias etapas que van desde la **definición del tema y la búsqueda en bases de datos**, hasta la **depuración, análisis e interpretación de los resultados** mediante herramientas especializadas, como *Bibliometrix* y su interfaz *Biblioshiny*.
 
 A continuación, se describen las etapas del proceso:
 
@@ -37,9 +37,9 @@ Por ejemplo:
 
 Una vez definidas las palabras clave, se realiza la **búsqueda sistemática** en bases de datos compatibles con *Bibliometrix*, como: [**Web of Science**](www.webofscience.com) , [**Scopus**](www.scopus.com), [**OpenAlex**](www.openalex.org), [**Dimensions**](www.dimensions.ai), [**The Lens**](www.lens.org); [**PubMed**](https://pubmed.ncbi.nlm.nih.gov/)y [**Cochrane Library**](www.cochranelibrary.com)
 
-Durante esta etapa se deben aplicar filtros de búsqueda: **Periodo de tiempo, Tipo de documento** (artículo, revisión, conferencia), **Área temática.**
+Durante esta etapa se deben aplicar filtros de búsqueda: **periodo de tiempo, tipo de documento** (artículo, revisión, conferencia), **área temática.**
 
-Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS** según lo admita la base. Por ejemplo, en Scopus puede exportarse como *CSV (UTF-8)* con la opción "Full Record". Se recomienda nombrar los archivos de forma clara (p. ej. `Cordyceps_Scopus_2025.csv`).
+Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS**, según lo admita la base. Por ejemplo, en Scopus puede exportarse como *CSV (UTF-8)*, con la opción "Full Record". Se recomienda nombrar los archivos de forma clara (p. ej. `Cordyceps_Scopus_2025.csv`).
 
 En la Tabla @tbl-busqueda-scopus se presentan los resultados obtenidos a partir de las diferentes ecuaciones de búsqueda formuladas mediante operadores booleanos en la base de datos Scopus®. Estas estrategias permitieron identificar y cuantificar la producción científica relacionada con Cordyceps militaris, facilitando la selección de la ecuación de búsqueda más adecuada para el desarrollo de la revisión bibliográfica.
 
@@ -90,12 +90,12 @@ Para iniciar el análisis bibliométrico, se procede a ingresar al programa RStu
 
 ![](images/2_Bibliometrix/Bibliometrix1.PNG){#fig-Bibliometrix1}
 
-Posteriormente, desde la Consola de RStudio se digitan y ejecutan los comandos:
+Posteriormente, desde la consola de RStudio se digitan y ejecutan los comandos:
 
 > library(bibliometrix)\
 > biblioshiny()
 
-También se puede habilitar manualmente en la pestaña de Archivos y Gráficos de la interfaz de RStudio, pestaña de Packages (@fig-Bibliometrix1) seleccionado las librerias a usar.
+También se puede habilitar manualmente en la pestaña de archivos y gráficos de la interfaz de RStudio, pestaña de Packages (@fig-Bibliometrix1) seleccionado las librerías a usar.
 
 ![](images/2_Bibliometrix/Bibliometrix2.PNG){#fig-Bibliometrix2}
 
@@ -119,11 +119,11 @@ Así mismo Bibliometrix evalúa cada uno de los diferentes campos de metadatos (
 
 #### Modulo Overview
 
-El indicador ***Main information*** muestra los valores de los metadatos trabajados, para este ejemplo se tiene un periodo de análisis de 1951 a 2025 con un total de 135 fuentes y 191 documentos, la tasa de crecimiento anual es de 0,94%, **se identificaron 903 autores**, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18% y el promedio de **coautores** por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias, la edad promedio de los documentos es de 7,34 años y la cantidad **media de citas por documento** es de 25,69 (@fig-Figura_13).
+El indicador ***Main information*** muestra los valores de los metadatos trabajados. Para este ejemplo, se tiene un periodo de análisis de 1951 a 2025 con un total de 135 fuentes y 191 documentos; la tasa de crecimiento anual es de 0,94%; **se identificaron 903 autores**, sin registros un solo autor; la coautoría internacional alcanza un valor de 15,18%, y el promedio de **coautores** por documento es de 6,19. Se encontraron 543 palabras clave de autor y 7474 referencias; la edad promedio de los documentos es de 7,34 años, y la cantidad **media de citas por documento** es de 25,69 (@fig-Figura_13).
 
 ![](images/2_Bibliometrix/Figura_13.png){#fig-Figura_13}
 
-Para la sección ***Average Citations Per Ye*****ar** (Traducido: Citas Promedio Por Año) muestra la evolución de publicaciones sobre *Cordyceps militaris* entre 1951 y 2025 (@fig-Figura_15). Entre **1951 y 2000**, la producción científica fue mínima, con casi nula variación. A partir de **2000**, comienza un crecimiento leve y sostenido, que se **acelera notablemente después de 2010**, alcanzando su punto máximo entre **2020 y 2024**, con más de **20 artículos anuales**. En **2025**, se observa una **caída abrupta**, posiblemente atribuida a datos incompletos o publicaciones aún en proceso. En síntesis, la tendencia general evidencia un **crecimiento exponencial de la investigación** sobre *Cordyceps militaris* en las dos últimas décadas, reflejando su creciente relevancia científica y biotecnológica.
+Para la sección ***Average Citations Per Ye*****ar** (traducido: citas promedio por año), muestra la evolución de publicaciones sobre *Cordyceps militaris* entre 1951 y 2025 (@fig-Figura_15). Entre **1951 y 2000**, la producción científica fue mínima, con casi nula variación. A partir de **2000**, comienza un crecimiento leve y sostenido, que se **acelera notablemente después de 2010**, alcanzando su punto máximo entre **2020 y 2024**, con más de **20 artículos anuales**. En **2025**, se observa una **caída abrupta**, posiblemente atribuida a datos incompletos o publicaciones aún en proceso. En síntesis, la tendencia general evidencia un **crecimiento exponencial de la investigación** sobre *Cordyceps militaris* en las dos últimas décadas, reflejando su creciente relevancia científica y biotecnológica.
 
 ![](images/2_Bibliometrix/Figura_15.png){#fig-Figura_15}
 
@@ -135,11 +135,11 @@ La @fig-Figura_16 **"Three-Field Plot"** muestra la relación entre **países (A
 
 #### Modulo Sources
 
-Para el menú de *Sources* en la sección ***Most Relevant Sources*** (Traducido: Fuentes Más Relevantes) la producción científica está liderada por: International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. **La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas**,las demás revistas como: Biology, Bioresource Technology, y Nutrients, que cuentan con 3 artículos cada una (@fig-Figura_17).
+Para el menú de *Sources* en la sección ***Most Relevant Sources*** (traducido: fuentes más relevantes) la producción científica está liderada por: International Journal of Medicinal Mushrooms con 15 artículos publicados, seguido de Mycosystema con 8, le sigue: Applied Microbiology and Biotechnology con 5. Dichas revistas destacan por su enfoque en microbiología, biotecnología y farmacología, áreas clave dentro del estudio abordado. **La distribución sugiere que la investigación en este campo se encuentra bien representada en revistas especializadas**,las demás revistas como: Biology, Bioresource Technology, y Nutrients, que cuentan con 3 artículos cada una (@fig-Figura_17).
 
 ![](images/2_Bibliometrix/Figura_17.png){width="656"}{#fig-Figura_17}
 
-En la sección de **Bradford's Law** (Traducido: La Ley de Bradford) y continuando con nuestro ejemplo didáctico de *Cordyceps mil*itaris ,se observa que: "International Journal of Medicinal Mushrooms", junto con "Mycosystema" y "Applied Microbiology and Biotechnology", conforman el núcleo de fuentes indexadas más relevantes, aportando el mayor número de publicaciones, estas tres revistas están dentro del área sombreada, lo que **confirma su papel central en la diseminación del conocimiento** sobre *C. militari*s y compuestos bioactivoss. A medida que se avanza hacia la derecha del gráfico, el número de artículos por revista disminuye, lo que representa publicaciones de interés más disperso (@fig-Figura_18).
+En la sección de **Bradford's Law** (traducido: la ley de Bradford) y continuando con nuestro ejemplo didáctico de *Cordyceps mil*itaris ,se observa que: "International Journal of Medicinal Mushrooms", junto con "Mycosystema" y "Applied Microbiology and Biotechnology", conforman el núcleo de fuentes indexadas más relevantes, aportando el mayor número de publicaciones. Estas tres revistas están dentro del área sombreada, lo que **confirma su papel central en la diseminación del conocimiento** sobre *C. militari*s y compuestos bioactivoss. A medida que se avanza hacia la derecha del gráfico, el número de artículos por revista disminuye, lo que representa publicaciones de interés más disperso (@fig-Figura_18).
 
 ![](images/2_Bibliometrix/Figura_18.png){width="662"}{#fig-Figura_18}
 
