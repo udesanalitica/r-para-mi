@@ -34,7 +34,7 @@ El **objetivo del experimento** constituye el criterio principal para diferencia
 
 Así, la clasificación general de los diseños experimentales responde al objetivo central del estudio, y dentro de cada categoría se consideran elementos adicionales como el número de factores, los tipos de efectos a investigar y las restricciones prácticas que condicionan la ejecución (@fig-disenos).
 
-### **Clasificación de los diseños experimentales**
+### Clasificación de los diseños experimentales
 
 ![](images/3_DCA/diseno.jpg){#fig-disenos width="512"}
 
