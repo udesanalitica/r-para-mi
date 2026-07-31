@@ -2,13 +2,13 @@
 title: "Prefacio"
 ---
 
-"R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico"
+# R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico {.unnumbered}
 
-En el campo de la [microbiología industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) y el diseño de experimentos, la integración de herramientas estadísticas constituye un desafío pedagógico fundamental que requiere estrategias innovadoras de enseñanza-aprendizaje. Como profesores de estas áreas de aprendizaje hemos identificado que los estudiantes experimentan dificultades significativas al establecer conexiones entre los conceptos estadísticos y los resultados experimentales microbiológicos.
+En el campo de la [microbiología industrial](https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial) y el diseño de experimentos, la integración de herramientas estadísticas constituye un desafío pedagógico fundamental que requiere estrategias innovadoras de enseñanza-aprendizaje. Como profesores de estas áreas hemos identificado que los estudiantes experimentan dificultades significativas al establecer conexiones entre los conceptos estadísticos y los resultados experimentales microbiológicos.
 
-En respuesta a esta problemática, surge la propuesta del libro "Aplicaciones del software RStudio® en la microbiología industrial", diseñado específicamente para articular las áreas de diseño de experimentos y la microbiología industrial con ayuda de RStudio®, utilizando a lo largo del contenido ejemplos concretos derivados de trabajos de grado y proyectos académicos desarrollados en la [Universidad de Santander (UDES](https://udes.edu.co/)).
+En respuesta a esta problemática surge este libro, diseñado específicamente para articular el diseño de experimentos con la microbiología industrial mediante el lenguaje de programación R y el entorno de trabajo RStudio, utilizando a lo largo del contenido ejemplos concretos derivados de trabajos de grado y proyectos académicos desarrollados en la [Universidad de Santander (UDES)](https://udes.edu.co/).
 
-La obra integra, además, temas relacionados con análisis bibliométrico e inteligencia artificial, reconociendo de este modo que la microbiología contemporánea demanda no solo competencias técnicas, sino adaptación de nuevas habilidades en una disciplina científica en constante evolución. De esta forma, contribuye a la formación de profesionales capaces de afrontar los desafíos emergentes en el campo de la microbiología industrial, tanto para el presente como su fut
+La obra integra, además, temas relacionados con análisis bibliométrico e inteligencia artificial, reconociendo que la microbiología contemporánea demanda no solo competencias técnicas, sino la adaptación de nuevas habilidades en una disciplina científica en constante evolución. De esta forma contribuye a la formación de profesionales capaces de afrontar los desafíos emergentes del campo, tanto presentes como futuros.
 
 **Fredy Alejandro Ortiz Meneses**\
 *Curso de Microbiología General y Microbiología II*
@@ -27,28 +27,55 @@ Maestría en Estadística Aplicada y Analítica de Datos*
 La presente obra constituye nuestra contribución a la formación integral de los microbiólogos industriales en su desarrollo como científicos. Esperamos que su contenido no solo fortalezca su experiencia académica, sino que además les provea de las competencias prácticas indispensables para afrontar los desafíos contemporáneos y futuros del ámbito profesional.
 :::
 
+## Cómo está construido este libro {.unnumbered}
+
+El libro se escribió en [Quarto](https://quarto.org) sobre R y se publica automáticamente en GitHub Pages a partir del código fuente. Todos los ejemplos son reproducibles: cada análisis incluye el código que lo genera y los datos necesarios para ejecutarlo, de modo que quien lea pueda replicar los resultados y modificarlos con sus propios conjuntos de datos.
+
+## Datos y material experimental {.unnumbered}
+
+Los conjuntos de datos y las imágenes que ilustran los capítulos provienen de experimentos realizados en la UDES. Agradecemos a quienes aportaron ese material:
+
+- **Juan Sebastián Mejía Sarmiento** — datos y registro fotográfico del experimento de la dilución de conidios y sustrato en solución Tween 80® al 0,01 %: avena (A), arroz (B), cebada (C) y maíz partido (D) y el ensayo de inhibición in vitro de Colletotrichum musae frente a siete tratamientos (paneles A a G), reproducidos con autorización del autor.
+- **Christian Andrés Chacín Zambrano** — datos y registro fotográfico del experimento con plantas de Phaseolus vulgaris utilizadas en el experimento de fertilización bajo Diseño en Bloques Completos al Azar (DBCA), reproducidos con autorización del autor.
+
+La atribución específica de cada figura y cada conjunto de datos aparece en el pie correspondiente.
+
+## Cómo contribuir {.unnumbered}
+
+Este libro está pensado como un material vivo. Quien quiera proponer correcciones, ejercicios adicionales, nuevos conjuntos de datos o adaptaciones a otros contextos disciplinares puede hacerlo a través del repositorio del proyecto:
+
+- **Reportar un error o sugerir una mejora:** abrir un *issue* en
+  <https://github.com/udesanalitica/r-para-mi/issues>.
+- **Proponer un cambio concreto:** hacer un *fork* del repositorio y enviar un
+  *pull request* con la propuesta.
+- **Contacto directo:** <coordinador.analitica@udes.edu.co>
+
+Las contribuciones aceptadas se reconocen en esta sección.
+
 ::: {.callout-note title="Para citar"}
-Ortiz, F., Pérez, M., y León, F. (2025). *R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico.* Universidad de Santander. Vicerrectoría de Enseñanza.<https://udesanalitica.github.io/r-para-mi/> ISBN: . https://doi.org/10.5281/zenodo.XXXXX
+Ortiz, F. A., Pérez, M. O., y León, F. J. (2025). *R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico*. Universidad de Santander, Vicerrectoría de Enseñanza. <https://udesanalitica.github.io/r-para-mi/>
 :::
 
 ``` bibtex
-@ebook {OrtizPerezLeon2025,
-  author = {Ortiz, F., Pérez, M., y León, F.},
-  title = {R para Microbiología Industrial: Análisis de Datos y 
-  Diseño Experimental con un Enfoque Práctico},
-  institution = {Universidad de Santander (UDES)},
-  year = {2025},
-  note = {Vicerrectoría de Enseñanza},
-  url = {\url{https://udesanalitica.github.io/r-para-mi/}},
-  type = {e-book},
-  doi = {10.5281/zenodo.XXXXX},
-  isbn = {}
+@book{OrtizPerezLeon2025,
+  author    = {Ortiz Meneses, Fredy Alejandro and P{\'e}rez Pulido, Miguel Oswaldo and Le{\'o}n, Francisco Javier},
+  title     = {R para microbiolog{\'i}a industrial: an{\'a}lisis de datos y dise{\~n}o experimental con un enfoque pr{\'a}ctico},
+  publisher = {Universidad de Santander (UDES)},
+  address   = {Bucaramanga, Colombia},
+  year      = {2025},
+  note      = {Vicerrector{\'i}a de Ense{\~n}anza},
+  url       = {https://udesanalitica.github.io/r-para-mi/}
 }
 ```
 
-::: {.callout-note title="Derechos de Autor"}
+::: {.callout-note title="Derechos de autor y licencia"}
+© 2025 Universidad de Santander (UDES), titular de los derechos patrimoniales.
+
+Autores: Fredy Alejandro Ortiz Meneses, Miguel Oswaldo Pérez Pulido y Francisco Javier León.
+
+**Estado del licenciamiento.** Esta obra es de acceso gratuito. La licencia abierta que regirá su reutilización se encuentra en trámite ante las instancias institucionales; se prevé publicarla bajo Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0) para el texto y las figuras, y bajo licencia MIT para el código fuente. Hasta que dicha licencia se formalice, la reutilización y adaptación del contenido requiere autorización previa de la Universidad de Santander.
+
 Universidad de Santander (UDES)\
-Calle 70 #N° 55-210\
-Bucaramanga, Santander, Colombia\
+Calle 70 N.º 55-210, Bucaramanga, Santander, Colombia\
 <https://www.udes.edu.co/>
 :::

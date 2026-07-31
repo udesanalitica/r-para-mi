@@ -237,8 +237,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#r-para-microbiología-industrial-análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico" id="toc-r-para-microbiología-industrial-análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico" class="nav-link active" data-scroll-target="#r-para-microbiología-industrial-análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico">R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico</a>
+  <ul class="collapse">
+  <li><a href="#cómo-está-construido-este-libro" id="toc-cómo-está-construido-este-libro" class="nav-link" data-scroll-target="#cómo-está-construido-este-libro">Cómo está construido este libro</a></li>
+  <li><a href="#datos-y-material-experimental" id="toc-datos-y-material-experimental" class="nav-link" data-scroll-target="#datos-y-material-experimental">Datos y material experimental</a></li>
+  <li><a href="#cómo-contribuir" id="toc-cómo-contribuir" class="nav-link" data-scroll-target="#cómo-contribuir">Cómo contribuir</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -276,11 +287,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="cover.png" title="R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico" class="quarto-cover-image nolightbox img-fluid"></p>
-<p>“R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico”</p>
-<p>En el campo de la <a href="https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial">microbiología industrial</a> y el diseño de experimentos, la integración de herramientas estadísticas constituye un desafío pedagógico fundamental que requiere estrategias innovadoras de enseñanza-aprendizaje. Como profesores de estas áreas de aprendizaje hemos identificado que los estudiantes experimentan dificultades significativas al establecer conexiones entre los conceptos estadísticos y los resultados experimentales microbiológicos.</p>
-<p>En respuesta a esta problemática, surge la propuesta del libro “Aplicaciones del software RStudio® en la microbiología industrial”, diseñado específicamente para articular las áreas de diseño de experimentos y la microbiología industrial con ayuda de RStudio®, utilizando a lo largo del contenido ejemplos concretos derivados de trabajos de grado y proyectos académicos desarrollados en la <a href="https://udes.edu.co/">Universidad de Santander (UDES</a>).</p>
-<p>La obra integra, además, temas relacionados con análisis bibliométrico e inteligencia artificial, reconociendo de este modo que la microbiología contemporánea demanda no solo competencias técnicas, sino adaptación de nuevas habilidades en una disciplina científica en constante evolución. De esta forma, contribuye a la formación de profesionales capaces de afrontar los desafíos emergentes en el campo de la microbiología industrial, tanto para el presente como su fut</p>
+
+<section id="r-para-microbiología-industrial-análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico" class="level1 unnumbered">
+<h1 class="unnumbered">R para Microbiología Industrial: análisis de datos y diseño experimental con un enfoque práctico</h1><p><img src="cover.png" title="R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico" class="quarto-cover-image nolightbox img-fluid"></p>
+<p>En el campo de la <a href="https://bucaramanga.udes.edu.co/estudia/pregrados/microbiologia-industrial">microbiología industrial</a> y el diseño de experimentos, la integración de herramientas estadísticas constituye un desafío pedagógico fundamental que requiere estrategias innovadoras de enseñanza-aprendizaje. Como profesores de estas áreas hemos identificado que los estudiantes experimentan dificultades significativas al establecer conexiones entre los conceptos estadísticos y los resultados experimentales microbiológicos.</p>
+<p>En respuesta a esta problemática surge este libro, diseñado específicamente para articular el diseño de experimentos con la microbiología industrial mediante el lenguaje de programación R y el entorno de trabajo RStudio, utilizando a lo largo del contenido ejemplos concretos derivados de trabajos de grado y proyectos académicos desarrollados en la <a href="https://udes.edu.co/">Universidad de Santander (UDES)</a>.</p>
+<p>La obra integra, además, temas relacionados con análisis bibliométrico e inteligencia artificial, reconociendo que la microbiología contemporánea demanda no solo competencias técnicas, sino la adaptación de nuevas habilidades en una disciplina científica en constante evolución. De esta forma contribuye a la formación de profesionales capaces de afrontar los desafíos emergentes del campo, tanto presentes como futuros.</p>
 <p><strong>Fredy Alejandro Ortiz Meneses</strong><br>
 <em>Curso de Microbiología General y Microbiología II</em></p>
 <p><strong>Miguel Oswaldo Pérez Pulido</strong><br>
@@ -302,6 +314,28 @@ Lo que significa este libro
 <p>La presente obra constituye nuestra contribución a la formación integral de los microbiólogos industriales en su desarrollo como científicos. Esperamos que su contenido no solo fortalezca su experiencia académica, sino que además les provea de las competencias prácticas indispensables para afrontar los desafíos contemporáneos y futuros del ámbito profesional.</p>
 </div>
 </div>
+<section id="cómo-está-construido-este-libro" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="cómo-está-construido-este-libro">Cómo está construido este libro</h2>
+<p>El libro se escribió en <a href="https://quarto.org">Quarto</a> sobre R y se publica automáticamente en GitHub Pages a partir del código fuente. Todos los ejemplos son reproducibles: cada análisis incluye el código que lo genera y los datos necesarios para ejecutarlo, de modo que quien lea pueda replicar los resultados y modificarlos con sus propios conjuntos de datos.</p>
+</section>
+<section id="datos-y-material-experimental" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="datos-y-material-experimental">Datos y material experimental</h2>
+<p>Los conjuntos de datos y las imágenes que ilustran los capítulos provienen de experimentos realizados en la UDES. Agradecemos a quienes aportaron ese material:</p>
+<ul>
+<li><strong>Juan Sebastián Mejía Sarmiento</strong> — datos y registro fotográfico del experimento de la dilución de conidios y sustrato en solución Tween 80® al 0,01 %: avena (A), arroz (B), cebada (C) y maíz partido (D) y el ensayo de inhibición in vitro de Colletotrichum musae frente a siete tratamientos (paneles A a G), reproducidos con autorización del autor.</li>
+<li><strong>Christian Andrés Chacín Zambrano</strong> — datos y registro fotográfico del experimento con plantas de Phaseolus vulgaris utilizadas en el experimento de fertilización bajo Diseño en Bloques Completos al Azar (DBCA), reproducidos con autorización del autor.</li>
+</ul>
+<p>La atribución específica de cada figura y cada conjunto de datos aparece en el pie correspondiente.</p>
+</section>
+<section id="cómo-contribuir" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="cómo-contribuir">Cómo contribuir</h2>
+<p>Este libro está pensado como un material vivo. Quien quiera proponer correcciones, ejercicios adicionales, nuevos conjuntos de datos o adaptaciones a otros contextos disciplinares puede hacerlo a través del repositorio del proyecto:</p>
+<ul>
+<li><strong>Reportar un error o sugerir una mejora:</strong> abrir un <em>issue</em> en <a href="https://github.com/udesanalitica/r-para-mi/issues" class="uri">https://github.com/udesanalitica/r-para-mi/issues</a>.</li>
+<li><strong>Proponer un cambio concreto:</strong> hacer un <em>fork</em> del repositorio y enviar un <em>pull request</em> con la propuesta.</li>
+<li><strong>Contacto directo:</strong> <a href="mailto:coordinador.analitica@udes.edu.co" class="email">coordinador.analitica@udes.edu.co</a></li>
+</ul>
+<p>Las contribuciones aceptadas se reconocen en esta sección.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Para citar">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -312,39 +346,40 @@ Para citar
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ortiz, F., Pérez, M., y León, F. (2025). <em>R para Microbiología Industrial: Análisis de Datos y Diseño Experimental con un Enfoque Práctico.</em> Universidad de Santander. Vicerrectoría de Enseñanza.<a href="https://udesanalitica.github.io/r-para-mi/" class="uri">https://udesanalitica.github.io/r-para-mi/</a> ISBN: . https://doi.org/10.5281/zenodo.XXXXX</p>
+<p>Ortiz, F. A., Pérez, M. O., y León, F. J. (2025). <em>R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico</em>. Universidad de Santander, Vicerrectoría de Enseñanza. <a href="https://udesanalitica.github.io/r-para-mi/" class="uri">https://udesanalitica.github.io/r-para-mi/</a></p>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">@ebook {OrtizPerezLeon2025,</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">  author = {Ortiz, F., Pérez, M., y León, F.},</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  title = {R para Microbiología Industrial: Análisis de Datos y </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Diseño Experimental con un Enfoque Práctico},</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  institution = {Universidad de Santander (UDES)},</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  year = {2025},</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  note = {Vicerrectoría de Enseñanza},</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  url = {\url{https://udesanalitica.github.io/r-para-mi/}},</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  type = {e-book},</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  doi = {10.5281/zenodo.XXXXX},</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  isbn = {}</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled" title="Derechos de Autor">
+<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@book</span>{<span class="ot">OrtizPerezLeon2025</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>    = {Ortiz Meneses, Fredy Alejandro and P{<span class="ch">\'</span>e}rez Pulido, Miguel Oswaldo and Le{<span class="ch">\'</span>o}n, Francisco Javier},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>     = {R para microbiolog{<span class="ch">\'</span>i}a industrial: an{<span class="ch">\'</span>a}lisis de datos y dise{<span class="ch">\~</span>n}o experimental con un enfoque pr{<span class="ch">\'</span>a}ctico},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span> = {Universidad de Santander (UDES)},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">address</span>   = {Bucaramanga, Colombia},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>      = {2025},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">note</span>      = {Vicerrector{<span class="ch">\'</span>i}a de Ense{<span class="ch">\~</span>n}anza},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>       = {https://udesanalitica.github.io/r-para-mi/}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Derechos de autor y licencia">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Derechos de Autor
+Derechos de autor y licencia
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>© 2025 Universidad de Santander (UDES), titular de los derechos patrimoniales.</p>
+<p>Autores: Fredy Alejandro Ortiz Meneses, Miguel Oswaldo Pérez Pulido y Francisco Javier León.</p>
+<p><strong>Estado del licenciamiento.</strong> Esta obra es de acceso gratuito. La licencia abierta que regirá su reutilización se encuentra en trámite ante las instancias institucionales; se prevé publicarla bajo Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0) para el texto y las figuras, y bajo licencia MIT para el código fuente. Hasta que dicha licencia se formalice, la reutilización y adaptación del contenido requiere autorización previa de la Universidad de Santander.</p>
 <p>Universidad de Santander (UDES)<br>
-Calle 70 #N° 55-210<br>
-Bucaramanga, Santander, Colombia<br>
+Calle 70 N.º 55-210, Bucaramanga, Santander, Colombia<br>
 <a href="https://www.udes.edu.co/" class="uri">https://www.udes.edu.co/</a></p>
 </div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -763,7 +798,7 @@ Bucaramanga, Santander, Colombia<br>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Publicado con Quarto y GitHub Pages</p>
 </div>
