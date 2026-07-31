@@ -63,7 +63,7 @@ Debido a esta variabilidad, resulta apropiado emplear un Diseño en Bloques Comp
 
 ![Plantas de *Phaseolus vulgaris* utilizadas en el experimento de fertilización bajo un Diseño en Bloques Completos al Azar (DBCA).](images/4_DBCA/DBCA_frijol.png){#fig-DBCA_frijol width="60%"}
 
-*Datos experimentales y fotografía: Christian Andrés Chacín Zambrano, Laboratorio de Cultivos Vegetales, Universidad de Santander (UDES), 2025. Experimento de fertilización en Phaseolus vulgaris bajo diseño en bloques completos al azar. Reproducidos con autorización del autor.*.
+**Para mayor información puede consultar:** Christian Andrés Chacín Zambrano, Laboratorio de Cultivos Vegetales, Universidad de Santander (UDES), 2025. Experimento de fertilización en Phaseolus vulgaris bajo diseño en bloques completos al azar. Reproducidos con autorización del autor.*.
 
 ## Estructura de la base de datos
 

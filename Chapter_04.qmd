@@ -127,6 +127,17 @@ DCA <- read_delim(
 )
 ```
 
+
+::: callout-note
+Para que el lector lo descargue sin clonar el repositorio\
+library(readr)\
+url_datos \<- "https://raw.githubusercontent.com/udesanalitica/r-para-mi/main/data/DCA_Penicillium/dca.csv"\
+DBCA \<- read_csv(url_datos)
+:::
+
+[Descargar los datos (CSV)](data/DCA_Penicillium/dca.csv){download="DCA_Penicillium.csv"}
+
+
 ### Exploración inicial y estructura de la base de datos
 
 ```{r}
