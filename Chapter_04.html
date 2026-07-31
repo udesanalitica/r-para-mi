@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Diseño Completamente al Azar (DCA) – R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Chapter_05.html" rel="next">
+<link href="./Chapter_03.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-806c95bdecf85540f7beab145150c922.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Chapter_04.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diseño Completamente al Azar (DCA)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/udesanalitica/r-para-mi" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-microbiología-industrial--análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Descargar PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R-para-microbiología-industrial--análisis-de-datos-y-diseño-experimental-con-un-enfoque-práctico.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Descargar ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prefacio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./autores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Autores</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./agradecimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Agradecimientos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción al software R y la interfaz RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análisis bibliométrico para la gestión del diseño experimentos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Generalidades del diseño experimental</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_04.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diseño Completamente al Azar (DCA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Diseño en Bloques Completos al Azar (DBCA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Chapter_06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Uso de inteligencia artificial para la simulación de datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#problema" id="toc-problema" class="nav-link active" data-scroll-target="#problema"><span class="header-section-number">8.1</span> Problema</a>
+  <ul class="collapse">
+  <li><a href="#sustratos-de-cultivo-para-penicillum-sp." id="toc-sustratos-de-cultivo-para-penicillum-sp." class="nav-link" data-scroll-target="#sustratos-de-cultivo-para-penicillum-sp."><span class="header-section-number">8.1.1</span> Sustratos de cultivo para <em>Penicillum</em> sp.</a></li>
+  <li><a href="#estructura-de-la-base-de-datos" id="toc-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#estructura-de-la-base-de-datos"><span class="header-section-number">8.1.2</span> Estructura de la base de datos</a></li>
+  <li><a href="#cargar-las-librerías-necesarias-para-el-análisis" id="toc-cargar-las-librerías-necesarias-para-el-análisis" class="nav-link" data-scroll-target="#cargar-las-librerías-necesarias-para-el-análisis"><span class="header-section-number">8.1.3</span> Cargar las librerías necesarias para el análisis</a></li>
+  <li><a href="#importar-la-base-de-datos" id="toc-importar-la-base-de-datos" class="nav-link" data-scroll-target="#importar-la-base-de-datos"><span class="header-section-number">8.1.4</span> Importar la base de datos</a></li>
+  <li><a href="#exploración-inicial-y-estructura-de-la-base-de-datos" id="toc-exploración-inicial-y-estructura-de-la-base-de-datos" class="nav-link" data-scroll-target="#exploración-inicial-y-estructura-de-la-base-de-datos"><span class="header-section-number">8.1.5</span> Exploración inicial y estructura de la base de datos</a></li>
+  <li><a href="#convertir-las-variables-en-factor" id="toc-convertir-las-variables-en-factor" class="nav-link" data-scroll-target="#convertir-las-variables-en-factor"><span class="header-section-number">8.1.6</span> Convertir las variables en factor</a></li>
+  </ul></li>
+  <li><a href="#modelo-lineal" id="toc-modelo-lineal" class="nav-link" data-scroll-target="#modelo-lineal"><span class="header-section-number">8.2</span> Modelo lineal</a>
+  <ul class="collapse">
+  <li><a href="#análisis-de-la-varianza---anova" id="toc-análisis-de-la-varianza---anova" class="nav-link" data-scroll-target="#análisis-de-la-varianza---anova"><span class="header-section-number">8.2.1</span> Análisis de la varianza - ANOVA</a></li>
+  </ul></li>
+  <li><a href="#exploración-gráfica-de-los-datos" id="toc-exploración-gráfica-de-los-datos" class="nav-link" data-scroll-target="#exploración-gráfica-de-los-datos"><span class="header-section-number">8.3</span> Exploración gráfica de los datos</a></li>
+  <li><a href="#supuestos-del-modelo" id="toc-supuestos-del-modelo" class="nav-link" data-scroll-target="#supuestos-del-modelo"><span class="header-section-number">8.4</span> Supuestos del modelo</a>
+  <ul class="collapse">
+  <li><a href="#normalidad" id="toc-normalidad" class="nav-link" data-scroll-target="#normalidad"><span class="header-section-number">8.4.1</span> Normalidad</a></li>
+  <li><a href="#gráficos-para-evaluar-la-normalidad" id="toc-gráficos-para-evaluar-la-normalidad" class="nav-link" data-scroll-target="#gráficos-para-evaluar-la-normalidad"><span class="header-section-number">8.4.2</span> Gráficos para evaluar la normalidad</a></li>
+  <li><a href="#homocedasticidad" id="toc-homocedasticidad" class="nav-link" data-scroll-target="#homocedasticidad"><span class="header-section-number">8.4.3</span> Homocedasticidad</a></li>
+  <li><a href="#gráfico-de-residuos-vs-valores-ajustados" id="toc-gráfico-de-residuos-vs-valores-ajustados" class="nav-link" data-scroll-target="#gráfico-de-residuos-vs-valores-ajustados"><span class="header-section-number">8.4.4</span> Gráfico de residuos vs valores ajustados</a></li>
+  <li><a href="#independencia-de-residuos" id="toc-independencia-de-residuos" class="nav-link" data-scroll-target="#independencia-de-residuos"><span class="header-section-number">8.4.5</span> Independencia de residuos</a></li>
+  </ul></li>
+  <li><a href="#pruebas-aposteriori" id="toc-pruebas-aposteriori" class="nav-link" data-scroll-target="#pruebas-aposteriori"><span class="header-section-number">8.5</span> Pruebas aposteriori</a>
+  <ul class="collapse">
+  <li><a href="#prueba-lsd-least-significant-difference" id="toc-prueba-lsd-least-significant-difference" class="nav-link" data-scroll-target="#prueba-lsd-least-significant-difference"><span class="header-section-number">8.5.1</span> Prueba LSD (Least Significant Difference)</a></li>
+  <li><a href="#prueba-de-tukey" id="toc-prueba-de-tukey" class="nav-link" data-scroll-target="#prueba-de-tukey"><span class="header-section-number">8.5.2</span> Prueba de Tukey</a></li>
+  <li><a href="#prueba-de-scheffé" id="toc-prueba-de-scheffé" class="nav-link" data-scroll-target="#prueba-de-scheffé"><span class="header-section-number">8.5.3</span> Prueba de Scheffé</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/Chapter_04.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/Chapter_04.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diseño Completamente al Azar (DCA)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="fig-DCA" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-DCA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/3_DCA/DCA.PNG" id="fig-DCA" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-DCA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8.1
+</figcaption>
+</figure>
+</div>
+<p>El mapa conceptual (<a href="#fig-DCA" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-DCA</span></a>) resume los elementos fundamentales de los experimentos con un solo factor. A partir de este enfoque se deriva el Diseño Completamente al Azar (DCA), el cual emplea herramientas estadísticas como el análisis de varianza (ANOVA), diagramas de cajas y gráficos de medias para evaluar diferencias entre tratamientos.</p>
+<p>Cuando el ANOVA detecta diferencias significativas entre tratamientos, pueden aplicarse pruebas de comparación múltiple como LSD, Tukey y Scheffé, con el propósito de identificar específicamente cuáles tratamientos difieren entre sí.</p>
+<p>Adicionalmente, este diseño requiere verificar los supuestos del modelo estadístico, entre ellos la normalidad de los residuos, la homogeneidad de varianzas y la independencia de los errores. Asimismo, el tamaño de muestra y el número de repeticiones influyen directamente sobre la precisión y potencia experimental.</p>
+<p>El <strong>Diseño Completamente al Azar (DCA)</strong> se utiliza cuando las unidades experimentales son homogéneas y los tratamientos son asignados completamente al azar <span class="citation" data-cites="gutierrez2012analisis Montgomery2017">(<a href="#ref-gutierrez2012analisis" role="doc-biblioref">Gutiérrez Pulido &amp; Vara Salazar, 2012</a>; <a href="#ref-Montgomery2017" role="doc-biblioref">Montgomery, 2017</a>)</span>, sin ningún tipo de agrupación o bloqueo. El modelo lineal aditivo general se expresa como:.</p>
+<p><span class="math display">\[
+Y_{ij} = \mu + \tau_i + \varepsilon_{ij}
+\]</span> donde:</p>
+<ul>
+<li><p><span class="math inline">\(Y_{ij}\)</span>: valor observado del tratamiento <span class="math inline">\(i\)</span> en la repetición <span class="math inline">\(j\)</span></p></li>
+<li><p><span class="math inline">\(\mu\)</span>: media general</p></li>
+<li><p><span class="math inline">\(\displaystyle \tau_i\)</span>: efecto del tratamiento <span class="math inline">\(i\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \varepsilon_{ij}\)</span>: error aleatorio asociado, asumido <span class="math inline">\(\displaystyle \varepsilon_{ij} \sim N(0,\sigma^2)\)</span></p></li>
+</ul>
+<p>El objetivo principal del DCA consiste en comparar las medias poblacionales de los tratamientos para determinar si existen diferencias significativas entre ellos. En términos estadísticos, al comparar <span class="math inline">\(k\)</span> tratamientos, se plantean las siguientes hipótesis:</p>
+<p><span class="math display">\[
+H_0: \mu_1 = \mu_2 = \cdots = \mu_k
+\]</span></p>
+<p>frente a la alternativa:</p>
+<p><span class="math display">\[
+H_A: \mu_i \ne \mu_j \quad \text{para algún } i \ne j
+\]</span></p>
+<p>La estrategia experimental consiste en obtener observaciones independientes para cada tratamiento y aplicar el análisis de varianza (ANOVA) con el fin de determinar si las diferencias observadas entre las medias se deben al efecto de los tratamientos o al error experimental.</p>
+<section id="problema" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="problema"><span class="header-section-number">8.1</span> Problema</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La antracnosis del banano 🍌, causada por <em>Colletotrichum musae</em> (Berk. y M.A.&nbsp;Curtis) Arx, representa una problemática fitosanitaria de alta relevancia económica para la industria bananera mundial. Esta enfermedad genera pérdidas postcosecha que oscilan entre el 10 y el 80%, debido al deterioro de la calidad visual del fruto. El patógeno produce lesiones necróticas y formación de acérvulos de color marrón oscuro a negro sobre el epicarpio, afectando significativamente la apariencia comercial del banano <span class="citation" data-cites="Vasquez-Castillo2019">(<a href="#ref-Vasquez-Castillo2019" role="doc-biblioref">Vásquez-Castillo et&nbsp;al., 2019</a>)</span>.</p>
+<p>Tradicionalmente, el manejo de esta epifitia se ha basado en la aplicación de fungicidas sintéticos como tiabendazol, azoxystrobin y trifloxystrobin. Sin embargo, el uso continuo de estas sustancias puede generar impactos ambientales adversos, residualidad química y posibles problemas de resistencia del patógeno <span class="citation" data-cites="Arias2007">(<a href="#ref-Arias2007" role="doc-biblioref">Arias B., 2007</a>)</span>. En este contexto, la búsqueda de alternativas sostenibles de biocontrol ha cobrado especial relevancia, particularmente mediante el uso de extractos fúngicos con propiedades antagónicas.</p>
+</div>
+</div>
+<p><strong>Metodología:</strong> se empleó un <em>Diseño Completamente al Azar (DCA)</em> con el fin de evaluar el efecto de distintos sustratos de cultivo sobre la actividad inhibitoria de extractos de <em>Penicillium</em> sp. frente a Colletotrichum musae..</p>
+<section id="sustratos-de-cultivo-para-penicillum-sp." class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="sustratos-de-cultivo-para-penicillum-sp."><span class="header-section-number">8.1.1</span> Sustratos de cultivo para <em>Penicillum</em> sp.</h3>
+<p>Se empleó un Diseño Completamente al Azar (DCA) con cuatro tratamientos correspondientes a diferentes sustratos de cultivo: avena en hojuelas, maíz partido, semillas de cebada y arroz blanco (Figura 26). Para cada tratamiento, se prepararon bolsas de polipropileno con el respectivo sustrato, las cuales fueron inoculadas con cinco discos de micelio de <em>Penicillium</em> sp. (5 mm de diámetro) e incubadas aleatoriamente a 22 ± 2 °C durante ocho días. El experimento se realizó por cuadruplicado, considerando cada bolsa como una unidad experimental.</p>
+<p><strong>Resultados</strong>: el maíz partido presentó la mayor producción conidial de <em>Penicillium digitatum</em>, alcanzando valores de Log<sub>10</sub> 9,13 conidios/mL, seguido por la cebada con valores de Log<sub>10</sub> 8,88 conidios/mL. Estos resultados evidencian diferencias en la capacidad de los sustratos para favorecer el crecimiento y la esporulación del hongo. Como se observa en la <a href="#fig-sustrato" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-sustrato</span></a>.</p>
+<p>Sustratos con conidios de <em>Penicillium</em> sp.</p>
+<div id="fig-sustrato" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sustrato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/3_DCA/sustrato.png" id="fig-sustrato" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-sustrato-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8.2
+</figcaption>
+</figure>
+</div>
+<p>Dilución de conidios y sustrato, en solución tween80® 0,01%: avena (A); arroz (B); cebada (C); maíz partido (D).</p>
+<p>Los ensayos in vitro evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo de Penicillium sp. Las concentraciones comprendidas entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) entre 40 y 50 % al quinto día después de la inoculación (ddi). Como se observa en la <a href="#fig-experimentoinvitro" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-experimentoinvitro</span></a>, el incremento en la concentración del extracto estuvo asociado con una mayor inhibición del crecimiento de Colletotrichum musae, lo que sugiere un efecto antifúngico del metabolito evaluado.</p>
+<div id="fig-experimentoinvitro" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-experimentoinvitro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/3_DCA/experimentoinvitro.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-experimentoinvitro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8.3: Ensayo de inhibición <em>in vitro</em> de <em>Colletotrichum musae</em> frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de <em>Penicillium</em> sp. al 4,0 %; (D) extracto de <em>Penicillium</em> sp. al 4,5 %; (E) extracto de <em>Penicillium</em> sp. al 5,0 %; (F) extracto de <em>Penicillium</em> sp. al 5,5 %; y (G) extracto de <em>Penicillium</em> sp. al 6,0 %.
+</figcaption>
+</figure>
+</div>
+<p>También se realizaron ensayos in vivo para evaluar el efecto del extracto en frutos infectados; sin embargo, este componente corresponde a una fase aplicada del estudio y no será desarrollado en este apartado, cuyo énfasis se centra en el diseño experimental y el análisis estadístico de los tratamientos.</p>
+<p><strong>Para mayor información puede consultar:</strong> <em>Mejía-Sarmiento, J. S. (2022). Evaluación de extracto crudo de Penicillium sp. para la inhibición del crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A. Curtis) Arx. agente causal de antracnosis en banano [Trabajo de grado, Universidad de Santander UDES]. Repositorio Institucional UDES.</em> <a href="https://repositorio.udes.edu.co/handle/001/8674" class="uri">https://repositorio.udes.edu.co/handle/001/8674</a><em>. Reproducido con autorización del autor.</em></p>
+</section>
+<section id="estructura-de-la-base-de-datos" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="estructura-de-la-base-de-datos"><span class="header-section-number">8.1.2</span> Estructura de la base de datos</h3>
+<p>La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un <strong>Diseño Completamente al Azar (DCA)</strong> para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de <em>Penicillium</em> sp. cada tratamiento fue establecido de manera independiente (<a href="#tbl-estructura" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-estructura</span></a>) y distribuido aleatoriamente bajo condiciones controladas de laboratorio.</p>
+<div id="tbl-estructura" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estructura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;8.1: Estructura de la base de datos DCA
+</figcaption>
+<div aria-describedby="tbl-estructura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Tratamiento</code></td>
+<td>Sustrato de cultivo evaluado. Incluye cuatro niveles: arroz blanco, avena en hojuelas, cebada y maíz partido.</td>
+</tr>
+<tr class="even">
+<td><code>Repetición</code></td>
+<td>Identificador de la unidad experimental correspondiente a cada tratamiento. Cada tratamiento fue evaluado con cuatro repeticiones independientes.</td>
+</tr>
+<tr class="odd">
+<td><code>Resultado</code></td>
+<td>Variable respuesta cuantitativa correspondiente a la producción conidial expresada en Log~10~ conidios/mL.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Pasos para trabajar con R:</strong></p>
+<p>Especificar el directorio que me interesa donde se encuentra la base de datos.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Antes de inciar:</strong> R lee / (slash o división) y no el de Windows \</p>
+<p>En <strong>R</strong>, <code>setwd()</code> es una función que significa <strong>“set working directory”</strong> o “establecer el directorio de trabajo”. Se utiliza para <strong>definir la carpeta predeterminada</strong> en la que R buscará archivos para leer y donde guardará archivos por defecto.<br>
+</p>
+<p>Por ejemplo: setwd (“D:/OneDrive - Universidad de Santander/Material Docente 2025/CodigoR”“)</p>
+</div>
+</div>
+</section>
+<section id="cargar-las-librerías-necesarias-para-el-análisis" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="cargar-las-librerías-necesarias-para-el-análisis"><span class="header-section-number">8.1.3</span> Cargar las librerías necesarias para el análisis</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcompView)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importar-la-base-de-datos" class="level3" data-number="8.1.4">
+<h3 data-number="8.1.4" class="anchored" data-anchor-id="importar-la-base-de-datos"><span class="header-section-number">8.1.4</span> Importar la base de datos</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ruta_dca <span class="ot">&lt;-</span> <span class="st">"./data/DCA_Penicillium/dca.csv"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(ruta_dca)) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"No se encontró el archivo: "</span>, ruta_dca)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>DCA <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  ruta_dca,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">";"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exploración-inicial-y-estructura-de-la-base-de-datos" class="level3" data-number="8.1.5">
+<h3 data-number="8.1.5" class="anchored" data-anchor-id="exploración-inicial-y-estructura-de-la-base-de-datos"><span class="header-section-number">8.1.5</span> Exploración inicial y estructura de la base de datos</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(DCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 16
+Columns: 3
+$ Tratamiento &lt;chr&gt; "Arroz", "Arroz", "Arroz", "Arroz", "Avena", "Avena", "Ave…
+$ Repeticion  &lt;dbl&gt; 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4
+$ Resultado   &lt;dbl&gt; 876, 874, 872, 872, 839, 837, 834, 840, 890, 885, 887, 882…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Tratamiento Repeticion Resultado
+  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;
+1 Arroz                1       876
+2 Arroz                2       874
+3 Arroz                3       872
+4 Arroz                4       872
+5 Avena                1       839
+6 Avena                2       837</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(DCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Tratamiento" "Repeticion"  "Resultado"  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [16 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ Tratamiento: chr [1:16] "Arroz" "Arroz" "Arroz" "Arroz" ...
+ $ Repeticion : num [1:16] 1 2 3 4 1 2 3 4 1 2 ...
+ $ Resultado  : num [1:16] 876 874 872 872 839 837 834 840 890 885 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   Tratamiento = col_character(),
+  ..   Repeticion = col_double(),
+  ..   Resultado = col_number()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DCA<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  834.0   864.0   879.0   877.5   895.2   914.0 </code></pre>
+</div>
+</div>
+</section>
+<section id="convertir-las-variables-en-factor" class="level3" data-number="8.1.6">
+<h3 data-number="8.1.6" class="anchored" data-anchor-id="convertir-las-variables-en-factor"><span class="header-section-number">8.1.6</span> Convertir las variables en factor</h3>
+<p>En un diseño experimental, variables como <code>tratamiento</code> deben declararse como variables categóricas (<em>factor</em>), ya que sus niveles representan categorías experimentales y no valores numéricos continuos. Esto permite que R interprete correctamente la estructura del experimento y aplique adecuadamente el análisis de varianza (ANOVA).</p>
+<p>La variable <code>Repeticion</code> puede mantenerse como identificador de las unidades experimentales, facilitando la organización y trazabilidad de los datos durante el análisis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>DCA<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  DCA<span class="sc">$</span>Tratamiento,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Maiz"</span> <span class="ot">=</span> <span class="st">"Maíz"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversión de variables</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>DCA<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DCA<span class="sc">$</span>Tratamiento)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>DCA<span class="sc">$</span>Repeticion  <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DCA<span class="sc">$</span>Repeticion)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>DCA<span class="sc">$</span>Resultado   <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(DCA<span class="sc">$</span>Resultado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="modelo-lineal" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="modelo-lineal"><span class="header-section-number">8.2</span> Modelo lineal</h2>
+<p>Con el fin de estimar el efecto de cada tratamiento sobre la variable respuesta y cuantificar las diferencias entre los sustratos evaluados, se ajustó un modelo lineal utilizando la función <code>lm()</code> de R.</p>
+<p>Este modelo permite obtener los coeficientes asociados a cada tratamiento, tomando uno de ellos como referencia, así como evaluar la magnitud y dirección de los efectos observados. El modelo se ajustó mediante el siguiente código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>modelo_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DCA)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo_lm)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Resultado ~ Tratamiento, data = DCA)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-4.000 -1.500  0.250  1.125  4.000 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        873.500      1.225 713.210  &lt; 2e-16 ***
+TratamientoAvena   -36.000      1.732 -20.785 8.90e-11 ***
+TratamientoCebada   12.500      1.732   7.217 1.06e-05 ***
+TratamientoMaíz     39.500      1.732  22.805 3.00e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.449 on 12 degrees of freedom
+Multiple R-squared:  0.9939,    Adjusted R-squared:  0.9924 
+F-statistic: 655.2 on 3 and 12 DF,  p-value: 1.46e-13</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> el modelo lineal evidenció que el tipo de sustrato influye significativamente sobre la producción conidial de <em>Penicillium</em> sp. (<em>p</em> &lt; 0.001). En el modelo, el tratamiento de referencia corresponde al arroz, con una media estimada de 8.73 Log~10~ conidios/mL.</p>
+<p>En comparación con este tratamiento:</p>
+<ul>
+<li><p>La avena presentó una disminución significativa en la producción conidial (–0.36 Log~10~ conidios/mL; <em>p</em> &lt; 0.001).</p></li>
+<li><p>La cebada mostró un incremento moderado y significativo (+0.13 Log~10~ conidios/mL; <em>p</em> &lt; 0.001).</p></li>
+<li><p>El maíz presentó el mayor incremento en la producción conidial (+0.40 Log~10~ conidios/mL; <em>p</em> &lt; 0.001).</p></li>
+</ul>
+<p>El modelo explicó el 99.4 % de la variabilidad observada en los datos (R² = 0.994), indicando un ajuste excelente. Asimismo, el bajo error estándar residual (0.0244) sugiere una reducida dispersión de los datos alrededor de las medias estimadas.</p>
+<p>El estadístico global del modelo fue altamente significativo (<em>F</em> = 660.4; <em>p</em> = 1.393 × 10⁻¹³), confirmando diferencias estadísticamente significativas entre los tratamientos evaluados.</p>
+<section id="análisis-de-la-varianza---anova" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="análisis-de-la-varianza---anova"><span class="header-section-number">8.2.1</span> Análisis de la varianza - ANOVA</h3>
+<p>Cuando se desea determinar si existen diferencias estadísticamente significativas entre los promedios de varios tratamientos, una de las herramientas más utilizadas es el <strong>análisis de la varianza (ANOVA)</strong>. En este caso, el ANOVA permite evaluar si los sustratos de cultivo (arroz blanco, avena en hojuelas, cebada y maíz partido) generan diferencias significativas en la producción conidial de <em>Penicillium</em> sp.</p>
+<p>El ANOVA compara dos fuentes de variación: la variabilidad observada <strong>entre los tratamientos</strong> y la variabilidad existente <strong>dentro de cada tratamiento</strong>, asociada a las repeticiones experimentales. Si la variación entre tratamientos es mayor que la variación interna, se puede inferir que al menos uno de los sustratos tiene un efecto significativo sobre la variable respuesta.</p>
+<p>Para este Diseño Completamente al Azar, el modelo estadístico se define así:</p>
+<p><strong>Código de R para ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>modeloDCA <span class="ot">&lt;-</span> <span class="fu">aov</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DCA)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modeloDCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+Tratamiento  3  11794    3931   655.2 1.46e-13 ***
+Residuals   12     72       6                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> el modelo ANOVA mostró un efecto significativo del tratamiento sobre la variable respuesta (<em>F</em> = 660.4; <em>p</em> = 1.39 × 10⁻¹³). Estos resultados indican que existen diferencias significativas entre los sustratos evaluados en relación con la producción conidial de <em>Penicillium</em> sp.</p>
+</section>
+</section>
+<section id="exploración-gráfica-de-los-datos" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="exploración-gráfica-de-los-datos"><span class="header-section-number">8.3</span> Exploración gráfica de los datos</h2>
+<p><strong>Gráfico Boxplot</strong></p>
+<p>Con el fin de visualizar la distribución de la variable respuesta en cada tratamiento, se construyó un diagrama de cajas y bigotes (<em>boxplot</em>). Este gráfico permite comparar medianas, dispersión de los datos, posibles valores atípicos y diferencias generales entre tratamientos.</p>
+<p>Para ello, la variable <code>tratamiento</code> se definió como categórica (<em>factor</em>) en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>DCA<span class="sc">$</span>Tratamiento <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(DCA<span class="sc">$</span>Tratamiento)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(DCA, <span class="fu">aes</span>(<span class="at">x =</span> Tratamiento, <span class="at">y =</span> Resultado, <span class="at">fill =</span> Tratamiento)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_04_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> el gráfico boxplot evidenció diferencias claras entre los tratamientos evaluados. El tratamiento Maíz presentó los mayores valores de producción conidial, mientras que Avena mostró los valores más bajos. Asimismo, la dispersión dentro de cada tratamiento fue reducida, lo que sugiere una baja variabilidad experimental y resultados consistentes entre las repeticiones.</p>
+</section>
+<section id="supuestos-del-modelo" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="supuestos-del-modelo"><span class="header-section-number">8.4</span> Supuestos del modelo</h2>
+<p>Antes de interpretar los resultados del modelo lineal y del análisis de varianza (ANOVA), es necesario verificar el cumplimiento de los supuestos estadísticos asociados al modelo. En este estudio se evaluaron los <strong>supuestos de normalidad</strong>, <strong>homogeneidad de varianzas</strong> e <strong>independencia de los residuos</strong>.</p>
+<section id="normalidad" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="normalidad"><span class="header-section-number">8.4.1</span> Normalidad</h3>
+<p>La normalidad de los residuos se evaluó mediante la prueba de Shapiro-Wilk, la cual contrasta la hipótesis nula de que los residuos provienen de una distribución normal. Un valor de <em>p</em> mayor a 0.05 indica que no existen evidencias suficientes para rechazar el supuesto de normalidad.</p>
+<p>El análisis se realizó utilizando el siguiente script en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(modeloDCA))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(modeloDCA)
+W = 0.97929, p-value = 0.9577</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> la prueba de Shapiro-Wilk aplicada a los residuos del modelo arrojó un valor de W = 0.979 y un valor de <em>p</em> = 0.959, superior al nivel de significancia de 0.05. Por lo tanto, no existen evidencias estadísticas para rechazar la hipótesis nula de normalidad, indicando que los residuos del modelo presentan una distribución aproximadamente normal. En consecuencia, se considera cumplido el supuesto de normalidad requerido para el análisis de varianza (ANOVA).</p>
+</section>
+<section id="gráficos-para-evaluar-la-normalidad" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="gráficos-para-evaluar-la-normalidad"><span class="header-section-number">8.4.2</span> Gráficos para evaluar la normalidad</h3>
+<p>Para construir el gráfico QQ (QQ plot) y evaluar la normalidad de los datos, se utiliza la función correspondiente del paquete car. Si no está instalado previamente, es necesario instalar también el paquete auxiliar carData.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación (si es necesario) </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages ("car") </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages ("carData") </span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages ("dplyr") </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages ("purrr")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Cargar los paquetes (librerias)</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car) <span class="co">#Grafico de QQ plot</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(modeloDCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_04_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  9 12</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> el gráfico QQ muestra que los residuos estandarizados del modelo ANOVA se alinean adecuadamente con la línea diagonal, lo que indica que su distribución es aproximadamente normal. La mayoría de los puntos se ubican dentro de la banda de confianza, y no se observan desviaciones sistemáticas. Esta gráfica complementa el resultado del test de Shapiro-Wilks (p = 0.959), confirmando que se cumple el supuesto de normalidad de los residuos en el modelo.</p>
+</section>
+<section id="homocedasticidad" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="homocedasticidad"><span class="header-section-number">8.4.3</span> Homocedasticidad</h3>
+<p>La homogeneidad de varianzas entre tratamientos constituye uno de los supuestos fundamentales del análisis de varianza (ANOVA). Para evaluar este supuesto, se aplicó la prueba de Bartlett, la cual resulta apropiada cuando los residuos presentan una distribución aproximadamente normal. Esta prueba contrasta la hipótesis nula de igualdad de varianzas entre los tratamientos frente a la hipótesis alternativa de diferencias en las varianzas.</p>
+<p>Adicionalmente, se realizaron las pruebas de Levene y Fligner-Killeen como métodos complementarios de verificación de homocedasticidad, debido a que presentan mayor robustez frente a posibles desviaciones de normalidad.</p>
+<p>El análisis se realizó mediante el siguiente script en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Bartlett's K-squared = 2.1098, df = 3, p-value = 0.5499</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  3  0.9524 0.4463
+      12               </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(Resultado <span class="sc">~</span> Tratamiento, <span class="at">data =</span> DCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fligner-Killeen test of homogeneity of variances
+
+data:  Resultado by Tratamiento
+Fligner-Killeen:med chi-squared = 4.1673, df = 3, p-value = 0.244</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> las pruebas de Bartlett (p=0.5179), Levene (p=0.4268) y Fligner-Killeen (p=0.3802) presentaron valores de <em>p</em> superiores a 0.05, por lo que no existen evidencias estadísticas para rechazar la hipótesis nula de igualdad de varianzas entre los tratamientos. Estos resultados indican que la variabilidad de los datos es homogénea entre los grupos evaluados, cumpliéndose el supuesto de homocedasticidad requerido para el análisis de varianza (ANOVA) y la aplicación de pruebas de comparación múltiple..</p>
+</section>
+<section id="gráfico-de-residuos-vs-valores-ajustados" class="level3" data-number="8.4.4">
+<h3 data-number="8.4.4" class="anchored" data-anchor-id="gráfico-de-residuos-vs-valores-ajustados"><span class="header-section-number">8.4.4</span> Gráfico de residuos vs valores ajustados</h3>
+<p>Como complemento a las pruebas estadísticas de homogeneidad de varianzas, se realizó un gráfico de residuos estandarizados frente a los valores ajustados del modelo. Este gráfico permite evaluar visualmente la presencia de patrones sistemáticos, cambios en la dispersión o posibles problemas de heterocedasticidad.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>datos_homocedasticidad <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="at">Valores_Ajustados =</span> <span class="fu">fitted</span>(modeloDCA),</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="at">Residuos_Std =</span> <span class="fu">rstandard</span>(modeloDCA)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_homocedasticidad, <span class="fu">aes</span>(<span class="at">x =</span> Valores_Ajustados, <span class="at">y =</span> Residuos_Std)) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Gráfico de Residuos vs Valores Ajustados"</span>,</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Valores ajustados (predichos)"</span>,</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Residuos estandarizados"</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_04_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> el gráfico de residuos versus valores ajustados mostró una distribución aleatoria de los residuos alrededor de la línea horizontal en cero, sin evidenciar patrones sistemáticos ni cambios importantes en la dispersión. Esto sugiere que la variabilidad de los residuos se mantiene aproximadamente constante a lo largo de los valores ajustados, respaldando el cumplimiento del supuesto de homocedasticidad del modelo.</p>
+</section>
+<section id="independencia-de-residuos" class="level3" data-number="8.4.5">
+<h3 data-number="8.4.5" class="anchored" data-anchor-id="independencia-de-residuos"><span class="header-section-number">8.4.5</span> Independencia de residuos</h3>
+<p>La independencia de los residuos constituye otro de los supuestos fundamentales del modelo lineal y del análisis de varianza (ANOVA). Este supuesto establece que los errores experimentales deben ser independientes entre sí, es decir, que el valor de un residuo no debe estar correlacionado con otro.</p>
+<p>Para evaluar este supuesto se utilizó la prueba de Durbin-Watson, la cual permite detectar la presencia de autocorrelación en los residuos del modelo. Valores cercanos a 2 indican independencia, mientras que valores próximos a 0 o 4 sugieren autocorrelación positiva o negativa, respectivamente.</p>
+<p>El análisis se realizó mediante el siguiente script en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(modeloDCA)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Durbin-Watson test
+
+data:  modeloDCA
+DW = 1.8229, p-value = 0.1054
+alternative hypothesis: true autocorrelation is greater than 0</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> la prueba de Durbin-Watson arrojó un estadístico <span class="math inline">\(DW=1.866\)</span> y un valor de <em>p</em> = 0.1238, superior al nivel de significancia de 0.05. Estos resultados indican que no existe evidencia estadísticamente significativa de autocorrelación entre los residuos del modelo. Por lo tanto, se considera cumplido el supuesto de independencia de los errores requerido para el análisis de varianza (ANOVA).</p>
+</section>
+</section>
+<section id="pruebas-aposteriori" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="pruebas-aposteriori"><span class="header-section-number">8.5</span> Pruebas aposteriori</h2>
+<section id="prueba-lsd-least-significant-difference" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="prueba-lsd-least-significant-difference"><span class="header-section-number">8.5.1</span> Prueba LSD (Least Significant Difference)</h3>
+<p>Una vez identificadas diferencias significativas entre tratamientos mediante el análisis de varianza (ANOVA), se realizaron pruebas de comparaciones múltiples <em>a posteriori</em> con el fin de determinar cuáles tratamientos difieren estadísticamente entre sí.</p>
+<p>En este estudio se utilizó la prueba LSD (<em>Least Significant Difference</em>), la cual permite efectuar comparaciones pareadas entre medias bajo el supuesto de homogeneidad de varianzas previamente verificado. El análisis se realizó utilizando el paquete <u>agricolae</u> en R mediante el siguiente script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>Grupos <span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(<span class="at">y =</span> modeloDCA, <span class="at">trt =</span> <span class="st">"Tratamiento"</span>, <span class="at">group =</span> T, <span class="at">console =</span> T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: modeloDCA ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  6 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+       Resultado      std r       se      LCL      UCL Min Max    Q25   Q50
+Arroz      873.5 1.914854 4 1.224745 870.8315 876.1685 872 876 872.00 873.0
+Avena      837.5 2.645751 4 1.224745 834.8315 840.1685 834 840 836.25 838.0
+Cebada     886.0 3.366502 4 1.224745 883.3315 888.6685 882 890 884.25 886.0
+Maíz       913.0 1.414214 4 1.224745 910.3315 915.6685 911 914 912.50 913.5
+          Q75
+Arroz  874.50
+Avena  839.25
+Cebada 887.75
+Maíz   914.00
+
+Alpha: 0.05 ; DF Error: 12
+Critical Value of t: 2.178813 
+
+least Significant Difference: 3.773815 
+
+Treatments with the same letter are not significantly different.
+
+       Resultado groups
+Maíz       913.0      a
+Cebada     886.0      b
+Arroz      873.5      c
+Avena      837.5      d</code></pre>
+</div>
+</div>
+<p><strong>Intrepretación:</strong> la prueba LSD (<em>Least Significant Difference</em>) evidenció diferencias estadísticamente significativas entre todos los tratamientos evaluados (α=0.05). El tratamiento maíz presentó la mayor producción conidial promedio (9.13 Log~10~ conidios/mL), seguido por Cebada (8.86 Log~10~ conidios/mL), Arroz (8.73 Log~10~ conidios/mL) y Avena (8.38 Log~10~ conidios/mL).</p>
+<p>El agrupamiento por letras mostró que cada tratamiento pertenece a un grupo estadístico diferente (a, b, c y d), indicando que todas las medias difieren significativamente entre sí. Estos resultados confirman que el tipo de sustrato influye significativamente sobre la producción conidial de <em>Penicillium</em> sp., siendo el maíz el sustrato más favorable para el crecimiento y esporulación del hongo.</p>
+<p>Cuando el argumento <code>group = FALSE</code> es utilizado, la prueba LSD presenta las comparaciones pareadas entre tratamientos de manera individual, facilitando la visualización directa de las diferencias de medias y sus niveles de significancia estadística.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Grupos<span class="ot">&lt;-</span> <span class="fu">LSD.test</span>(<span class="at">y =</span> modeloDCA, <span class="at">trt =</span> <span class="st">"Tratamiento"</span>, <span class="at">group =</span> F, <span class="at">console =</span> T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: modeloDCA ~ "Tratamiento"
+
+LSD t Test for Resultado 
+
+Mean Square Error:  6 
+
+Tratamiento,  means and individual ( 95 %) CI
+
+       Resultado      std r       se      LCL      UCL Min Max    Q25   Q50
+Arroz      873.5 1.914854 4 1.224745 870.8315 876.1685 872 876 872.00 873.0
+Avena      837.5 2.645751 4 1.224745 834.8315 840.1685 834 840 836.25 838.0
+Cebada     886.0 3.366502 4 1.224745 883.3315 888.6685 882 890 884.25 886.0
+Maíz       913.0 1.414214 4 1.224745 910.3315 915.6685 911 914 912.50 913.5
+          Q75
+Arroz  874.50
+Avena  839.25
+Cebada 887.75
+Maíz   914.00
+
+Alpha: 0.05 ; DF Error: 12
+Critical Value of t: 2.178813 
+
+Comparison between treatments means
+
+               difference pvalue signif.       LCL        UCL
+Arroz - Avena        36.0      0     ***  32.22619  39.773815
+Arroz - Cebada      -12.5      0     *** -16.27381  -8.726185
+Arroz - Maíz        -39.5      0     *** -43.27381 -35.726185
+Avena - Cebada      -48.5      0     *** -52.27381 -44.726185
+Avena - Maíz        -75.5      0     *** -79.27381 -71.726185
+Cebada - Maíz       -27.0      0     *** -30.77381 -23.226185</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> la prueba LSD de comparaciones múltiples mostró que todas las diferencias entre tratamientos fueron estadísticamente significativas (<em>p</em> &lt; 0.001). Esto indica que ninguno de los sustratos evaluados presentó medias similares en términos de producción conidial de <em>Penicillium</em> sp.</p>
+<p>La mayor diferencia se observó entre los tratamientos avena y maíz (−0.755 Log~10~ conidios/mL), evidenciando un comportamiento claramente contrastante entre ambos sustratos. Por otro lado, la menor diferencia, aunque significativa, se presentó entre arroz y cebada (−0.127 Log~10~ conidios/mL).</p>
+<p>Estos resultados confirman que el tipo de sustrato influye significativamente sobre la producción conidial del hongo, siendo el maíz el tratamiento que favoreció en mayor medida el crecimiento y esporulación de <em>Penicillium</em> sp.</p>
+</section>
+<section id="prueba-de-tukey" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="prueba-de-tukey"><span class="header-section-number">8.5.2</span> Prueba de Tukey</h3>
+<p>Con el fin de realizar comparaciones múltiples entre tratamientos controlando el error de tipo I asociado a múltiples comparaciones, se aplicó la prueba de Tukey HSD (<em>Honestly Significant Difference</em>). Esta prueba es más conservadora que la prueba LSD y permite identificar diferencias significativas entre pares de medias manteniendo el control del error familiar (<em>family-wise error rate</em>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de Tukey HSD</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">HSD.test</span>(modeloDCA, <span class="st">"Tratamiento"</span>, <span class="at">group =</span> <span class="cn">TRUE</span>, <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: modeloDCA ~ "Tratamiento"
+
+HSD Test for Resultado 
+
+Mean Square Error:  6 
+
+Tratamiento,  means
+
+       Resultado      std r       se Min Max    Q25   Q50    Q75
+Arroz      873.5 1.914854 4 1.224745 872 876 872.00 873.0 874.50
+Avena      837.5 2.645751 4 1.224745 834 840 836.25 838.0 839.25
+Cebada     886.0 3.366502 4 1.224745 882 890 884.25 886.0 887.75
+Maíz       913.0 1.414214 4 1.224745 911 914 912.50 913.5 914.00
+
+Alpha: 0.05 ; DF Error: 12 
+Critical Value of Studentized Range: 4.19866 
+
+Minimun Significant Difference: 5.142288 
+
+Treatments with the same letter are not significantly different.
+
+       Resultado groups
+Maíz       913.0      a
+Cebada     886.0      b
+Arroz      873.5      c
+Avena      837.5      d</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> la prueba de Tukey HSD confirmó diferencias estadísticamente significativas entre todos los tratamientos evaluados (α=0.05). El análisis de agrupamiento mostró que cada tratamiento pertenece a un grupo estadístico diferente (a, b, c y d), indicando que ninguna de las medias comparte similitud estadística.</p>
+<p>El tratamiento Maíz presentó la mayor producción conidial promedio (9.13 Log~10~ conidios/mL), seguido por cebada (8.86 Log~10~ conidios/mL), Arroz (8.73 Log~10~ conidios/mL) y avena (8.38 Log~10~ conidios/mL). La diferencia mínima significativa obtenida mediante la prueba de Tukey fue de 0.0512, confirmando que las diferencias observadas entre tratamientos superan el umbral requerido para considerarse estadísticamente significativas.</p>
+<p>Estos resultados corroboran los hallazgos obtenidos mediante el ANOVA y la prueba LSD, evidenciando que el tipo de sustrato influye significativamente sobre la producción conidial de <em>Penicillium</em> sp., siendo el maíz el sustrato más favorable para el crecimiento y esporulación del hongo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">TukeyHSD</span>(modeloDCA))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Chapter_04_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> el gráfico de Tukey HSD muestra los intervalos de confianza del 95 % para las diferencias de medias entre tratamientos, ajustados por comparaciones múltiples (<em>family-wise error rate</em>). Ninguno de los intervalos cruza la línea vertical de referencia en cero, indicando que todas las comparaciones pareadas entre tratamientos presentan diferencias estadísticamente significativas.</p>
+<p>La mayor diferencia se observó entre los tratamientos maíz y Avena, mientras que la menor diferencia, aunque estadísticamente significativa, se presentó entre cebada y arroz. Estos resultados son consistentes con los análisis previos obtenidos mediante ANOVA y la prueba LSD, confirmando que cada sustrato ejerce un efecto diferencial sobre la producción conidial de <em>Penicillium</em> sp.</p>
+</section>
+<section id="prueba-de-scheffé" class="level3" data-number="8.5.3">
+<h3 data-number="8.5.3" class="anchored" data-anchor-id="prueba-de-scheffé"><span class="header-section-number">8.5.3</span> Prueba de Scheffé</h3>
+<p>Como complemento a las pruebas de comparación múltiple, se aplicó el test de Scheffé, una metodología más conservadora para la comparación de medias entre tratamientos. Esta prueba controla de manera estricta el error de tipo I, siendo especialmente útil cuando se desea realizar inferencias robustas sobre diferencias entre grupos experimentales.</p>
+<p>El análisis se realizó utilizando el siguiente script en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scheffe.test</span>(modeloDCA, <span class="st">"Tratamiento"</span>,<span class="at">console=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: modeloDCA ~ "Tratamiento"
+
+Scheffe Test for Resultado 
+
+Mean Square Error  : 6 
+
+Tratamiento,  means
+
+       Resultado      std r       se Min Max    Q25   Q50    Q75
+Arroz      873.5 1.914854 4 1.224745 872 876 872.00 873.0 874.50
+Avena      837.5 2.645751 4 1.224745 834 840 836.25 838.0 839.25
+Cebada     886.0 3.366502 4 1.224745 882 890 884.25 886.0 887.75
+Maíz       913.0 1.414214 4 1.224745 911 914 912.50 913.5 914.00
+
+Alpha: 0.05 ; DF Error: 12 
+Critical Value of F: 3.490295 
+
+Minimum Significant Difference: 5.604699 
+
+Means with the same letter are not significantly different.
+
+       Resultado groups
+Maíz       913.0      a
+Cebada     886.0      b
+Arroz      873.5      c
+Avena      837.5      d</code></pre>
+</div>
+</div>
+<p><strong>Interpretación:</strong> la prueba de Scheffé confirmó diferencias estadísticamente significativas entre los tratamientos evaluados. A pesar de ser una prueba más conservadora en comparación con LSD y Tukey, los resultados mantuvieron la misma tendencia observada previamente, indicando que los tratamientos presentan medias significativamente diferentes entre sí.</p>
+<p>El análisis evidenció que el tratamiento maíz presentó la mayor producción conidial, seguido por cebada, arroz y avena. Estos resultados refuerzan la conclusión de que el tipo de sustrato influye significativamente sobre la producción conidial de <em>Penicillium</em> sp.</p>
+<p><strong>Conclusión general</strong></p>
+<p>Las pruebas de comparaciones múltiples LSD, Tukey y Scheffé coincidieron en evidenciar diferencias estadísticamente significativas entre todos los tratamientos evaluados. En todos los casos, el tratamiento Maíz presentó la mayor producción conidial promedio, seguido por cebada, arroz y avena, respectivamente.</p>
+<p>La consistencia observada entre las diferentes pruebas estadísticas fortalece la confiabilidad de los resultados obtenidos y confirma que el tipo de sustrato influye significativamente sobre la producción conidial de <em>Penicillium</em> sp. En particular, el maíz se identificó como el sustrato más favorable para el crecimiento y esporulación del hongo bajo las condiciones evaluadas.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Arias2007" class="csl-entry" role="listitem">
+Arias B., C. L. (2007). Control Qu<span>í</span>mico de la Antracnosis del Mango (<span>Mangifera indica L.</span>) en pre y postcosecha. <em>Bioagro</em>, <em>19</em>(1), 19—25. <a href="http://www.ucla.edu.ve/bioagro/Rev19(1)/3.%20Control%20qu%C3%ADmico%20de%20la%20antracnosis.pdf">http://www.ucla.edu.ve/bioagro/Rev19(1)/3.%20Control%20qu%C3%ADmico%20de%20la%20antracnosis.pdf</a>
+</div>
+<div id="ref-gutierrez2012analisis" class="csl-entry" role="listitem">
+Gutiérrez Pulido, H., &amp; Vara Salazar, R. de la. (2012). <em>An<span>á</span>lisis y dise<span>ñ</span>o de experimentos</em> (3.ª ed.). McGraw-Hill/Interamericana Editores, S.A. de C.V.
+</div>
+<div id="ref-Montgomery2017" class="csl-entry" role="listitem">
+Montgomery, D. C. (2017). <em>Design and Analysis of Experiments</em> (9th ed.). John Wiley &amp; Sons.
+</div>
+<div id="ref-Vasquez-Castillo2019" class="csl-entry" role="listitem">
+Vásquez-Castillo, W., Racines-Oliva, M., Moncayo, P., Viera, W., &amp; Seraquive, M. (2019). Calidad del fruto y p<span>é</span>rdidas postcosecha de banano org<span>á</span>nico (<span>Musa acuminata</span>) en el <span>Ecuador</span>. <em>Enfoque UTE</em>, <em>10</em>(4), 57—66. <a href="https://doi.org/10.29019/enfoque.v10n4.545">https://doi.org/10.29019/enfoque.v10n4.545</a>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/udesanalitica\.github\.io\/r-para-mi\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Chapter_03.html" class="pagination-link" aria-label="Generalidades del diseño experimental">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Generalidades del diseño experimental</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Chapter_05.html" class="pagination-link" aria-label="Diseño en Bloques Completos al Azar (DBCA)">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Diseño en Bloques Completos al Azar (DBCA)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Autores</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/udesanalitica/r-para-mi/edit/main/Chapter_04.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/udesanalitica/r-para-mi/blob/main/Chapter_04.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Publicado con Quarto y GitHub Pages</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

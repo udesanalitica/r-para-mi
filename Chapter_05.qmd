@@ -1,9 +1,8 @@
 ---
 title: "Diseño en Bloques Completos al Azar (DBCA)"
-format: pdf
 ---
 
-![Mapa conceptual (p. 85). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/4_DBCA/DBCA.PNG){#fig-DBCA}
+![](images/4_DBCA/DBCA.PNG){#fig-DBCA}
 
 La @fig-DBCA presenta los principales componentes de los **diseños en bloques**, una estrategia experimental usada para controlar la variabilidad mediante la formación de grupos homogéneos llamados *bloques*. Entre estos diseños se encuentra el **Diseño en Bloques Completos al Azar (DBCA)**, el cual incorpora el *efecto de bloque* y requiere definir claramente las **hipótesis**, el **modelo estadístico**, así como la **selección y aleatorización** de las unidades experimentales. El análisis estadístico del DBCA se realiza mediante un **ANOVA de dos vías**, el cual permite evaluar simultáneamente el efecto de los tratamientos y de los bloques sobre la variable respuesta.
 
@@ -50,7 +49,7 @@ De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaci
 | Error | $SC_E$ | $(k - 1)(b - 1)$ | $CM_E$ | --- | --- |
 | Total | $SC_T$ | $kb - 1$ | --- | --- | --- |
 
-:ANOVA para un diseño en bloques completos al azar {#tbl-anova} 
+: ANOVA para un diseño en bloques completos al azar {#tbl-anova}
 
 Nota: SC: Suma de cuadrados; CM: Cuadrado medio; $k$: número de tratamientos; $b$: número de bloques. TRAT: Tratamiento.
 
@@ -64,7 +63,7 @@ Debido a esta variabilidad, resulta apropiado emplear un Diseño en Bloques Comp
 
 ![Plantas de *Phaseolus vulgaris* utilizadas en el experimento de fertilización bajo un Diseño en Bloques Completos al Azar (DBCA).](images/4_DBCA/DBCA_frijol.png){#fig-DBCA_frijol width="60%"}
 
-Imagen suministrada por el profesor Christian Chacín. Laboratorio de Cultivos Vegetales UDES (2025).
+*Datos experimentales y fotografía: Christian Andrés Chacín Zambrano, Laboratorio de Cultivos Vegetales, Universidad de Santander (UDES), 2025. Experimento de fertilización en Phaseolus vulgaris bajo diseño en bloques completos al azar. Reproducidos con autorización del autor.*.
 
 ## Estructura de la base de datos
 
@@ -82,7 +81,7 @@ Se establecieron tres bloques (A, B y C), dentro de los cuales se asignaron alea
 
 Cada tratamiento fue evaluado mediante diez observaciones dentro de cada bloque, generando un diseño balanceado con un total de 120 unidades experimentales.
 
-La variable respuesta, denominada `Resultado`, corresponde a una variable cuantitativa continua asociada al crecimiento vegetal, expresada en valores decimales.
+La variable respuesta, denominada `Altura_cm`, corresponde a una variable cuantitativa continua asociada al crecimiento vegetal, expresada en valores decimales.
 
 ## Unidad experimental
 
@@ -100,8 +99,9 @@ El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (D
 |:-----------------------|:-----------------------|:-----------------------|
 | **Tratamiento** | Cualitativa nominal | Incluye los diferentes tratamientos de fertilización evaluados: NPK comercial, NPK + bioinoculante, Orgánico + NPK (50:50) y fertilización orgánica. |
 | **Bloque** | Cualitativa nominal | Factor de bloqueo que agrupa las unidades experimentales bajo condiciones similares. Los bloques se identifican como A, B y C. |
-| **Resultado** | Cuantitativa continua | Variable respuesta asociada al crecimiento de las plantas, expresada en valores decimales (por ejemplo, altura de planta en cm). |
-:Descripción de las variables de la base de datos {#tbl-dbca}
+| **Altura_cm** | Cuantitativa continua | Variable respuesta asociada al crecimiento de las plantas, expresada en valores decimales (por ejemplo, altura de planta en cm). |
+
+: Descripción de las variables de la base de datos {#tbl-dbca}
 
 ## Instalar paquetes (solo una vez)
 
@@ -118,7 +118,7 @@ El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (D
 
 ```{r, warning=FALSE}
 suppressPackageStartupMessages({
-library(readxl) 
+library(readr) 
 library(car) 
 library(agricolae)
 library(lmtest) 
@@ -126,20 +126,57 @@ library(ggplot2)
 })
 ```
 
-## Importar datos desde Excel
+## Cargar la base de datos
 
 ```{r}
-library(readxl)
-DBCA <- read_excel("C:/R-Proyectos/r-para-mi/data/DBCA_Frijol/DBCA_frijol.xlsx")
+getwd()
 
-DBCA$Tratamiento[DBCA$Tratamiento == "Organico + NPK (50:50)"] <- 
-"Orgánico + NPK (50:50)"
+list.files(
+  path = ".",
+  pattern = "\\.csv$",
+  recursive = TRUE,
+  full.names = TRUE
+)
 ```
+
+```{r}
+library(readr)
+library(dplyr)
+
+DBCA <- read_delim(
+  "./data/DBCA_Frijol/DBCA_frijol.csv",
+  delim = ";",
+  show_col_types = FALSE,
+  trim_ws = TRUE
+)
+
+DBCA <- DBCA |>
+  mutate(
+    Tratamiento = factor(Tratamiento),
+    Bloque = factor(Bloque),
+    Altura_cm = as.numeric(Altura_cm)
+  )
+
+glimpse(DBCA)
+```
+
+```{R}
+file.exists("data/DBCA_Frijol/DBCA_frijol.csv")
+```
+
+::: callout-note
+Para que el lector lo descargue sin clonar el repositorio\
+library(readr)\
+url_datos \<- "https://raw.githubusercontent.com/udesanalitica/r-para-mi/main/data/DBCA_Frijol/DBCA_frijol.csv"\
+DBCA \<- read_csv(url_datos)
+:::
+
+[Descargar los datos (CSV)](data/DBCA_Frijol/DBCA_frijol.csv){download="DBCA_frijol.csv"}
 
 ## Exploración inicial y estructura de la base de datos
 
 ```{r}
-View(DBCA)
+head(DBCA)
 ```
 
 ```{r}
@@ -151,19 +188,19 @@ str(DBCA)
 ```
 
 ```{r}
-summary(DBCA$Resultado)
+summary(DBCA$Altura_cm)
 ```
 
 ## Convertir variables a factores
 
 Para garantizar un análisis adecuado bajo un **Diseño en Bloques Completos al Azar (DBCA)**, las variables `tratamiento` y `bloque` deben definirse como factores en R. Esta conversión permite que el modelo estadístico reconozca ambas variables como factores categóricos asociados a los efectos experimentales del estudio, evitando que sean interpretadas como variables numéricas continuas.
 
-La variable `Resultado`, por su parte, se mantiene como una variable cuantitativa continua.
+La variable `Altura_cm`, por su parte, se mantiene como una variable cuantitativa continua.
 
 ```{r}
 DBCA$Tratamiento <- as.factor(DBCA$Tratamiento)
 DBCA$Bloque      <- as.factor(DBCA$Bloque)
-DBCA$Resultado   <- as.numeric(DBCA$Resultado)
+DBCA$Altura_cm   <- as.numeric(DBCA$Altura_cm)
 ```
 
 ## Modelo lineal para DBCA
@@ -173,7 +210,7 @@ Con el fin de evaluar simultáneamente el efecto de los tratamientos de fertiliz
 El modelo se ajustó en R mediante el siguiente código:
 
 ```{r}
-modeloDBCA <- aov(Resultado ~ Tratamiento + Bloque,
+modeloDBCA <- aov(Altura_cm ~ Tratamiento + Bloque,
                   data = DBCA)
 
 summary(modeloDBCA)
@@ -188,17 +225,19 @@ En conjunto, los resultados indican que las diferencias detectadas en la altura 
 ## ANOVA para Diseño de Bloques Completos al Azar -DBCA-
 
 ```{r}
-modeloDBCA <- aov(Resultado ~ Tratamiento + Bloque, data = DBCA)
+modeloDBCA <- aov(Altura_cm ~ Tratamiento + Bloque, data = DBCA)
 summary(modeloDBCA)
 ```
 
-**Interpretación:** los resultados del análisis de varianza (ANOVA) correspondientes al Diseño en Bloques Completos al Azar (DBCA) evidenciaron un efecto altamente significativo del factor `tratamiento` sobre la variable respuesta `resultado`, mientras que el factor `bloque` no presentó un efecto estadísticamente significativo.
+**Interpretación:** los resultados del análisis de varianza (ANOVA) correspondientes al Diseño en Bloques Completos al Azar (DBCA) evidenciaron un efecto altamente significativo del factor `tratamiento` sobre la variable respuesta `Altura_cm`, mientras que el factor `bloque` no presentó un efecto estadísticamente significativo.
 
 1\. **Efecto del tratamiento**.
 
-El análisis indica que el factor tratamiento es altamente significativo sobre la variable de resultado. Dado que el valor $\text{p}$ es extremadamente pequeño (denotado por '\*\*\*'), se **rechaza la hipótesis nula** de que no hay diferencias entre las medias de los tratamientos. Esto significa que existe una **diferencia estadísticamente significativa** en el Resultado al menos entre dos de los niveles de Tratamiento. **Grados de Libertad (Df):** 3. **Valor F (F value):** 153.749. **Valor p (**$\text{Pr}(>F)$): $<2 \text{e}-16$ (Menor que $0.001$)
+El análisis indica que el factor tratamiento es significativo sobre la variable Altuta_cm. Dado que el valor $\text{p}$ es extremadamente pequeño (denotado por '\*\*\*'), se **rechaza la hipótesis nula** de que no hay diferencias entre las medias de los tratamientos. Esto significa que existe una **diferencia estadísticamente significativa** en el Resultado al menos entre dos de los niveles de Tratamiento. **Grados de Libertad (Df):** 3. **Valor F (F value):** 153.749. **Valor p (**$\text{Pr}(>F)$): $<2 \text{e}-16$ (Menor que $0.001$)
 
-El factor `tratamiento` mostró diferencias altamente significativas entre sus media ($F=153.749$, $p < 2 \times 10^{-16}$. En consecuencia, se rechaza la hipótesis nula de igualdad de medias entre tratamientos, indicando que al menos uno de los tratamientos de fertilización produjo un efecto diferente sobre el crecimiento de las plantas de frijol.
+El factor `tratamiento` mostró diferencias significativas entre sus media ($F=153.749$, $p < 2 \times 10^{-16}$. En consecuencia, se rechaza la hipótesis nula de igualdad de medias entre tratamientos, indicando que al menos uno de los tratamientos de fertilización produjo un efecto diferente sobre el crecimiento de las plantas de frijol.
+
+El factor `tratamiento` mostró diferencias significativas entre sus medias (F = `r round(summary(modeloDBCA)[[1]][1, 4], 3)`, p \< `r format.pval(summary(modeloDBCA)[[1]][1, 5], eps = 2e-16)`).
 
 Estos resultados sugieren que el tipo de fertilización influye significativamente sobre la variable respuesta evaluada.
 
@@ -252,6 +291,8 @@ Los principales supuestos evaluados fueron:
 
 La normalidad de los residuos del modelo se evaluó mediante la prueba de Shapiro-Wilk, la cual contrasta la hipótesis nula de que los residuos provienen de una distribución normal. Valores de $p = 0.505$ indican que no existen evidencias suficientes para rechazar dicho supuesto.
 
+La normalidad de los residuos del modelo se evaluó mediante la prueba de Shapiro-Wilk, la cual contrasta la hipótesis nula de que los residuos provienen de una distribución normal. Valores de $𝑝> 0.05$ indican que no existen evidencias suficientes para rechazar dicho supuesto.
+
 El análisis se realizó mediante el siguiente script en R:
 
 ```{r}
@@ -287,9 +328,9 @@ La homogeneidad de varianzas entre tratamientos constituye uno de los supuestos 
 El análisis se realizó mediante el siguiente script en R:
 
 ```{r}
-bartlett.test(Resultado ~ Tratamiento, data = DBCA)
-car::leveneTest(Resultado ~ Tratamiento, data = DBCA)
-fligner.test(Resultado ~ Tratamiento, data = DBCA)
+bartlett.test(Altura_cm ~ Tratamiento, data = DBCA)
+car::leveneTest(Altura_cm ~ Tratamiento, data = DBCA)
+fligner.test(Altura_cm ~ Tratamiento, data = DBCA)
 ```
 
 **Interpretación:** las pruebas de Bartlett, Levene y Fligner-Killeen presentaron valores de ppp superiores al nivel de significancia de 0.05, indicando que no existen evidencias estadísticas suficientes para rechazar la hipótesis nula de igualdad de varianzas entre tratamientos.
@@ -344,13 +385,17 @@ Las hipótesis evaluadas fueron:
 
 Valores de **p-value \> 0.05**, indican que no existen evidencias suficientes para rechazar la hipótesis nula de independencia.
 
+El valor de DW varía entre 0 y 4, valores próximos a 2 indican independencia, y las desviaciones hacia 0 o hacia 4 señalan autocorrelación negativa o positiva, respectivamente.
+
 ```{r}
 dwtest(modeloDBCA)
 ```
 
-**Interpretación:** la prueba de Durbin-Watson arrojó un valor de $DW = 2.042$ y un valor de $p = 0.4159$, superior al nivel de significancia de 0.05. En consecuencia, no existen evidencias estadísticas suficientes para rechazar la hipótesis nula de independencia de los residuos.
+**Interpretación:** la prueba de Durbin-Watson arrojó un valor observado de $DW = 2.042$ y un valor de $p = 0.4159$, superior al nivel de significancia de 0.05. En consecuencia, no existen evidencias estadísticas suficientes para rechazar la hipótesis nula de independencia de los residuos.
 
-Adicionalmente, la cercanía del estadístico $DW$ al valor teórico de 2.042 respalda la ausencia de autocorrelación entre los errores experimentales. Por lo tanto, se considera cumplido el supuesto de independencia requerido para la validez del análisis de varianza bajo el Diseño en Bloques Completos al Azar (DBCA).
+Adicionalmente, la cercanía del estadístico $DW$ al valor teórico de 2; 2.042 respalda la ausencia de autocorrelación entre los errores experimentales. Por lo tanto, se considera cumplido el supuesto de independencia requerido para la validez del análisis de varianza bajo el Diseño en Bloques Completos al Azar (DBCA).
+
+Adicionalmente, el estadístico $DW = 2.042$ se encuentra muy próximo al valor de referencia de 2, que corresponde a la ausencia de autocorrelación, lo cual respalda el cumplimiento del supuesto de independencia.
 
 ## Pruebas aposteriori
 
@@ -389,7 +434,7 @@ Estos resultados indican que los tratamientos ejercieron efectos diferenciados s
 ### Caja y Bigote (Boxplot en ggplot2)
 
 ```{r}
-ggplot(DBCA, aes(x = Tratamiento, y = Resultado, fill = Tratamiento)) + geom_boxplot() + theme_minimal() + labs( title = "Distribución del resultado por tratamiento", x = "Tratamiento", y = "Resultado")
+ggplot(DBCA, aes(x = Tratamiento, y = Altura_cm, fill = Tratamiento)) + geom_boxplot() + theme_minimal() + labs( title = "Distribución del resultado por tratamiento", x = "Tratamiento", y = "Altura_m")
 ```
 
 **Interpretación:** la gráfica de cajas y bigotes muestra la distribución de las alturas de las plantas de *Phaseolus vulgaris* bajo los diferentes tratamientos de fertilización evaluados mediante un Diseño en Bloques Completos al Azar (DBCA). Se observa una tendencia creciente en las medianas de los tratamientos, evidenciando un efecto progresivamente favorable sobre el crecimiento vegetal desde NPK Comercial hasta Orgánico + NPK.

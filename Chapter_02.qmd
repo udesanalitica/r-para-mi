@@ -13,7 +13,7 @@ A continuación, se describen las etapas del proceso:
 
 ### Definición del tema y palabras clave
 
-La primera etapa consiste en **delimitar el tema de estudio** y seleccionar las **palabras clave** que representen el objeto de investigación. Por ejemplo, en este ejercicio se emplearon los datos del trabajo de grado (sin publicar) *"Evaluación del crecimiento de Cordyceps militaris en diferentes sustratos vegetales"* [@Chala2025].
+La primera etapa consiste en **delimitar el tema de estudio** y seleccionar las **palabras clave** que representen el objeto de investigación. Por ejemplo, en este ejercicio se emplearon los datos sobre *"el crecimiento de Cordyceps militaris en varios sustratos vegetales"* \].
 
 Algunas palabras clave empleadas fueron:
 
@@ -44,20 +44,20 @@ Luego, los **metadatos** deben descargarse en formato **CSV, BibTeX o RIS**, seg
 En la Tabla @tbl-busqueda-scopus se presentan los resultados obtenidos a partir de las diferentes ecuaciones de búsqueda formuladas mediante operadores booleanos en la base de datos Scopus®. Estas estrategias permitieron identificar y cuantificar la producción científica relacionada con Cordyceps militaris, facilitando la selección de la ecuación de búsqueda más adecuada para el desarrollo de la revisión bibliográfica.
 
 | Ecuación de búsqueda | Documentos encontrados |
-|-----------------------------------------------------|-------------------|
+|----|----|
 | "Cordyceps militaris" AND ("metabolite" OR "growth conditions" | 225 |
 | "Cordyceps militaris" AND ("cordycepin") AND "growth" | 191 |
 | "Cordyceps militaris" AND "medium" AND "growth" | 99 |
 | "Cordyceps militaris" AND ("substrate optimization" OR "culture medium") AND "growth" | 40 |
+
 : Resultados obtenidos para las diferentes ecuaciones de búsqueda aplicadas en Scopus® sobre la temática de *Cordyceps militaris*. {#tbl-busqueda-scopus}
 
 ### Importación y análisis en Bibliometrix / Biblioshiny
 
 Con los archivos descargados, se procede a su análisis mediante *Bibliometrix*, un paquete de R que facilita la recopilación, análisis y visualización de información científica de forma integral [@Aria2017]. En la @tbl-bibliomterix se muestran los módulos de la interfaz *Biblioshiny* que permite ejecutar estos análisis de manera interactiva y sin necesidad de programación. **Bibliometrix** (a través de su interfaz **Biblioshiny**) está estructurado en **8 módulos principales** o menús, y dentro de cada uno hay **submódulos o indicadores específicos**.
 
-
 | Nº | Módulo | Función general | Submódulos / indicadores |
-|---------------:|----------------|-------------------|----------------------|
+|---:|----|----|----|
 | 1 | **Data** | Importar/cargar bases bibliográficas (Scopus, WoS, PubMed, etc.). | Import or Load; Merge Datasets |
 | 2 | **Filters** | Filtrar el corpus por año, tipo de documento, autores, países, palabras clave. | Time Span; Authors; Countries |
 | 3 | **Overview** | Panorama general con indicadores descriptivos. | Main Information; Annual Scientific Production; Average Citations per Year; Three-Field Plot |
@@ -183,7 +183,6 @@ Se observan **múltiples grupos o comunidades de colaboración**, diferenciados 
 
 ![](images/2_Bibliometrix/Figura_25.png){#fig-Figura_25}
 
-En la subcategoría **Social Structure → Countries' Collaboration World Map**, se visualizan las **redes internacionales de colaboración científica** sobre *Cordyceps* y su compuesto activo *cordycepina*.
-El color azul indica el volumen de publicaciones ---a mayor intensidad, mayor producción---, destacando **China** como el principal nodo y centro de cooperación. Las conexiones con **Estados Unidos, Alemania, Corea del Sur y Australia** evidencian un **patrón transcontinental de investigación** (@fig-Figura_26), que promueve la **transferencia de conocimiento y la consolidación de redes globales** en el estudio de hongos medicinales.
+En la subcategoría **Social Structure → Countries' Collaboration World Map**, se visualizan las **redes internacionales de colaboración científica** sobre *Cordyceps* y su compuesto activo *cordycepina*. El color azul indica el volumen de publicaciones ---a mayor intensidad, mayor producción---, destacando **China** como el principal nodo y centro de cooperación. Las conexiones con **Estados Unidos, Alemania, Corea del Sur y Australia** evidencian un **patrón transcontinental de investigación** (@fig-Figura_26), que promueve la **transferencia de conocimiento y la consolidación de redes globales** en el estudio de hongos medicinales.
 
-![](images/2_Bibliometrix/Figura_26.png){#fig-Figura_26 width=80%}
+![](images/2_Bibliometrix/Figura_26.png){#fig-Figura_26 width="80%"}

@@ -3,7 +3,7 @@ title: "Diseño Completamente al Azar (DCA)"
 format: html
 ---
 
-![Mapa conceptual (p. 51). Gutiérrez Pulido, H., y De la Vara Salazar, R. (2012). Análisis y diseño de experimentos (3ª ed.). McGraw-Hill/Interamericana de México. ISBN: 9786071507259.](images/3_DCA/DCA.PNG){#fig-DCA}
+![](images/3_DCA/DCA.PNG){#fig-DCA}
 
 El mapa conceptual (@fig-DCA) resume los elementos fundamentales de los experimentos con un solo factor. A partir de este enfoque se deriva el Diseño Completamente al Azar (DCA), el cual emplea herramientas estadísticas como el análisis de varianza (ANOVA), diagramas de cajas y gráficos de medias para evaluar diferencias entre tratamientos.
 
@@ -61,13 +61,13 @@ Sustratos con conidios de *Penicillium* sp.
 
 Dilución de conidios y sustrato, en solución tween80® 0,01%: avena (A); arroz (B); cebada (C); maíz partido (D).
 
-Los ensayos in vitro evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo de Penicillium sp. Las concentraciones comprendidas entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) entre 40 y 50 % al quinto día después de la inoculación (ddi). Como se observa en la  @fig-experimentoinvitro, el incremento en la concentración del extracto estuvo asociado con una mayor inhibición del crecimiento de Colletotrichum musae, lo que sugiere un efecto antifúngico del metabolito evaluado.
+Los ensayos in vitro evidenciaron un efecto inhibitorio dependiente de la concentración del extracto crudo de Penicillium sp. Las concentraciones comprendidas entre 4,0 y 6,0 % alcanzaron porcentajes de inhibición del crecimiento micelial (PICM) entre 40 y 50 % al quinto día después de la inoculación (ddi). Como se observa en la @fig-experimentoinvitro, el incremento en la concentración del extracto estuvo asociado con una mayor inhibición del crecimiento de Colletotrichum musae, lo que sugiere un efecto antifúngico del metabolito evaluado.
 
-![Ensayo de inhibición *in vitro* de *Colletotrichum musae* frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de *Penicillium* sp. al 4,0 %; (D) extracto de *Penicillium* sp. al 4,5 %; (E) extracto de *Penicillium* sp. al 5,0 %; (F) extracto de *Penicillium* sp. al 5,5 %; y (G) extracto de *Penicillium* sp. al 6,0 %.](images/3_DCA/experimentoinvitro.png){#fig-experimentoinvitro width=80%}
+![Ensayo de inhibición *in vitro* de *Colletotrichum musae* frente a diferentes tratamientos. (A) Testigo negativo; (B) testigo positivo con Amistar® (60 mg/100 mL); (C) extracto de *Penicillium* sp. al 4,0 %; (D) extracto de *Penicillium* sp. al 4,5 %; (E) extracto de *Penicillium* sp. al 5,0 %; (F) extracto de *Penicillium* sp. al 5,5 %; y (G) extracto de *Penicillium* sp. al 6,0 %.](images/3_DCA/experimentoinvitro.png){#fig-experimentoinvitro width="80%"}
 
 También se realizaron ensayos in vivo para evaluar el efecto del extracto en frutos infectados; sin embargo, este componente corresponde a una fase aplicada del estudio y no será desarrollado en este apartado, cuyo énfasis se centra en el diseño experimental y el análisis estadístico de los tratamientos.
 
-**Para mayor información puede consultar:** Mejía-Sarmiento, J. S. (2022). Evaluación de extracto crudo de *Penicillium* sp. para la inhibición del crecimiento in vitro e in vivo de *Colletotrichum musae* (Berk. y M. A. Curtis) Arx. agente causal de antracnosis en banano \[Tesis de pregrado, Universidad de Santander UDES\]. Repositorio Institucional UDES. <https://repositorio.udes.edu.co/handle/001/8674>
+**Para mayor información puede consultar:** *Mejía-Sarmiento, J. S. (2022). Evaluación de extracto crudo de Penicillium sp. para la inhibición del crecimiento in vitro e in vivo de Colletotrichum musae (Berk. y M. A. Curtis) Arx. agente causal de antracnosis en banano \[Trabajo de grado, Universidad de Santander UDES\]. Repositorio Institucional UDES.* <https://repositorio.udes.edu.co/handle/001/8674>*. Reproducido con autorización del autor.*
 
 ### Estructura de la base de datos
 
@@ -78,8 +78,8 @@ La base de datos utilizada en este análisis corresponde a un experimento desarr
 | `Tratamiento` | Sustrato de cultivo evaluado. Incluye cuatro niveles: arroz blanco, avena en hojuelas, cebada y maíz partido. |
 | `Repetición` | Identificador de la unidad experimental correspondiente a cada tratamiento. Cada tratamiento fue evaluado con cuatro repeticiones independientes. |
 | `Resultado` | Variable respuesta cuantitativa correspondiente a la producción conidial expresada en Log\~10\~ conidios/mL. |
-: Estructura de la base de datos DCA {#tbl-estructura}
 
+: Estructura de la base de datos DCA {#tbl-estructura}
 
 **Pasos para trabajar con R:**
 
@@ -97,7 +97,7 @@ Por ejemplo: setwd ("D:/OneDrive - Universidad de Santander/Material Docente 202
 
 ```{r, warning=FALSE}
 suppressPackageStartupMessages({
-library(readxl)
+library(readr)
 library(dplyr)
 library(stringr)
 library(ggplot2)
@@ -110,17 +110,27 @@ library(multcompView)
 })
 ```
 
-### Importar datos desde Excel
+### Importar la base de datos
 
 ```{r}
-library(readxl)
-DCA <- read_excel("C:/R-Proyectos/r-para-mi/data/DCA_Penicillium/dca.xlsx")
+ruta_dca <- "./data/DCA_Penicillium/dca.csv"
+
+if (!file.exists(ruta_dca)) {
+  stop("No se encontró el archivo: ", ruta_dca)
+}
+
+DCA <- read_delim(
+  ruta_dca,
+  delim = ";",
+  show_col_types = FALSE,
+  trim_ws = TRUE
+)
 ```
 
 ### Exploración inicial y estructura de la base de datos
 
 ```{r}
-View(DCA)
+glimpse(DCA)
 ```
 
 ```{r}
