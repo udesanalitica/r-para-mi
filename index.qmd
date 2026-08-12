@@ -22,14 +22,14 @@ El código no se presenta como un fin en sí mismo, sino como una herramienta pa
 
 El recurso integra:
 
-- introducción progresiva al uso de R y RStudio;
-- análisis bibliométrico como apoyo para formular y contextualizar problemas experimentales;
-- fundamentos del diseño experimental;
-- Diseño Completamente al Azar (DCA) con un caso aplicado a producción conidial;
-- Diseño en Bloques Completos al Azar (DBCA) con un caso aplicado a fertilización y crecimiento vegetal;
-- análisis de varianza, diagnóstico de supuestos, comparaciones múltiples y visualización de resultados;
-- uso responsable de herramientas de inteligencia artificial para la simulación y exploración de escenarios;
-- datos, código y resultados organizados para favorecer la reproducibilidad.
+-   introducción progresiva al uso de R y RStudio;
+-   análisis bibliométrico como apoyo para formular y contextualizar problemas experimentales;
+-   fundamentos del diseño experimental;
+-   Diseño Completamente al Azar (DCA) con un caso aplicado a producción conidial;
+-   Diseño en Bloques Completos al Azar (DBCA) con un caso aplicado a fertilización y crecimiento vegetal;
+-   análisis de varianza, diagnóstico de supuestos, comparaciones múltiples y visualización de resultados;
+-   uso responsable de herramientas de inteligencia artificial para la simulación y exploración de escenarios;
+-   datos, código y resultados organizados para favorecer la reproducibilidad.
 
 ## Una experiencia construida con R, Quarto y GitHub {.unnumbered}
 
@@ -49,8 +49,8 @@ Consulte [Experiencia de uso y evaluación](experiencia-uso.qmd).
 
 Los conjuntos de datos y las imágenes que ilustran los capítulos provienen de experiencias académicas desarrolladas en la UDES. Se reconocen de manera explícita las contribuciones que dieron origen a los casos aplicados:
 
-- **Juan Sebastián Mejía Sarmiento** — datos y registro fotográfico asociados a experimentos de producción conidial y ensayos microbiológicos, reproducidos con autorización del autor.
-- **Christian Andrey Chacín Zambrano** — datos y registro fotográfico del experimento con *Phaseolus vulgaris* utilizado para el caso de Diseño en Bloques Completos al Azar (DBCA), reproducidos con autorización del autor.
+-   **Juan Sebastián Mejía Sarmiento** — datos y registro fotográfico asociados a experimentos de producción conidial y ensayos microbiológicos, reproducidos con autorización del autor.
+-   **Christian Andrey Chacín Zambrano** — datos y registro fotográfico del experimento con *Phaseolus vulgaris* utilizado para el caso de Diseño en Bloques Completos al Azar (DBCA), reproducidos con autorización del autor.
 
 La atribución específica de cada figura y conjunto de datos debe mantenerse en el capítulo correspondiente.
 
@@ -62,24 +62,24 @@ Consulte [Cómo contribuir](contribuir.qmd) y el archivo [`CONTRIBUTING.md`](CON
 
 ## Autores {.unnumbered}
 
-**Fredy Alejandro Ortiz Meneses**  
+**Fredy Alejandro Ortiz Meneses**\
 Microbiología General y Microbiología II
 
-**Miguel Oswaldo Pérez Pulido**  
-Proyecto II – Microbiología Industrial  
+**Miguel Oswaldo Pérez Pulido**\
+Proyecto II – Microbiología Industrial\
 Maestría en Estadística Aplicada y Analítica de Datos
 
-**Francisco Javier León**  
-Proyecto I – Microbiología Industrial  
+**Francisco Javier León**\
+Proyecto I – Microbiología Industrial\
 Maestría en Estadística Aplicada y Analítica de Datos
 
 ## Para citar {.unnumbered}
 
-::: {.callout-note}
+::: callout-note
 Ortiz, F. A., Pérez, M. O., y León, F. J. (2025). *R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico*. Universidad de Santander, Vicerrectoría de Enseñanza. <https://udesanalitica.github.io/r-para-mi/>
 :::
 
-```bibtex
+``` bibtex
 @book{OrtizPerezLeon2025,
   author    = {Ortiz Meneses, Fredy Alejandro and Pérez Pulido, Miguel Oswaldo and León, Francisco Javier},
   title     = {R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico},
@@ -99,7 +99,7 @@ Autores: Fredy Alejandro Ortiz Meneses, Miguel Oswaldo Pérez Pulido y Francisco
 
 **Estado del licenciamiento.** El recurso es de acceso gratuito. La formalización de una licencia abierta para la reutilización del contenido se encuentra en trámite institucional. Se proyecta utilizar **CC BY-SA 4.0** para el texto y las figuras propias y **MIT** para el código fuente. Mientras este proceso no haya concluido, la reutilización y adaptación del contenido debe sujetarse a la autorización correspondiente de la Universidad de Santander.
 
-Universidad de Santander (UDES)  
-Calle 70 N.º 55-210  
-Bucaramanga, Santander, Colombia  
+Universidad de Santander (UDES)\
+Calle 70 N.º 55-210\
+Bucaramanga, Santander, Colombia\
 <https://www.udes.edu.co/>
