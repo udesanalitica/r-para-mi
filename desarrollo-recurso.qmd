@@ -1,0 +1,74 @@
+---
+title: "Cómo se construyó este recurso"
+---
+
+**R para Mí** no es únicamente un libro publicado en línea. El material se construye como un proyecto reproducible en el que el contenido pedagógico, el código estadístico, los datos y la publicación web se mantienen articulados.
+
+## Flujo de trabajo
+
+```text
+Problema experimental
+        ↓
+Datos y documentación
+        ↓
+Código R
+        ↓
+Archivo Quarto (.qmd)
+        ↓
+Resultados + figuras + interpretación
+        ↓
+Renderizado con Quarto
+        ↓
+HTML / PDF / ePub
+        ↓
+GitHub + GitHub Pages
+```
+
+## R: análisis y visualización
+
+R se utiliza para preparar datos, ajustar modelos estadísticos, evaluar supuestos, ejecutar pruebas posteriores y construir visualizaciones. Los capítulos aplicados buscan que el código esté asociado a una pregunta experimental concreta y que los resultados puedan ser interpretados dentro del contexto microbiológico.
+
+## Quarto: integración reproducible
+
+Quarto permite integrar en un mismo archivo:
+
+- explicación conceptual;
+- código ejecutable;
+- resultados del análisis;
+- tablas y figuras;
+- interpretación científica;
+- referencias bibliográficas.
+
+De esta manera, una modificación en los datos o en el código puede reflejarse nuevamente en el documento al renderizar el proyecto.
+
+## GitHub: versionamiento y colaboración
+
+El repositorio público cumple tres funciones principales:
+
+1. mantener un historial de cambios;
+2. permitir que otras personas revisen el código y reporten problemas;
+3. facilitar propuestas de mejora mediante *issues* y *pull requests*.
+
+Repositorio: <https://github.com/udesanalitica/r-para-mi>
+
+## GitHub Pages: publicación
+
+La versión HTML se publica mediante GitHub Pages. El proyecto se configura para generar los archivos finales en la carpeta `docs/`, desde donde se sirve el sitio público.
+
+Sitio: <https://udesanalitica.github.io/r-para-mi/>
+
+## Buenas prácticas incorporadas
+
+Como parte de la revisión del proyecto se adoptan las siguientes reglas:
+
+- evitar rutas absolutas dependientes de un computador específico;
+- utilizar rutas relativas dentro del proyecto;
+- mantener los datos necesarios junto con su documentación y atribución;
+- evitar depender de objetos previamente almacenados en `.RData`;
+- documentar las dependencias de R;
+- conservar el código visible cuando sea relevante para el aprendizaje;
+- verificar el proyecto completo con `quarto render` antes de publicar.
+
+::: {.callout-tip title="Principio de reproducibilidad"}
+Un ejemplo se considera reproducible cuando otra persona puede obtener el proyecto, disponer de los datos requeridos y ejecutar el análisis sin tener que reconstruir manualmente rutas locales o depender de objetos existentes únicamente en el computador de los autores.
+:::

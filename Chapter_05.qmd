@@ -43,7 +43,7 @@ Estas hipótesis permiten evaluar si existen diferencias significativas entre lo
 De acuerdo con [@gutierrez2012analisis], las hipótesis planteadas en las ecuaciones anteriores se evalúan mediante un análisis de varianza de dos vías, debido a que en el DBCA es necesario considerar simultáneamente dos fuentes de variación: los tratamientos y los bloques. La @tbl-anova presenta el formato general del ANOVA correspondiente a un diseño en bloques completos al azar.
 
 | Fuente de variabilidad | Suma de cuadrados | Grados de libertad | Cuadrado medio | Estadístico F | Valor-p |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | Tratamientos | $SC_{TRAT}$ | $k - 1$ | $CM_{TRAT}$ | $F_0 = \frac{CM_{TRAT}}{CM_E}$ | $P(F > F_0)$ |
 | Bloques | $SC_B$ | $b - 1$ | $CM_B$ | $F_0 = \frac{CM_{B}}{CM_E}$ | $P(F > F_0)$ |
 | Error | $SC_E$ | $(k - 1)(b - 1)$ | $CM_E$ | --- | --- |
@@ -63,7 +63,7 @@ Debido a esta variabilidad, resulta apropiado emplear un Diseño en Bloques Comp
 
 ![Plantas de *Phaseolus vulgaris* utilizadas en el experimento de fertilización bajo un Diseño en Bloques Completos al Azar (DBCA).](images/4_DBCA/DBCA_frijol.png){#fig-DBCA_frijol width="60%"}
 
-**Para mayor información puede consultar:** Christian Andrés Chacín Zambrano, Laboratorio de Cultivos Vegetales, Universidad de Santander (UDES), 2025. Experimento de fertilización en Phaseolus vulgaris bajo diseño en bloques completos al azar. Reproducidos con autorización del autor.*.
+**Para mayor información puede consultar:** Christian Andrés Chacín Zambrano, Laboratorio de Cultivos Vegetales, Universidad de Santander (UDES), 2025. Experimento de fertilización en Phaseolus vulgaris bajo diseño en bloques completos al azar. Reproducidos con autorización del autor.\*.
 
 ## Estructura de la base de datos
 
@@ -96,7 +96,7 @@ La variable respuesta, denominada `Altura_cm`, corresponde a una variable cuanti
 El diseño experimental corresponde a un Diseño en Bloques Completos al Azar (DBCA), en el cual se evaluaron diferentes tratamientos de fertilización en plantas de frijol (*Phaseolus vulgaris*). Los bloques representan grupos homogéneos de unidades experimentales, mientras que la variable respuesta cuantifica el efecto de los tratamientos sobre el crecimiento vegetal. En la @tbl-dbca se muestran las variables del experimento.
 
 |   | Tipo de variable | Descripción |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | **Tratamiento** | Cualitativa nominal | Incluye los diferentes tratamientos de fertilización evaluados: NPK comercial, NPK + bioinoculante, Orgánico + NPK (50:50) y fertilización orgánica. |
 | **Bloque** | Cualitativa nominal | Factor de bloqueo que agrupa las unidades experimentales bajo condiciones similares. Los bloques se identifican como A, B y C. |
 | **Altura_cm** | Cuantitativa continua | Variable respuesta asociada al crecimiento de las plantas, expresada en valores decimales (por ejemplo, altura de planta en cm). |
@@ -144,7 +144,7 @@ library(readr)
 library(dplyr)
 
 DBCA <- read_delim(
-  "./data/DBCA_Frijol/DBCA_frijol.csv",
+  "data/DBCA_Frijol/DBCA_frijol.csv",
   delim = ";",
   show_col_types = FALSE,
   trim_ws = TRUE

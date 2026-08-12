@@ -1,0 +1,39 @@
+---
+title: "Cómo contribuir"
+---
+
+**R para Mí** se concibe como un material educativo en evolución. La participación externa puede ayudar a detectar errores, mejorar explicaciones y ampliar la diversidad de casos experimentales.
+
+## Formas de participar
+
+- **Reportar un error:** abrir un *issue* indicando capítulo, sección, resultado esperado y resultado obtenido.
+- **Sugerir una mejora pedagógica:** proponer una explicación alternativa, un ejercicio o una secuencia didáctica.
+- **Proponer código:** enviar un *pull request* con una modificación reproducible y documentada.
+- **Aportar un caso experimental:** proponer datos propios o autorizados que permitan ilustrar un diseño no cubierto.
+- **Mejorar accesibilidad o documentación:** reportar problemas en figuras, navegación, texto o instrucciones técnicas.
+
+Repositorio: <https://github.com/udesanalitica/r-para-mi>
+
+Issues: <https://github.com/udesanalitica/r-para-mi/issues>
+
+## Antes de aportar datos o imágenes
+
+Los conjuntos de datos deben contar con autorización para su uso educativo y no deben contener información personal identificable ni estar sujetos a acuerdos de confidencialidad incompatibles con la publicación.
+
+Las figuras y fotografías deben ser propias o contar con la autorización correspondiente. La atribución debe mantenerse en el capítulo donde se utilice el material.
+
+## Reproducibilidad de las contribuciones
+
+Toda contribución de código debe:
+
+- evitar rutas absolutas locales;
+- incluir los datos necesarios o una forma documentada de obtenerlos;
+- indicar paquetes adicionales cuando sean necesarios;
+- ejecutarse desde el proyecto sin intervención manual innecesaria;
+- permitir que `quarto render` finalice correctamente.
+
+Para instrucciones técnicas completas consulte [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Reconocimiento
+
+Las contribuciones sustantivas aceptadas se acreditarán en el recurso. Los aportes de datos e imágenes conservarán además su atribución específica.

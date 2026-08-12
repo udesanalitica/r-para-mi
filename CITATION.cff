@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Si utiliza este recurso, cite el libro como se indica a continuación."
+title: "R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico"
+type: book
+authors:
+  - family-names: "Ortiz Meneses"
+    given-names: "Fredy Alejandro"
+  - family-names: "Pérez Pulido"
+    given-names: "Miguel Oswaldo"
+  - family-names: "León"
+    given-names: "Francisco Javier"
+publisher: "Universidad de Santander (UDES)"
+date-released: 2025-05-05
+url: "https://udesanalitica.github.io/r-para-mi/"
+repository-code: "https://github.com/udesanalitica/r-para-mi"

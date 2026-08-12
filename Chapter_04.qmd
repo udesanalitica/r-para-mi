@@ -74,23 +74,19 @@ También se realizaron ensayos in vivo para evaluar el efecto del extracto en fr
 La base de datos utilizada en este análisis corresponde a un experimento desarrollado bajo un **Diseño Completamente al Azar (DCA)** para evaluar el efecto de diferentes sustratos de cultivo sobre la producción conidial de *Penicillium* sp. cada tratamiento fue establecido de manera independiente (@tbl-estructura) y distribuido aleatoriamente bajo condiciones controladas de laboratorio.
 
 | Variable | Descripción |
-|------------------------------------|------------------------------------|
+|----|----|
 | `Tratamiento` | Sustrato de cultivo evaluado. Incluye cuatro niveles: arroz blanco, avena en hojuelas, cebada y maíz partido. |
 | `Repetición` | Identificador de la unidad experimental correspondiente a cada tratamiento. Cada tratamiento fue evaluado con cuatro repeticiones independientes. |
 | `Resultado` | Variable respuesta cuantitativa correspondiente a la producción conidial expresada en Log\~10\~ conidios/mL. |
 
 : Estructura de la base de datos DCA {#tbl-estructura}
 
-**Pasos para trabajar con R:**
+### Trabajar desde el proyecto
 
-Especificar el directorio que me interesa donde se encuentra la base de datos.
+Los datos se cargan mediante **rutas relativas al proyecto**. De esta manera, no es necesario usar `setwd()` ni modificar rutas específicas del computador de quien ejecuta el análisis.
 
-::: callout-tip
-**Antes de inciar:** R lee / (slash o división) y no el de Windows \\
-
-En **R**, `setwd()` es una función que significa **"set working directory"** o "establecer el directorio de trabajo". Se utiliza para **definir la carpeta predeterminada** en la que R buscará archivos para leer y donde guardará archivos por defecto.\
-
-Por ejemplo: setwd ("D:/OneDrive - Universidad de Santander/Material Docente 2025/CodigoR"")
+::: {.callout-tip title="Buena práctica de reproducibilidad"}
+Mantenga la estructura de carpetas del repositorio y ejecute el libro desde la raíz del proyecto. Así, una ruta como `data/DCA_Penicillium/dca.csv` funciona de forma portable en distintos computadores y sistemas operativos.
 :::
 
 ### Cargar las librerías necesarias para el análisis
@@ -110,7 +106,7 @@ library(multcompView)
 })
 ```
 
-### Importar la base de datos
+### Importar los datos desde el archivo del proyecto
 
 ```{r}
 ruta_dca <- "./data/DCA_Penicillium/dca.csv"
@@ -126,17 +122,6 @@ DCA <- read_delim(
   trim_ws = TRUE
 )
 ```
-
-
-::: callout-note
-Para que el lector lo descargue sin clonar el repositorio\
-library(readr)\
-url_datos \<- "https://raw.githubusercontent.com/udesanalitica/r-para-mi/main/data/DCA_Penicillium/dca.csv"\
-DBCA \<- read_csv(url_datos)
-:::
-
-[Descargar los datos (CSV)](data/DCA_Penicillium/dca.csv){download="DCA_Penicillium.csv"}
-
 
 ### Exploración inicial y estructura de la base de datos
 

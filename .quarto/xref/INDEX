@@ -1,35 +1,47 @@
 {
+  "Chapter_02.qmd": {
+    "Chapter_02.html": "58521506"
+  },
   "index.qmd": {
-    "index.html": "ed37b6da"
+    "index.html": "b595d448"
   },
   "autores.qmd": {
-    "autores.html": "66cf1bc8"
+    "autores.html": "9531d1fb"
   },
   "agradecimientos.qmd": {
-    "agradecimientos.html": "c71782e3"
+    "agradecimientos.html": "ba1b3672"
   },
   "intro.qmd": {
-    "intro.html": "7ac95a0d"
+    "intro.html": "775ef7e7"
   },
   "Chapter_01.qmd": {
-    "Chapter_01.html": "cf91e7b0"
-  },
-  "Chapter_02.qmd": {
-    "Chapter_02.html": "8e934f6e"
+    "Chapter_01.html": "82ec0db8"
   },
   "Chapter_03.qmd": {
-    "Chapter_03.html": "30ac17ae"
+    "Chapter_03.html": "0ed8dfbf"
   },
   "Chapter_04.qmd": {
-    "Chapter_04.html": "bff4f2d6"
+    "Chapter_04.html": "48a287ce"
   },
   "Chapter_05.qmd": {
-    "Chapter_05.html": "ba4d3e87"
+    "Chapter_05.html": "095f7ff9"
   },
   "Chapter_06.qmd": {
-    "Chapter_06.html": "29818c35"
+    "Chapter_06.html": "9a77dd74"
+  },
+  "experiencia-uso.qmd": {
+    "experiencia-uso.html": "f72a4327"
+  },
+  "desarrollo-recurso.qmd": {
+    "desarrollo-recurso.html": "7f7facb4"
+  },
+  "contribuir.qmd": {
+    "contribuir.html": "331abf51"
+  },
+  "licencia.qmd": {
+    "licencia.html": "d6252f86"
   },
   "references.qmd": {
-    "references.html": "e8bd7cf9"
+    "references.html": "be4c043b"
   }
 }

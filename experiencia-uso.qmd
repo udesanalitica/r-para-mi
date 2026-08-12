@@ -1,0 +1,49 @@
+---
+title: "Experiencia de uso y evaluación"
+---
+
+## Uso reportado del recurso
+
+En la postulación de **R para Mí** a LatinR 2026 se informó que el material ha sido utilizado como **recurso complementario en clases de la Maestría en Biotecnología de la Universidad de Santander (UDES)** para apoyar el aprendizaje de técnicas experimentales y análisis estadístico con R.
+
+Esta experiencia constituye un antecedente relevante de utilización del material; sin embargo, la documentación disponible actualmente no permite presentar de manera responsable indicadores cuantitativos de aceptación, efectos sobre el aprendizaje o comparaciones antes/después.
+
+::: {.callout-important title="Qué se puede afirmar en esta versión"}
+- El recurso ha sido empleado como apoyo académico en un contexto de posgrado reportado por el equipo autor.
+- El material integra ejemplos contextualizados, código R, datos y actividades relacionadas con diseño experimental.
+- No se dispone todavía de una evaluación sistemática documentada que permita afirmar una "alta aceptación" o atribuir mejoras de aprendizaje al recurso.
+:::
+
+## Forma de uso pedagógico propuesta
+
+Para futuras implementaciones, el libro propone una secuencia de trabajo que puede adaptarse a clases presenciales, híbridas o de trabajo autónomo:
+
+1. **Contextualización del problema.** Se presenta una situación de investigación propia de microbiología industrial o biotecnología.
+2. **Identificación del diseño.** El estudiante reconoce tratamientos, unidades experimentales, repeticiones, bloques y variable respuesta.
+3. **Exploración de los datos.** Se revisa la estructura del conjunto de datos y se discuten decisiones de preparación.
+4. **Análisis con R.** Se ejecuta y modifica el código asociado al diseño experimental.
+5. **Interpretación.** Se conectan los resultados del ANOVA, las pruebas posteriores y las visualizaciones con la pregunta experimental.
+6. **Transferencia.** El estudiante adapta el flujo de análisis a un problema o conjunto de datos de su propio contexto de investigación.
+
+Esta secuencia describe **la estrategia pedagógica prevista para el uso del recurso** y no debe interpretarse como evidencia de resultados ya medidos.
+
+## Plan de evaluación de la siguiente fase
+
+La siguiente etapa del proyecto busca documentar de manera sistemática la experiencia de implementación. Se propone recoger evidencia en cuatro dimensiones:
+
+| Dimensión | Evidencia prevista |
+|---|---|
+| **Uso y usabilidad** | capítulos utilizados, dificultades de navegación, ejecución del código y acceso a los datos |
+| **Comprensión** | capacidad para identificar el diseño, interpretar ANOVA y justificar decisiones experimentales |
+| **Reproducibilidad** | capacidad para ejecutar un análisis completo y adaptarlo a otro conjunto de datos |
+| **Percepción** | valoración de estudiantes y docentes sobre claridad, pertinencia disciplinar y utilidad del recurso |
+
+La información obtenida permitirá fortalecer el material y sustentar futuras afirmaciones sobre su recepción y contribución educativa.
+
+## Transparencia de la evidencia
+
+Hasta contar con dicha evaluación, la comunicación académica del proyecto distinguirá entre:
+
+- **características del recurso**, que pueden verificarse directamente en el libro y el repositorio;
+- **experiencias de uso reportadas**, que describen dónde se ha utilizado;
+- **resultados de evaluación**, que solo se presentarán cuando existan datos sistemáticamente recogidos y documentados.

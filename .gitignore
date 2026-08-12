@@ -1,2 +1,13 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.quarto/
+_book/
+_freeze/
+*.utf8.md
+*.knit.md
+.DS_Store
+Thumbs.db
+
 /.quarto/
-.Rproj.user

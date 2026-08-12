@@ -1,0 +1,37 @@
+---
+title: "Derechos, acceso y reutilización"
+---
+
+## Titularidad
+
+La Universidad de Santander (UDES) es titular de los derechos patrimoniales de la obra. Los derechos morales de autor corresponden a **Fredy Alejandro Ortiz Meneses, Miguel Oswaldo Pérez Pulido y Francisco Javier León**.
+
+## Estado actual
+
+El libro es de **acceso gratuito** a través de GitHub Pages. El acceso público al repositorio facilita la consulta del código fuente y la revisión de su estructura técnica.
+
+::: {.callout-warning title="Licenciamiento en formalización"}
+La disponibilidad pública del sitio y del repositorio no equivale, por sí sola, a una autorización general para reutilizar, adaptar o redistribuir la obra.
+
+El esquema de licenciamiento abierto se encuentra en trámite de formalización institucional. Se proyecta utilizar **CC BY-SA 4.0** para el texto y las figuras propias y **MIT** para el código fuente. Hasta que ese proceso concluya, la reutilización y adaptación debe sujetarse a la autorización correspondiente de la Universidad de Santander.
+:::
+
+## Datos, fotografías y materiales de terceros
+
+Los conjuntos de datos, fotografías y otros materiales aportados por estudiantes, graduados o colaboradores conservan las condiciones de uso que correspondan a su procedencia y autorización. Su inclusión en el libro no implica que automáticamente queden cubiertos por una futura licencia general del texto.
+
+Cada material debe mantener su atribución individual.
+
+## Qué cambiará cuando se formalice el licenciamiento
+
+Una vez formalizado el esquema institucional, esta página y el archivo `LICENSE.md` deberán actualizarse para indicar de manera inequívoca:
+
+- qué licencia aplica al texto y las figuras propias;
+- qué licencia aplica al código;
+- qué materiales quedan excluidos por tener condiciones particulares;
+- cómo debe realizarse la atribución.
+
+Universidad de Santander (UDES)  
+Calle 70 N.º 55-210  
+Bucaramanga, Santander, Colombia  
+<https://www.udes.edu.co/>

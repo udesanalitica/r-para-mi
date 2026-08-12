@@ -1,24 +1,25 @@
 project:
   type: book
+  execute-dir: project
   output-dir: docs
-  preview:
-    port: 4200
-    browser: true
+
 lang: es
-cover-image: cover.png
+
+toc-title: "Tabla de contenido"
+
 book:
-  title: "R para microbiología industrial: análisis de datos y diseño experimental con un enfoque práctico"
+  title: "R para Mí"
+  subtitle: "Diseño de experimentos con R aplicado a la microbiología industrial"
   author:
     - "Fredy Alejandro Ortiz Meneses"
     - "Miguel Oswaldo Pérez Pulido"
     - "Francisco Javier León"
   date: "2025-05-05"
-  # GitHub
+  cover-image: cover.png
   site-url: "https://udesanalitica.github.io/r-para-mi/"
   repo-url: "https://github.com/udesanalitica/r-para-mi"
   repo-branch: main
   repo-actions: [edit, issue, source]
-  favicon: favicon.png
   page-navigation: true
   search: true
   downloads: [pdf, epub]
@@ -33,9 +34,17 @@ book:
     - Chapter_04.qmd
     - Chapter_05.qmd
     - Chapter_06.qmd
+    - experiencia-uso.qmd
+    - desarrollo-recurso.qmd
+    - contribuir.qmd
+    - licencia.qmd
     - references.qmd
+  page-footer:
+    left: "© 2025 Universidad de Santander (UDES) · Acceso gratuito · Licenciamiento en formalización"
+    right: "Publicado con Quarto y GitHub Pages"
+
 bibliography: references.bib
-csl: apa.csl
+
 format:
   html:
     theme: cosmo
@@ -43,24 +52,20 @@ format:
     number-sections: true
     code-copy: true
     smooth-scroll: true
+    toc-depth: 3
+
   pdf:
-    documentclass: scrreprt
+    documentclass: report
     pdf-engine: xelatex
-    fig-pos: H
-    geometry:
-      - inner=3cm
-      - outer=2.5cm
-      - top=2.5cm
-      - bottom=2.5cm
-  docx:
     toc: true
-    number-sections: false
+    number-sections: true
+
   epub:
     cover-image: cover.png
-website:
-  page-footer:
-    left: "© 2025 Autores"
-    right: "Publicado con Quarto y GitHub Pages"
+
 execute:
   freeze: auto
+  warning: false
+  message: false
+
 editor: visual
